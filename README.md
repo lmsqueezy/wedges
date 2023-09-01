@@ -1,3 +1,8 @@
+<a href="https://lemonsqueezy.com/" target="_blank">
+    <img src="https://avatars.githubusercontent.com/u/129315959?s=84" alt="Lemon Squeezy Logo" title="Lemon Squeezy" align="right" 
+height="42" />
+</a>
+
 # Wedges
 
 A modern React UI library crafted from Lemon Squeezy's Wedges design system. Seamlessly integrated with Radix UI and styled using TailwindCSS.
