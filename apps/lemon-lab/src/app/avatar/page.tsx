@@ -1,10 +1,11 @@
 "use client";
+import PageTitle from "@/components/PageTitle";
 import { Avatar } from "@lmsqueezy/wedges";
 
 export default function AvatarPage() {
   return (
     <main>
-      <h1 className="text-wg-6xl text-wg-dark-1 mb-10 dark:text-white">Avatar</h1>
+      <PageTitle>Avatar</PageTitle>
 
       <div className="mt-24 flex flex-col gap-24">
         {/* Image */}

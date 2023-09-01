@@ -1,10 +1,11 @@
 "use client";
-import { Avatar, AvatarGroup } from "@lmsqueezy/wedges";
+import PageTitle from "@/components/PageTitle";
+import { AvatarGroup } from "@lmsqueezy/wedges";
 
 export default function AvatarGroupPage() {
   return (
     <main>
-      <h1 className="text-wg-6xl text-wg-dark-1 mb-10 dark:text-white">Avatar Group</h1>
+      <PageTitle>Avatar Group</PageTitle>
 
       <div className="mt-24 flex flex-col gap-24">
         <section>
