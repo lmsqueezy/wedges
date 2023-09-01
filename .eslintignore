@@ -1,0 +1,17 @@
+.now/*
+.next/*
+*.css
+.changeset
+dist
+tests/*
+.DS_Store
+node_modules
+coverage
+.next
+!.storybook
+/**/.storybook/**
+!.commitlintrc.cjs
+!.lintstagedrc.cjs
+!jest.config.js
+!plopfile.js
+!tsup.config.ts

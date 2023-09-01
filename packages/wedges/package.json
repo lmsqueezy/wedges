@@ -1,0 +1,97 @@
+{
+  "name": "@lmsqueezy/wedges",
+  "version": "0.0.0",
+  "description": "React UI library based on Lemon Squeezy's Wedges design system, Radix UI and TailwindCSS",
+  "keywords": [
+    "react",
+    "ui",
+    "library",
+    "components",
+    "design",
+    "responsive",
+    "accessible",
+    "radix",
+    "premiumpixels",
+    "tailwindcss"
+  ],
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/cjs/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/esm/index.d.mts",
+        "default": "./dist/esm/index.js"
+      }
+    }
+  },
+  "scripts": {
+    "build:cjs": "tsup --format cjs --external react",
+    "build:esm": "tsup --format esm --external react",
+    "build": "concurrently \"npm run build:cjs\" \"npm run build:esm\"",
+    "build:watch:esm": "npm run build:esm -- --watch",
+    "build:watch:cjs": "npm run build:cjs -- --watch",
+    "build:watch": "concurrently \"npm:build:watch:*\"",
+    "dev": "npm run build:watch",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "author": {
+    "name": "Lemon Squeezy",
+    "email": "hello@wedges.app",
+    "url": "https://lemonsqueezy.com/wedges"
+  },
+  "homepage": "https://lemonsqueezy.com/wedges",
+  "bugs": {
+    "url": "https://github.com/lmsqueezy/wedges/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmsqeezy/wedges.git"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/**",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.4.9",
+    "@types/react": "^18.2.19",
+    "@types/react-dom": "^18.2.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "concurrently": "^8.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss": "3.3.3",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "latest"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "react": "^18.0",
+    "react-dom": "^18.0",
+    "tailwindcss": "3.3.3"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  }
+}
