@@ -110,8 +110,6 @@ export default function AvatarPage() {
               <Avatar.Status className="bg-wg-red -bottom-1 -left-1" />
               <Avatar.Notification className="-right-0.5 -top-1 bg-purple-400" />
             </Avatar.Root>
-
-            <Avatar>Hello</Avatar>
           </div>
         </section>
       </div>
