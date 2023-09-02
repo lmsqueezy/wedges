@@ -4,14 +4,29 @@ import { cn } from "../../helpers/utils";
 import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";
 
 /* ---------------------------------- Types --------------------------------- */
-type AvatarGroupAvatarProps = Omit<AvatarProps, "size" | "notification" | "status" | "initial"> & {
-  src: string;
-};
+type AvatarGroupAvatarProps = Omit<AvatarProps, "size" | "notification" | "status" | "initial">;
 
 type BaseAvatarGroupProps = {
+  /**
+   * The items to display in the group.
+   */
   items: AvatarGroupAvatarProps[];
+
+  /**
+   * The size of the avatar group.
+   */
   size?: AvatarProps["size"];
+
+  /**
+   * The label to display at the end of the group.
+   */
   moreLabel?: string;
+
+  /**
+   * Whether the previous item should be on top of the stack.
+   * If false, the next item will be at the top of the stack.
+   */
+  previousOnTop?: boolean;
 };
 
 export type AvatarGroupElement = React.ElementRef<typeof AvatarGroupRoot> | null;
@@ -19,6 +34,9 @@ export type AvatarGroupProps = Omit<React.ComponentPropsWithoutRef<"div">, "size
   BaseAvatarGroupProps;
 
 type AvatarMoreLabelProps = Omit<AvatarProps, "notification" | "status" | "initial"> & {
+  /**
+   * The label to display.
+   */
   label: string;
 };
 
@@ -72,20 +90,37 @@ const AvatarGroupItem = React.forwardRef<
 });
 
 const AvatarGroupWedges = React.forwardRef<HTMLDivElement, AvatarGroupProps>((props, ref) => {
-  const { items, className, size, moreLabel, ...otherProps } = props;
+  const { items, className, size, previousOnTop, moreLabel, ...otherProps } = props;
 
   return (
     <AvatarGroupRoot ref={ref} className={className} {...otherProps}>
       <>
-        {items.map((item, i) => (
-          <AvatarGroupItem
-            key={`avatar-${i}`}
-            alt={item.alt}
-            className={item.className}
-            size={size}
-            src={item.src}
-          />
-        ))}
+        {items.map((item, i) => {
+          const {
+            alt: itemAlt,
+            className: itemClassName,
+            src: itemSrc,
+            style: itemStyle,
+            ...otherItemProps
+          } = item;
+
+          const styleOutput = {
+            zIndex: previousOnTop ? items.length - i : undefined,
+            ...itemStyle,
+          };
+
+          return (
+            <AvatarGroupItem
+              key={`avatar-${i}`}
+              alt={itemAlt}
+              className={itemClassName}
+              size={size}
+              src={itemSrc}
+              style={styleOutput}
+              {...otherItemProps}
+            />
+          );
+        })}
 
         {moreLabel && <AvatarMoreLabel label={moreLabel} size={size} />}
       </>
