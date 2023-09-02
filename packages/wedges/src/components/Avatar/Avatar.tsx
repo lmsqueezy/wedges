@@ -191,7 +191,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
       {src && (
         <AvatarImage
           ref={ref as React.RefObject<HTMLImageElement>}
-          alt="{alt}"
+          alt={alt}
           className={className}
           src={src}
           {...otherProps}
