@@ -10,17 +10,15 @@ const config: Config = {
     // This is required in order to include our Tailwind classes.
     "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {},
+  },
   darkMode: "class",
   plugins: [
     wedgesTW({
       colors: {
-        light: {
-          background: "wg-blue",
-        },
-        dark: {
-          background: "wg-red",
-        },
+        light: {},
+        dark: {},
       },
     }),
   ],
