@@ -12,15 +12,17 @@ import {
   shadows,
 } from "./foundation";
 import {
+  ACCENT_PROPERTY,
   BACKGROUND_PROPERTY,
+  SECONDARY_PROPERTY,
   generateExtendedColorUtilities,
   getBaseThemableColors,
 } from "./utils";
 
 const themeableColors = [
   "background",
-  //   "accent",
-  //   "secondary",
+  "accent",
+  "secondary",
   //   "surface",
   //   "foreground",
   //   "error",
@@ -70,7 +72,9 @@ const themeConfig = () => {
       extend: {
         colors: {
           ...colors,
-          "wg-background": `var(${BACKGROUND_PROPERTY})`,
+          "wg-background": `rgb(var(${BACKGROUND_PROPERTY}) / <alpha-value>)`,
+          "wg-accent": `rgb(var(${ACCENT_PROPERTY}) / <alpha-value>)`,
+          "wg-secondary": `rgb(var(${SECONDARY_PROPERTY}) / <alpha-value>)`,
         },
         fontSize: { ...fontSize },
         boxShadow: { ...shadow },

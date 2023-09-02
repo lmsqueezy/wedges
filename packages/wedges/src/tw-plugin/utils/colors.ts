@@ -1,7 +1,22 @@
+// @ts-ignore
+import { parseColor } from "tailwindcss/lib/util/color.js";
+
 import { ColorKey, Colors, colors as palette } from "../foundation";
 import { ThemeableColorOptions } from "../plugin";
 
 export const BACKGROUND_PROPERTY = "--wg-background";
+export const ACCENT_PROPERTY = "--wg-accent";
+export const SECONDARY_PROPERTY = "--wg-secondary";
+
+/**
+ * Formats a color string to a format that can be used with TailwindCSS colors.
+ *
+ * @param color - The color to format
+ * @returns Color in format "R G B"
+ */
+const formatVarColor = (color: string) => {
+  return parseColor(color)?.color?.join(" ") || "255 255 255";
+};
 
 /**
  * Retrieves a specific color from Tailwind's themable colors based on a provided key or color string.
@@ -42,6 +57,7 @@ export const getColorFromPalette = (keyOrColor: string, themeColors: Colors): st
  * });
  */
 const getBaseThemableColors = (colors?: ThemeableColorOptions, themeColors?: Colors) => {
+  // 'background'
   const defaultLightBgColor = palette["wg-white"].DEFAULT;
   const defaultDarkBgColor = palette["wg-dark"].DEFAULT;
 
@@ -55,17 +71,33 @@ const getBaseThemableColors = (colors?: ThemeableColorOptions, themeColors?: Col
     themeColors ?? palette // Fallback to the default, non extended palette if no themeable colors are available
   );
 
+  // 'accent'
+  const defaultAccentColor = palette["wg-purple"].DEFAULT;
+
+  const accentLightColor = getColorFromPalette(
+    colors?.light?.accent ?? defaultAccentColor,
+    themeColors ?? palette // Fallback to the default, non extended palette if no themeable colors are available
+  );
+
+  const accentDarkColor = getColorFromPalette(
+    colors?.dark?.accent ?? defaultAccentColor,
+    themeColors ?? palette // Fallback to the default, non extended palette if no themeable colors are available
+  );
+
+  // 'secondary'
+  const defaultLightSecondaryColor = palette["wg-gray"][900];
+  const defaultDarkSecondaryColor = palette["wg-white"].DEFAULT;
+
   return {
-    ":root, .light": {
-      [BACKGROUND_PROPERTY]: lightBgColor,
-    },
-    "@media (prefers-color-scheme: dark)": {
-      ":root": {
-        [BACKGROUND_PROPERTY]: darkBgColor,
-      },
+    ":root": {
+      [BACKGROUND_PROPERTY]: formatVarColor(lightBgColor),
+      [ACCENT_PROPERTY]: formatVarColor(accentLightColor),
+      [SECONDARY_PROPERTY]: formatVarColor(defaultLightSecondaryColor),
     },
     ".dark": {
-      [BACKGROUND_PROPERTY]: darkBgColor,
+      [BACKGROUND_PROPERTY]: formatVarColor(darkBgColor),
+      [ACCENT_PROPERTY]: formatVarColor(accentDarkColor),
+      [SECONDARY_PROPERTY]: formatVarColor(defaultDarkSecondaryColor),
     },
   };
 };
