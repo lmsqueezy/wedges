@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark h-full">
+    <html lang="en" className="dark h-full" suppressHydrationWarning>
       <body className={`${inter.className} text-wg-dark-2 flex min-h-full dark:text-white`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="wg-background-white dark:wg-background-wg-dark-1 grow">
