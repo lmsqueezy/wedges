@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import { cn } from "../../helpers/utils";
-
 import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -106,4 +105,4 @@ AvatarMoreLabel.displayName = "AvatarMoreLabel";
 AvatarGroupWedges.displayName = "AvatarGroup";
 
 export default AvatarGroup;
-export { AvatarGroupRoot, AvatarGroupItem, AvatarMoreLabel };
+export { AvatarGroupItem, AvatarGroupRoot, AvatarMoreLabel };

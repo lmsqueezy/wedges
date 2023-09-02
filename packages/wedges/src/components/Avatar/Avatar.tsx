@@ -53,6 +53,7 @@ const fallbackVariants = cva("", {
 const statusVariants = cva(statusClasses, {
   variants: {
     status: {
+      accent: "bg-wg-accent",
       gray: "bg-wg-gray",
       green: "bg-wg-green",
       yellow: "bg-wg-yellow",
@@ -71,6 +72,7 @@ const notificationVariants = cva(notificationClasses, {
      * Represents the color of the notification dot.
      */
     notification: {
+      accent: "bg-wg-accent",
       gray: "bg-wg-gray",
       green: "bg-wg-green",
       yellow: "bg-wg-yellow",
