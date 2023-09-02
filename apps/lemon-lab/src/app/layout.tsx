@@ -39,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <nav className="text-wg-sm dark:text-wg-white-500 ml-auto flex items-center gap-5 text-neutral-500">
                 <Link href="/avatar">Avatar</Link>
                 <Link href="/avatar-group">Avatar Group</Link>
+                <Link href="/example">Dynamic Colors</Link>
               </nav>
 
               <span>&middot;</span>
