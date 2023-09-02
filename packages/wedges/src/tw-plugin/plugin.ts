@@ -97,3 +97,8 @@ const themeConfig = () => {
  * Register our plugin.
  */
 export const wedgesTW = plugin.withOptions<WedgesOptions>(wedgesPlugin, themeConfig);
+
+/**
+ * Export the Wedges palette.
+ */
+export { colors as wedgesPalette };
