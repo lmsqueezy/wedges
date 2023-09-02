@@ -57,7 +57,7 @@ export default function AvatarGroupPage() {
             <AvatarGroup.Item src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60" />
 
             <AvatarGroup.Label
-              className="dark:bg-wg-purple z-40 px-3 text-sm font-medium"
+              className="bg-wg-accent dark:bg-wg-accent z-40 px-3 text-sm font-medium"
               label="30,000 followers"
             />
 
