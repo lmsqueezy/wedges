@@ -11,6 +11,7 @@ dist-ssr
 server/dist
 public/dist
 storybook-static/
+coverage/
 
 # Allow own todo files in the project
 TODO.md

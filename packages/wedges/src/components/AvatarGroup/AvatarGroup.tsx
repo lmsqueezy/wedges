@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { cn } from "../../helpers/utils";
 
-import Avatar, { AvatarElement, AvatarProps } from "./Avatar";
+import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";
 
 /* ---------------------------------- Types --------------------------------- */
 type AvatarGroupAvatarProps = Omit<AvatarProps, "size" | "notification" | "status" | "initial"> & {

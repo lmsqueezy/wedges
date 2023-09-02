@@ -6,14 +6,19 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev",
-    "clean:lock": "rm ./pnpm-lock.yaml",
     "clean": "turbo clean && rm -rf node_modules",
-    "format:check": "prettier --check ./packages/**/src --cache",
+    "clean:lock": "rm ./pnpm-lock.yaml",
+    "dev": "turbo run dev",
+    "format": "prettier --check ./packages/**/src ./apps/** --cache",
+    "format:fix": "prettier --write ./packages/**/src --cache",
     "lint": "eslint -c .eslintrc \"packages/**/**/*.{ts,tsx}\"",
-    "lint:fix": "eslint --fix -c .eslintrc \"packages/**/**/*.{ts,tsx}\""
+    "lint:fix": "eslint --fix -c .eslintrc \"packages/**/**/*.{ts,tsx}\"",
+    "test": "jest --passWithNoTests",
+    "test:coverage": "jest --coverage --passWithNoTests"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.5.4",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
@@ -22,9 +27,11 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^3.0.0",
-    "next": "^13.4.19",
+    "jest": "^29.6.4",
+    "jest-environment-jsdom": "^29.6.4",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
+    "ts-jest": "^29.1.1",
     "turbo": "^1.10.13"
   },
   "packageManager": "pnpm@8.6.12"

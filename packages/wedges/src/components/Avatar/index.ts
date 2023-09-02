@@ -9,4 +9,4 @@ export {
 
 export type { AvatarElement, AvatarProps } from "./Avatar";
 
-export { default as AvatarGroup } from "./AvatarGroup";
+export { default as AvatarGroup } from "../AvatarGroup/AvatarGroup";

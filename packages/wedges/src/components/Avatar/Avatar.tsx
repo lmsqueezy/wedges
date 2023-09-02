@@ -84,7 +84,7 @@ const notificationVariants = cva(notificationClasses, {
 });
 
 /* ---------------------------------- Types --------------------------------- */
-export type AvatarElement = React.ElementRef<typeof Primitive.Image>;
+export type AvatarElement = React.ElementRef<typeof Primitive.Image> | HTMLSpanElement;
 
 type AvatarVariantProps = VariantProps<typeof statusVariants> &
   VariantProps<typeof notificationVariants> &
@@ -188,7 +188,15 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
       )}
     >
       {/* Show image if available */}
-      {src && <AvatarImage ref={ref} alt={alt} className={className} src={src} {...otherProps} />}
+      {src && (
+        <AvatarImage
+          ref={ref as React.RefObject<HTMLImageElement>}
+          alt="{alt}"
+          className={className}
+          src={src}
+          {...otherProps}
+        />
+      )}
 
       {/* Allow children to be used as fallback */}
       {children && (
@@ -234,7 +242,13 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
 
       {/* Fallback */}
       {!children && !src && !initials && (
-        <AvatarFallback ref={ref} aria-label={alt} className={cn(className)} {...otherProps}>
+        <AvatarFallback
+          ref={ref}
+          aria-label={alt}
+          className={cn(className)}
+          role="img"
+          {...otherProps}
+        >
           <UserIcon
             className={cn("text-wg-gray-400 dark:text-wg-white-500", fallbackVariants({ size }))}
           />
