@@ -109,7 +109,7 @@ const createSimpleColorUtility = (colorName: string, colorValue: string) => {
   return {
     [`.wg-background-${colorName}`]: {
       backgroundColor: colorValue,
-      [BACKGROUND_PROPERTY]: colorValue,
+      [BACKGROUND_PROPERTY]: formatVarColor(colorValue),
     },
   };
 };
@@ -124,12 +124,12 @@ const createShadedColorUtility = (colorName: string, colorValues: Record<string,
     if (shade === "DEFAULT") {
       utilities[`.wg-background-${colorName}`] = {
         backgroundColor: value,
-        [BACKGROUND_PROPERTY]: value,
+        [BACKGROUND_PROPERTY]: formatVarColor(value),
       };
     } else {
       utilities[`.wg-background-${colorName}-${shade}`] = {
         backgroundColor: value,
-        [BACKGROUND_PROPERTY]: value,
+        [BACKGROUND_PROPERTY]: formatVarColor(value),
       };
     }
   }
