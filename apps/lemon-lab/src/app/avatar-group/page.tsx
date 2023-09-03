@@ -11,7 +11,49 @@ export default function AvatarGroupPage() {
         <section>
           <h2 className="text-wg-xl mb-8">Simple</h2>
 
-          <div className="justify-end">
+          <section>
+            <h3 className="text-wg-md mb-8">Previous on Top</h3>
+
+            <AvatarGroup
+              previousOnTop={true}
+              size="xl"
+              moreLabel="+3"
+              items={[
+                {
+                  src: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60",
+                  alt: "A picture of a person",
+                },
+                {
+                  src: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60",
+                  alt: "A picture of a person",
+                },
+                {
+                  src: "https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60",
+                  alt: "A picture of a person",
+                },
+                {
+                  src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80",
+                  alt: "A picture of a person",
+                },
+                {
+                  src: "https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80",
+                  alt: "A picture of a person",
+                },
+                {
+                  src: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&q=80",
+                  alt: "A picture of a person",
+                },
+                {
+                  src: "https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAyfHxwZXJzb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=250&q=60",
+                  alt: "A picture of a person",
+                },
+              ]}
+            />
+          </section>
+
+          <section className="mt-24">
+            <h3 className="text-wg-md mb-8">Next on Top</h3>
+
             <AvatarGroup
               size="xl"
               moreLabel="+3"
@@ -46,7 +88,7 @@ export default function AvatarGroupPage() {
                 },
               ]}
             />
-          </div>
+          </section>
         </section>
 
         <section>
