@@ -1,6 +1,4 @@
-import { ColorRecord } from ".";
-
-export const pink: ColorRecord = {
+export const pink = {
   50: "#FEECFB",
   100: "#FDDDF8",
   200: "#FCC5F3",

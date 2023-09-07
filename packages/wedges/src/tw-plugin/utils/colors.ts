@@ -1,162 +1,132 @@
 // @ts-ignore
-import { parseColor } from "tailwindcss/lib/util/color.js";
+import { parseColor } from "tailwindcss/lib/util/color";
 
-import { ColorKey, Colors, colors as palette } from "../foundation";
-import { ThemeableColorOptions } from "../plugin";
-
-export const BACKGROUND_PROPERTY = "--wg-background";
-export const ACCENT_PROPERTY = "--wg-accent";
-export const SECONDARY_PROPERTY = "--wg-secondary";
-
-/**
- * Formats a color string to a format that can be used with TailwindCSS colors.
- *
- * @param color - The color to format
- * @returns Color in format "R G B"
- */
-const formatVarColor = (color: string) => {
-  return parseColor(color)?.color?.join(" ") || "255 255 255";
-};
+import { BaseColorKeys, ThemeableColors, baseColors, wedgesPalette } from "../foundation";
+import {
+  ACCENT_VAR,
+  BACKGROUND_VAR,
+  ThemeableColorVarKeys,
+} from "../foundation/colors/themeableColors";
+import { WedgesOptions } from "../plugin";
 
 /**
- * Retrieves a specific color from Tailwind's themable colors based on a provided key or color string.
+ * Transforms the input colors object. Each property can be a color string or an object with color scales.
  *
- * @param keyOrColor - The key representing a color in the palette (e.g. "wg-blue") or a direct color string (e.g. "#FFFFFF").
+ * Transformation process:
+ * - If the color string does not start with "var(--", it attempts to parse the string using the `parseColor` function. If parsed successfully, it transforms them into an RGB string with a placeholder for the alpha value.
+ * - If the color string starts with "var(--", it transforms them into an RGB string format with a placeholder for the alpha value, without parsing.
  *
- * @returns the DEFAULT color for that key is returned
+ * Note: This function modifies the input object in-place and returns it with transformed color values.
  *
  * @example
- * getColorFromPalette("wg-blue");  // return the DEFAULT color for the 'wg-blue' key
- * getColorFromPalette("#FFFFFF");  // returns "#FFFFFF"
+ * const inputColors = {
+ *   "--color-var1": "#ff0000",
+ *   "--color-var2": "var(--color-var1)",
+ * };
+ * const result = transformVarColor(inputColors);
+ * // Output:
+ * // {
+ * //   "--color-var1": "rgb(255 0 0 / <alpha-value>)",
+ * //   "--color-var2": "rgb(var(--color-var1) / <alpha-value>)",
+ * // }
+ *
+ * @param colors - An object of themeable colors to be transformed. Each key represents a color variable, and the value can be a color string or an object with color scales.
+ * @returns The transformed colors object with modified color values.
  */
-export const getColorFromPalette = (keyOrColor: string, themeColors: Colors): string => {
-  // Try to find the key in the palette
-  if (keyOrColor in themeColors) {
-    const colorKey = keyOrColor as ColorKey;
+export const transformVarColor = (colors: ThemeableColors): ThemeableColors => {
+  const transformedColors = {} as ThemeableColors;
 
-    return themeColors[colorKey]?.DEFAULT ?? (themeColors[colorKey] as string);
+  for (const key of Object.keys(colors)) {
+    const k = key as keyof ThemeableColors;
+    let color = colors[k];
+
+    if (typeof color === "string") {
+      const parsedColor = parseColor(color);
+
+      if (parsedColor && parsedColor.color) {
+        color = `rgb(${parsedColor.color.join(" ")} / <alpha-value>)`;
+      } else if (color.startsWith("var(--")) {
+        color = `rgb(${color} / <alpha-value>)`;
+      }
+    }
+
+    transformedColors[k] = color;
   }
 
-  // If the color is not in the palette, return the color as-is
-  return keyOrColor;
+  return transformedColors;
 };
 
 /**
- * Generates CSS variable declarations for themable colors based on user preferences.
+ * Transforms a set of themeable colors by executing the following steps:
+ * 1. Replacing references to base color names with their default values.
+ * 2. Parsing the resulting colors to yield an RGB string representation.
  *
- * The function fetches colors from the palette or defaults based on the provided themeable options.
- * It constructs CSS for both light and dark color schemes.
- *
- * @param colors - User-specified themeable color options. If omitted, defaults are used.
- * @returns An object with CSS selectors and their corresponding themable color declarations.
+ * The function iterates over the properties of the `colors` object, identifying any base color references
+ * and replacing them with the actual values from the `baseColors` object. Then, it parses these values (as well as any
+ * other direct color values initially found in the `colors` object) to generate a new object with RGB string
+ * representations of the colors.
  *
  * @example
- * const themeColors = getBaseThemableColors({
- *   light: { background: 'wg-blue' },
- *   dark: { background: 'wg-dark' }
- * });
+ * const inputColors = {
+ *   "--wg-color-accent": "red",
+ *   "--wg-color-bg": "blue",
+ * };
+ * const result = transformBaseThemeableColor(inputColors);
+ * // Output:
+ * // {
+ * //   "--wg-color-accent": "255 0 0",
+ * //   "--wg-color-bg": "0 0 255",
+ * // }
+ *
+ * @param colors - A record with keys representing themeable color variables and values either pointing to a base color
+ *                 reference or an explicit color value. Base color references are replaced with their default values
+ *                 from the `baseColors` object and subsequently parsed using the `parseColor` function.
+ * @returns A record with the same keys, but with values transformed to their parsed color representation in RGB string format
+ *          (e.g., "255 0 0" for red).
  */
-const getBaseThemableColors = (colors?: ThemeableColorOptions, themeColors?: Colors) => {
-  // 'background'
-  const defaultLightBgColor = palette["wg-white"].DEFAULT;
-  const defaultDarkBgColor = palette["wg-dark"].DEFAULT;
+export const transformBaseThemeableColor = (colors: Record<ThemeableColorVarKeys, string>) => {
+  const transformedColors = {} as Record<ThemeableColorVarKeys, string>;
 
-  const lightBgColor = getColorFromPalette(
-    colors?.light?.background ?? defaultLightBgColor,
-    themeColors ?? palette // Fallback to the default, non extended palette if no themeable colors are available
-  );
+  for (const key of Object.keys(colors)) {
+    let color = colors[key as ThemeableColorVarKeys];
 
-  const darkBgColor = getColorFromPalette(
-    colors?.dark?.background ?? defaultDarkBgColor,
-    themeColors ?? palette // Fallback to the default, non extended palette if no themeable colors are available
-  );
+    if (color in baseColors) {
+      color = baseColors[color as BaseColorKeys].DEFAULT;
+    }
 
-  // 'accent'
-  const defaultAccentColor = palette["wg-purple"].DEFAULT;
+    const parsedColor = parseColor(color);
 
-  const accentLightColor = getColorFromPalette(
-    colors?.light?.accent ?? defaultAccentColor,
-    themeColors ?? palette // Fallback to the default, non extended palette if no themeable colors are available
-  );
-
-  const accentDarkColor = getColorFromPalette(
-    colors?.dark?.accent ?? defaultAccentColor,
-    themeColors ?? palette // Fallback to the default, non extended palette if no themeable colors are available
-  );
-
-  // 'secondary'
-  const defaultLightSecondaryColor = palette["wg-gray"][900];
-  const defaultDarkSecondaryColor = palette["wg-white"].DEFAULT;
-
-  return {
-    ":root": {
-      [BACKGROUND_PROPERTY]: formatVarColor(lightBgColor),
-      [ACCENT_PROPERTY]: formatVarColor(accentLightColor),
-      [SECONDARY_PROPERTY]: formatVarColor(defaultLightSecondaryColor),
-    },
-    ".dark": {
-      [BACKGROUND_PROPERTY]: formatVarColor(darkBgColor),
-      [ACCENT_PROPERTY]: formatVarColor(accentDarkColor),
-      [SECONDARY_PROPERTY]: formatVarColor(defaultDarkSecondaryColor),
-    },
-  };
-};
-
-/**
- * For basic colors, add the additional CSS property
- */
-const createSimpleColorUtility = (colorName: string, colorValue: string) => {
-  return {
-    [`.wg-background-${colorName}`]: {
-      backgroundColor: colorValue,
-      [BACKGROUND_PROPERTY]: formatVarColor(colorValue),
-    },
-  };
-};
-
-/**
- * For colors with shades, loop through shades and add the additional CSS property
- */
-const createShadedColorUtility = (colorName: string, colorValues: Record<string, string>) => {
-  const utilities: Record<string, Record<string, string>> = {};
-
-  for (const [shade, value] of Object.entries(colorValues)) {
-    if (shade === "DEFAULT") {
-      utilities[`.wg-background-${colorName}`] = {
-        backgroundColor: value,
-        [BACKGROUND_PROPERTY]: formatVarColor(value),
-      };
+    if (parsedColor && parsedColor.color) {
+      transformedColors[key as ThemeableColorVarKeys] = parsedColor.color.join(" ") || "";
     } else {
-      utilities[`.wg-background-${colorName}-${shade}`] = {
-        backgroundColor: value,
-        [BACKGROUND_PROPERTY]: formatVarColor(value),
-      };
+      transformedColors[key as ThemeableColorVarKeys] = color;
     }
   }
 
-  return utilities;
+  return transformedColors;
 };
 
 /**
- * Generate the extended surface utilities
+ * Returns an object containing base themeable colors for light and dark themes.
+ *
+ * This function helps in setting up base themeable colors for light and dark themes
+ * based on the user-specified themes or the default palette. It applies transformations
+ * to the color values to ensure that they adhere to the expected format.
+ *
+ * @param themes - Optional plugion options themes object containing custom colors for light and dark themes.
+ * @returns An object with separate properties for light and dark themes, each containing a
+ *          set of base themeable colors with the respective theme modifications applied.
  */
-const generateExtendedColorUtilities = (colors: Record<string, any>) => {
-  let utilities: typeof colors = {};
+export const getBaseThemeableColors = (themes?: WedgesOptions["themes"]) => {
+  const getThemeColors = (theme?: Partial<ThemeableColors>) => ({
+    [ACCENT_VAR]: theme?.accent ?? wedgesPalette.purple.DEFAULT,
 
-  for (const [colorName, colorValue] of Object.entries(colors)) {
-    if (typeof colorValue === "string") {
-      Object.assign(utilities, createSimpleColorUtility(colorName, colorValue));
-    } else if (typeof colorValue === "object") {
-      Object.assign(utilities, createShadedColorUtility(colorName, colorValue));
-    }
-  }
+    [BACKGROUND_VAR]:
+      theme?.background ?? themes?.dark ? wedgesPalette.dark.DEFAULT : wedgesPalette.white.DEFAULT,
+  });
 
-  return utilities;
-};
+  const lightColors = transformBaseThemeableColor(getThemeColors(themes?.light));
+  const darkColors = transformBaseThemeableColor(getThemeColors(themes?.dark));
 
-export {
-  createShadedColorUtility,
-  createSimpleColorUtility,
-  generateExtendedColorUtilities,
-  getBaseThemableColors,
+  return { lightColors, darkColors };
 };

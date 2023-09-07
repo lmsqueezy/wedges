@@ -11,12 +11,15 @@ const config: Config = {
     "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {},
+    },
   },
   darkMode: "class",
   plugins: [
     wedgesTW({
-      colors: {
+      prefix: "wg-",
+      themes: {
         light: {},
         dark: {},
       },

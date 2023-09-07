@@ -1,6 +1,4 @@
-import { DarkColorRecord } from ".";
-
-export const dark: DarkColorRecord = {
+export const dark = {
   0: "#000000",
   1: "#141414",
   "2": "#292929",

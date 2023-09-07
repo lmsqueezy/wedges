@@ -1,91 +1,82 @@
+// @ts-ignore
 import plugin from "tailwindcss/plugin.js";
 import { Config, PluginAPI } from "tailwindcss/types/config";
 
-import {
-  ColorKey,
-  Colors,
-  FontSizes,
-  Shadows,
-  addPrefixToObjKey,
-  colors,
-  fontSizes,
-  shadows,
-} from "./foundation";
-import {
-  ACCENT_PROPERTY,
-  BACKGROUND_PROPERTY,
-  SECONDARY_PROPERTY,
-  generateExtendedColorUtilities,
-  getBaseThemableColors,
-} from "./utils";
+import { baseColors, boxShadows, fontSizes, minWidth, themeableColors } from "./foundation";
+import { ColorOptions } from "./foundation/colors";
+import { addPrefix } from "./utils";
+import { getBaseThemeableColors, transformVarColor } from "./utils/colors";
 
-const themeableColors = [
-  "background",
-  "accent",
-  "secondary",
-  //   "surface",
-  //   "foreground",
-  //   "error",
-  //   "warning",
-  //   "success",
-] as const;
+export type ThemeOptions = {
+  /**
+   * Override "light" theme colors.
+   */
+  light?: Partial<ColorOptions>;
 
-type ThemeableColors = (typeof themeableColors)[number];
-
-// Suggest color literals but also allow colors to be defined as strings.
-type ColorOptions = Record<ThemeableColors, ColorKey | (string & {})>;
-export type ThemeableColorOptions =
-  | {
-      light?: Partial<ColorOptions>;
-      dark?: Partial<ColorOptions>;
-    }
-  | undefined;
+  /**
+   * Override "dark" theme colors.
+   */
+  dark?: Partial<ColorOptions>;
+};
 
 export type WedgesOptions = {
-  colors?: ThemeableColorOptions;
+  /**
+   * The prefix to use for all Wedges classes.
+   */
+  prefix?: string;
+
+  /**
+   * The themes to use for Wedges.
+   */
+  themes?: ThemeOptions;
 };
 
 /**
- * Tailwind API.
+ * The default options for the Tailwind plugin.
  */
-const wedgesPlugin = (options: WedgesOptions) => {
-  return ({ addBase, addUtilities, theme }: PluginAPI) => {
-    const colors: Colors = theme("colors");
+const defaultOptions: Required<WedgesOptions> = {
+  prefix: "wg-",
+  themes: {
+    light: {},
+    dark: {},
+  },
+};
+
+/**
+ * The Tailwind plugin.
+ */
+const wedgesPlugin = (options: WedgesOptions = defaultOptions) => {
+  return ({ addBase }: PluginAPI) => {
+    const { lightColors, darkColors } = getBaseThemeableColors(options.themes);
 
     addBase({
-      ...getBaseThemableColors(options?.colors, colors),
-    });
+      ":root": {
+        ...lightColors,
+      },
 
-    addUtilities(generateExtendedColorUtilities(colors));
+      ".dark": {
+        ...darkColors,
+      },
+    });
   };
 };
 
 /**
- * Extend the theme with the colors from the Wedges palette.
+ * Extends the Tailwind config with Wedges' customizations.
  */
-const themeConfig = () => {
-  const fontSize = addPrefixToObjKey<FontSizes>(false, fontSizes);
-  const shadow = addPrefixToObjKey<Shadows>(false, shadows);
+const extendConfig = ({ prefix = defaultOptions.prefix }: WedgesOptions = defaultOptions) => {
+  const prefixedFontSize = addPrefix(fontSizes, prefix);
+  const prefixedBoxShadow = addPrefix(boxShadows, prefix);
+  const prefixedBaseColors = addPrefix(baseColors, prefix);
+  const prefixedThemeableColors = addPrefix(transformVarColor(themeableColors), prefix);
 
   const config: Partial<Config> = {
     theme: {
       extend: {
-        colors: {
-          ...colors,
-          "wg-background": `rgb(var(${BACKGROUND_PROPERTY}) / <alpha-value>)`,
-          "wg-accent": `rgb(var(${ACCENT_PROPERTY}) / <alpha-value>)`,
-          "wg-secondary": `rgb(var(${SECONDARY_PROPERTY}) / <alpha-value>)`,
-        },
-        fontSize: { ...fontSize },
-        boxShadow: { ...shadow },
-        minWidth: {
-          6: "24px",
-          8: "32px",
-          10: "40px",
-          12: "48px",
-          14: "56px",
-          16: "64px",
-        },
+        boxShadow: { ...prefixedBoxShadow },
+        colors: { ...prefixedThemeableColors, ...prefixedBaseColors },
+        fontSize: { ...prefixedFontSize },
+        minWidth: { ...minWidth }, // do not prefix
       },
     },
   };
@@ -93,12 +84,5 @@ const themeConfig = () => {
   return config;
 };
 
-/**
- * Register our plugin.
- */
-export const wedgesTW = plugin.withOptions<WedgesOptions>(wedgesPlugin, themeConfig);
-
-/**
- * Export the Wedges palette.
- */
-export { colors as wedgesPalette };
+export const wedgesTW = plugin.withOptions<WedgesOptions>(wedgesPlugin, extendConfig);
+export { wedgesPalette } from "./foundation/colors";

@@ -1,4 +1,4 @@
-export type FontSizeValue = [
+type FontSizeValue = [
   fontSize: string,
   configuration: {
     lineHeight?: string;
@@ -9,7 +9,7 @@ export type FontSizeValue = [
 
 export type FontSizes = Record<string, FontSizeValue>;
 
-export const fontSizes: FontSizes = {
+export const fontSizes = {
   xs: [
     "0.75rem",
     {
@@ -93,4 +93,4 @@ export const fontSizes: FontSizes = {
       letterSpacing: "-0.2rem",
     },
   ],
-};
+} satisfies FontSizes;

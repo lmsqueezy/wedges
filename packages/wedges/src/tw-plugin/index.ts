@@ -1,1 +1,1 @@
-export * from "./plugin";
+export { wedgesTW, wedgesPalette } from "./plugin";

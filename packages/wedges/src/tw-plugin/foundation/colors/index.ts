@@ -8,10 +8,22 @@ import { purple } from "./purple";
 import { red } from "./red";
 import { white } from "./white";
 import { yellow } from "./yellow";
+import { themeableColors } from "./themeableColors";
 
-export * from "./helpers";
+const baseColors = {
+  blue: blue,
+  dark: dark,
+  gray: gray,
+  green: green,
+  orange: orange,
+  pink: pink,
+  purple: purple,
+  red: red,
+  white: white,
+  yellow: yellow,
+};
 
-const ColorScale = [
+const FULL_COLOR_SCALE = [
   "50",
   "100",
   "200",
@@ -25,27 +37,38 @@ const ColorScale = [
   "DEFAULT",
 ] as const;
 
-const DarkColorScale = ["0", "1", "2", "DEFAULT"] as const;
+const SMALL_COLOR_SCALE = ["0", "1", "2", "DEFAULT"] as const;
 
-export type ColorScale = (typeof ColorScale)[number];
-export type DarkColorScale = (typeof DarkColorScale)[number];
-export type ColorRecord = Record<ColorScale, string>;
-export type DarkColorRecord = Record<DarkColorScale, string>;
+type FullColorScale = (typeof FULL_COLOR_SCALE)[number];
+type SmallColorScale = (typeof SMALL_COLOR_SCALE)[number];
 
-export type ColorValue = Partial<ColorRecord> | Partial<DarkColorRecord>;
+type ColorScale<K extends WedgesPaletteKeys> = K extends "dark"
+  ? Record<SmallColorScale, string> | string
+  : Record<FullColorScale, string> | string;
 
-export const colors = {
-  "wg-blue": blue,
-  "wg-dark": dark,
-  "wg-gray": gray,
-  "wg-green": green,
-  "wg-orange": orange,
-  "wg-pink": pink,
-  "wg-purple": purple,
-  "wg-red": red,
-  "wg-white": white,
-  "wg-yellow": yellow,
-} as const;
+type ThemeableColorKeys = [keyof typeof themeableColors];
+type ThemeableColors = Record<ThemeableColorKeys[number], string>;
 
-export type ColorKey = keyof typeof colors;
-export type Colors = Partial<Record<ColorKey, ColorValue>>;
+type ColorOptions = Record<ThemeableColorKeys[number], BaseColorKeys | (string & {})>;
+
+type BaseColorKeys = keyof typeof baseColors;
+type BaseColors = { [K in BaseColorKeys]: ColorScale<K> };
+
+type WedgesPalette = BaseColors & ThemeableColors;
+type WedgesPaletteKeys = keyof WedgesPalette;
+
+const wedgesPalette = { ...baseColors, ...themeableColors } satisfies WedgesPalette;
+
+export {
+  baseColors,
+  themeableColors,
+  wedgesPalette,
+  type ThemeableColorKeys,
+  type ThemeableColors,
+  type BaseColors,
+  type BaseColorKeys,
+  type WedgesPalette,
+  type WedgesPaletteKeys,
+  type ColorScale,
+  type ColorOptions,
+};

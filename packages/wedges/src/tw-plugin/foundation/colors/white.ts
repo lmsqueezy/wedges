@@ -1,6 +1,4 @@
-import { ColorRecord } from ".";
-
-export const white: ColorRecord = {
+export const white = {
   50: "rgba(255, 255, 255, 0.05)",
   100: "rgba(255, 255, 255, 0.1)",
   200: "rgba(255, 255, 255, 0.2)",
