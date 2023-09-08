@@ -1,63 +1,20 @@
 /**
- * This plugin is inspired and based on L-Blondy's tw-colors.
+ * This Tailwind plugin is based and inspired on "tw-colors" and "NextUI".
+ *
  * @see https://github.com/L-Blondy/tw-colors
+ * @see https://github.com/nextui-org/nextui
  */
 
 import Color from "color";
 import deepMerge from "deepmerge";
-import flatten from "flat";
 import omit from "lodash.omit";
 import plugin from "tailwindcss/plugin.js";
 
-import {
-  ThemeableColors,
-  boxShadows,
-  fontSizes,
-  minWidth,
-  themeableColors,
-  wedgesPalette,
-} from "./foundation";
-import { addPrefix } from "./utils";
+import { boxShadows, fontSizes, minWidth, themeableColors, wedgesPalette } from "./foundation";
+import { addPrefix, flattenThemeObject, isBaseTheme } from "./utils";
+import { ConfigTheme, ConfigThemes, DefaultThemeType, WedgesOptions } from "./utils/types";
 
 const DEFAULT_PREFIX = "wg";
-
-/* -------------------------------------------------------------------------- */
-/*                                  types.ts                                  */
-/* -------------------------------------------------------------------------- */
-
-export type DefaultThemeType = "light" | "dark" | (string & {});
-
-export type WedgesOptions = {
-  /**
-   * The prefix for the css variables.
-   * @default "wg"
-   */
-  prefix?: string;
-
-  /**
-   * The theme definitions.
-   */
-  themes?: ConfigThemes;
-  /**
-   * The default theme to use.
-   * @default "light"
-   */
-  defaultTheme?: DefaultThemeType;
-  /**
-   * The default theme to extend. Available values are "light" and "dark".
-   * @default "light"
-   */
-  defaultExtendTheme?: "light" | "dark";
-};
-
-export type ConfigTheme = {
-  extend?: "light" | "dark";
-  colors?: Partial<ThemeableColors> | Record<string, string | Record<string, string>>;
-};
-
-export type ConfigThemes = Record<DefaultThemeType | string, ConfigTheme>;
-
-/* -------------------------------------------------------------------------- */
 
 const resolveConfig = (
   themes: ConfigThemes = {},
@@ -161,9 +118,9 @@ const resolveConfig = (
   return resolved;
 };
 
-/* -------------------------------------------------------------------------- */
-/*                                 Core Plugin                                */
-/* -------------------------------------------------------------------------- */
+/**
+ * The core plugin function.
+ */
 const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, prefix: string) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
@@ -186,9 +143,10 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
         ...resolved.utilities,
       });
 
-      // add the theme as variant e.g. "[theme-name]:text-2xl"
+      // e.g. "[theme-name]:text-2xl"
       resolved.variants.forEach(({ name, definition }) => addVariant(name, definition));
     },
+
     // Extend the Tailwind config
     {
       theme: {
@@ -212,9 +170,9 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/*                                  Wedges TW                                 */
-/* -------------------------------------------------------------------------- */
+/**
+ * The actual plugin function.
+ */
 export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> => {
   const {
     themes: themeObject = {},
@@ -247,45 +205,3 @@ export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> 
 
   return corePlugin(themes, defaultTheme, defaultPrefix);
 };
-
-/* -------------------------------------------------------------------------- */
-/*                               Colors helpers                               */
-/* -------------------------------------------------------------------------- */
-/**
- * Determines if the theme is a base theme
- *
- * @param theme string
- * @returns "light" | "dark
- */
-export const isBaseTheme = (theme: string) => theme === "light" || theme === "dark";
-
-export const removeDefaultKeys = <T extends Object>(obj: T) => {
-  const newObj = {};
-
-  for (const key in obj) {
-    if (key.endsWith("-DEFAULT")) {
-      // @ts-ignore
-      newObj[key.replace("-DEFAULT", "")] = obj[key];
-      continue;
-    }
-    // @ts-ignore
-    newObj[key] = obj[key];
-  }
-
-  return newObj;
-};
-
-/**
- *
- * Flatten theme object and remove default keys
- *
- * @param obj theme object
- * @returns object with flattened keys
- */
-export const flattenThemeObject = <T>(obj: T) =>
-  removeDefaultKeys(
-    flatten(obj, {
-      safe: true,
-      delimiter: "-",
-    }) as Object
-  );
