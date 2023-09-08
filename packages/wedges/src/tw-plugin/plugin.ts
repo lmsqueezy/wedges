@@ -1,104 +1,207 @@
-import plugin from "tailwindcss/plugin.js";
-import { Config, PluginAPI } from "tailwindcss/types/config";
-
-import {
-  ColorKey,
-  Colors,
-  FontSizes,
-  Shadows,
-  addPrefixToObjKey,
-  colors,
-  fontSizes,
-  shadows,
-} from "./foundation";
-import {
-  ACCENT_PROPERTY,
-  BACKGROUND_PROPERTY,
-  SECONDARY_PROPERTY,
-  generateExtendedColorUtilities,
-  getBaseThemableColors,
-} from "./utils";
-
-const themeableColors = [
-  "background",
-  "accent",
-  "secondary",
-  //   "surface",
-  //   "foreground",
-  //   "error",
-  //   "warning",
-  //   "success",
-] as const;
-
-type ThemeableColors = (typeof themeableColors)[number];
-
-// Suggest color literals but also allow colors to be defined as strings.
-type ColorOptions = Record<ThemeableColors, ColorKey | (string & {})>;
-export type ThemeableColorOptions =
-  | {
-      light?: Partial<ColorOptions>;
-      dark?: Partial<ColorOptions>;
-    }
-  | undefined;
-
-export type WedgesOptions = {
-  colors?: ThemeableColorOptions;
-};
-
 /**
- * Tailwind API.
+ * This Tailwind plugin is based and inspired on "tw-colors" and "NextUI".
+ *
+ * @see https://github.com/L-Blondy/tw-colors
+ * @see https://github.com/nextui-org/nextui
  */
-const wedgesPlugin = (options: WedgesOptions) => {
-  return ({ addBase, addUtilities, theme }: PluginAPI) => {
-    const colors: Colors = theme("colors");
 
-    addBase({
-      ...getBaseThemableColors(options?.colors, colors),
+import Color from "color";
+import deepMerge from "deepmerge";
+import omit from "lodash.omit";
+import plugin from "tailwindcss/plugin.js";
+
+import { boxShadows, fontSizes, minWidth, themeableColors, wedgesPalette } from "./foundation";
+import { addPrefix, flattenThemeObject, isBaseTheme } from "./utils";
+import { ConfigTheme, ConfigThemes, DefaultThemeType, WedgesOptions } from "./utils/types";
+
+const DEFAULT_PREFIX = "wg";
+
+const resolveConfig = (
+  themes: ConfigThemes = {},
+  defaultTheme: DefaultThemeType,
+  prefix: string
+) => {
+  const resolved: {
+    variants: { name: string; definition: string[] }[];
+    utilities: { [selector: string]: Record<string, string> };
+    colors: Record<
+      string,
+      ({
+        opacityValue,
+        opacityVariable,
+      }: {
+        opacityValue: string;
+        opacityVariable: string;
+      }) => string
+    >;
+  } = {
+    variants: [],
+    utilities: {},
+    colors: {},
+  };
+
+  Object.keys(themes).forEach((themeName) => {
+    const { colors, extend }: ConfigTheme = themes[themeName] ?? {};
+    const flatColors = flattenThemeObject(colors);
+
+    let cssSelector = `.${themeName},[data-theme="${themeName}"]`;
+    const scheme = themeName === "light" || themeName === "dark" ? themeName : extend;
+
+    // if the theme is the default theme, add the selector to the root element
+    if (themeName === defaultTheme) {
+      cssSelector = `:root,${cssSelector}`;
+    }
+
+    resolved.utilities[cssSelector] = scheme ? { "color-scheme": scheme } : {};
+
+    // Set varaints
+    resolved.variants.push({
+      name: themeName,
+      //   definition: [`&.${themeName}`, `&[data-theme='${themeName}']`],
+      definition: [
+        `.${themeName}&`,
+        `:is(.${themeName} > &:not([data-theme]))`,
+        `:is(.${themeName} &:not(.${themeName} [data-theme]:not(.${themeName}) * ))`,
+        `:is(.${themeName}:not(:has([data-theme])) &:not([data-theme]))`, // See the browser support: https://caniuse.com/css-has
+        `[data-theme='${themeName}']&`,
+        `:is([data-theme='${themeName}'] > &:not([data-theme]))`,
+        `:is([data-theme='${themeName}'] &:not([data-theme='${themeName}'] [data-theme]:not([data-theme='${themeName}']) * ))`,
+        `:is([data-theme='${themeName}']:not(:has([data-theme])) &:not([data-theme]))`, // See the browser support: https://caniuse.com/css-has
+      ],
     });
 
-    addUtilities(generateExtendedColorUtilities(colors));
-  };
+    /* --------------------------------- Colors --------------------------------- */
+    Object.keys(flatColors).forEach((colorName) => {
+      const colorValue = flatColors[colorName as keyof typeof flatColors];
+
+      if (!colorValue) {
+        return;
+      }
+
+      try {
+        const [h, s, l, defaultAlphaValue] = Color(colorValue).hsl().round().array();
+        const wedgesColorVar = `--${prefix}-${colorName}`;
+        const wedgesOpacityVar = `--${prefix}-${colorName}-opacity`;
+
+        // Set the css variable in "@layer utilities"
+        resolved.utilities[cssSelector]![wedgesColorVar] = `${h} ${s}% ${l}%`;
+
+        // If an alpha value was provided in the color definition, store it in a css variable
+        if (typeof defaultAlphaValue === "number") {
+          resolved.utilities[cssSelector]![wedgesOpacityVar] = defaultAlphaValue.toFixed(2);
+        }
+
+        // Set the dynamic color in tailwind config theme.colors
+        resolved.colors[colorName] = ({ opacityVariable, opacityValue }) => {
+          // if the opacity is set  with a slash (e.g. bg-primary/90), use the provided value
+          if (!isNaN(+opacityValue)) {
+            return `hsl(var(${wedgesColorVar}) / ${opacityValue})`;
+          }
+
+          // if no opacityValue was provided (it is not parsable to a number)
+          // the cssOpacityVar (opacity defined in the color definition rgb(0, 0, 0, 0.5)) should have the priority
+          // over the tw class based opacity(e.g. "bg-opacity-90")
+          // This is how tailwind behaves as for v3.2.4
+          if (opacityVariable) {
+            return `hsl(var(${wedgesColorVar}) / var(${wedgesOpacityVar}, var(${opacityVariable})))`;
+          }
+
+          return `hsl(var(${wedgesColorVar}) / var(${wedgesOpacityVar}, 1))`;
+        };
+      } catch (error: any) {
+        // eslint-disable-next-line no-console
+        console.warn("wedges-tw-plugin-error", error?.message);
+      }
+    });
+  });
+
+  return resolved;
 };
 
 /**
- * Extend the theme with the colors from the Wedges palette.
+ * The core plugin function.
  */
-const themeConfig = () => {
-  const fontSize = addPrefixToObjKey<FontSizes>(false, fontSizes);
-  const shadow = addPrefixToObjKey<Shadows>(false, shadows);
+const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, prefix: string) => {
+  const resolved = resolveConfig(themes, defaultTheme, prefix);
 
-  const config: Partial<Config> = {
-    theme: {
-      extend: {
-        colors: {
-          ...colors,
-          "wg-background": `rgb(var(${BACKGROUND_PROPERTY}) / <alpha-value>)`,
-          "wg-accent": `rgb(var(${ACCENT_PROPERTY}) / <alpha-value>)`,
-          "wg-secondary": `rgb(var(${SECONDARY_PROPERTY}) / <alpha-value>)`,
+  // Prefix where needed
+  const prefixedBaseColors = addPrefix(wedgesPalette, "wg");
+  const prefixedBoxShadow = addPrefix(boxShadows, "wg");
+
+  return plugin(
+    ({ addBase, addUtilities, addVariant }) => {
+      addBase({
+        ":root, [data-theme]": {
+          color: `hsl(var(--${prefix}-foreground))`,
+          backgroundColor: `hsl(var(--${prefix}-background))`,
+          "-webkit-font-smoothing": "antialiased",
+          "-moz-osx-font-smoothing": "grayscale",
         },
-        fontSize: { ...fontSize },
-        boxShadow: { ...shadow },
-        minWidth: {
-          6: "24px",
-          8: "32px",
-          10: "40px",
-          12: "48px",
-          14: "56px",
-          16: "64px",
+      });
+
+      addUtilities({
+        ...resolved.utilities,
+      });
+
+      // e.g. "[theme-name]:text-2xl"
+      resolved.variants.forEach(({ name, definition }) => addVariant(name, definition));
+    },
+
+    // Extend the Tailwind config
+    {
+      theme: {
+        extend: {
+          colors: {
+            ...prefixedBaseColors,
+            ...resolved.colors,
+          },
+          minWidth: {
+            ...minWidth,
+          },
+          fontSize: {
+            ...fontSizes,
+          },
+          boxShadow: {
+            ...prefixedBoxShadow,
+          },
         },
       },
-    },
-  };
-
-  return config;
+    }
+  );
 };
 
 /**
- * Register our plugin.
+ * The actual plugin function.
  */
-export const wedgesTW = plugin.withOptions<WedgesOptions>(wedgesPlugin, themeConfig);
+export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> => {
+  const {
+    themes: themeObject = {},
+    defaultTheme = "light",
+    defaultExtendTheme = "light",
+    prefix: defaultPrefix = DEFAULT_PREFIX,
+  } = config;
 
-/**
- * Export the Wedges palette.
- */
-export { colors as wedgesPalette };
+  const userLightColors = themeObject["light"]?.colors || {};
+  const userDarkColors = themeObject["dark"]?.colors || {};
+  const otherUserThemes = omit(themeObject, ["light", "dark"]);
+
+  Object.keys(otherUserThemes).forEach((themeName) => {
+    const { colors, extend }: ConfigTheme = otherUserThemes[themeName] || {};
+    const baseTheme = extend && isBaseTheme(extend) ? extend : defaultExtendTheme;
+
+    if (colors && typeof colors === "object") {
+      otherUserThemes[themeName]!.colors = deepMerge(themeableColors[baseTheme], colors);
+    }
+  });
+
+  const light: ConfigTheme = { colors: deepMerge(themeableColors.light, userLightColors) };
+  const dark: ConfigTheme = { colors: deepMerge(themeableColors.dark, userDarkColors) };
+
+  const themes = {
+    light,
+    dark,
+    ...otherUserThemes,
+  };
+
+  return corePlugin(themes, defaultTheme, defaultPrefix);
+};

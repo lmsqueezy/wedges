@@ -1,6 +1,4 @@
-import { ColorRecord } from ".";
-
-export const gray: ColorRecord = {
+export const gray = {
   50: "#F7F7F8",
   100: "#EBEBEF",
   200: "#D1D1DB",

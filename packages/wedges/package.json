@@ -63,6 +63,8 @@
   "sideEffects": false,
   "license": "MIT",
   "devDependencies": {
+    "@types/color": "^3.0.4",
+    "@types/flat": "^5.0.2",
     "@types/node": "^20.4.9",
     "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
@@ -77,14 +79,20 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@radix-ui/react-avatar": "latest"
+    "@radix-ui/react-avatar": "latest",
+    "@types/lodash.omit": "^4.5.7",
+    "color": "^4.2.3",
+    "color2k": "^2.0.2",
+    "deepmerge": "^4.3.1",
+    "flat": "^5.0.2",
+    "lodash.omit": "^4.5.0"
   },
   "peerDependencies": {
     "@types/react": "*",
     "@types/react-dom": "*",
     "react": "^18.0",
     "react-dom": "^18.0",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "*"
   },
   "peerDependenciesMeta": {
     "@types/react": {

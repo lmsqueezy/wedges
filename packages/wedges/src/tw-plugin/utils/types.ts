@@ -1,0 +1,55 @@
+import { ThemeableColors } from "../foundation";
+
+export type ConfigTheme = {
+  /**
+   * Which default theme to extend.
+   * @default "light"
+   */
+  extend?: "light" | "dark";
+
+  /**
+   * Defines an extended colors object, providing a flexible foundation for theming or custom color configurations.
+   *
+   * Key Features:
+   * 1. **Themeable Colors**: Customize or extend existing themes by overriding values in the `wedgesPalette`.
+   * 2. **Custom Colors**: Introduce new color schemes by adding unique key-value pairs.
+   * 3. **Nested Colors**: Allows for the grouping of color variations under a single key, facilitating organized and hierarchical color definitions.
+   * 4. **Prefix 'wg'**: The colors defined in `wedgesPalette` are prefixed with 'wg' to prevent conflicts with the standard Tailwind color palette, ensuring a seamless integration.
+   *
+   * @example
+   * colors: {
+   *   'wg-red': '#ff0000',
+   *   customColor: {
+   *     500: '#f0f0f0',
+   *     600: '#0d0d0d',
+   *   },
+   * }
+   */
+  colors?: Partial<ThemeableColors> | Record<string, string | Record<string, string>>;
+};
+
+export type DefaultThemeType = "light" | "dark" | (string & {});
+export type ConfigThemes = Record<DefaultThemeType | string, ConfigTheme>;
+
+export type WedgesOptions = {
+  /**
+   * The prefix for the CSS variables.
+   * @default "wg"
+   */
+  prefix?: string;
+
+  /**
+   * The theme definitions.
+   */
+  themes?: ConfigThemes;
+  /**
+   * The default theme to use.
+   * @default "light"
+   */
+  defaultTheme?: DefaultThemeType;
+  /**
+   * The default theme to extend. Available values are "light" and "dark".
+   * @default "light"
+   */
+  defaultExtendTheme?: "light" | "dark";
+};

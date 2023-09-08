@@ -1,1 +1,2 @@
-export * from "./colors";
+export * from "./object";
+export * from "./prefix";
