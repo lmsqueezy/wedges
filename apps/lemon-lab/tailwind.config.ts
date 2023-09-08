@@ -18,10 +18,12 @@ const config: Config = {
   darkMode: "class",
   plugins: [
     wedgesTW({
-      prefix: "wg-",
       themes: {
-        light: {},
-        dark: {},
+        dark: {
+          colors: {
+            primary: "#FF6838",
+          },
+        },
       },
     }),
   ],

@@ -9,10 +9,10 @@ export default function AvatarGroupPage() {
 
       <div className="mt-24 flex flex-col gap-24">
         <section>
-          <h2 className="text-wg-xl mb-8">Simple</h2>
+          <h2 className="mb-8 text-xl">Simple</h2>
 
           <section>
-            <h3 className="text-wg-md mb-8">Previous on Top</h3>
+            <h3 className="mb-8 text-sm">Previous on Top</h3>
 
             <AvatarGroup
               previousOnTop={true}
@@ -52,7 +52,7 @@ export default function AvatarGroupPage() {
           </section>
 
           <section className="mt-24">
-            <h3 className="text-wg-md mb-8">Next on Top</h3>
+            <h3 className="mb-8 text-sm">Next on Top</h3>
 
             <AvatarGroup
               size="xl"
@@ -92,14 +92,14 @@ export default function AvatarGroupPage() {
         </section>
 
         <section>
-          <h2 className="text-wg-xl mb-8">Custom</h2>
+          <h2 className="mb-8 text-xl">Custom</h2>
           <AvatarGroup.Root>
             <AvatarGroup.Item src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&q=80" />
             <AvatarGroup.Item src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80" />
             <AvatarGroup.Item src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60" />
 
             <AvatarGroup.Label
-              className="bg-wg-accent dark:bg-wg-accent z-40 px-3 text-sm font-medium"
+              className="bg-primary text-primary-foreground z-40 px-3 text-sm font-medium"
               label="30,000 followers"
             />
 

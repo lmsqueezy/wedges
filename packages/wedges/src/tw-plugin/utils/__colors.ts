@@ -5,6 +5,7 @@ import { BaseColorKeys, ThemeableColors, baseColors, wedgesPalette } from "../fo
 import {
   ACCENT_VAR,
   BACKGROUND_VAR,
+  SURFACE_VAR,
   ThemeableColorVarKeys,
 } from "../foundation/colors/themeableColors";
 import { WedgesOptions } from "../plugin";
@@ -118,15 +119,31 @@ export const transformBaseThemeableColor = (colors: Record<ThemeableColorVarKeys
  *          set of base themeable colors with the respective theme modifications applied.
  */
 export const getBaseThemeableColors = (themes?: WedgesOptions["themes"]) => {
-  const getThemeColors = (theme?: Partial<ThemeableColors>) => ({
-    [ACCENT_VAR]: theme?.accent ?? wedgesPalette.purple.DEFAULT,
+  const getThemeColors = (theme?: Partial<ThemeableColors>, t: "light" | "dark" = "light") => {
+    const defaultBackground =
+      t === "light" ? wedgesPalette.white.DEFAULT : wedgesPalette.dark.DEFAULT;
 
-    [BACKGROUND_VAR]:
-      theme?.background ?? themes?.dark ? wedgesPalette.dark.DEFAULT : wedgesPalette.white.DEFAULT,
-  });
+    const defaultSurface = t === "light" ? wedgesPalette.gray["100"] : wedgesPalette.white["100"];
 
-  const lightColors = transformBaseThemeableColor(getThemeColors(themes?.light));
-  const darkColors = transformBaseThemeableColor(getThemeColors(themes?.dark));
+    return {
+      [ACCENT_VAR]: theme?.accent ?? wedgesPalette.purple.DEFAULT,
+      [BACKGROUND_VAR]: theme?.background ?? defaultBackground,
+      [SURFACE_VAR]: theme?.surface ?? defaultSurface,
+    };
+  };
+
+  const lightColors = transformBaseThemeableColor(getThemeColors(themes?.light, "light"));
+  const darkColors = transformBaseThemeableColor(getThemeColors(themes?.dark, "dark"));
 
   return { lightColors, darkColors };
+};
+
+export const toRGB = (color: string) => {
+  const parsedColor = parseColor(color);
+
+  if (parsedColor && parsedColor.color) {
+    return parsedColor.color.join(" ") || "";
+  }
+
+  return color;
 };

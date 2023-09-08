@@ -11,10 +11,10 @@ const defaultAvatarSize = "h-10 min-w-10 text-wg-base [--wg-notification-size:10
 const rootClasses = cn("relative flex aspect-square shrink-0 items-center", defaultAvatarSize);
 
 const statusClasses =
-  "absolute right-0 bottom-0 aspect-square bg-wg-gray-300 h-[var(--wg-notification-size,10px)] rounded-full ring-2 ring-wg-background";
+  "absolute right-0 bottom-0 aspect-square bg-wg-gray-300 h-[var(--wg-notification-size,10px)] rounded-full ring-2 ring-background";
 
 const notificationClasses =
-  "absolute right-0 top-0 aspect-square h-[var(--wg-notification-size,10px)] rounded-full ring-2 ring-wg-background";
+  "absolute right-0 top-0 aspect-square h-[var(--wg-notification-size,10px)] rounded-full ring-2 ring-background";
 
 const avatarVariants = cva(rootClasses, {
   variants: {

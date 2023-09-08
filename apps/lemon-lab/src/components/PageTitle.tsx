@@ -3,9 +3,7 @@ type PageTitleProps = {
 };
 
 const PageTitle = ({ children }: PageTitleProps) => {
-  return (
-    <h1 className="text-wg-5xl text-wg-dark-1 mb-10 font-medium dark:text-white">{children}</h1>
-  );
+  return <h1 className="mb-10 text-5xl font-medium">{children}</h1>;
 };
 
 export default PageTitle;

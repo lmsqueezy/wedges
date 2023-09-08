@@ -10,7 +10,7 @@ export default function AvatarPage() {
       <div className="mt-24 flex flex-col gap-24">
         {/* Image */}
         <section>
-          <h2 className="text-wg-xl mb-8">Image</h2>
+          <h2 className="mb-8 text-xl">Image</h2>
           <div className="flex items-center gap-6">
             <Avatar
               src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
@@ -60,7 +60,7 @@ export default function AvatarPage() {
 
         {/* Initials */}
         <section>
-          <h2 className="text-wg-xl mb-8">Initial</h2>
+          <h2 className="mb-8 text-xl">Initial</h2>
           <div className="flex items-center gap-6">
             <Avatar status="yellow" initials="Wedges" notification="green" size="xs" />
             <Avatar status="yellow" initials="e" notification="green" size="sm" />
@@ -79,7 +79,7 @@ export default function AvatarPage() {
 
         {/* Fallback */}
         <section>
-          <h2 className="text-wg-xl mb-8">Fallback</h2>
+          <h2 className="mb-8 text-xl">Fallback</h2>
           <div className="flex items-center gap-6">
             <Avatar status="yellow" notification="green" size="xs" />
             <Avatar status="yellow" notification="green" size="sm" />
@@ -92,7 +92,7 @@ export default function AvatarPage() {
 
         {/* Custom */}
         <section>
-          <h2 className="text-wg-xl mb-8">Custom</h2>
+          <h2 className="mb-8 text-xl">Custom</h2>
 
           <div className="flex items-center gap-6">
             <Avatar.Root className="h-16 w-16 justify-center">
