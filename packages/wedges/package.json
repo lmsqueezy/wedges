@@ -68,6 +68,7 @@
     "@types/node": "^20.4.9",
     "@types/react": "^18.2.19",
     "@types/react-dom": "^18.2.7",
+    "@types/lodash.omit": "^4.5.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "concurrently": "^8.2.0",
@@ -79,8 +80,8 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@iconicicons/react": "latest",
     "@radix-ui/react-avatar": "latest",
-    "@types/lodash.omit": "^4.5.7",
     "color": "^4.2.3",
     "color2k": "^2.0.2",
     "deepmerge": "^4.3.1",
