@@ -19,67 +19,78 @@ export type ColorScale =
       800: string;
       900: string;
       foreground: string;
+      "foreground-muted": string;
+      borders: string;
       DEFAULT: string;
     }>
   | string;
 
-type BaseColors = {
-  background: ColorScale;
-  foreground: ColorScale;
-};
-
-export type ThemeableColors = BaseColors & {
+export type ThemeableColors = {
   primary: ColorScale;
   secondary: ColorScale;
-};
-
-type BaseThemeableColors = {
-  light: BaseColors;
-  dark: BaseColors;
+  destructive: ColorScale;
+  foreground: ColorScale;
+  background: ColorScale;
+  surface: ColorScale;
 };
 
 /* -------------------------------------------------------------------------- */
 
-const baseThemableColors: BaseThemeableColors = {
-  light: {
-    background: {
-      DEFAULT: "#FFFFFF",
-    },
-    foreground: {
-      DEFAULT: "#000000",
-    },
-  },
-  dark: {
-    background: {
-      DEFAULT: "#000000",
-    },
-    foreground: {
-      DEFAULT: "#FFFFFF",
-    },
-  },
-};
-
 export const themeableColorsLight: ThemeableColors = {
-  ...baseThemableColors.light,
+  background: {
+    ...palette["white"],
+    foreground: readableColor(palette["white"].DEFAULT),
+    borders: "rgba(0,0,0, 0.15)",
+  },
+  foreground: {
+    DEFAULT: readableColor(palette["white"].DEFAULT),
+  },
   primary: {
     ...palette["purple"],
     foreground: readableColor(palette["purple"].DEFAULT),
   },
   secondary: {
-    ...palette["gray"],
-    foreground: readableColor(palette["gray"].DEFAULT),
+    DEFAULT: palette["gray"][900],
+    foreground: readableColor(palette["gray"]["900"]),
+  },
+  destructive: {
+    ...palette["red"],
+    foreground: readableColor(palette["red"].DEFAULT),
+  },
+  surface: {
+    DEFAULT: palette["gray"][50],
+    borders: palette["gray"][200],
+    foreground: palette["gray"][700],
+    "foreground-muted": palette["gray"][400],
   },
 };
 
 export const themeableColorsDark: ThemeableColors = {
-  ...baseThemableColors.dark,
+  background: {
+    ...palette["black"],
+    foreground: readableColor(palette["black"].DEFAULT),
+    borders: "rgba(255,255,255, 0.20)",
+  },
+  foreground: {
+    DEFAULT: readableColor(palette["black"].DEFAULT),
+  },
   primary: {
     ...palette["purple"],
     foreground: readableColor(palette["purple"].DEFAULT),
   },
   secondary: {
-    ...palette["gray"],
-    foreground: readableColor(palette["gray"].DEFAULT),
+    ...palette["white"],
+    foreground: readableColor(palette["white"].DEFAULT),
+  },
+  destructive: {
+    ...palette["red"],
+    foreground: readableColor(palette["red"].DEFAULT),
+  },
+  surface: {
+    DEFAULT: "rgba(255,255,255, 0.1)",
+    borders: "rgba(255,255,255, 0.1)",
+    foreground: "rgba(255,255,255, 0.8)",
+    "foreground-muted": "rgba(255,255,255, 0.5)",
   },
 };
 

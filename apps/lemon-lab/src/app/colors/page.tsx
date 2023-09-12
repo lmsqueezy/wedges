@@ -12,6 +12,18 @@ export default function ExamplePage() {
           <div className="grid grid-cols-4 gap-4">
             <ColorItem className="bg-primary text-primary-foreground">Primary</ColorItem>
             <ColorItem className="bg-secondary text-secondary-foreground">Secondary</ColorItem>
+            <ColorItem className="bg-destructive text-destructive-foreground">
+              Destructive
+            </ColorItem>
+
+            <ColorItem className="bg-background text-background-foreground border-background-borders border">
+              Background
+            </ColorItem>
+
+            <ColorItem className="bg-surface text-surface-foreground border-surface-borders flex flex-col border">
+              <div>Surface</div>
+              <div className="text-surface-foreground-muted">Muted</div>
+            </ColorItem>
           </div>
         </section>
 
