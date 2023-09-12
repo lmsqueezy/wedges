@@ -32,7 +32,7 @@ type BaseAvatarGroupProps = {
   /**
    * The label to display at the end of the group.
    */
-  moreLabel?: string;
+  moreLabel?: React.ReactNode;
 
   /**
    * Whether the previous item should be on top of the stack.
@@ -50,7 +50,7 @@ type AvatarMoreLabelProps = Omit<AvatarProps, "notification" | "status" | "initi
   /**
    * The label to display.
    */
-  label: string;
+  label?: React.ReactNode;
 };
 
 /* ------------------------------- Components ------------------------------- */
