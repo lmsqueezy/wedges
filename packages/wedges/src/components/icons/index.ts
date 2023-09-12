@@ -1,1 +1,1 @@
-export { default as UserIcon } from "./User";
+export { default as LemonSqueezyIcon } from "./LemonSqueezy";

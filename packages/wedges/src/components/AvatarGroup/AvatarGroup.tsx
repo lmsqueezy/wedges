@@ -1,7 +1,24 @@
 import * as React from "react";
+import { VariantProps, cva } from "class-variance-authority";
 
 import { cn } from "../../helpers/utils";
 import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";
+
+/* -------------------------------- Variants -------------------------------- */
+const defaultAvatarGroupClasses = "flex flex-wrap items-center gap-y-1 -space-x-1.5";
+const avatarGroupVariants = cva(defaultAvatarGroupClasses, {
+  variants: {
+    size: {
+      xs: "-space-x-0.5",
+      sm: "-space-x-1",
+      md: "-space-x-1.5",
+      lg: "-space-x-2",
+      xl: "-space-x-2.5",
+      "2xl": "-space-x-3",
+      default: "-space-x-1.5",
+    },
+  },
+});
 
 /* ---------------------------------- Types --------------------------------- */
 type AvatarGroupAvatarProps = Omit<AvatarProps, "size" | "notification" | "status" | "initial">;
@@ -11,11 +28,6 @@ type BaseAvatarGroupProps = {
    * The items to display in the group.
    */
   items: AvatarGroupAvatarProps[];
-
-  /**
-   * The size of the avatar group.
-   */
-  size?: AvatarProps["size"];
 
   /**
    * The label to display at the end of the group.
@@ -31,7 +43,8 @@ type BaseAvatarGroupProps = {
 
 export type AvatarGroupElement = React.ElementRef<typeof AvatarGroupRoot> | null;
 export type AvatarGroupProps = Omit<React.ComponentPropsWithoutRef<"div">, "size"> &
-  BaseAvatarGroupProps;
+  BaseAvatarGroupProps &
+  VariantProps<typeof avatarGroupVariants>;
 
 type AvatarMoreLabelProps = Omit<AvatarProps, "notification" | "status" | "initial"> & {
   /**
@@ -43,11 +56,7 @@ type AvatarMoreLabelProps = Omit<AvatarProps, "notification" | "status" | "initi
 /* ------------------------------- Components ------------------------------- */
 const AvatarGroupRoot = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
   ({ children, className, ...otherProps }, ref) => (
-    <div
-      ref={ref}
-      className={cn("flex flex-wrap items-center gap-y-1 -space-x-1", className)}
-      {...otherProps}
-    >
+    <div ref={ref} className={cn(defaultAvatarGroupClasses, className)} {...otherProps}>
       {children}
     </div>
   )
@@ -60,7 +69,7 @@ const AvatarMoreLabel = React.forwardRef<AvatarElement, AvatarMoreLabelProps>(
         ref={ref}
         asChild={React.isValidElement(children)}
         className={cn(
-          "ring-background bg-wg-gray-200 dark:bg-wg-dark-2 aspect-auto h-full px-2 text-white ring-4",
+          "ring-background bg-surface-3 aspect-auto h-full px-2 text-white ring-2",
           className
         )}
         size={size}
@@ -80,7 +89,8 @@ const AvatarGroupItem = React.forwardRef<
   return (
     <Avatar
       ref={ref}
-      className={cn("ring-background ring-4", !initials && "dark:bg-black", className)}
+      //   className={cn("ring-background ring-2", !initials && "bg-surface-2", className)}
+      className={cn("ring-background ring-2", className)}
       initials={initials}
       {...otherProps}
     >
@@ -93,7 +103,11 @@ const AvatarGroupWedges = React.forwardRef<HTMLDivElement, AvatarGroupProps>((pr
   const { items, className, size, previousOnTop, moreLabel, ...otherProps } = props;
 
   return (
-    <AvatarGroupRoot ref={ref} className={className} {...otherProps}>
+    <AvatarGroupRoot
+      ref={ref}
+      className={cn(avatarGroupVariants({ size }), className)}
+      {...otherProps}
+    >
       <>
         {items.map((item, i) => {
           const {

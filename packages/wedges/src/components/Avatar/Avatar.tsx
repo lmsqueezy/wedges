@@ -1,13 +1,13 @@
+import { UserIcon } from "@iconicicons/react";
 import * as Primitive from "@radix-ui/react-avatar";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { cn, getElementFromHash, getInitials, stringToHash } from "../../helpers/utils";
-import { UserIcon } from "../icons";
 import LemonSqueezyIcon from "../icons/LemonSqueezy";
 
 /* -------------------------------- Variants -------------------------------- */
-const defaultAvatarSize = "h-10 min-w-10 text-wg-base [--wg-notification-size:10px]";
+const defaultAvatarSize = "h-10 min-w-10 text-base [--wg-notification-size:10px]";
 const rootClasses = cn("relative flex aspect-square shrink-0 items-center", defaultAvatarSize);
 
 const statusClasses =
@@ -19,12 +19,12 @@ const notificationClasses =
 const avatarVariants = cva(rootClasses, {
   variants: {
     size: {
-      xs: "h-6 min-w-6 text-wg-xs [--wg-notification-size:6px]",
-      sm: "h-8 min-w-8 text-wg-sm [--wg-notification-size:8px]",
-      md: "h-10 min-w-10 text-wg-base [--wg-notification-size:10px]",
-      lg: "h-12 min-w-12 text-wg-lg [--wg-notification-size:12px]",
-      xl: "h-14 min-w-14 text-wg-xl [--wg-notification-size:14px]",
-      "2xl": "h-16 min-w-16 text-wg-2xl [--wg-notification-size:16px]",
+      xs: "h-6 min-w-6 text-xs [--wg-notification-size:6px]",
+      sm: "h-8 min-w-8 text-sm [--wg-notification-size:8px]",
+      md: "h-10 min-w-10 text-base [--wg-notification-size:10px]",
+      lg: "h-12 min-w-12 text-lg [--wg-notification-size:12px]",
+      xl: "h-14 min-w-14 text-xl [--wg-notification-size:14px]",
+      "2xl": "h-16 min-w-16 text-2xl [--wg-notification-size:16px]",
       default: defaultAvatarSize,
     },
   },
@@ -53,7 +53,7 @@ const fallbackVariants = cva("", {
 const statusVariants = cva(statusClasses, {
   variants: {
     status: {
-      accent: "bg-wg-accent",
+      primary: "bg-primary",
       gray: "bg-wg-gray",
       green: "bg-wg-green",
       yellow: "bg-wg-yellow",
@@ -72,7 +72,7 @@ const notificationVariants = cva(notificationClasses, {
      * Represents the color of the notification dot.
      */
     notification: {
-      accent: "bg-wg-accent",
+      primary: "bg-primary",
       gray: "bg-wg-gray",
       green: "bg-wg-green",
       yellow: "bg-wg-yellow",
@@ -149,7 +149,7 @@ const AvatarFallback = React.forwardRef<
   <Primitive.Fallback
     ref={ref}
     className={cn(
-      "bg-wg-gray-100 dark:bg-wg-white-100 flex aspect-square grow items-center justify-center rounded-full",
+      "bg-surface-2 flex aspect-square grow items-center justify-center rounded-full",
       className
     )}
     {...props}

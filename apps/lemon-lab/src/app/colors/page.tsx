@@ -22,7 +22,17 @@ export default function ExamplePage() {
 
             <ColorItem className="bg-surface text-surface-foreground border-surface-borders flex flex-col border">
               <div>Surface</div>
-              <div className="text-surface-foreground-muted">Muted</div>
+              <div className="text-surface-3-foreground-muted">Muted</div>
+            </ColorItem>
+
+            <ColorItem className="bg-surface-2 text-surface-2-foreground border-surface-2-borders flex flex-col border">
+              <div>Surface 2</div>
+              <div className="text-surface-3-foreground-muted">Muted</div>
+            </ColorItem>
+
+            <ColorItem className="bg-surface-3 text-surface-3-foreground border-surface-3-borders flex flex-col border">
+              <div>Surface 3</div>
+              <div className="text-surface-3-foreground-muted">Muted</div>
             </ColorItem>
           </div>
         </section>
