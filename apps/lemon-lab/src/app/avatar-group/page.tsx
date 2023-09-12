@@ -12,43 +12,44 @@ export default function AvatarGroupPage() {
           <h2 className="mb-8 text-xl">Simple</h2>
 
           <section>
-            <h3 className="mb-8 text-sm">Previous on Top</h3>
+            <h3 className="mb-8 text-sm">Previous on Top, Initials as fallback</h3>
 
             <AvatarGroup
               previousOnTop={true}
-              size="xl"
+              size="md"
               moreLabel="+3"
               items={[
                 {
                   src: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60",
                   alt: "A picture of a person",
+                  initials: "w",
                 },
                 {
-                  src: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60",
                   alt: "A picture of a person",
+                  initials: "e",
                 },
                 {
                   src: "https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60",
                   alt: "A picture of a person",
+                  initials: "d",
                 },
                 {
                   src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80",
                   alt: "A picture of a person",
+                  initials: "g",
                 },
                 {
                   src: "https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80",
                   alt: "A picture of a person",
+                  initials: "e",
                 },
                 {
                   src: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&q=80",
                   alt: "A picture of a person",
-                },
-                {
-                  src: "https://images.unsplash.com/photo-1549068106-b024baf5062d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAyfHxwZXJzb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=250&q=60",
-                  alt: "A picture of a person",
+                  initials: "s",
                 },
               ]}
-            />
+            ></AvatarGroup>
           </section>
 
           <section className="mt-24">
@@ -99,8 +100,8 @@ export default function AvatarGroupPage() {
             <AvatarGroup.Item src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60" />
 
             <AvatarGroup.Label
-              className="bg-primary text-primary-foreground z-40 px-3 text-sm font-medium"
-              label="30,000 followers"
+              className="bg-primary text-primary-foreground z-40 px-3 text-sm"
+              label="3k followers"
             />
 
             <AvatarGroup.Item

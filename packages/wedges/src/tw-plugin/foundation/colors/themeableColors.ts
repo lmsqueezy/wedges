@@ -32,6 +32,8 @@ export type ThemeableColors = {
   foreground: ColorScale;
   background: ColorScale;
   surface: ColorScale;
+  "surface-2": ColorScale;
+  "surface-3": ColorScale;
 };
 
 /* -------------------------------------------------------------------------- */
@@ -59,9 +61,21 @@ export const themeableColorsLight: ThemeableColors = {
   },
   surface: {
     DEFAULT: palette["gray"][50],
+    borders: palette["gray"][100],
+    foreground: palette["gray"][700],
+    "foreground-muted": palette["gray"][400],
+  },
+  "surface-2": {
+    DEFAULT: palette["gray"][100],
     borders: palette["gray"][200],
     foreground: palette["gray"][700],
     "foreground-muted": palette["gray"][400],
+  },
+  "surface-3": {
+    DEFAULT: palette["gray"][200],
+    borders: palette["gray"][300],
+    foreground: palette["gray"][800],
+    "foreground-muted": palette["gray"][500],
   },
 };
 
@@ -88,6 +102,18 @@ export const themeableColorsDark: ThemeableColors = {
   },
   surface: {
     DEFAULT: "rgba(255,255,255, 0.1)",
+    borders: "rgba(255,255,255, 0.1)",
+    foreground: "rgba(255,255,255, 0.8)",
+    "foreground-muted": "rgba(255,255,255, 0.5)",
+  },
+  "surface-2": {
+    DEFAULT: "#1A1A1A",
+    borders: "rgba(255,255,255, 0.1)",
+    foreground: "rgba(255,255,255, 0.8)",
+    "foreground-muted": "rgba(255,255,255, 0.5)",
+  },
+  "surface-3": {
+    DEFAULT: "#292929",
     borders: "rgba(255,255,255, 0.1)",
     foreground: "rgba(255,255,255, 0.8)",
     "foreground-muted": "rgba(255,255,255, 0.5)",

@@ -11,7 +11,7 @@ import omit from "lodash.omit";
 import plugin from "tailwindcss/plugin.js";
 
 import { boxShadows, fontSizes, minWidth, themeableColors, wedgesPalette } from "./foundation";
-import { addPrefix, flattenThemeObject, isBaseTheme } from "./utils";
+import { addPrefix, flattenThemeObject, getColorString, isBaseTheme } from "./utils";
 import { ConfigTheme, ConfigThemes, DefaultThemeType, WedgesOptions } from "./utils/types";
 
 const DEFAULT_PREFIX = "wg";
@@ -92,22 +92,8 @@ const resolveConfig = (
         }
 
         // Set the dynamic color in tailwind config theme.colors
-        resolved.colors[colorName] = ({ opacityVariable, opacityValue }) => {
-          // if the opacity is set  with a slash (e.g. bg-primary/90), use the provided value
-          if (!isNaN(+opacityValue)) {
-            return `hsl(var(${wedgesColorVar}) / ${opacityValue})`;
-          }
-
-          // if no opacityValue was provided (it is not parsable to a number)
-          // the cssOpacityVar (opacity defined in the color definition rgb(0, 0, 0, 0.5)) should have the priority
-          // over the tw class based opacity(e.g. "bg-opacity-90")
-          // This is how tailwind behaves as for v3.2.4
-          if (opacityVariable) {
-            return `hsl(var(${wedgesColorVar}) / var(${wedgesOpacityVar}, var(${opacityVariable})))`;
-          }
-
-          return `hsl(var(${wedgesColorVar}) / var(${wedgesOpacityVar}, 1))`;
-        };
+        resolved.colors[colorName] = ({ opacityVariable, opacityValue }) =>
+          getColorString(wedgesColorVar, wedgesOpacityVar, opacityValue, opacityVariable);
       } catch (error: any) {
         // eslint-disable-next-line no-console
         console.warn("wedges-tw-plugin-error", error?.message);
@@ -129,13 +115,11 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
   const prefixedBoxShadow = addPrefix(boxShadows, "wg");
 
   return plugin(
-    ({ addBase, addUtilities, addVariant }) => {
+    ({ addBase, addUtilities, addVariant, matchUtilities, theme }) => {
       addBase({
         ":root, [data-theme]": {
           color: `hsl(var(--${prefix}-foreground))`,
           backgroundColor: `hsl(var(--${prefix}-background))`,
-          "-webkit-font-smoothing": "antialiased",
-          "-moz-osx-font-smoothing": "grayscale",
         },
       });
 
@@ -145,6 +129,29 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
 
       // e.g. "[theme-name]:text-2xl"
       resolved.variants.forEach(({ name, definition }) => addVariant(name, definition));
+
+      matchUtilities(
+        {
+          "wg-bg": (value) => {
+            const [h, s, l, defaultAlphaValue] = Color(value).hsl().round().array();
+
+            const colorString = getColorString(
+              `--${prefix}-background`,
+              `--${prefix}-background-opacity`,
+              defaultAlphaValue
+            );
+
+            return {
+              background: colorString,
+              [`--${prefix}-background`]: `${h} ${s}% ${l}%`,
+            };
+          },
+        },
+        {
+          values: flattenThemeObject(theme("colors")),
+          type: ["color"],
+        }
+      );
     },
 
     // Extend the Tailwind config
