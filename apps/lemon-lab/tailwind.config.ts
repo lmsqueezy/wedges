@@ -16,17 +16,7 @@ const config: Config = {
     },
   },
   darkMode: "class",
-  plugins: [
-    wedgesTW({
-      themes: {
-        dark: {
-          colors: {
-            primary: "#FF6838",
-          },
-        },
-      },
-    }),
-  ],
+  plugins: [wedgesTW()],
 };
 
 export default config;

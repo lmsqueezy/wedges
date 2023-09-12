@@ -8,8 +8,12 @@ import { red } from "./red";
 import { yellow } from "./yellow";
 
 export const palette = {
-  white: "#FFFFFF",
-  black: "#000000",
+  white: {
+    DEFAULT: "#FFFFFF",
+  },
+  black: {
+    DEFAULT: "#000000",
+  },
   blue: blue,
   gray: gray,
   green: green,
