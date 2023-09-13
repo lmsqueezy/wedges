@@ -1,19 +1,48 @@
-import { CloseIcon } from "@iconicicons/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { cn } from "../../helpers/utils";
-import { Avatar } from "../Avatar";
 
 /* -------------------------------- Variants -------------------------------- */
-const badgeVariants = cva("py-1 px-2 rounded-lg text-sm flex items-center", {
+const defaultDarkClasses = "dark:bg-surface dark:border-surface-borders";
+
+const badgeVariants = cva("py-1 px-2 rounded-lg text-sm flex items-center w-fit", {
   variants: {
     color: {
-      default: [
-        "wg-background-wg-surface dark:wg-background-slate-800 text-wg-foreground border-wg-surface-border",
+      default: ["bg-surface text-surface-foreground border-surface-2-borders"],
+      green: [
+        "bg-wg-green-50 border-wg-green-200 text-wg-green-800 dark:text-wg-green",
+        defaultDarkClasses,
       ],
-      red: "bg-wg-red-50 text-wg-red",
-      accent: "bg-wg-accent/5 text-wg-accent",
+      purple: [
+        "bg-wg-purple-50 border-wg-purple-200 text-wg-purple-700 dark:text-wg-purple-400",
+        defaultDarkClasses,
+      ],
+      orange: [
+        "bg-wg-orange-50 border-wg-orange-200 text-wg-orange-800 dark:text-wg-orange",
+        defaultDarkClasses,
+      ],
+      red: ["bg-wg-red-50 border-wg-red-200 text-wg-red-700 dark:text-wg-red", defaultDarkClasses],
+      pink: [
+        "bg-wg-pink-50 border-wg-pink-200 text-wg-pink-700 dark:text-wg-pink",
+        defaultDarkClasses,
+      ],
+      blue: [
+        "bg-wg-blue-50 border-wg-blue-200 text-wg-blue-700 dark:text-wg-blue",
+        defaultDarkClasses,
+      ],
+      yellow: [
+        "bg-wg-yellow-50 border-wg-yellow-300 text-wg-yellow-800 dark:text-wg-yellow",
+        defaultDarkClasses,
+      ],
+      primary: [
+        "bg-primary-50 border-primary-200 text-primary-700 dark:text-primary-400",
+        defaultDarkClasses,
+      ],
+      secondary: [
+        "bg-secondary-50 border-secondary-200 text-secondary-700 dark:text-secondary-400",
+        defaultDarkClasses,
+      ],
     },
     variant: {
       rounded: "rounded-lg",
@@ -29,78 +58,40 @@ const badgeVariants = cva("py-1 px-2 rounded-lg text-sm flex items-center", {
     color: "default",
     variant: "default",
   },
-  compoundVariants: [
-    { stroke: true, color: "red", class: "border-wg-red" },
-    { stroke: true, color: "accent", class: "border-wg-accent" },
-  ],
 });
 
 /* ---------------------------------- Types --------------------------------- */
-
 type BaseBadgeProps = {
-  /**
-   * The src of the avatar image to be rendered before the label.
-   */
-  avatar?: string;
-
-  /**
-   * The label to be rendered inside the badge.
-   */
-  label?: string;
-
   /**
    * Whether the badge has border or not.
    */
   stroke?: boolean;
 
   /**
-   * The slot to be rendered before the avatar.
+   * The slot to be rendered before the label.
    */
-  leftSlot?: React.ReactNode;
-};
-
-type ClosableBadgeProps = {
-  /**
-   * Whether the badge is closable or not.
-   */
-  closable: true;
+  before?: React.ReactNode;
 
   /**
-   * Callback fired when the component requests to be closed.
+   * The slot to be rendered after the label.
    */
-  onClose: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-};
-
-type UnclosableBadgeProps = {
-  /**
-   * Whether the badge is closable or not.
-   */
-  closable?: false;
-
-  /**
-   * Callback fired when the component requests to be closed.
-   */
-  onClose?: never;
+  after?: React.ReactNode;
 };
 
 type BadgeProps = React.HTMLAttributes<HTMLSpanElement> &
   VariantProps<typeof badgeVariants> &
-  BaseBadgeProps &
-  (ClosableBadgeProps | UnclosableBadgeProps);
+  BaseBadgeProps;
 
 /* ------------------------------- Components ------------------------------- */
-const BadgeWedges = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
+const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   const {
-    avatar,
     children,
     className,
-    closable,
-    color,
-    label,
-    leftSlot,
-    stroke,
-    variant,
-    onClose,
+    color = "default",
+    before,
+    after,
+    stroke = false,
+    variant = "default",
     ...otherProps
   } = props;
 
@@ -110,26 +101,13 @@ const BadgeWedges = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) =
       className={cn(badgeVariants({ color, variant, stroke }), className)}
       {...otherProps}
     >
-      {leftSlot}
-
-      {avatar && (
-        <Avatar.Root className="min-w-5 h-5">
-          <Avatar.Image alt="avatar" src={avatar} />
-          <Avatar.Fallback className="bg-wg-gray-900/10 dark:bg-wg-white-100" />
-        </Avatar.Root>
-      )}
-
-      <span className="px-1">{children || label}</span>
-
-      {closable && (
-        <button className="focus-visible:outline-wg-accent" onClick={onClose}>
-          <CloseIcon className="text-wg-gray-400" height={16} width={16} />
-        </button>
-      )}
+      {before && (React.isValidElement(before) ? before : <span>{before}</span>)}
+      {children && <span className="px-1">{children}</span>}
+      {after && (React.isValidElement(after) ? after : <span>{after}</span>)}
     </span>
   );
 });
 
-BadgeWedges.displayName = "Badge";
+Badge.displayName = "Badge";
 
-export default BadgeWedges;
+export default Badge;

@@ -1,7 +1,11 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
+  collectCoverageFrom: [
+    "packages/**/*.tsx",
+    "!packages/**/icons/**/*", // Exclude files in the 'icons' folder
+  ],
   preset: "ts-jest",
   testEnvironment: "jsdom",
-  collectCoverageFrom: ["packages/**/*.tsx"],
   testMatch: ["**/?(*.)+(test).+(ts|tsx|js)"],
+  verbose: true,
 };
