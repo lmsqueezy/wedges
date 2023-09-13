@@ -40,6 +40,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Avatar Group
                 </Link>
 
+                <Link className="hover:text-foreground" href="/badge">
+                  Badge
+                </Link>
+
                 <Link className="hover:text-foreground" href="/colors">
                   Colors
                 </Link>
@@ -50,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <ThemeToggle />
             </header>
 
-            <div className="mx-auto flex w-full max-w-screen-md grow flex-col px-10 pb-20 pt-24">
+            <div className="mx-auto flex w-full max-w-screen-lg grow flex-col px-10 pb-20 pt-24">
               {children}
             </div>
           </div>

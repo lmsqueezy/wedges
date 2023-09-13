@@ -10,6 +10,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
   },
   "dependencies": {
+    "@iconicicons/react": "^1.5.1",
     "@lmsqueezy/wedges": "workspace:*",
     "@types/node": "^20.4.9",
     "@types/react": "^18.2.19",
