@@ -7,13 +7,14 @@ const DELAY = 80;
 const FALLBACK_TEXT = "JD";
 const IMAGE_ALT_TEXT = "Alt text example";
 const IMG_SRC = "test.jpg";
+const TEST_ID = "wg-avatar";
 
 describe("Avatar", () => {
   it("should forward ref", () => {
     const ref = React.createRef<HTMLSpanElement>();
-    const { getByTestId } = render(<Avatar ref={ref} data-testid="wg-avatar" />);
+    const { getByTestId } = render(<Avatar ref={ref} data-testid={TEST_ID} />);
 
-    expect(getByTestId("wg-avatar")).toBe(ref.current);
+    expect(getByTestId(TEST_ID)).toBe(ref.current);
   });
 });
 
