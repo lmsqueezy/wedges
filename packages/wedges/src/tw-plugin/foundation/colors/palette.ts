@@ -32,7 +32,7 @@ export const palette = {
   purple: purple,
   red: red,
   yellow: yellow,
-};
+} as const;
 
 export type WedgesPalette = typeof palette;
 export type WedgesPaletteKeys = keyof WedgesPalette;
