@@ -11,10 +11,10 @@ const defaultAvatarSize = "h-10 min-w-10 text-base [--wg-notification-size:10px]
 const rootClasses = cn("relative flex aspect-square shrink-0 items-center", defaultAvatarSize);
 
 const statusClasses =
-  "absolute right-0 bottom-0 aspect-square bg-wg-gray-300 h-[var(--wg-notification-size,10px)] rounded-full ring-2 ring-background";
+  "absolute right-0 bottom-0 aspect-square bg-wg-gray-300 h-[var(--wg-notification-size,10px)] rounded-full ring-background";
 
 const notificationClasses =
-  "absolute right-0 top-0 aspect-square h-[var(--wg-notification-size,10px)] rounded-full ring-2 ring-background";
+  "absolute right-0 top-0 aspect-square h-[var(--wg-notification-size,10px)] rounded-full ring-background";
 
 const avatarVariants = cva(rootClasses, {
   variants: {
@@ -129,18 +129,39 @@ const AvatarImage = React.forwardRef<
   />
 ));
 
-const AvatarStatus = React.forwardRef<HTMLSpanElement, React.ComponentPropsWithoutRef<"span">>(
-  ({ className, ...props }, ref) => (
-    <span ref={ref} className={cn(statusClasses, "bg-wg-gray-500", className)} {...props} />
-  )
-);
+const AvatarStatus = React.forwardRef<
+  HTMLSpanElement,
+  React.ComponentPropsWithoutRef<"span"> & {
+    ring?: 1 | 2;
+  }
+>(({ className, ring, ...props }, ref) => {
+  const ringSize = ring === 1 ? "ring-1" : "ring-2";
+
+  return (
+    <span
+      ref={ref}
+      className={cn(statusClasses, "bg-wg-gray-500", ringSize, className)}
+      {...props}
+    />
+  );
+});
 
 const AvatarNotification = React.forwardRef<
   HTMLSpanElement,
-  React.ComponentPropsWithoutRef<"span">
->(({ className, ...props }, ref) => (
-  <span ref={ref} className={cn(notificationClasses, "bg-wg-gray", className)} {...props} />
-));
+  React.ComponentPropsWithoutRef<"span"> & {
+    ring?: 1 | 2;
+  }
+>(({ className, ring, ...props }, ref) => {
+  const ringSize = ring === 1 ? "ring-1" : "ring-2";
+
+  return (
+    <span
+      ref={ref}
+      className={cn(notificationClasses, "bg-wg-gray", ringSize, className)}
+      {...props}
+    />
+  );
+});
 
 const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof Primitive.Fallback>,
@@ -166,6 +187,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     size = "default",
     src,
     status,
+    style,
     ...otherProps
   } = props;
 
@@ -196,6 +218,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
           alt={alt}
           className={className}
           src={src}
+          style={style}
           {...otherProps}
         />
       )}
@@ -207,6 +230,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
           aria-label={alt}
           asChild={React.isValidElement(children)}
           className={cn(className)}
+          style={style}
         >
           {children}
         </AvatarFallback>
@@ -215,7 +239,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
       {/* Show Lemon Squeezy icon until image is loaded, 
           only if children fallback is not set */}
       {!children && src && !initials && (
-        <AvatarFallback aria-label={alt} className={cn(className)}>
+        <AvatarFallback aria-label={alt} className={cn(className)} style={style}>
           <LemonSqueezyIcon
             aria-hidden="true"
             className={cn(
@@ -236,6 +260,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
             bgColor,
             className
           )}
+          style={style}
           {...otherProps}
         >
           {getInitials(initials)}
@@ -249,6 +274,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
           aria-label={alt}
           className={cn(className)}
           role="img"
+          style={style}
           {...otherProps}
         >
           <UserIcon
@@ -258,8 +284,15 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
       )}
 
       {/* Status and Notification */}
-      {status && <AvatarStatus className={statusVariants({ status })} />}
-      {notification && <AvatarNotification className={notificationVariants({ notification })} />}
+      {status && (
+        <AvatarStatus className={statusVariants({ status })} ring={size === "xs" ? 1 : 2} />
+      )}
+      {notification && (
+        <AvatarNotification
+          className={notificationVariants({ notification })}
+          ring={size === "xs" ? 1 : 2}
+        />
+      )}
     </AvatarRoot>
   );
 });
