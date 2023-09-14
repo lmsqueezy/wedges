@@ -132,19 +132,40 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
 
       matchUtilities(
         {
-          "wg-bg": (value) => {
-            const [h, s, l, defaultAlphaValue] = Color(value).hsl().round().array();
+          "wg-bg": (value: string | any) => {
+            if (typeof value === "function") {
+              const res = value({ opacityValue: "1", opacityVariable: "1" });
+              const match = res.match(/var\(([^)]+)\)/);
 
-            const colorString = getColorString(
-              `--${prefix}-background`,
-              `--${prefix}-background-opacity`,
-              defaultAlphaValue
-            );
+              if (match) {
+                return {
+                  background: value("", ""),
+                  [`--${prefix}-background`]: `var(${match[1]})`,
+                };
+              }
+            }
 
-            return {
-              background: colorString,
-              [`--${prefix}-background`]: `${h} ${s}% ${l}%`,
-            };
+            try {
+              const [h, s, l, defaultAlphaValue] = Color(value).hsl().round().array();
+
+              const colorString = getColorString(
+                `--${prefix}-background`,
+                `--${prefix}-background-opacity`,
+                defaultAlphaValue
+              );
+
+              return {
+                background: colorString,
+                [`--${prefix}-background`]: `${h} ${s}% ${l}%`,
+              };
+            } catch (error: any) {
+              const match = value.match(/var\(([^)]+)\)/);
+
+              return {
+                background: value,
+                [`--${prefix}-background`]: match ? `var(${match[1]})` : value,
+              };
+            }
           },
         },
         {
