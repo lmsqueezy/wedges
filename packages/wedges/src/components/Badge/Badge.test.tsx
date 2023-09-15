@@ -17,7 +17,7 @@ describe("Given a Badge with color and variant", () => {
     const rendered = render(<Badge color="green" data-testid="wg-badge" variant="pill" />);
     const root = rendered.getByTestId("wg-badge");
 
-    expect(root.classList.contains("bg-wg-green-50")).toBe(true);
+    expect(root.classList.contains("wg-bg-wg-green-50")).toBe(true);
     expect(root.classList.contains("rounded-full")).toBe(true);
   });
 });
@@ -27,7 +27,7 @@ describe("Given a Badge with stroke", () => {
     const rendered = render(<Badge color="red" data-testid="wg-badge" stroke={true} />);
     const root = rendered.getByTestId("wg-badge");
 
-    expect(root.classList.contains("border")).toBe(true);
+    expect(root.classList.contains("outline")).toBe(true);
   });
 });
 
@@ -43,7 +43,7 @@ describe("Given a Badge with custom class", () => {
 describe("Given a Badge with 'before', 'children', and 'after' props", () => {
   it("should render correctly", () => {
     const rendered = render(
-      <Badge after="After" before="Before">
+      <Badge after={<div>After</div>} before={<div>Before</div>}>
         Children
       </Badge>
     );
@@ -56,7 +56,7 @@ describe("Given a Badge with 'before', 'children', and 'after' props", () => {
 
 describe("Given a Badge with only a 'before' prop", () => {
   it("should render the 'before' content and not render 'children' or 'after' content", () => {
-    const rendered = render(<Badge before="Before" data-testid="wg-badge" />);
+    const rendered = render(<Badge before={<div>Before</div>} data-testid="wg-badge" />);
     const root = rendered.getByTestId("wg-badge");
 
     expect(root.children.length).toBe(1);
@@ -66,7 +66,7 @@ describe("Given a Badge with only a 'before' prop", () => {
 
 describe("Given a Badge with only an 'after' prop", () => {
   it("should render the 'after' content and not render 'children' or 'before' content", () => {
-    const rendered = render(<Badge after="After" data-testid="wg-badge" />);
+    const rendered = render(<Badge after={<div>After</div>} data-testid="wg-badge" />);
     const root = rendered.getByTestId("wg-badge");
 
     expect(root.children.length).toBe(1);
@@ -94,7 +94,7 @@ describe("Given a Badge with 'before' and 'after' props as React nodes", () => {
 describe("Given a Badge with undefined 'before' and 'after' props", () => {
   it("should render the 'children' content without 'before' and 'after' content", () => {
     const rendered = render(
-      <Badge before={null} data-testid="wg-badge">
+      <Badge after={undefined} before={undefined} data-testid="wg-badge">
         Children
       </Badge>
     );

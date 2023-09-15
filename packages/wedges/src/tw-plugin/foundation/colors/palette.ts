@@ -36,3 +36,6 @@ export const palette = {
 
 export type WedgesPalette = typeof palette;
 export type WedgesPaletteKeys = keyof WedgesPalette;
+export type PrefixedPaletteKeys = {
+  [K in keyof WedgesPalette as `wg-${string & K}`]: WedgesPalette[K];
+};

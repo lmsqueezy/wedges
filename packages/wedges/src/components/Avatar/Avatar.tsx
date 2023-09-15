@@ -19,6 +19,7 @@ const notificationClasses =
 const avatarVariants = cva(rootClasses, {
   variants: {
     size: {
+      xxs: "h-4 min-w-4 text-xxs [--wg-notification-size:4px]",
       xs: "h-6 min-w-6 text-xs [--wg-notification-size:6px]",
       sm: "h-8 min-w-8 text-sm [--wg-notification-size:8px]",
       md: "h-10 min-w-10 text-base [--wg-notification-size:10px]",
@@ -36,6 +37,7 @@ const avatarVariants = cva(rootClasses, {
 const fallbackVariants = cva("", {
   variants: {
     size: {
+      xxs: "w-3 h-3",
       xs: "w-4 h-4",
       sm: "w-5 h-5",
       md: "w-6 h-6",
@@ -138,11 +140,7 @@ const AvatarStatus = React.forwardRef<
   const ringSize = ring === 1 ? "ring-1" : "ring-2";
 
   return (
-    <span
-      ref={ref}
-      className={cn(statusClasses, "bg-wg-gray-500", ringSize, className)}
-      {...props}
-    />
+    <span ref={ref} className={cn(statusClasses, "bg-wg-gray", ringSize, className)} {...props} />
   );
 });
 
@@ -201,6 +199,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     "bg-wg-yellow",
     "bg-wg-red",
   ];
+
   const identifier = (src || alt || initials || "default") + size;
   const bgColor = getElementFromHash(stringToHash(identifier + size), randomColors);
 
@@ -244,7 +243,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
             aria-hidden="true"
             className={cn(
               fallbackVariants({ size }),
-              "dark:fill-wg-white-300 fill-wg-gray-300 -mr-[4.5%] w-auto stroke-none"
+              "fill-surface-foreground-muted -mr-[4.5%] w-auto stroke-none brightness-125 dark:brightness-75"
             )}
           />
         </AvatarFallback>
@@ -277,9 +276,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
           style={style}
           {...otherProps}
         >
-          <UserIcon
-            className={cn("text-wg-gray-400 dark:text-wg-white-500", fallbackVariants({ size }))}
-          />
+          <UserIcon className={cn("text-surface-foreground-muted", fallbackVariants({ size }))} />
         </AvatarFallback>
       )}
 

@@ -186,6 +186,9 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
           minWidth: {
             ...minWidth,
           },
+          minHeight: {
+            ...minWidth,
+          },
           fontSize: {
             ...fontSizes,
           },

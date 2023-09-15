@@ -52,6 +52,7 @@ export const themeableColorsLight: ThemeableColors = {
     foreground: readableColor(palette["purple"].DEFAULT),
   },
   secondary: {
+    ...palette["gray"],
     DEFAULT: palette["gray"][900],
     foreground: readableColor(palette["gray"]["900"]),
   },

@@ -67,6 +67,7 @@ export const stringToHash = (str: string) => {
  * Returns a string from array based on a given hash number.
  *
  * @param hash - The hash number to generate a color for.
+ * @param strings - The array of strings to choose from.
  * @returns The color string generated from the hash.
  */
 export const getElementFromHash = (hash: number, strings: string[]) => {

@@ -10,6 +10,12 @@ type FontSizeValue = [
 export type FontSizes = Record<string, FontSizeValue>;
 
 export const fontSizes = {
+  xxs: [
+    "0.625rem",
+    {
+      lineHeight: "1rem",
+    },
+  ],
   xs: [
     "0.75rem",
     {
