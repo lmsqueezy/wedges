@@ -163,7 +163,7 @@ export default function TagPage() {
                 color="blue"
                 onClose={() => alert("close")}
               >
-                United Kingdom
+                UK
               </Tag>
 
               <Tag onClose={() => {}} color="orange">
