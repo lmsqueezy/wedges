@@ -1,9 +1,9 @@
-import { CloseIcon } from "@iconicicons/react";
 import * as React from "react";
 
 import { cn } from "../../helpers/utils";
 import { Avatar, AvatarProps } from "../Avatar";
 import { Badge, BadgeElement } from "../Badge";
+import { CloseIcon } from "../icons";
 
 /* ---------------------------------- Types --------------------------------- */
 export type TagProps = Omit<React.ComponentPropsWithoutRef<typeof Badge>, "before"> & {
@@ -42,7 +42,7 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
           className: cn("h-4 min-w-4 w-auto text-inherit", deleteIcon.props.className || ""),
         })
       ) : (
-        <CloseIcon className="h-4 w-4 text-inherit" />
+        <CloseIcon className="h-4 w-4 text-inherit" clipRule="evenodd" fillRule="evenodd" />
       )}
     </>
   );
