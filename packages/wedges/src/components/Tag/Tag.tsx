@@ -30,7 +30,6 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
           size: "xxs",
           status: null,
           notification: null,
-          children: <span className="bg-surface-3" />,
         } as Partial<AvatarProps>)}
     </>
   );
@@ -39,7 +38,7 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
     <>
       {React.isValidElement(deleteIcon) ? (
         React.cloneElement(deleteIcon, {
-          className: cn("h-4 min-w-4 w-auto text-inherit", deleteIcon.props.className || ""),
+          className: cn("h-fit min-w-4 w-auto text-inherit", deleteIcon.props.className || ""),
         })
       ) : (
         <CloseIcon className="h-4 w-4 text-inherit" />

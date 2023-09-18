@@ -18,9 +18,9 @@ export default function TagPage() {
             <div className="flex flex-wrap items-start gap-2">
               <Tag
                 onClose={() => alert("close")}
-                avatar={<Avatar src="https://github.com/ormanclark.png" />}
+                avatar={<Avatar src="https://github.com/lmsqueezy.png" />}
               >
-                @ormanclark
+                @lmsqueezy
               </Tag>
 
               <Tag color="green" onClose={() => alert("close")} before={<ClockIcon />}>
