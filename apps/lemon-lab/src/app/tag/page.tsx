@@ -175,11 +175,23 @@ export default function TagPage() {
               </Tag>
 
               <Tag
+                stroke={true}
                 onClose={() => alert("close")}
                 color="orange"
-                deleteIcon={<CheckIcon className="text-wg-orange" />}
+                deleteIcon={<CheckIcon />}
               >
                 MOTION
+              </Tag>
+
+              <Tag
+                before={
+                  <svg width="16" height="16" viewBox="0 0 16 16">
+                    <ellipse cx="8" cy="8" rx="2" ry="2" fill="currentColor" />
+                  </svg>
+                }
+                color="red"
+              >
+                Offline
               </Tag>
             </div>
           </section>

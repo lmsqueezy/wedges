@@ -42,7 +42,7 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
           className: cn("h-4 min-w-4 w-auto text-inherit", deleteIcon.props.className || ""),
         })
       ) : (
-        <CloseIcon className="h-4 w-4 text-inherit" clipRule="evenodd" fillRule="evenodd" />
+        <CloseIcon className="h-4 w-4 text-inherit" />
       )}
     </>
   );
