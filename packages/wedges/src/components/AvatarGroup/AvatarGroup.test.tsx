@@ -40,7 +40,7 @@ describe("Given an AvatarGroup with 'items' prop", () => {
     const rendered = render(<AvatarGroup data-testid={TEST_ID} items={[{}]} size="2xl" />);
     const root = rendered.getByTestId(TEST_ID);
 
-    expect(root.querySelector("span")?.classList.contains("h-16")).toBe(true);
+    expect(root.querySelector("span")?.classList.contains("min-w-16")).toBe(true);
   });
 
   it("should apply the correct z-index on children items based on 'previousOnTop' prop", async () => {

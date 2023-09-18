@@ -196,7 +196,7 @@ describe("Given an Avatar with status and notification", () => {
 describe("Given an Avatar with size", () => {
   it("should apply correct size classes", () => {
     const { container } = render(<Avatar size="2xl" />);
-    const size = container.querySelector(".h-16");
+    const size = container.querySelector(".min-w-16");
 
     expect(size).not.toBeNull();
   });

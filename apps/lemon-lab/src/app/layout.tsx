@@ -44,6 +44,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Badge
                 </Link>
 
+                <Link className="hover:text-foreground" href="/tag">
+                  Tag
+                </Link>
+
                 <Link className="hover:text-foreground" href="/colors">
                   Colors
                 </Link>

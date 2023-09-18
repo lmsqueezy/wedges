@@ -23,14 +23,9 @@ export default function BadgePage() {
           <h2 className="mb-8 text-xl">Without Stroke</h2>
 
           <section>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-start gap-2">
               {colors.map((color) => (
-                <Badge
-                  after={<StarIcon width={16} height={16} />}
-                  before={<CloseIcon width={16} height={16} />}
-                  color={color}
-                  key={color}
-                >
+                <Badge after={<StarIcon />} before={<CloseIcon />} color={color} key={color}>
                   {color.charAt(0).toUpperCase() + color.slice(1)}
                 </Badge>
               ))}
@@ -38,11 +33,11 @@ export default function BadgePage() {
           </section>
 
           <section>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-start gap-2">
               {colors.map((color) => (
                 <Badge
-                  after={<StarIcon width={16} height={16} />}
-                  before={<CloseIcon width={16} height={16} />}
+                  after={<StarIcon />}
+                  before={<CloseIcon />}
                   color={color}
                   key={`pill-${color}`}
                   variant="pill"
@@ -58,11 +53,11 @@ export default function BadgePage() {
           <h2 className="mb-8 text-xl">With Stroke</h2>
 
           <section>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-start gap-2">
               {colors.map((color) => (
                 <Badge
-                  after={<StarIcon width={16} height={16} />}
-                  before={<CloseIcon width={16} height={16} />}
+                  after={<StarIcon />}
+                  before={<CloseIcon />}
                   color={color}
                   key={color}
                   stroke={true}
@@ -77,8 +72,8 @@ export default function BadgePage() {
             <div className="flex flex-wrap gap-2">
               {colors.map((color, i) => (
                 <Badge
-                  after={<StarIcon width={16} height={16} />}
-                  before={<CloseIcon width={16} height={16} />}
+                  after={<StarIcon />}
+                  before={<CloseIcon />}
                   color={color}
                   key={color}
                   stroke={true}
@@ -95,48 +90,38 @@ export default function BadgePage() {
           <h2 className="mb-8 text-xl">Playground</h2>
 
           <section>
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="pill" before={<CheckIcon width={16} height={16} />} color="green">
+            <div className="flex flex-wrap items-start gap-2">
+              <Badge variant="pill" before={<CheckIcon />} color="green">
                 Paid
               </Badge>
 
-              <Badge stroke={true} before={<CheckIcon width={16} height={16} />} color="green">
+              <Badge stroke={true} before={<CheckIcon />} color="green">
                 Active
               </Badge>
 
-              <Badge before={<CheckIcon width={16} height={16} />} color="green">
+              <Badge before={<CheckIcon />} color="green">
                 Subscribed
               </Badge>
 
-              <Badge
-                variant="pill"
-                stroke={true}
-                before={<CheckIcon width={16} height={16} />}
-                color="green"
-              >
+              <Badge variant="pill" stroke={true} before={<CheckIcon />} color="green">
                 200
               </Badge>
 
-              <Badge variant="pill" before={<CloseIcon width={16} height={16} />} color="red">
+              <Badge variant="pill" before={<CloseIcon />} color="red">
                 Rejected
               </Badge>
 
-              <Badge stroke={true} before={<CloseIcon width={16} height={16} />} color="red">
+              <Badge stroke={true} before={<CloseIcon />} color="red">
                 Chargeback
               </Badge>
 
-              <Badge
-                variant="pill"
-                stroke={true}
-                before={<CloseIcon width={16} height={16} />}
-                color="red"
-              >
+              <Badge variant="pill" stroke={true} before={<CloseIcon />} color="red">
                 Chargeback
               </Badge>
 
-              <Badge before={<CloseIcon width={16} height={16} />}>Void</Badge>
-              <Badge before={<CloseIcon width={16} height={16} />}>Expired</Badge>
-              <Badge before={<CloseIcon width={16} height={16} />}>Draft</Badge>
+              <Badge before={<CloseIcon />}>Void</Badge>
+              <Badge before={<CloseIcon />}>Expired</Badge>
+              <Badge before={<CloseIcon />}>Draft</Badge>
 
               <Badge
                 before={
@@ -146,11 +131,11 @@ export default function BadgePage() {
                 Online
               </Badge>
 
-              <Badge color="blue" variant="pill" before={<SpinnerIcon width={16} height={16} />}>
+              <Badge color="blue" variant="pill" before={<SpinnerIcon />}>
                 Processing
               </Badge>
 
-              <Badge color="blue" stroke={true} before={<FlagIcon width={16} height={16} />}>
+              <Badge color="blue" stroke={true} before={<FlagIcon />}>
                 Flagged
               </Badge>
 
@@ -162,20 +147,15 @@ export default function BadgePage() {
                 4
               </Badge>
 
-              <Badge before={<PinTackIcon width={16} height={16} />} color="yellow" stroke={true}>
+              <Badge before={<PinTackIcon />} color="yellow" stroke={true}>
                 Pinned
               </Badge>
 
-              <Badge before={<PlayIcon width={16} height={16} />} color="pink" variant="pill">
+              <Badge before={<PlayIcon />} color="pink" variant="pill">
                 1m 30s
               </Badge>
 
-              <Badge
-                before={<CloseIcon width={16} height={16} />}
-                color="pink"
-                stroke={true}
-                variant="pill"
-              />
+              <Badge before={<CloseIcon />} color="pink" stroke={true} variant="pill" />
             </div>
           </section>
         </section>
