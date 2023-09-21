@@ -28,9 +28,9 @@ export type ColorScale =
 export type ThemeableColors = {
   primary: ColorScale;
   secondary: ColorScale;
-  destructive: ColorScale;
-  foreground: ColorScale;
   background: ColorScale;
+  destructive: ColorScale;
+  foreground: ColorScale & { muted: string };
   surface: ColorScale;
   "surface-2": ColorScale;
   "surface-3": ColorScale;
@@ -46,6 +46,7 @@ export const themeableColorsLight: ThemeableColors = {
   },
   foreground: {
     DEFAULT: readableColor(palette["white"].DEFAULT),
+    muted: palette["gray"][200],
   },
   primary: {
     ...palette["purple"],
@@ -88,6 +89,7 @@ export const themeableColorsDark: ThemeableColors = {
   },
   foreground: {
     DEFAULT: readableColor(palette["black"].DEFAULT),
+    muted: palette["white"][300],
   },
   primary: {
     ...palette["purple"],

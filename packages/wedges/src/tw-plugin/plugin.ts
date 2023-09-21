@@ -125,11 +125,15 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
 
       addUtilities({
         ...resolved.utilities,
+        "direction-reverse": {
+          "animation-direction": "reverse",
+        },
       });
 
       // e.g. "[theme-name]:text-2xl"
       resolved.variants.forEach(({ name, definition }) => addVariant(name, definition));
 
+      // Add 'wg-bg' utility
       matchUtilities(
         {
           "wg-bg": (value: string | any) => {
@@ -194,6 +198,65 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
           },
           boxShadow: {
             ...prefixedBoxShadow,
+          },
+          animation: {
+            "fade-in-up": "fadeInUp 0.4s cubic-bezier(.2,1,.4,1) both",
+            "fade-in-down": "fadeInDown 0.4s cubic-bezier(.2,1,.4,1) both",
+            "fade-in-left": "fadeInLeft 0.4s cubic-bezier(.2,1,.4,1) both",
+            "fade-in-right": "fadeInRight 0.4s cubic-bezier(.2,1,.4,1) both",
+            "fade-out": "fadeOut 0.4s cubic-bezier(.2,1,.4,1) both",
+          },
+          keyframes: {
+            fadeInUp: {
+              "0%": {
+                opacity: "0",
+                transform: "translateY(4px) scale(.96)",
+              },
+              "100%": {
+                opacity: "1",
+                transform: "translateY(0px) scale(1)",
+              },
+            },
+            fadeInDown: {
+              "0%": {
+                opacity: "0",
+                transform: "translateY(-4px) scale(.96)",
+              },
+              "100%": {
+                opacity: "1",
+                transform: "translateY(0px) scale(1)",
+              },
+            },
+            fadeInLeft: {
+              "0%": {
+                opacity: "0",
+                transform: "translateX(6px) scale(.96)",
+              },
+              "100%": {
+                opacity: "1",
+                transform: "translateX(0px) scale(1)",
+              },
+            },
+            fadeInRight: {
+              "0%": {
+                opacity: "0",
+                transform: "translateX(-4px) scale(.96)",
+              },
+              "100%": {
+                opacity: "1",
+                transform: "translateX(0px) scale(1)",
+              },
+            },
+            fadeOut: {
+              "0%": {
+                opacity: "1",
+                transform: "scale(1)",
+              },
+              "100%": {
+                opacity: "0",
+                transform: "scale(.96)",
+              },
+            },
           },
         },
       },

@@ -1,11 +1,8 @@
+import ThemeToggle from "@/components/ThemeToggle";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
-import ThemeToggle from "@/components/ThemeToggle";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Lemon Lab",
@@ -15,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
-      <body className={`${inter.className} flex min-h-full`}>
+      <body className="flex min-h-full">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex grow flex-col">
             <header className="text-surface-foreground-muted mx-auto flex w-full max-w-screen-xl items-center gap-5 px-10 pt-10 text-sm">
@@ -46,6 +43,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                 <Link className="hover:text-foreground" href="/tag">
                   Tag
+                </Link>
+
+                <Link className="hover:text-foreground" href="/tooltip">
+                  Tooltip
                 </Link>
 
                 <Link className="hover:text-foreground" href="/colors">
