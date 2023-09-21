@@ -130,7 +130,11 @@ export default function TooltipPage() {
           onClick={() => setOpen((prev) => !prev)}
           onPointerDownOutside={(e) => {
             e.preventDefault();
-            open && setOpen(false);
+            const targetElement = e.target as HTMLElement;
+
+            if (!targetElement.closest("svg") && !(e.target instanceof SVGElement) && open) {
+              setOpen(false);
+            }
           }}
         />
       </section>
