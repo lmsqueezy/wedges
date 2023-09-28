@@ -8,6 +8,7 @@
 import Color from "color";
 import deepMerge from "deepmerge";
 import omit from "lodash.omit";
+import { extendTailwindMerge } from "tailwind-merge";
 import plugin from "tailwindcss/plugin.js";
 
 import { boxShadows, fontSizes, minWidth, themeableColors, wedgesPalette } from "./foundation";
@@ -57,7 +58,6 @@ const resolveConfig = (
     // Set varaints
     resolved.variants.push({
       name: themeName,
-      //   definition: [`&.${themeName}`, `&[data-theme='${themeName}']`],
       definition: [
         `.${themeName}&`,
         `:is(.${themeName} > &:not([data-theme]))`,
@@ -107,12 +107,16 @@ const resolveConfig = (
 /**
  * The core plugin function.
  */
-const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, prefix: string) => {
+const corePlugin = (
+  themes: ConfigThemes = {},
+  defaultTheme: DefaultThemeType,
+  prefix: string,
+  textSmooth: WedgesOptions["textSmooth"]
+) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
-  // Prefix where needed
   const prefixedBaseColors = addPrefix(wedgesPalette, "wg");
-  const prefixedBoxShadow = addPrefix(boxShadows, "wg");
+  const animationEasing = "cubic-bezier(.2,1,.4,1)";
 
   return plugin(
     ({ addBase, addUtilities, addVariant, matchUtilities, theme }) => {
@@ -120,13 +124,16 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
         ":root, [data-theme]": {
           color: `hsl(var(--${prefix}-foreground))`,
           backgroundColor: `hsl(var(--${prefix}-background))`,
+          "--wg-font-smooth--webkit": textSmooth === "antialiased" ? "antialiased" : "unset",
+          "--wg-font-smooth--moz": textSmooth === "antialiased" ? "grayscale" : "unset",
         },
       });
 
       addUtilities({
         ...resolved.utilities,
-        "direction-reverse": {
-          "animation-direction": "reverse",
+        ".wg-antialiased": {
+          "-webkit-font-smoothing": "var(--wg-font-smooth--webkit)",
+          "-moz-osx-font-smoothing": "var(--wg-font-smooth--moz)",
         },
       });
 
@@ -197,14 +204,23 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
             ...fontSizes,
           },
           boxShadow: {
-            ...prefixedBoxShadow,
+            ...boxShadows,
+          },
+          padding: {
+            "2px": "calc(2px - var(--wg-border-width, 0px))",
+            "4px": "calc(4px - var(--wg-border-width, 0px))",
+            "6px": "calc(6px - var(--wg-border-width, 0px))",
+            "8px": "calc(8px - var(--wg-border-width, 0px))",
+          },
+          outlineOffset: {
+            3: "3px",
           },
           animation: {
-            "fade-in-up": "fadeInUp 0.4s cubic-bezier(.2,1,.4,1) both",
-            "fade-in-down": "fadeInDown 0.4s cubic-bezier(.2,1,.4,1) both",
-            "fade-in-left": "fadeInLeft 0.4s cubic-bezier(.2,1,.4,1) both",
-            "fade-in-right": "fadeInRight 0.4s cubic-bezier(.2,1,.4,1) both",
-            "fade-out": "fadeOut 0.4s cubic-bezier(.2,1,.4,1) both",
+            "fade-in-up": `fadeInUp 0.3s ${animationEasing}`,
+            "fade-in-down": `fadeInDown 0.3s ${animationEasing}`,
+            "fade-in-left": `fadeInLeft 0.3s ${animationEasing}`,
+            "fade-in-right": `fadeInRight 0.3s ${animationEasing}`,
+            "fade-out": `fadeOut 0.3s ${animationEasing}`,
           },
           keyframes: {
             fadeInUp: {
@@ -269,10 +285,11 @@ const corePlugin = (themes: ConfigThemes = {}, defaultTheme: DefaultThemeType, p
  */
 export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> => {
   const {
-    themes: themeObject = {},
-    defaultTheme = "light",
     defaultExtendTheme = "light",
+    defaultTheme = "light",
     prefix: defaultPrefix = DEFAULT_PREFIX,
+    textSmooth = "antialiased",
+    themes: themeObject = {},
   } = config;
 
   const userLightColors = themeObject["light"]?.colors || {};
@@ -297,5 +314,14 @@ export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> 
     ...otherUserThemes,
   };
 
-  return corePlugin(themes, defaultTheme, defaultPrefix);
+  return corePlugin(themes, defaultTheme, defaultPrefix, textSmooth);
 };
+
+/**
+ * twMerge with extended options.
+ */
+export const twMerge = extendTailwindMerge({
+  theme: {
+    padding: ["2px", "4px", "6px", "8px"],
+  },
+});
