@@ -1,5 +1,7 @@
+import * as React from "react";
 import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+
+import { twMerge } from "../tw-plugin/plugin";
 
 /**
  * Prevents output of unnecessary Tailwind classes and merges classes.
@@ -74,4 +76,14 @@ export const getElementFromHash = (hash: number, strings: string[]) => {
   const index = Math.abs(hash) % strings.length;
 
   return strings[index];
+};
+
+/**
+ * Checks if the given element is a React element.
+ *
+ * @param element - The element to check.
+ * @returns Whether the element is a React element.
+ */
+export const isReactElement = (element: any): element is React.ReactElement => {
+  return React.isValidElement(element);
 };
