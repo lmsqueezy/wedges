@@ -42,14 +42,26 @@ export type WedgesOptions = {
    * The theme definitions.
    */
   themes?: ConfigThemes;
+
   /**
    * The default theme to use.
    * @default "light"
    */
   defaultTheme?: DefaultThemeType;
+
   /**
    * The default theme to extend. Available values are "light" and "dark".
    * @default "light"
    */
   defaultExtendTheme?: "light" | "dark";
+
+  /**
+   * Specifies whether or not to apply text anti-aliasing to Wedges components.
+   *
+   * If set to "antialiased" (default), Wedges components will have anti-aliasing applied to them.
+   * If set to "unset", no styles will be set for text anti-aliasing.
+   *
+   * * @default "antialiased"
+   */
+  textSmooth?: "antialiased" | "unset";
 };
