@@ -116,6 +116,7 @@ const corePlugin = (
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
   const prefixedBaseColors = addPrefix(wedgesPalette, "wg");
+  const prefixedBoxShadows = addPrefix(boxShadows, "wg");
   const animationEasing = "cubic-bezier(.2,1,.4,1)";
 
   return plugin(
@@ -204,13 +205,15 @@ const corePlugin = (
             ...fontSizes,
           },
           boxShadow: {
-            ...boxShadows,
+            ...prefixedBoxShadows,
           },
           padding: {
             "2px": "calc(2px - var(--wg-border-width, 0px))",
             "4px": "calc(4px - var(--wg-border-width, 0px))",
             "6px": "calc(6px - var(--wg-border-width, 0px))",
             "8px": "calc(8px - var(--wg-border-width, 0px))",
+            "12px": "calc(12px - var(--wg-border-width, 0px))",
+            "14px": "14px",
           },
           outlineOffset: {
             3: "3px",
@@ -322,6 +325,6 @@ export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> 
  */
 export const twMerge = extendTailwindMerge({
   theme: {
-    padding: ["2px", "4px", "6px", "8px"],
+    padding: ["2px", "4px", "6px", "8px", "12px", "14px"],
   },
 });
