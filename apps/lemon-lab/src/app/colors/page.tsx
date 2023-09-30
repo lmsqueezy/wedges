@@ -9,7 +9,39 @@ export default function ExamplePage() {
         <section>
           <h2 className="mb-8 text-xl">Themeable Colors</h2>
 
-          <div className="grid grid-cols-4 gap-4">
+          <div className="flex items-center gap-6">
+            <div className="bg-primary border-primary-borders flex h-80 w-80 rounded-2xl p-4">
+              <div className="flex grow flex-col items-center justify-center gap-2">
+                <p className="text-primary-foreground-contrast">Contrast</p>
+                <p className="text-primary-foreground-contrast-softer">Contrast Softer</p>
+              </div>
+            </div>
+
+            <div className="bg-primary-subtle border-primary-borders flex h-80 w-80 rounded-2xl border p-4">
+              <div className="flex grow flex-col items-center justify-center gap-2">
+                <p className="text-primary-foreground">Foreground</p>
+                <p className="text-primary-foreground-softer">Foreground Softer</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 flex items-center gap-6">
+            <div className="bg-secondary hover:bg-secondary-softer border-secondary-borders flex h-80 w-80 rounded-2xl p-4">
+              <div className="flex grow flex-col items-center justify-center gap-2">
+                <p className="text-secondary-foreground-contrast">Contrast</p>
+                <p className="text-secondary-foreground-contrast-softer">Contrast Softer</p>
+              </div>
+            </div>
+
+            <div className="bg-secondary-subtle border-secondary-borders flex h-80 w-80 rounded-2xl border p-4">
+              <div className="flex grow flex-col items-center justify-center gap-2">
+                <p className="text-secondary-foreground">Foreground</p>
+                <p className="text-secondary-foreground-softer">Foreground Softer</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-20 grid grid-cols-4 gap-4">
             <ColorItem className="bg-primary text-primary-foreground">Primary</ColorItem>
             <ColorItem className="bg-secondary text-secondary-foreground">Secondary</ColorItem>
             <ColorItem className="bg-destructive text-destructive-foreground">
