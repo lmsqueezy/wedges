@@ -3,12 +3,21 @@ import * as Primitive from "@radix-ui/react-avatar";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
-import { cn, getElementFromHash, getInitials, stringToHash } from "../../helpers/utils";
+import {
+  cn,
+  getElementFromHash,
+  getInitials,
+  isReactElement,
+  stringToHash,
+} from "../../helpers/utils";
 import LemonSqueezyIcon from "../icons/LemonSqueezy";
 
 /* -------------------------------- Variants -------------------------------- */
 const defaultAvatarSize = "h-10 min-w-10 text-base [--wg-notification-size:10px]";
-const rootClasses = cn("relative flex aspect-square shrink-0 items-center", defaultAvatarSize);
+const rootClasses = cn(
+  "relative inline-flex aspect-square shrink-0 items-center wg-antialiased",
+  defaultAvatarSize
+);
 
 const statusClasses =
   "absolute right-0 bottom-0 aspect-square bg-wg-gray-300 h-[var(--wg-notification-size,10px)] rounded-full ring-background";
@@ -227,7 +236,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
         <AvatarFallback
           ref={ref}
           aria-label={alt}
-          asChild={React.isValidElement(children)}
+          asChild={isReactElement(children)}
           className={cn(className)}
           style={style}
         >
@@ -310,4 +319,3 @@ const Avatar = Object.assign(AvatarWedges, {
 });
 
 export default Avatar;
-export { AvatarFallback, AvatarImage, AvatarNotification, AvatarRoot, AvatarStatus };

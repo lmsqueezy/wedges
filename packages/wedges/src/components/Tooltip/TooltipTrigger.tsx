@@ -1,8 +1,8 @@
 import { TooltipTrigger as PrimitiveTrigger } from "@radix-ui/react-tooltip";
 import * as React from "react";
 
-import { cn } from "../../helpers/utils";
-import TooltipTriggerIcon from "../icons/TooltipTriggerIcon";
+import { cn, isReactElement } from "../../helpers/utils";
+import { InfoIcon } from "../icons";
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof PrimitiveTrigger>,
@@ -13,7 +13,7 @@ const TooltipContent = React.forwardRef<
       children,
       className,
       onClick,
-      asChild = children ? React.isValidElement(children) : children === undefined,
+      asChild = children ? isReactElement(children) : children === undefined,
       ...otherProps
     },
     ref
@@ -23,7 +23,7 @@ const TooltipContent = React.forwardRef<
         {children ? (
           children
         ) : (
-          <TooltipTriggerIcon
+          <InfoIcon
             className={cn(
               "text-foreground-muted hover:text-primary data-[state=delayed-open]:text-primary data-[state=instant-open]:text-primary focus:text-primary focus:outline-primary rounded-full focus:outline-2",
               onClick && "cursor-pointer",

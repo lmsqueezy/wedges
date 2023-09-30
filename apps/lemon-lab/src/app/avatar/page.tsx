@@ -1,6 +1,7 @@
 "use client";
-import PageTitle from "@/components/PageTitle";
 import { Avatar } from "@lmsqueezy/wedges";
+
+import PageTitle from "@/components/PageTitle";
 
 export default function AvatarPage() {
   return (
@@ -13,47 +14,47 @@ export default function AvatarPage() {
           <h2 className="mb-8 text-xl">Image</h2>
           <div className="flex items-center gap-6">
             <Avatar
-              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
-              status="default"
+              alt="A picture of a person"
               notification="yellow"
               size="xs"
-              alt="A picture of a person"
+              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
+              status="default"
             />
 
             <Avatar
-              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
-              status="default"
               notification="green"
               size="sm"
+              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
+              status="default"
             />
 
             <Avatar
-              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
-              status="default"
               notification="green"
               size="md"
+              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
+              status="default"
             />
 
             <Avatar
-              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
-              status="default"
               notification="green"
               size="lg"
+              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
+              status="default"
             />
 
             <Avatar
-              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
-              status="default"
               notification="green"
               size="xl"
+              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
+              status="default"
             />
 
             <Avatar
-              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
-              status="default"
+              alt="A picture of a person"
               notification="green"
               size="2xl"
-              alt="A picture of a person"
+              src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
+              status="default"
             />
           </div>
         </section>
@@ -62,17 +63,17 @@ export default function AvatarPage() {
         <section>
           <h2 className="mb-8 text-xl">Initial</h2>
           <div className="flex items-center gap-6">
-            <Avatar status="yellow" initials="Wedges" notification="green" size="xs" />
-            <Avatar status="yellow" initials="e" notification="green" size="sm" />
-            <Avatar status="yellow" initials="d" notification="green" size="md" />
-            <Avatar status="yellow" initials="g" notification="green" size="lg" />
-            <Avatar status="yellow" initials="e" notification="green" size="xl" />
+            <Avatar initials="Wedges" notification="green" size="xs" status="yellow" />
+            <Avatar initials="e" notification="green" size="sm" status="yellow" />
+            <Avatar initials="d" notification="green" size="md" status="yellow" />
+            <Avatar initials="g" notification="green" size="lg" status="yellow" />
+            <Avatar initials="e" notification="green" size="xl" status="yellow" />
             <Avatar
-              status="yellow"
+              className="bg-teal-800 outline outline-offset-2 outline-teal-500"
               initials="S"
               notification="green"
               size="2xl"
-              className="bg-teal-800 outline outline-offset-2 outline-teal-500"
+              status="yellow"
             />
           </div>
         </section>
@@ -81,12 +82,12 @@ export default function AvatarPage() {
         <section>
           <h2 className="mb-8 text-xl">Fallback</h2>
           <div className="flex items-center gap-6">
-            <Avatar status="yellow" notification="green" size="xs" />
-            <Avatar status="yellow" notification="green" size="sm" />
-            <Avatar status="yellow" notification="green" size="md" />
-            <Avatar status="yellow" notification="green" size="lg" />
-            <Avatar status="yellow" notification="green" size="xl" />
-            <Avatar status="yellow" notification="green" size="2xl" />
+            <Avatar notification="green" size="xs" status="yellow" />
+            <Avatar notification="green" size="sm" status="yellow" />
+            <Avatar notification="green" size="md" status="yellow" />
+            <Avatar notification="green" size="lg" status="yellow" />
+            <Avatar notification="green" size="xl" status="yellow" />
+            <Avatar notification="green" size="2xl" status="yellow" />
           </div>
         </section>
 

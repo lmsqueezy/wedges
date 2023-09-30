@@ -14,7 +14,7 @@ describe("Badge", () => {
 
 describe("Given a Badge with color and variant", () => {
   it("should apply the correct classes for the specified color and variant", () => {
-    const rendered = render(<Badge color="green" data-testid="wg-badge" variant="pill" />);
+    const rendered = render(<Badge color="green" data-testid="wg-badge" shape="pill" />);
     const root = rendered.getByTestId("wg-badge");
 
     expect(root.classList.contains("wg-bg-wg-green-50")).toBe(true);

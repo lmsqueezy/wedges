@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TooltipArrow as PrimitiveArrow } from "@radix-ui/react-tooltip";
 
-import { cn } from "../../helpers/utils";
+import { cn, isReactElement } from "../../helpers/utils";
 import { TippyIcon } from "../icons";
 
 const TooltipArrow = React.forwardRef<
@@ -12,7 +12,7 @@ const TooltipArrow = React.forwardRef<
     {
       className,
       children,
-      asChild = children ? React.isValidElement(children) : children === undefined,
+      asChild = children ? isReactElement(children) : children === undefined,
       width = 24,
       height = 8,
       ...props

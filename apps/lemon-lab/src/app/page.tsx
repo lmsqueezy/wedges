@@ -1,6 +1,3 @@
-import PageTitle from "@/components/PageTitle";
-import Link from "next/link";
-
 export default function HomePage() {
   return (
     <main className="flex grow flex-col items-center justify-center">

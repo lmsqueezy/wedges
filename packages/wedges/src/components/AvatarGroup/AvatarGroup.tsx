@@ -1,11 +1,11 @@
 import * as React from "react";
 import { VariantProps, cva } from "class-variance-authority";
 
-import { cn } from "../../helpers/utils";
+import { cn, isReactElement } from "../../helpers/utils";
 import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";
 
 /* -------------------------------- Variants -------------------------------- */
-const defaultAvatarGroupClasses = "flex flex-wrap items-center gap-y-1 -space-x-1.5";
+const defaultAvatarGroupClasses = "inline-flex flex-wrap items-center gap-y-1 -space-x-1.5";
 const avatarGroupVariants = cva(defaultAvatarGroupClasses, {
   variants: {
     size: {
@@ -17,6 +17,9 @@ const avatarGroupVariants = cva(defaultAvatarGroupClasses, {
       "2xl": "-space-x-3",
       default: "-space-x-1.5",
     },
+  },
+  defaultVariants: {
+    size: "default",
   },
 });
 
@@ -67,7 +70,7 @@ const AvatarMoreLabel = React.forwardRef<AvatarElement, AvatarMoreLabelProps>(
     return (
       <Avatar
         ref={ref}
-        asChild={React.isValidElement(children)}
+        asChild={isReactElement(children)}
         className={cn(
           "ring-background bg-surface-3 aspect-auto h-full px-2 text-white ring-2",
           className
@@ -89,7 +92,6 @@ const AvatarGroupItem = React.forwardRef<
   return (
     <Avatar
       ref={ref}
-      //   className={cn("ring-background ring-2", !initials && "bg-surface-2", className)}
       className={cn("ring-background ring-2", className)}
       initials={initials}
       {...otherProps}
@@ -154,4 +156,3 @@ AvatarMoreLabel.displayName = "AvatarMoreLabel";
 AvatarGroupWedges.displayName = "AvatarGroup";
 
 export default AvatarGroup;
-export { AvatarGroupItem, AvatarGroupRoot, AvatarMoreLabel };

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { IconProps } from "./types";
 
-const TooltipTriggerIcon = React.forwardRef<SVGSVGElement, IconProps>((props, ref) => {
+const InfoIcon = React.forwardRef<SVGSVGElement, IconProps>((props, ref) => {
   const { size = 24, title, ...rest } = props;
   const titleId = title ? `wg-${Date.now()}-${Math.floor(Math.random() * 10000)}` : undefined;
 
@@ -26,6 +26,6 @@ const TooltipTriggerIcon = React.forwardRef<SVGSVGElement, IconProps>((props, re
   );
 });
 
-TooltipTriggerIcon.displayName = "TooltipTriggerIcon";
+InfoIcon.displayName = "InfoIcon";
 
-export default TooltipTriggerIcon;
+export default InfoIcon;

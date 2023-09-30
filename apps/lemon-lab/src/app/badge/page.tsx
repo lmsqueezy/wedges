@@ -1,6 +1,3 @@
-import { Badge } from "@lmsqueezy/wedges";
-
-import PageTitle from "@/components/PageTitle";
 import {
   CheckIcon,
   CloseIcon,
@@ -10,6 +7,9 @@ import {
   SpinnerIcon,
   StarIcon,
 } from "@iconicicons/react";
+import { Badge } from "@lmsqueezy/wedges";
+
+import PageTitle from "@/components/PageTitle";
 
 export default function BadgePage() {
   const colors = ["green", "orange", "red", "pink", "purple", "blue", "yellow", "default"] as const;
@@ -24,8 +24,16 @@ export default function BadgePage() {
 
           <section>
             <div className="flex flex-wrap items-start gap-2">
+              <Badge color="primary" stroke={true}>
+                Primary
+              </Badge>
+
+              <Badge color="secondary" stroke={true}>
+                Secondary
+              </Badge>
+
               {colors.map((color) => (
-                <Badge after={<StarIcon />} before={<CloseIcon />} color={color} key={color}>
+                <Badge key={color} after={<StarIcon />} before={<CloseIcon />} color={color}>
                   {color.charAt(0).toUpperCase() + color.slice(1)}
                 </Badge>
               ))}
@@ -36,11 +44,11 @@ export default function BadgePage() {
             <div className="flex flex-wrap items-start gap-2">
               {colors.map((color) => (
                 <Badge
+                  key={`pill-${color}`}
                   after={<StarIcon />}
                   before={<CloseIcon />}
                   color={color}
-                  key={`pill-${color}`}
-                  variant="pill"
+                  shape="pill"
                 >
                   {color.charAt(0).toUpperCase() + color.slice(1)}
                 </Badge>
@@ -56,10 +64,10 @@ export default function BadgePage() {
             <div className="flex flex-wrap items-start gap-2">
               {colors.map((color) => (
                 <Badge
+                  key={color}
                   after={<StarIcon />}
                   before={<CloseIcon />}
                   color={color}
-                  key={color}
                   stroke={true}
                 >
                   {color.charAt(0).toUpperCase() + color.slice(1)}
@@ -72,12 +80,12 @@ export default function BadgePage() {
             <div className="flex flex-wrap gap-2">
               {colors.map((color, i) => (
                 <Badge
+                  key={color + i}
                   after={<StarIcon />}
                   before={<CloseIcon />}
                   color={color}
-                  key={color}
+                  shape="pill"
                   stroke={true}
-                  variant="pill"
                 >
                   {color.charAt(0).toUpperCase() + color.slice(1)}
                 </Badge>
@@ -91,11 +99,11 @@ export default function BadgePage() {
 
           <section>
             <div className="flex flex-wrap items-start gap-2">
-              <Badge variant="pill" before={<CheckIcon />} color="green">
+              <Badge before={<CheckIcon />} color="green" shape="pill">
                 Paid
               </Badge>
 
-              <Badge stroke={true} before={<CheckIcon />} color="green">
+              <Badge before={<CheckIcon />} color="green" stroke={true}>
                 Active
               </Badge>
 
@@ -103,19 +111,19 @@ export default function BadgePage() {
                 Subscribed
               </Badge>
 
-              <Badge variant="pill" stroke={true} before={<CheckIcon />} color="green">
+              <Badge before={<CheckIcon />} color="green" shape="pill" stroke={true}>
                 200
               </Badge>
 
-              <Badge variant="pill" before={<CloseIcon />} color="red">
+              <Badge before={<CloseIcon />} color="red" shape="pill">
                 Rejected
               </Badge>
 
-              <Badge stroke={true} before={<CloseIcon />} color="red">
+              <Badge before={<CloseIcon />} color="red" stroke={true}>
                 Chargeback
               </Badge>
 
-              <Badge variant="pill" stroke={true} before={<CloseIcon />} color="red">
+              <Badge before={<CloseIcon />} color="red" shape="pill" stroke={true}>
                 Chargeback
               </Badge>
 
@@ -131,19 +139,19 @@ export default function BadgePage() {
                 Online
               </Badge>
 
-              <Badge color="blue" variant="pill" before={<SpinnerIcon />}>
+              <Badge before={<SpinnerIcon />} color="blue" shape="pill">
                 Processing
               </Badge>
 
-              <Badge color="blue" stroke={true} before={<FlagIcon />}>
+              <Badge before={<FlagIcon />} color="blue" stroke={true}>
                 Flagged
               </Badge>
 
-              <Badge color="blue" stroke={true} variant="pill">
+              <Badge color="blue" shape="pill" stroke={true}>
                 Washington D.C.
               </Badge>
 
-              <Badge color="red" variant="pill">
+              <Badge color="red" shape="pill">
                 4
               </Badge>
 
@@ -151,11 +159,11 @@ export default function BadgePage() {
                 Pinned
               </Badge>
 
-              <Badge before={<PlayIcon />} color="pink" variant="pill">
+              <Badge before={<PlayIcon />} color="pink" shape="pill">
                 1m 30s
               </Badge>
 
-              <Badge before={<CloseIcon />} color="pink" stroke={true} variant="pill" />
+              <Badge before={<CloseIcon />} color="pink" shape="pill" stroke={true} />
             </div>
           </section>
         </section>

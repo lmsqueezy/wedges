@@ -1,11 +1,10 @@
 "use client";
-import PageTitle from "@/components/PageTitle";
-import { CheckIcon, ClockIcon } from "@iconicicons/react";
+import { ClockIcon, TrashIcon } from "@iconicicons/react";
 import { Avatar, Tag } from "@lmsqueezy/wedges";
 
-export default function TagPage() {
-  const colors = ["green", "orange", "red", "pink", "purple", "blue", "yellow", "default"] as const;
+import PageTitle from "@/components/PageTitle";
 
+export default function TagPage() {
   return (
     <main>
       <PageTitle>Tag</PageTitle>
@@ -17,35 +16,39 @@ export default function TagPage() {
           <section>
             <div className="flex flex-wrap items-start gap-2">
               <Tag
-                onClose={() => alert("close")}
                 avatar={<Avatar src="https://github.com/lmsqueezy.png" />}
+                onClose={() => alert("close")}
               >
                 @lmsqueezy
               </Tag>
 
-              <Tag color="green" onClose={() => alert("close")} before={<ClockIcon />}>
+              <Tag before={<ClockIcon />} color="green" onClose={() => alert("close")}>
                 12pm
               </Tag>
 
-              <Tag color="red" variant="pill" onClose={() => alert("close")} before={<ClockIcon />}>
+              <Tag before={<ClockIcon />} color="red" shape="pill" onClose={() => alert("close")}>
                 9am
               </Tag>
 
-              <Tag color="orange" variant="pill">
+              <Tag color="orange" shape="pill">
                 Pending
               </Tag>
 
               <Tag color="primary">Primary</Tag>
+
+              <Tag color="primary" stroke={true}>
+                Primary + Stroke
+              </Tag>
+
               <Tag color="secondary">Secondary</Tag>
 
               <Tag
-                onClose={() => alert("close")}
                 before={
                   <svg
-                    width="24"
+                    fill="none"
                     height="24"
                     viewBox="0 0 24 24"
-                    fill="none"
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <g clipPath="url(#clip0_2973_72354)">
@@ -76,12 +79,13 @@ export default function TagPage() {
                     </g>
                     <defs>
                       <clipPath id="clip0_2973_72354">
-                        <rect width="24" height="24" fill="white" />
+                        <rect fill="white" height="24" width="24" />
                       </clipPath>
                     </defs>
                   </svg>
                 }
                 color="red"
+                onClose={() => alert("close")}
               >
                 USA
               </Tag>
@@ -89,10 +93,10 @@ export default function TagPage() {
               <Tag
                 before={
                   <svg
-                    width="24"
+                    fill="none"
                     height="24"
                     viewBox="0 0 24 24"
-                    fill="none"
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <g clipPath="url(#clip0_2973_72337)">
@@ -155,7 +159,7 @@ export default function TagPage() {
                     </g>
                     <defs>
                       <clipPath id="clip0_2973_72337">
-                        <rect width="24" height="24" fill="white" />
+                        <rect fill="white" height="24" width="24" />
                       </clipPath>
                     </defs>
                   </svg>
@@ -166,27 +170,27 @@ export default function TagPage() {
                 UK
               </Tag>
 
-              <Tag onClose={() => {}} color="orange">
+              <Tag color="orange" onClose={() => {}}>
                 UX
               </Tag>
 
-              <Tag onClose={() => {}} color="orange">
+              <Tag color="orange" onClose={() => {}}>
                 UI
               </Tag>
 
               <Tag
+                closeIcon={<TrashIcon />}
+                color="orange"
                 stroke={true}
                 onClose={() => alert("close")}
-                color="orange"
-                deleteIcon={<CheckIcon />}
               >
                 MOTION
               </Tag>
 
               <Tag
                 before={
-                  <svg width="16" height="16" viewBox="0 0 16 16">
-                    <ellipse cx="8" cy="8" rx="2" ry="2" fill="currentColor" />
+                  <svg height="16" viewBox="0 0 16 16" width="16">
+                    <ellipse cx="8" cy="8" fill="currentColor" rx="2" ry="2" />
                   </svg>
                 }
                 color="red"

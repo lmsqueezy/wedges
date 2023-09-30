@@ -1,6 +1,8 @@
 "use client";
-import PageTitle from "@/components/PageTitle";
+
 import { AvatarGroup } from "@lmsqueezy/wedges";
+
+import PageTitle from "@/components/PageTitle";
 
 export default function AvatarGroupPage() {
   return (
@@ -15,9 +17,6 @@ export default function AvatarGroupPage() {
             <h3 className="mb-8 text-sm">Previous on Top, Initials as fallback</h3>
 
             <AvatarGroup
-              previousOnTop={true}
-              size="md"
-              moreLabel="+3"
               items={[
                 {
                   src: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60",
@@ -49,15 +48,16 @@ export default function AvatarGroupPage() {
                   initials: "s",
                 },
               ]}
-            ></AvatarGroup>
+              moreLabel="+3"
+              previousOnTop={true}
+              size="md"
+            />
           </section>
 
           <section className="mt-24">
             <h3 className="mb-8 text-sm">Next on Top</h3>
 
             <AvatarGroup
-              size="xl"
-              moreLabel="+3"
               items={[
                 {
                   src: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60",
@@ -88,6 +88,8 @@ export default function AvatarGroupPage() {
                   alt: "A picture of a person",
                 },
               ]}
+              moreLabel="+3"
+              size="xl"
             />
           </section>
         </section>

@@ -41,7 +41,7 @@ describe("Given a Tag with onClose function", () => {
   it("should render the custom close icon if provided", () => {
     const onClose = jest.fn();
     const { findByText } = render(
-      <Tag deleteIcon={<div>Close</div>} onClose={onClose}>
+      <Tag closeIcon={<div>Close</div>} onClose={onClose}>
         Children
       </Tag>
     );
