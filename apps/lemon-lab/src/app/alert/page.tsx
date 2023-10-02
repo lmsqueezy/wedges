@@ -17,12 +17,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="gray"
           title="Gray"
           variant="inline"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -33,12 +31,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="gray"
           title="Gray"
           variant="expanded"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -49,12 +45,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="primary"
           title="Primary"
           variant="inline"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -65,12 +59,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="primary"
           title="Primary"
           variant="expanded"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -81,12 +73,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="info"
           title="Info"
           variant="inline"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -97,12 +87,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="info"
           title="Info"
           variant="expanded"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -113,12 +101,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="success"
           title="Success"
           variant="inline"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -129,12 +115,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="success"
           title="Success"
           variant="expanded"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -145,12 +129,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="warning"
           title="Warning"
           variant="inline"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -161,12 +143,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="warning"
           title="Warning"
           variant="expanded"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -177,12 +157,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="error"
           title="Error"
           variant="inline"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -193,12 +171,10 @@ export default function ButtonPage() {
               Save
             </Button>
           }
+          closable={true}
           color="error"
           title="Error"
           variant="expanded"
-          onClose={() => {
-            alert("close");
-          }}
         >
           This is alert description here.
         </Alert>
@@ -220,6 +196,9 @@ export default function ButtonPage() {
             destructive
             className="hover:bg-wg-red dark:hover:bg-wg-red ml-1 bg-slate-600 text-white"
             shape="pill"
+            onClick={() => {
+              alert("custom handler");
+            }}
           >
             <TrashIcon />
           </Alert.CloseButton>

@@ -64,6 +64,36 @@ const alertIconVariants = cva("", {
 });
 
 /* ---------------------------------- Types --------------------------------- */
+type ClosableProps = {
+  /**
+   * Is the alert closable? If true, a close icon will be displayed.
+   * @default true
+   */
+  closable: true;
+
+  /**
+   * An optional callback function to be called when the close icon is clicked.
+   * This can be used to handle the removal of the tag.
+   * If provided, the close icon will be displayed.
+   */
+  onClose?: React.MouseEventHandler<HTMLButtonElement>;
+};
+
+type NotClosableProps = {
+  /**
+   * Is the alert closable? If true, a close icon will be displayed.
+   * @default true
+   */
+  closable?: false;
+
+  /**
+   * An optional callback function to be called when the close icon is clicked.
+   * This can be used to handle the removal of the tag.
+   * If provided, the close icon will be displayed.
+   */
+  onClose?: never;
+};
+
 export type AlertProps = Omit<React.HTMLAttributes<HTMLDivElement>, "title"> &
   VariantProps<typeof alertVariants> & {
     /**
@@ -98,19 +128,35 @@ export type AlertProps = Omit<React.HTMLAttributes<HTMLDivElement>, "title"> &
      * If a React element is provided, it will be rendered as-is.
      */
     title?: React.ReactNode;
-
-    /**
-     * An optional callback function to be called when the close icon is clicked.
-     * This can be used to handle the removal of the tag.
-     * If provided, the close icon will be displayed.
-     */
-    onClose?: React.MouseEventHandler<HTMLButtonElement>;
-  };
+  } & (ClosableProps | NotClosableProps);
 
 /* ------------------------------- Components ------------------------------- */
 const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
-  ({ after, before, className, color, variant, children, title, onClose, ...otherProps }, ref) => {
+  (
+    { after, before, className, closable, color, variant, children, title, onClose, ...otherProps },
+    ref
+  ) => {
+    const [visible, setVisible] = React.useState(true);
     const ExpandedWrapper = variant === "inline" ? React.Fragment : "div";
+
+    /**
+     * Handle the close event.
+     * @param event - The event object
+     */
+    const handleClose = React.useCallback(
+      (event: React.MouseEvent<HTMLButtonElement>) => {
+        setVisible(false);
+
+        if (onClose) {
+          onClose(event);
+        }
+      },
+      [onClose]
+    );
+
+    if (!visible) {
+      return null;
+    }
 
     return (
       <AlertRoot
@@ -138,7 +184,7 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
           )}
         </div>
 
-        {onClose && <AlertCloseButton onClick={onClose} />}
+        {closable && <AlertCloseButton onClick={handleClose} />}
       </AlertRoot>
     );
   }
@@ -219,18 +265,19 @@ const AlertCloseButton = React.forwardRef<
   React.ElementRef<typeof Button>,
   React.ComponentPropsWithoutRef<typeof Button>
 >(({ children, ...otherProps }, ref) => {
-  const renderCloseIcon: React.ReactElement = (
-    <>{isReactElement(children) ? children : <CloseIcon className="h-6 w-6" />}</>
-  );
+  const renderCloseIcon = (children: React.ReactNode): React.ReactElement<HTMLElement> => {
+    return isReactElement(children) ? children : <CloseIcon />;
+  };
 
   return (
     <Button
       ref={ref}
-      className="p-0"
+      after={renderCloseIcon(children)}
+      className="hover:bg-wg-gray-700/5 dark:hover:bg-wg-white-50 h-8 w-8 p-0"
       shape="rounded"
+      size="md"
       variant="transparent"
       {...otherProps}
-      after={renderCloseIcon}
     />
   );
 });
