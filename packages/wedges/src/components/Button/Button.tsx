@@ -147,6 +147,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             React.cloneElement(before, {
               className: cn(
                 "h-6 w-6",
+                size === "xs-icon" && "h-5 w-5",
                 size === "sm" && "h-5 w-5",
                 variant === "tertiary" && !destructive && !disabled && "opacity-40",
                 variant === "transparent" && !destructive && !disabled && "opacity-40",
@@ -165,6 +166,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             React.cloneElement(after, {
               className: cn(
                 "h-6 w-6",
+                size === "xs-icon" && "h-5 w-5",
                 size === "sm" && "h-5 w-5",
                 variant === "tertiary" && !destructive && !disabled && "opacity-40",
                 variant === "transparent" && !destructive && !disabled && "opacity-40",
