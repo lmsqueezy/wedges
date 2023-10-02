@@ -2,7 +2,7 @@ import { ThemeableColors } from "../foundation";
 
 export type ConfigTheme = {
   /**
-   * Which default theme to extend.
+   * Whether to extend 'dark' or 'light' default themes.
    * @default "light"
    */
   extend?: "light" | "dark";
@@ -28,8 +28,9 @@ export type ConfigTheme = {
   colors?: Partial<ThemeableColors> | Record<string, string | Record<string, string>>;
 };
 
-export type DefaultThemeType = "light" | "dark" | (string & {});
-export type ConfigThemes = Record<DefaultThemeType | string, ConfigTheme>;
+export type BaseThemes = "light" | "dark";
+export type DefaultThemeType = BaseThemes | (string & {});
+export type ConfigThemes = { [key in BaseThemes]?: ConfigTheme } & Record<string, ConfigTheme>;
 
 export type WedgesOptions = {
   /**
@@ -56,12 +57,12 @@ export type WedgesOptions = {
   defaultExtendTheme?: "light" | "dark";
 
   /**
-   * Specifies whether or not to apply text anti-aliasing to Wedges components.
+   * Specifies whether or not to apply font anti-aliasing to Wedges components.
    *
    * If set to "antialiased" (default), Wedges components will have anti-aliasing applied to them.
-   * If set to "unset", no styles will be set for text anti-aliasing.
+   * If set to "inherit", no specific styles will be set for text anti-aliasing.
    *
    * * @default "antialiased"
    */
-  textSmooth?: "antialiased" | "unset";
+  fontSmooth?: "antialiased" | "inherit";
 };
