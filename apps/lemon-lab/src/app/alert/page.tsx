@@ -5,6 +5,12 @@ import { Alert, Button } from "@lmsqueezy/wedges";
 
 import PageTitle from "@/components/PageTitle";
 
+const SaveButton = () => (
+  <Button className="bg-white dark:bg-transparent" size="sm" variant="outline">
+    Save Changes
+  </Button>
+);
+
 export default function ButtonPage() {
   return (
     <main>
@@ -13,8 +19,8 @@ export default function ButtonPage() {
       <div className="mt-24 flex flex-col gap-6">
         <Alert
           after={
-            <Button size="sm" variant="outline">
-              Save
+            <Button size="sm" variant="link">
+              Send crash report
             </Button>
           }
           closable={true}
@@ -25,26 +31,12 @@ export default function ButtonPage() {
           This is alert description here.
         </Alert>
 
-        <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
-          closable={true}
-          color="gray"
-          title="Gray"
-          variant="expanded"
-        >
+        <Alert after={<SaveButton />} closable={true} color="gray" title="Gray" variant="expanded">
           This is alert description here.
         </Alert>
 
         <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
+          after={<SaveButton />}
           closable={true}
           color="primary"
           title="Primary"
@@ -54,11 +46,7 @@ export default function ButtonPage() {
         </Alert>
 
         <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
+          after={<SaveButton />}
           closable={true}
           color="primary"
           title="Primary"
@@ -67,40 +55,16 @@ export default function ButtonPage() {
           This is alert description here.
         </Alert>
 
-        <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
-          closable={true}
-          color="info"
-          title="Info"
-          variant="inline"
-        >
+        <Alert after={<SaveButton />} closable={true} color="info" title="Info" variant="inline">
+          This is alert description here.
+        </Alert>
+
+        <Alert after={<SaveButton />} closable={true} color="info" title="Info" variant="expanded">
           This is alert description here.
         </Alert>
 
         <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
-          closable={true}
-          color="info"
-          title="Info"
-          variant="expanded"
-        >
-          This is alert description here.
-        </Alert>
-
-        <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
+          after={<SaveButton />}
           closable={true}
           color="success"
           title="Success"
@@ -110,11 +74,7 @@ export default function ButtonPage() {
         </Alert>
 
         <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
+          after={<SaveButton />}
           closable={true}
           color="success"
           title="Success"
@@ -124,11 +84,7 @@ export default function ButtonPage() {
         </Alert>
 
         <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
+          after={<SaveButton />}
           closable={true}
           color="warning"
           title="Warning"
@@ -138,11 +94,7 @@ export default function ButtonPage() {
         </Alert>
 
         <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
+          after={<SaveButton />}
           closable={true}
           color="warning"
           title="Warning"
@@ -151,26 +103,12 @@ export default function ButtonPage() {
           This is alert description here.
         </Alert>
 
-        <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
-          closable={true}
-          color="error"
-          title="Error"
-          variant="inline"
-        >
+        <Alert after={<SaveButton />} closable={true} color="error" title="Error" variant="inline">
           This is alert description here.
         </Alert>
 
         <Alert
-          after={
-            <Button size="sm" variant="outline">
-              Save
-            </Button>
-          }
+          after={<SaveButton />}
           closable={true}
           color="error"
           title="Error"
@@ -194,13 +132,14 @@ export default function ButtonPage() {
 
           <Alert.CloseButton
             destructive
-            className="hover:bg-wg-red dark:hover:bg-wg-red ml-1 bg-slate-600 text-white"
+            className="hover:bg-wg-red dark:hover:bg-wg-red ml-1 bg-slate-600 text-white focus:text-white dark:hover:text-white"
             shape="pill"
+            size="sm"
             onClick={() => {
               alert("custom handler");
             }}
           >
-            <TrashIcon />
+            <TrashIcon className="h-6 w-6" />
           </Alert.CloseButton>
         </Alert.Root>
       </div>

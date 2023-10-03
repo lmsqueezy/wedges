@@ -2,6 +2,7 @@
 
 import { SpeakerIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
+import Link from "next/link";
 import { useState } from "react";
 
 import CloseIcon from "@/components/CloseIcon";
@@ -10,7 +11,7 @@ import PageTitle from "@/components/PageTitle";
 export default function ButtonPage() {
   const [disabled, setDisabled] = useState(false);
   const [destructive, setDestructive] = useState(false);
-  const [shape, setShape] = useState<"pill" | "rounded">("pill");
+  const [shape, setShape] = useState<"pill" | "rounded">("rounded");
   const [size, setSize] = useState<"sm" | "md" | "xs-icon">("md");
   const [iconsVisible, setIconsVisible] = useState(true);
 
@@ -140,18 +141,6 @@ export default function ButtonPage() {
           disabled={disabled}
           shape={shape}
           size={size}
-          variant="tertiary"
-        >
-          Tertiary
-        </Button>
-
-        <Button
-          after={iconsVisible ? <CloseIcon /> : undefined}
-          before={iconsVisible ? <CloseIcon /> : undefined}
-          destructive={destructive}
-          disabled={disabled}
-          shape={shape}
-          size={size}
           variant="outline"
         >
           Outline
@@ -164,9 +153,33 @@ export default function ButtonPage() {
           disabled={disabled}
           shape={shape}
           size={size}
+          variant="tertiary"
+        >
+          Tertiary
+        </Button>
+
+        <Button
+          after={iconsVisible ? <CloseIcon /> : undefined}
+          before={iconsVisible ? <CloseIcon /> : undefined}
+          destructive={destructive}
+          disabled={disabled}
+          shape={shape}
+          size={size}
           variant="transparent"
         >
           Transparent
+        </Button>
+
+        <Button
+          after={iconsVisible ? <CloseIcon /> : undefined}
+          before={iconsVisible ? <CloseIcon /> : undefined}
+          destructive={destructive}
+          disabled={disabled}
+          shape={shape}
+          size={size}
+          variant="link"
+        >
+          Link
         </Button>
       </div>
 
@@ -215,6 +228,15 @@ export default function ButtonPage() {
           size={size}
           variant="transparent"
         />
+
+        <Button
+          after={<CloseIcon />}
+          destructive={destructive}
+          disabled={disabled}
+          shape={shape}
+          size={size}
+          variant="link"
+        />
       </div>
 
       <div className="mt-8 flex h-10 items-center gap-2">
@@ -228,6 +250,10 @@ export default function ButtonPage() {
           variant="primary"
         >
           Custom
+        </Button>
+
+        <Button asChild>
+          <Link href="/login">Login</Link>
         </Button>
       </div>
     </main>
