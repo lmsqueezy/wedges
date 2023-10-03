@@ -276,7 +276,7 @@ const AlertCloseButton = React.forwardRef<
       className="hover:bg-wg-gray-700/5 dark:hover:bg-wg-white-50"
       shape="rounded"
       size="xs-icon"
-      variant="transparent"
+      variant="link"
       {...otherProps}
     />
   );
