@@ -6,7 +6,7 @@ import { cn, isReactElement } from "../../helpers/utils";
 
 /* -------------------------------- Variants -------------------------------- */
 const buttonVariants = cva(
-  "wg-antialiased text-sm leading-6 font-medium transition-colors inline-flex justify-center items-center focus:outline focus:outline-2 outline-offset-2 disabled:pointer-events-none py-2 px-12px gap-1",
+  "group wg-antialiased text-sm leading-6 font-medium transition-colors inline-flex justify-center items-center focus:outline focus:outline-2 outline-offset-2 disabled:pointer-events-none py-2 px-12px gap-1",
   {
     variants: {
       size: {
@@ -20,21 +20,19 @@ const buttonVariants = cva(
       },
       variant: {
         primary:
-          "bg-primary text-primary-foreground-contrast outline-primary hover:bg-primary-stronger disabled:opacity-40 dark:disabled:opacity-50",
+          "bg-primary text-primary-foreground-contrast outline-primary hover:bg-primary-stronger disabled:opacity-50",
 
         secondary:
           "bg-secondary text-secondary-foreground-contrast hover:bg-secondary-softer outline-secondary disabled:bg-secondary-subtle dark:disabled:text-secondary-foreground-softer",
 
-        tertiary:
-          "bg-surface hover:bg-surface-stronger text-surface-foreground-contrast outline-primary disabled:text-surface-foreground-softer",
-
-        transparent:
-          "bg-transparent hover:bg-surface text-surface-foreground-contrast outline-primary disabled:text-surface-foreground-softer",
+        tertiary: "bg-surface hover:bg-surface-stronger",
 
         outline:
-          "outline-primary hover:bg-surface text-surface-foreground-contrast border-surface-borders-stronger disabled:border-surface-borders disabled:text-surface-foreground-softer border [--wg-border-width:1px] shadow-wg-xs dark:shadow:none",
+          "hover:bg-surface disabled:border-surface-stronger border-surface-borders-stronger border shadow-wg-xs dark:shadow:none [--wg-border-width:1px]",
 
-        link: "",
+        transparent: "bg-transparent hover:bg-surface",
+
+        link: "p-0 underline underline-offset-3",
       },
       destructive: {
         true: [],
@@ -62,19 +60,36 @@ const buttonVariants = cva(
         variant: "tertiary",
         destructive: true,
         class:
-          "text-destructive-foreground bg-destructive-softer/10 hover:bg-destructive-softer/20 outline-destructive disabled:bg-destructive-softer/10 disabled:text-destructive/50 dark:bg-surface dark:hover:bg-surface-stronger",
+          "bg-destructive-softer/10 hover:bg-destructive-softer/20 disabled:bg-destructive-softer/10 dark:bg-surface dark:hover:bg-surface-stronger",
       },
       {
         variant: "transparent",
         destructive: true,
-        class:
-          "text-destructive-foreground hover:bg-destructive-softer/10 outline-destructive disabled:text-destructive/50 dark:hover:bg-surface",
+        class: "hover:bg-destructive-softer/10 dark:hover:bg-surface",
       },
       {
         variant: "outline",
         destructive: true,
         class:
-          "border-destructive-borders-stronger hover:bg-destructive-softer/10 text-destructive-foreground outline-destructive disabled:text-destructive/50 disabled:border-destructive-borders dark:hover:bg-surface",
+          "border-destructive-borders-stronger hover:bg-destructive-softer/10 dark:disabled:border-destructive/50 disabled:border-destructive-borders dark:hover:bg-surface",
+      },
+      {
+        variant: "link",
+        destructive: true,
+        class: "focus:text-destructive-foreground hover:text-destructive-foreground-contrast",
+      },
+
+      // Outline, tertiary, transparent, link
+      {
+        variant: ["outline", "tertiary", "transparent", "link"],
+        class:
+          "text-surface-foreground-contrast outline-primary disabled:text-surface-foreground/50 dark:disabled:text-white/40",
+      },
+      {
+        variant: ["outline", "tertiary", "transparent", "link"],
+        destructive: true,
+        class:
+          "text-destructive-foreground outline-destructive disabled:text-destructive/50 dark:disabled:text-desctructive/50",
       },
     ],
     defaultVariants: {
@@ -146,12 +161,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           (isReactElement(before) ? (
             React.cloneElement(before, {
               className: cn(
-                "h-6 w-6",
+                "h-6 w-6 transition-opacity",
                 size === "xs-icon" && "h-5 w-5",
                 size === "sm" && "h-5 w-5",
-                variant === "tertiary" && !destructive && !disabled && "opacity-40",
-                variant === "transparent" && !destructive && !disabled && "opacity-40",
-                variant === "outline" && !destructive && !disabled && "opacity-40",
+                ["transparent", "tertiary", "outline", "link"].includes(variant ?? "") &&
+                  !destructive &&
+                  "opacity-50",
+                variant === "link" && !children && !after && "group-hover:opacity-70",
                 before.props.className || ""
               ),
             })
@@ -165,12 +181,20 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           (isReactElement(after) ? (
             React.cloneElement(after, {
               className: cn(
-                "h-6 w-6",
+                "h-6 w-6 transition-opacity",
                 size === "xs-icon" && "h-5 w-5",
                 size === "sm" && "h-5 w-5",
-                variant === "tertiary" && !destructive && !disabled && "opacity-40",
-                variant === "transparent" && !destructive && !disabled && "opacity-40",
-                variant === "outline" && !destructive && !disabled && "opacity-40",
+
+                ["transparent", "tertiary", "outline", "link"].includes(variant ?? "") &&
+                  !destructive &&
+                  "opacity-50",
+
+                variant === "link" &&
+                  !children &&
+                  !before &&
+                  !destructive &&
+                  "group-hover:opacity-70",
+
                 after.props.className || ""
               ),
             })
@@ -185,6 +209,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(
           buttonVariants({ size, variant, shape, destructive }),
+
+          variant === "link" && children && "focus:outline-0",
 
           // Icon-only buttons
           before && !after && !children && size === "md" && "p-8px",
