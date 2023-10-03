@@ -1,5 +1,3 @@
-import { readableColor } from "color2k";
-
 import { palette } from "./palette";
 
 /* -------------------------------------------------------------------------- */
@@ -42,32 +40,21 @@ export type CScale = {
 };
 
 export type ThemeableColors = {
+  background: string;
+  foreground: string;
+
   primary: CScale;
   secondary: CScale;
-  destructive: Omit<
-    CScale,
-    "subtle" | "foreground-contrast" | "foreground-contrast-softer" | "foreground-softer"
-  >;
   surface: Omit<CScale, "subtle">;
 
-  background: ColorScale;
-  foreground: ColorScale & { muted: string };
-  "surface-2": ColorScale;
-  "surface-3": ColorScale;
+  destructive: Omit<CScale, "subtle" | "foreground-contrast-softer" | "foreground-softer">;
 };
 
 /* -------------------------------------------------------------------------- */
 
 export const themeableColorsLight: ThemeableColors = {
-  background: {
-    ...palette["white"],
-    foreground: readableColor(palette["white"].DEFAULT),
-    borders: "rgba(0,0,0, 0.15)",
-  },
-  foreground: {
-    DEFAULT: readableColor(palette["white"].DEFAULT),
-    muted: palette["gray"][200],
-  },
+  background: "#FFFFFF",
+  foreground: palette.gray[900],
 
   // Primary
   primary: {
@@ -103,19 +90,6 @@ export const themeableColorsLight: ThemeableColors = {
     "borders-stronger": "rgba(0,0,0,0.1)",
   },
 
-  // Destructive
-  destructive: {
-    DEFAULT: palette["red"][500],
-
-    stronger: palette["red"][600],
-    softer: palette["red"][300],
-
-    foreground: palette["red"][700],
-
-    borders: palette["red"][100],
-    "borders-stronger": palette["red"][200],
-  },
-
   // Surface
   surface: {
     DEFAULT: palette["gray"][50],
@@ -132,32 +106,24 @@ export const themeableColorsLight: ThemeableColors = {
     "borders-stronger": palette["gray"][200],
   },
 
-  "surface-2": {
-    DEFAULT: palette["gray"][100],
-    borders: palette["gray"][200],
-    foreground: palette["gray"][700],
-    "foreground-muted": palette["gray"][400],
-  },
+  // Destructive
+  destructive: {
+    DEFAULT: palette["red"][500],
 
-  "surface-3": {
-    DEFAULT: palette["gray"][200],
-    borders: palette["gray"][300],
-    foreground: palette["gray"][800],
-    "foreground-muted": palette["gray"][500],
+    stronger: palette["red"][600],
+    softer: palette["red"][300],
+
+    foreground: palette["red"][700],
+    "foreground-contrast": palette["red"][800],
+
+    borders: palette["red"][100],
+    "borders-stronger": palette["red"][200],
   },
 };
 
 export const themeableColorsDark: ThemeableColors = {
-  background: {
-    ...palette["black"],
-    foreground: readableColor(palette["black"].DEFAULT),
-    borders: "rgba(255,255,255, 0.20)",
-  },
-
-  foreground: {
-    DEFAULT: readableColor(palette["black"].DEFAULT),
-    muted: palette["white"][300],
-  },
+  background: "#000000",
+  foreground: "#FFFFFF",
 
   // Primary
   primary: {
@@ -193,19 +159,6 @@ export const themeableColorsDark: ThemeableColors = {
     "borders-stronger": "rgba(255,255,255, 0.2)",
   },
 
-  // Destructive
-  destructive: {
-    DEFAULT: palette["red"][500],
-
-    stronger: palette["red"][600],
-    softer: palette["red"][400],
-
-    foreground: palette["red"][500],
-
-    borders: palette["red"][500],
-    "borders-stronger": palette["red"][500],
-  },
-
   // Surface
   surface: {
     DEFAULT: "rgba(255,255,255,0.1)",
@@ -222,17 +175,18 @@ export const themeableColorsDark: ThemeableColors = {
     "borders-stronger": "rgba(255,255,255,0.2)",
   },
 
-  "surface-2": {
-    DEFAULT: "#1A1A1A",
-    borders: "rgba(255,255,255, 0.1)",
-    foreground: "rgba(255,255,255, 0.8)",
-    "foreground-muted": "rgba(255,255,255, 0.5)",
-  },
-  "surface-3": {
-    DEFAULT: "#292929",
-    borders: "rgba(255,255,255, 0.1)",
-    foreground: "rgba(255,255,255, 0.8)",
-    "foreground-muted": "rgba(255,255,255, 0.5)",
+  // Destructive
+  destructive: {
+    DEFAULT: palette["red"][500],
+
+    stronger: palette["red"][600],
+    softer: palette["red"][400],
+
+    foreground: palette["red"][500],
+    "foreground-contrast": palette["red"][400],
+
+    borders: palette["red"][500],
+    "borders-stronger": palette["red"][500],
   },
 };
 
