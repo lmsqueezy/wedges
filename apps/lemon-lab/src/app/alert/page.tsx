@@ -132,7 +132,7 @@ export default function ButtonPage() {
 
           <Alert.CloseButton
             destructive
-            className="hover:bg-wg-red dark:hover:bg-wg-red ml-1 bg-slate-600 text-white focus:text-white dark:hover:text-white"
+            className="hover:bg-wg-red dark:hover:bg-wg-red ml-1 bg-slate-600 text-white focus:text-white dark:text-white dark:hover:text-white"
             shape="pill"
             size="sm"
             onClick={() => {

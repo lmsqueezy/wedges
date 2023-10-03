@@ -1,6 +1,6 @@
 "use client";
 
-import { SpeakerIcon } from "@iconicicons/react";
+import { ArrowUpRightIcon, SpeakerIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
 import { useState } from "react";
@@ -19,9 +19,17 @@ export default function ButtonPage() {
     <main>
       <PageTitle>Button</PageTitle>
 
-      <div className="border-b-surface-borders-stronger divide-surface-borders-stronger mb-10 flex items-center divide-x border-b text-sm">
-        <div className="flex items-center gap-2 p-4 pb-2 pt-0">
+      <div className="bg-surface-50 divide-surface-200 mb-10 flex items-center divide-x rounded-xl p-2 text-sm">
+        <div className="flex items-center gap-2 px-4 pt-0">
           <span>Size:</span>
+          <Button
+            size="sm"
+            variant={size === "xs-icon" ? "secondary" : "outline"}
+            onClick={() => setSize("xs-icon")}
+          >
+            xs-icon
+          </Button>
+
           <Button
             size="sm"
             variant={size === "sm" ? "secondary" : "outline"}
@@ -37,17 +45,9 @@ export default function ButtonPage() {
           >
             md
           </Button>
-
-          <Button
-            size="sm"
-            variant={size === "xs-icon" ? "secondary" : "outline"}
-            onClick={() => setSize("xs-icon")}
-          >
-            xs-icon
-          </Button>
         </div>
 
-        <div className="flex items-center gap-2 p-4 pb-2 pt-0">
+        <div className="flex items-center gap-2 px-4 pt-0">
           <span>Shape:</span>
           <Button
             size="sm"
@@ -66,7 +66,7 @@ export default function ButtonPage() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 p-4 pb-2 pt-0">
+        <div className="flex items-center gap-2 px-4 pt-0">
           <span>Destructive:</span>
 
           <Button
@@ -80,7 +80,7 @@ export default function ButtonPage() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 p-4 pb-2 pt-0">
+        <div className="flex items-center gap-2 px-4 pt-0">
           <span>Disabled:</span>
 
           <Button
@@ -94,7 +94,7 @@ export default function ButtonPage() {
           </Button>
         </div>
 
-        <div className="flex items-center gap-2 p-4 pb-2 pt-0">
+        <div className="flex items-center gap-2 px-4 pt-0">
           <span>Hide Icons:</span>
 
           <Button
@@ -119,7 +119,7 @@ export default function ButtonPage() {
           size={size}
           variant="primary"
         >
-          Primary
+          Button
         </Button>
 
         <Button
@@ -239,22 +239,30 @@ export default function ButtonPage() {
         />
       </div>
 
-      <div className="mt-8 flex h-10 items-center gap-2">
-        <Button
-          after={<SpeakerIcon />}
-          className="bg-wg-orange-600 hover:bg-wg-orange-500 outline-wg-orange-600 rounded-0"
-          destructive={destructive}
-          disabled={disabled}
-          shape={shape}
-          size={size}
-          variant="primary"
-        >
-          Custom
-        </Button>
+      <div className="mt-24 flex h-10 flex-col gap-2">
+        <h2 className="mb-8 text-xl">Custom</h2>
 
-        <Button asChild>
-          <Link href="/login">Login</Link>
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button
+            after={<SpeakerIcon />}
+            className="bg-wg-orange-600 hover:bg-wg-orange-500 outline-wg-orange-600 rounded-0"
+            destructive={destructive}
+            disabled={disabled}
+            shape={shape}
+            size={size}
+            variant="primary"
+          >
+            Custom
+          </Button>
+
+          <Button asChild after={<ArrowUpRightIcon />} size="sm" variant="outline">
+            <Link href="/">Go Home</Link>
+          </Button>
+
+          <Button className="text-wg-red-600 dark:text-wg-red-500" variant="link">
+            Send crash report
+          </Button>
+        </div>
       </div>
     </main>
   );

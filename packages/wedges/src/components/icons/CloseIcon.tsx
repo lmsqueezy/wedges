@@ -10,7 +10,7 @@ const CloseIcon = React.forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     <svg
       ref={ref}
       aria-labelledby={titleId}
-      className="h-4 w-4 text-inherit"
+      className="text-inherit"
       fill="currentColor"
       height={size}
       stroke="none"

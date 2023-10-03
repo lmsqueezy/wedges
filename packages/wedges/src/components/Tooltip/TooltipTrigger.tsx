@@ -25,7 +25,7 @@ const TooltipContent = React.forwardRef<
         ) : (
           <InfoIcon
             className={cn(
-              "text-surface-borders-stronger dark:text-surface-foreground-softer hover:text-primary dark:hover:text-primary focus:text-primary dark:focus:text-primary focus:outline-primary rounded-full transition-colors focus:outline-2 data-[state=instant-open]:transition-none",
+              "text-surface-200 hover:text-primary dark:hover:text-primary focus:text-primary dark:focus:text-primary focus:outline-primary rounded-full transition-colors focus:outline-2 data-[state=instant-open]:transition-none",
               onClick && "cursor-pointer",
               className
             )}

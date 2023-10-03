@@ -45,9 +45,12 @@ export type ThemeableColors = {
 
   primary: CScale;
   secondary: CScale;
-  surface: Omit<CScale, "subtle">;
+  //   surface: Omit<CScale, "subtle">;
 
-  destructive: Omit<CScale, "subtle" | "foreground-contrast-softer" | "foreground-softer">;
+  surface: ColorScale;
+  destructive: ColorScale;
+
+  //   destructive: Omit<CScale, "subtle" | "foreground-contrast-softer" | "foreground-softer">;
 };
 
 /* -------------------------------------------------------------------------- */
@@ -92,32 +95,32 @@ export const themeableColorsLight: ThemeableColors = {
 
   // Surface
   surface: {
+    // DEFAULT: palette["gray"][50],
+    // stronger: palette["gray"][100],
+    // softer: "rgba(255, 255, 255, 0)",
+    // foreground: palette["gray"][400],
+    // "foreground-softer": palette["gray"][500],
+    // "foreground-contrast": palette["gray"][900],
+    // "foreground-contrast-softer": palette["gray"][700],
+    // borders: palette["gray"][100],
+    // "borders-stronger": palette["gray"][200],
+    ...palette["gray"],
     DEFAULT: palette["gray"][50],
-
-    stronger: palette["gray"][100],
-    softer: "rgba(255, 255, 255, 0)",
-
-    foreground: palette["gray"][700],
-    "foreground-softer": palette["gray"][500],
-    "foreground-contrast": palette["gray"][900],
-    "foreground-contrast-softer": palette["gray"][700],
-
-    borders: palette["gray"][100],
-    "borders-stronger": palette["gray"][200],
   },
 
   // Destructive
   destructive: {
-    DEFAULT: palette["red"][500],
+    // DEFAULT: palette["red"][500],
 
-    stronger: palette["red"][600],
-    softer: palette["red"][300],
+    // stronger: palette["red"][600],
+    // softer: palette["red"][300],
 
-    foreground: palette["red"][700],
-    "foreground-contrast": palette["red"][800],
+    // foreground: palette["red"][700],
+    // "foreground-contrast": palette["red"][800],
 
-    borders: palette["red"][100],
-    "borders-stronger": palette["red"][200],
+    // borders: palette["red"][100],
+    // "borders-stronger": palette["red"][200],
+    ...palette["red"],
   },
 };
 
@@ -161,32 +164,41 @@ export const themeableColorsDark: ThemeableColors = {
 
   // Surface
   surface: {
-    DEFAULT: "rgba(255,255,255,0.1)",
-
-    stronger: "rgba(255,255,255,0.2)",
-    softer: "rgba(255, 255, 255, 0.05)",
-
-    foreground: palette["gray"][700],
-    "foreground-softer": "rgba(255, 255, 255, 0.4)",
-    "foreground-contrast": "#FFFFFF",
-    "foreground-contrast-softer": "rgba(255, 255, 255, 0.5)",
-
-    borders: "rgba(255,255,255,0.1)",
-    "borders-stronger": "rgba(255,255,255,0.2)",
+    // DEFAULT: "rgba(255,255,255,0.1)",
+    // stronger: "rgba(255,255,255,0.2)",
+    // softer: "rgba(255, 255, 255, 0.05)",
+    // foreground: palette["gray"][700],
+    // "foreground-softer": "rgba(255, 255, 255, 0.4)",
+    // "foreground-contrast": "#FFFFFF",
+    // "foreground-contrast-softer": "rgba(255, 255, 255, 0.5)",
+    // borders: "rgba(255,255,255,0.1)",
+    // "borders-stronger": "rgba(255,255,255,0.2)",
+    50: "rgba(255,255,255, 0.1)",
+    100: "rgba(255,255,255, 0.2)",
+    200: "rgba(255,255,255, 0.3)",
+    300: "rgba(255,255,255, 0.4)",
+    400: "rgba(255,255,255, 0.45)",
+    500: "rgba(255,255,255, 0.5)",
+    600: "rgba(255,255,255, 0.7)",
+    700: "rgba(255,255,255, 0.8)",
+    800: "rgba(255,255,255, 0.9)",
+    900: "#FFFFFF",
+    DEFAULT: "rgba(255,255,255, 0.1)",
   },
 
   // Destructive
   destructive: {
-    DEFAULT: palette["red"][500],
+    // DEFAULT: palette["red"][500],
 
-    stronger: palette["red"][600],
-    softer: palette["red"][400],
+    // stronger: palette["red"][600],
+    // softer: palette["red"][400],
 
-    foreground: palette["red"][500],
-    "foreground-contrast": palette["red"][400],
+    // foreground: palette["red"][500],
+    // "foreground-contrast": palette["red"][400],
 
-    borders: palette["red"][500],
-    "borders-stronger": palette["red"][500],
+    // borders: palette["red"][500],
+    // "borders-stronger": palette["red"][500],
+    ...palette["red"],
   },
 };
 

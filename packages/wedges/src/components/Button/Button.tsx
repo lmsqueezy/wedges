@@ -6,11 +6,11 @@ import { cn, isReactElement } from "../../helpers/utils";
 
 /* -------------------------------- Variants -------------------------------- */
 const buttonVariants = cva(
-  "group wg-antialiased text-sm leading-6 font-medium transition-colors inline-flex justify-center items-center focus:outline focus:outline-2 outline-offset-2 disabled:pointer-events-none py-2 px-12px gap-1",
+  "group wg-antialiased text-sm leading-6 font-medium transition-colors inline-flex justify-center items-center focus:outline focus:outline-2 outline-offset-2 disabled:pointer-events-none",
   {
     variants: {
       size: {
-        "xs-icon": [],
+        "xs-icon": "py-1 px-8px gap-0",
         sm: "py-1 px-8px gap-0",
         md: "py-2 px-12px gap-1",
       },
@@ -25,15 +25,15 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground-contrast hover:bg-secondary-softer outline-secondary disabled:bg-secondary-subtle dark:disabled:text-secondary-foreground-softer",
 
-        tertiary: "bg-surface hover:bg-surface-stronger",
+        tertiary: "bg-surface hover:bg-surface-100",
 
         outline:
-          "hover:bg-surface disabled:border-surface-stronger border-surface-borders-stronger border shadow-wg-xs dark:shadow:none [--wg-border-width:1px]",
+          "hover:bg-surface disabled:border-surface-100 border-surface-200 border shadow-wg-xs dark:shadow:none [--wg-border-width:1px]",
 
         transparent: "bg-transparent hover:bg-surface",
-
         link: "p-0 underline underline-offset-3",
       },
+
       destructive: {
         true: [],
         false: [],
@@ -54,24 +54,24 @@ const buttonVariants = cva(
         variant: ["primary", "secondary"],
         destructive: true,
         class:
-          "bg-destructive hover:bg-destructive-stronger outline-destructive text-white dark:disabled:text-white disabled:bg-destructive disabled:opacity-40",
+          "bg-destructive hover:bg-destructive-600 outline-destructive text-white dark:disabled:text-white disabled:bg-destructive disabled:opacity-50",
       },
       {
         variant: "tertiary",
         destructive: true,
         class:
-          "bg-destructive-softer/10 hover:bg-destructive-softer/20 disabled:bg-destructive-softer/10 dark:bg-surface dark:hover:bg-surface-stronger",
+          "bg-destructive-50 hover:bg-destructive-100 disabled:bg-destructive-50 dark:bg-surface dark:hover:bg-surface-200",
       },
       {
         variant: "transparent",
         destructive: true,
-        class: "hover:bg-destructive-softer/10 dark:hover:bg-surface",
+        class: "hover:bg-destructive-50 dark:hover:bg-surface",
       },
       {
         variant: "outline",
         destructive: true,
         class:
-          "border-destructive-borders-stronger hover:bg-destructive-softer/10 dark:disabled:border-destructive/50 disabled:border-destructive-borders dark:hover:bg-surface",
+          "border-destructive disabled:border-destructive-100 dark:disabled:border-destructive-900 hover:bg-destructive-50 dark:hover:bg-surface",
       },
       {
         variant: "link",
@@ -82,14 +82,13 @@ const buttonVariants = cva(
       // Outline, tertiary, transparent, link
       {
         variant: ["outline", "tertiary", "transparent", "link"],
-        class:
-          "text-surface-foreground-contrast outline-primary disabled:text-surface-foreground/50 dark:disabled:text-white/40",
+        class: "text-surface-900 outline-primary disabled:text-surface-300",
       },
       {
         variant: ["outline", "tertiary", "transparent", "link"],
         destructive: true,
         class:
-          "text-destructive-foreground outline-destructive disabled:text-destructive/50 dark:disabled:text-desctructive/50",
+          "text-destructive-700 dark:text-destructive-500 outline-destructive disabled:text-destructive-300 dark:disabled:text-destructive/50",
       },
     ],
     defaultVariants: {
@@ -99,6 +98,46 @@ const buttonVariants = cva(
     },
   }
 );
+
+const iconVariations = cva("transition-colors", {
+  variants: {
+    variant: {
+      primary: "",
+      secondary: "",
+      tertiary: "",
+      outline: "",
+      transparent: "",
+      link: "",
+    },
+    destructive: {
+      true: "text-current transition-none",
+    },
+    size: {
+      "xs-icon": "h-5 w-5",
+      sm: "h-5 w-5",
+      md: "h-6 w-6",
+    },
+  },
+  compoundVariants: [
+    {
+      variant: ["primary", "secondary"],
+      class: "text-current transition-none",
+    },
+    {
+      variant: ["tertiary", "outline", "transparent", "link"],
+      class: "text-surface-400",
+    },
+    {
+      variant: ["tertiary", "outline", "transparent", "link"],
+      destructive: true,
+      class: "text-current transition-none",
+    },
+  ],
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+});
 
 /* ---------------------------------- Types --------------------------------- */
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
@@ -145,62 +184,48 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const useAsChild = asChild && isReactElement(children);
     const Component = useAsChild ? Slot : "button";
 
+    // Render an icon with size, variant, and destructive properties applied.
+    const renderIcon = (icon: React.ReactElement<HTMLElement>) => {
+      const Component = React.isValidElement(icon) ? Slot : "span";
+
+      const classNames = cn(
+        iconVariations({ size, variant, destructive }),
+        variant &&
+          ["link", "outline", "tertiary", "transparent"].includes(variant) &&
+          !children &&
+          !after &&
+          before &&
+          !destructive &&
+          "group-hover:text-surface-600",
+        variant &&
+          ["link", "outline", "tertiary", "transparent"].includes(variant) &&
+          !children &&
+          after &&
+          !before &&
+          !destructive &&
+          "group-hover:text-surface-600",
+        disabled && "text-current transition-none",
+        icon.props?.className
+      );
+
+      return <Component className={classNames}>{icon}</Component>;
+    };
+
     const innerContent = useAsChild ? (
       React.cloneElement(children, {
         children: (
           <>
-            {before}
-            {children.props.children}
-            {after}
+            {before ? renderIcon(before) : null}
+            <span className="px-1">{children.props.children}</span>
+            {after ? renderIcon(after) : null}
           </>
         ),
       })
     ) : (
       <>
-        {before &&
-          (isReactElement(before) ? (
-            React.cloneElement(before, {
-              className: cn(
-                "h-6 w-6 transition-opacity",
-                size === "xs-icon" && "h-5 w-5",
-                size === "sm" && "h-5 w-5",
-                ["transparent", "tertiary", "outline", "link"].includes(variant ?? "") &&
-                  !destructive &&
-                  "opacity-50",
-                variant === "link" && !children && !after && "group-hover:opacity-70",
-                before.props.className || ""
-              ),
-            })
-          ) : (
-            <span>{before}</span>
-          ))}
-
+        {before ? renderIcon(before) : null}
         {children ? <span className="px-1">{children}</span> : null}
-
-        {after &&
-          (isReactElement(after) ? (
-            React.cloneElement(after, {
-              className: cn(
-                "h-6 w-6 transition-opacity",
-                size === "xs-icon" && "h-5 w-5",
-                size === "sm" && "h-5 w-5",
-
-                ["transparent", "tertiary", "outline", "link"].includes(variant ?? "") &&
-                  !destructive &&
-                  "opacity-50",
-
-                variant === "link" &&
-                  !children &&
-                  !before &&
-                  !destructive &&
-                  "group-hover:opacity-70",
-
-                after.props.className || ""
-              ),
-            })
-          ) : (
-            <span>{after}</span>
-          ))}
+        {after ? renderIcon(after) : null}
       </>
     );
 

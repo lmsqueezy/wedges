@@ -5,21 +5,20 @@ import { cn, isReactElement } from "../../helpers/utils";
 import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";
 
 /* -------------------------------- Variants -------------------------------- */
-const defaultAvatarGroupClasses = "inline-flex flex-wrap items-center gap-y-1 -space-x-1.5";
+const defaultAvatarGroupClasses = "wg-antialiased flex flex-wrap items-center gap-y-1 -space-x-3";
 const avatarGroupVariants = cva(defaultAvatarGroupClasses, {
   variants: {
     size: {
-      xs: "-space-x-0.5",
-      sm: "-space-x-1",
-      md: "-space-x-1.5",
-      lg: "-space-x-2",
-      xl: "-space-x-2.5",
-      "2xl": "-space-x-3",
-      default: "-space-x-1.5",
+      xs: "-space-x-1",
+      sm: "-space-x-2",
+      md: "-space-x-3",
+      lg: "-space-x-4",
+      xl: "-space-x-5",
+      "2xl": "-space-x-6",
     },
   },
   defaultVariants: {
-    size: "default",
+    size: "md",
   },
 });
 
@@ -72,7 +71,7 @@ const AvatarMoreLabel = React.forwardRef<AvatarElement, AvatarMoreLabelProps>(
         ref={ref}
         asChild={isReactElement(children)}
         className={cn(
-          "ring-background bg-surface-3 aspect-auto h-full px-2 text-white ring-2",
+          "ring-background bg-surface-200 aspect-auto h-full px-2 font-medium text-white ring-2 dark:text-white",
           className
         )}
         size={size}
@@ -92,7 +91,7 @@ const AvatarGroupItem = React.forwardRef<
   return (
     <Avatar
       ref={ref}
-      className={cn("ring-background ring-2", className)}
+      className={cn("ring-background ring-2 backdrop-blur-3xl", className)}
       initials={initials}
       {...otherProps}
     >

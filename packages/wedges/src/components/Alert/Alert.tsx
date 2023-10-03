@@ -7,18 +7,18 @@ import { Button } from "../Button";
 import { CloseIcon, InfoIcon } from "../icons";
 
 const defaultRootClasses =
-  "wg-antialiased flex text-sm leading-6 gap-2 bg-surface dark:text-surface-foreground-contrast-softer dark:bg-surface p-3 items-center";
+  "wg-antialiased flex text-sm leading-6 gap-2 bg-surface dark:bg-surface dark:text-surface-500 p-3 items-center";
 
 /* -------------------------------- Variants -------------------------------- */
 const alertVariants = cva("", {
   variants: {
     variant: {
       inline: "rounded-lg",
-      expanded: "p-4 pl-14px border-l-2 border-surface-borders-stronger items-start rounded-r-lg",
+      expanded: "p-4 pl-14px border-l-2 items-start rounded-r-lg",
     },
     color: {
-      gray: "text-surface-foreground-softer border-surface-borders-stronger",
-      primary: "text-surface-foreground-softer border-primary",
+      gray: "text-surface-500 border-surface-200",
+      primary: "text-surface-500 border-primary",
       info: "bg-wg-blue-50 text-wg-blue-700 border-wg-blue",
       success: "bg-wg-green-50 text-wg-green-700 border-wg-green",
       error: "bg-wg-red-50 text-wg-red-700 border-wg-red",
@@ -34,8 +34,8 @@ const alertVariants = cva("", {
 const alertTitleVariants = cva("font-medium", {
   variants: {
     color: {
-      gray: "text-surface-foreground-contrast",
-      primary: "text-surface-foreground-contrast",
+      gray: "text-surface-900",
+      primary: "text-surface-900",
       info: "text-wg-blue-800 dark:text-wg-blue",
       success: "text-wg-green-800 dark:text-wg-green",
       error: "text-wg-red-800 dark:text-wg-red",
@@ -50,7 +50,7 @@ const alertTitleVariants = cva("font-medium", {
 const alertIconVariants = cva("", {
   variants: {
     color: {
-      gray: "text-surface-borders-stronger dark:text-surface-foreground-softer",
+      gray: "text-surface-200",
       primary: "text-primary",
       info: "text-wg-blue",
       success: "text-wg-green",
@@ -174,7 +174,7 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
         >
           <ExpandedWrapper>
             {title && <AlertTitle color={color}>{title}</AlertTitle>}
-            {children && <AlertDescription color={color}>{children}</AlertDescription>}
+            {children && <AlertDescription>{children}</AlertDescription>}
           </ExpandedWrapper>
 
           {after && (
@@ -225,7 +225,7 @@ const AlertAfter = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElemen
     const Component = isReactElement(children) ? Slot : "span";
 
     return (
-      <Component ref={ref} className={cn("", className)} {...props}>
+      <Component ref={ref} className={className} {...props}>
         {children}
       </Component>
     );
@@ -273,7 +273,6 @@ const AlertCloseButton = React.forwardRef<
     <Button
       ref={ref}
       after={renderCloseIcon(children)}
-      className="hover:bg-wg-gray-700/5 dark:hover:bg-wg-white-50"
       shape="rounded"
       size="xs-icon"
       variant="link"
