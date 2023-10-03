@@ -231,6 +231,9 @@ const corePlugin = (
           outlineOffset: {
             3: "3px",
           },
+          textUnderlineOffset: {
+            3: "3px",
+          },
           animation: {
             "fade-in-up": `fadeInUp 0.3s ${animationEasing}`,
             "fade-in-down": `fadeInDown 0.3s ${animationEasing}`,
