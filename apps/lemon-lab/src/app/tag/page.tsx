@@ -16,17 +16,24 @@ export default function TagPage() {
           <section>
             <div className="flex flex-wrap items-start gap-2">
               <Tag
+                closable
                 avatar={<Avatar src="https://github.com/lmsqueezy.png" />}
                 onClose={() => alert("close")}
               >
                 @lmsqueezy
               </Tag>
 
-              <Tag before={<ClockIcon />} color="green" onClose={() => alert("close")}>
+              <Tag closable before={<ClockIcon />} color="green" onClose={() => alert("close")}>
                 12pm
               </Tag>
 
-              <Tag before={<ClockIcon />} color="red" shape="pill" onClose={() => alert("close")}>
+              <Tag
+                closable
+                before={<ClockIcon />}
+                color="red"
+                shape="pill"
+                onClose={() => alert("close")}
+              >
                 9am
               </Tag>
 
@@ -43,6 +50,7 @@ export default function TagPage() {
               <Tag color="secondary">Secondary</Tag>
 
               <Tag
+                closable
                 before={
                   <svg
                     fill="none"
@@ -91,6 +99,7 @@ export default function TagPage() {
               </Tag>
 
               <Tag
+                closable
                 before={
                   <svg
                     fill="none"
@@ -170,16 +179,17 @@ export default function TagPage() {
                 UK
               </Tag>
 
-              <Tag color="orange" onClose={() => {}}>
+              <Tag closable color="orange" onClose={() => {}}>
                 UX
               </Tag>
 
-              <Tag color="orange" onClose={() => {}}>
+              <Tag closable color="orange" onClose={() => {}}>
                 UI
               </Tag>
 
               <Tag
-                closeIcon={<TrashIcon />}
+                closable
+                closeIcon={<TrashIcon className="h-4 w-4" />}
                 color="orange"
                 stroke={true}
                 onClose={() => alert("close")}

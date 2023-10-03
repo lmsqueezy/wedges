@@ -67,12 +67,28 @@ export type TagProps = Omit<React.ComponentPropsWithoutRef<typeof Badge>, "befor
 /* ------------------------------- Components ------------------------------- */
 const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
   const { avatar, before, closeIcon: deleteIcon, closable, onClose, ...otherProps } = props;
+  const [visible, setVisible] = React.useState(true);
+
+  /**
+   * Handle the close event.
+   * @param event - The event object
+   */
+  const handleClose = React.useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      setVisible(false);
+
+      if (onClose) {
+        onClose(event);
+      }
+    },
+    [onClose]
+  );
 
   const renderBefore = (
     <>
       {isReactElement(before)
         ? React.cloneElement(before, {
-            className: cn("h-4 min-w-4 w-auto", before.props.className || ""),
+            className: cn("h-4 w-4", before.props.className || ""),
           })
         : before}
 
@@ -88,15 +104,20 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
   const renderDeleteIcon = () =>
     isReactElement(deleteIcon) ? deleteIcon : <CloseIcon className="h-4 w-4" />;
 
-  const renderCloseButton: React.ReactElement<HTMLButtonElement> | undefined = onClose ? (
+  const renderCloseButton: React.ReactElement<HTMLButtonElement> | undefined = closable ? (
     <Button
       before={renderDeleteIcon()}
       className="h-auto w-auto p-0 focus:outline-1"
       shape="pill"
       size="xs-icon"
       variant="link"
+      onClick={handleClose}
     />
   ) : undefined;
+
+  if (!visible) {
+    return null;
+  }
 
   return <Badge ref={ref} before={renderBefore} {...otherProps} after={renderCloseButton} />;
 });
