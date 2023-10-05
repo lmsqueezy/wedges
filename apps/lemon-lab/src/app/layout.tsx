@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <path d="M41.5303 30.0905L41.5197 30.0663C41.5197 30.0663 37.7609 20.7093 37.4443 17.8247C37.1277 14.94 39.7123 12.6016 42.5099 12.6016C45.3076 12.6016 47.8921 14.94 47.5755 17.8247C47.2589 20.7093 43.5001 30.0663 43.5001 30.0663L43.4896 30.0905C43.2582 30.6178 43.1063 30.964 42.5099 30.964C41.9136 30.964 41.7617 30.6178 41.5303 30.0905Z" />
                 </svg>
 
-                <span>Playground</span>
+                <span>Lemon Lab</span>
               </Link>
 
               <nav className="ml-auto flex items-center gap-5">
