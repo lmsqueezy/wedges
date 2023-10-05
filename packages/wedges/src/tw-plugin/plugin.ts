@@ -17,6 +17,15 @@ import { ConfigTheme, ConfigThemes, DefaultThemeType, WedgesOptions } from "./ut
 
 const DEFAULT_PREFIX = "wg";
 
+/**
+ * twMerge with extended options.
+ */
+export const twMerge = extendTailwindMerge({
+  theme: {
+    padding: ["2px", "4px", "6px", "8px", "12px", "14px"],
+  },
+});
+
 const resolveConfig = (
   themes: ConfigThemes = {},
   defaultTheme: DefaultThemeType,
@@ -42,7 +51,8 @@ const resolveConfig = (
   };
 
   Object.keys(themes).forEach((themeName) => {
-    const { colors, extend }: ConfigTheme = themes[themeName] ?? {};
+    const themeConfig = themes[themeName] ?? {}; // fallback to {} if undefined or null
+    const { colors = {}, extend = "light" } = themeConfig;
     const flatColors = flattenThemeObject(colors);
 
     let cssSelector = `.${themeName},[data-theme="${themeName}"]`;
@@ -50,10 +60,10 @@ const resolveConfig = (
 
     // if the theme is the default theme, add the selector to the root element
     if (themeName === defaultTheme) {
-      cssSelector = `:root,${cssSelector}`;
+      cssSelector = `:where(:root)`; // add :where to prevent specificity issues when theme is set on the html element
     }
 
-    resolved.utilities[cssSelector] = scheme ? { "color-scheme": scheme } : {};
+    resolved.utilities[cssSelector] = { "color-scheme": scheme };
 
     // Set varaints
     resolved.variants.push({
@@ -79,7 +89,7 @@ const resolveConfig = (
       }
 
       try {
-        const [h, s, l, defaultAlphaValue] = Color(colorValue).hsl().round().array();
+        const [h, s, l, defaultAlphaValue = 1] = Color(colorValue).hsl().round().array(); // fallback defaultAlphaValue to 1 if undefined
         const wedgesColorVar = `--${prefix}-${colorName}`;
         const wedgesOpacityVar = `--${prefix}-${colorName}-opacity`;
 
@@ -111,7 +121,7 @@ const corePlugin = (
   themes: ConfigThemes = {},
   defaultTheme: DefaultThemeType,
   prefix: string,
-  textSmooth: WedgesOptions["textSmooth"]
+  fontSmooth: WedgesOptions["fontSmooth"]
 ) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
@@ -122,11 +132,14 @@ const corePlugin = (
   return plugin(
     ({ addBase, addUtilities, addVariant, matchUtilities, theme }) => {
       addBase({
-        ":root, [data-theme]": {
+        ":root": {
+          "--wg-font-smooth--webkit": fontSmooth === "antialiased" ? "antialiased" : "unset",
+          "--wg-font-smooth--moz": fontSmooth === "antialiased" ? "grayscale" : "unset",
+        },
+
+        html: {
           color: `hsl(var(--${prefix}-foreground))`,
           backgroundColor: `hsl(var(--${prefix}-background))`,
-          "--wg-font-smooth--webkit": textSmooth === "antialiased" ? "antialiased" : "unset",
-          "--wg-font-smooth--moz": textSmooth === "antialiased" ? "grayscale" : "unset",
         },
       });
 
@@ -218,6 +231,9 @@ const corePlugin = (
           outlineOffset: {
             3: "3px",
           },
+          textUnderlineOffset: {
+            3: "3px",
+          },
           animation: {
             "fade-in-up": `fadeInUp 0.3s ${animationEasing}`,
             "fade-in-down": `fadeInDown 0.3s ${animationEasing}`,
@@ -291,7 +307,7 @@ export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> 
     defaultExtendTheme = "light",
     defaultTheme = "light",
     prefix: defaultPrefix = DEFAULT_PREFIX,
-    textSmooth = "antialiased",
+    fontSmooth = "antialiased",
     themes: themeObject = {},
   } = config;
 
@@ -317,14 +333,5 @@ export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> 
     ...otherUserThemes,
   };
 
-  return corePlugin(themes, defaultTheme, defaultPrefix, textSmooth);
+  return corePlugin(themes, defaultTheme, defaultPrefix, fontSmooth);
 };
-
-/**
- * twMerge with extended options.
- */
-export const twMerge = extendTailwindMerge({
-  theme: {
-    padding: ["2px", "4px", "6px", "8px", "12px", "14px"],
-  },
-});

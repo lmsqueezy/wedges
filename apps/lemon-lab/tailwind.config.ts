@@ -1,4 +1,4 @@
-import { wedgesPalette, wedgesTW } from "@lmsqueezy/wedges";
+import { wedgesTW } from "@lmsqueezy/wedges";
 import { Config } from "tailwindcss/types/config";
 
 const config: Config = {

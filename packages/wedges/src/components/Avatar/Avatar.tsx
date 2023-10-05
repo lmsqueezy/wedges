@@ -13,11 +13,8 @@ import {
 import LemonSqueezyIcon from "../icons/LemonSqueezy";
 
 /* -------------------------------- Variants -------------------------------- */
-const defaultAvatarSize = "h-10 min-w-10 text-base [--wg-notification-size:10px]";
-const rootClasses = cn(
-  "relative inline-flex aspect-square shrink-0 items-center wg-antialiased",
-  defaultAvatarSize
-);
+const rootClasses =
+  "h-10 min-w-10 text-base [--wg-notification-size:10px] relative inline-flex aspect-square shrink-0 items-center wg-antialiased";
 
 const statusClasses =
   "absolute right-0 bottom-0 aspect-square bg-wg-gray-300 h-[var(--wg-notification-size,10px)] rounded-full ring-background";
@@ -35,11 +32,10 @@ const avatarVariants = cva(rootClasses, {
       lg: "h-12 min-w-12 text-lg [--wg-notification-size:12px]",
       xl: "h-14 min-w-14 text-xl [--wg-notification-size:14px]",
       "2xl": "h-16 min-w-16 text-2xl [--wg-notification-size:16px]",
-      default: defaultAvatarSize,
     },
   },
   defaultVariants: {
-    size: "default",
+    size: "md",
   },
 });
 
@@ -53,11 +49,10 @@ const fallbackVariants = cva("", {
       lg: "w-7 h-7",
       xl: "w-8 h-8",
       "2xl": "w-10 h-10",
-      default: "w-6 h-6",
     },
   },
   defaultVariants: {
-    size: "default",
+    size: "md",
   },
 });
 
@@ -69,30 +64,25 @@ const statusVariants = cva(statusClasses, {
       green: "bg-wg-green",
       yellow: "bg-wg-yellow",
       red: "bg-wg-red",
-      default: "bg-wg-gray-300 dark:bg-wg-gray",
     },
   },
   defaultVariants: {
-    status: "default",
+    status: "gray",
   },
 });
 
 const notificationVariants = cva(notificationClasses, {
   variants: {
-    /**
-     * Represents the color of the notification dot.
-     */
     notification: {
       primary: "bg-primary",
       gray: "bg-wg-gray",
       green: "bg-wg-green",
       yellow: "bg-wg-yellow",
       red: "bg-wg-red",
-      default: "bg-wg-gray",
     },
   },
   defaultVariants: {
-    notification: "default",
+    notification: "gray",
   },
 });
 
@@ -177,7 +167,7 @@ const AvatarFallback = React.forwardRef<
   <Primitive.Fallback
     ref={ref}
     className={cn(
-      "bg-surface-2 flex aspect-square grow items-center justify-center rounded-full",
+      "bg-surface-100 text-surface-400 flex aspect-square grow items-center justify-center rounded-full dark:bg-neutral-800",
       className
     )}
     {...props}
@@ -191,7 +181,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     className,
     initials,
     notification,
-    size = "default",
+    size = "md",
     src,
     status,
     style,
@@ -209,7 +199,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     "bg-wg-red",
   ];
 
-  const identifier = (src || alt || initials || "default") + size;
+  const identifier = src || "" + alt || "" + initials || "";
   const bgColor = getElementFromHash(stringToHash(identifier + size), randomColors);
 
   return (
@@ -237,7 +227,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
           ref={ref}
           aria-label={alt}
           asChild={isReactElement(children)}
-          className={cn(className)}
+          className={className}
           style={style}
         >
           {children}
@@ -247,13 +237,14 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
       {/* Show Lemon Squeezy icon until image is loaded, 
           only if children fallback is not set */}
       {!children && src && !initials && (
-        <AvatarFallback aria-label={alt} className={cn(className)} style={style}>
+        <AvatarFallback
+          aria-label={alt}
+          className={cn("text-surface-300", className)}
+          style={style}
+        >
           <LemonSqueezyIcon
             aria-hidden="true"
-            className={cn(
-              fallbackVariants({ size }),
-              "fill-surface-foreground-muted -mr-[4.5%] w-auto stroke-none brightness-125 dark:brightness-75"
-            )}
+            className={cn(fallbackVariants({ size }), "-mr-[4.5%] w-auto fill-current stroke-none")}
           />
         </AvatarFallback>
       )}
@@ -280,12 +271,12 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
         <AvatarFallback
           ref={ref}
           aria-label={alt}
-          className={cn(className)}
+          className={className}
           role="img"
           style={style}
           {...otherProps}
         >
-          <UserIcon className={cn("text-surface-foreground-muted", fallbackVariants({ size }))} />
+          <UserIcon className={fallbackVariants({ size })} />
         </AvatarFallback>
       )}
 
@@ -293,6 +284,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
       {status && (
         <AvatarStatus className={statusVariants({ status })} ring={size === "xs" ? 1 : 2} />
       )}
+
       {notification && (
         <AvatarNotification
           className={notificationVariants({ notification })}
