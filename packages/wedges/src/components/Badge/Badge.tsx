@@ -5,13 +5,14 @@ import * as React from "react";
 import { cn } from "../../helpers/utils";
 
 /* -------------------------------- Variants -------------------------------- */
-const defaultDarkClasses = "dark:wg-bg-surface dark:outline-surface-100";
+const defaultDarkClasses = "dark:wg-bg-surface dark:outline-surface-50";
 
 const badgeVariants = cva("wg-antialiased py-1 px-2 rounded-lg text-sm flex items-center", {
   variants: {
     color: {
-      default: [
+      gray: [
         "wg-bg-surface text-surface-900 dark:text-surface-800 outline-surface-200 dark:outline-surface-100",
+        defaultDarkClasses,
       ],
       green: [
         "wg-bg-wg-green-50 outline-wg-green-200 text-wg-green-800 dark:text-wg-green",
@@ -41,8 +42,10 @@ const badgeVariants = cva("wg-antialiased py-1 px-2 rounded-lg text-sm flex item
         "wg-bg-wg-yellow-50 outline-wg-yellow-300 text-wg-yellow-800 dark:text-wg-yellow",
         defaultDarkClasses,
       ],
-      primary: ["wg-bg-primary-subtle outline-primary-borders text-primary-foreground"],
-      secondary: ["wg-bg-secondary-subtle outline-secondary-borders text-secondary-foreground"],
+      primary: [
+        "wg-bg-primary-50 outline-primary-200 text-primary-800 dark:text-primary-300",
+        defaultDarkClasses,
+      ],
     },
     shape: {
       rounded: "rounded-lg",
@@ -54,7 +57,7 @@ const badgeVariants = cva("wg-antialiased py-1 px-2 rounded-lg text-sm flex item
     },
   },
   defaultVariants: {
-    color: "default",
+    color: "gray",
     shape: "rounded",
   },
 });
@@ -62,7 +65,7 @@ const badgeVariants = cva("wg-antialiased py-1 px-2 rounded-lg text-sm flex item
 const iconVariants = cva("h-4 w-4", {
   variants: {
     color: {
-      default: "text-surface-400",
+      gray: "text-surface-400",
       green: "text-wg-green-700",
       purple: "text-wg-purple-700",
       orange: "text-wg-orange-700",
@@ -70,18 +73,17 @@ const iconVariants = cva("h-4 w-4", {
       pink: "text-wg-pink-700",
       blue: "text-wg-blue-700",
       yellow: "text-wg-yellow-700",
-      primary: "text-surface-100",
-      secondary: "text-surface-400",
+      primary: "text-primary-700",
     },
   },
   compoundVariants: [
     {
-      color: ["green", "purple", "orange", "red", "pink", "blue", "yellow"],
+      color: ["green", "purple", "orange", "red", "pink", "blue", "yellow", "primary"],
       class: "dark:text-current",
     },
   ],
   defaultVariants: {
-    color: "default",
+    color: "gray",
   },
 });
 
@@ -116,7 +118,7 @@ const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => {
     before,
     children,
     className,
-    color = "default",
+    color = "gray",
     shape = "rounded",
     stroke = false,
     ...otherProps

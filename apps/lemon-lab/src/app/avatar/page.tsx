@@ -62,13 +62,7 @@ export default function AvatarPage() {
             <Avatar initials="d" notification="green" size="md" status="yellow" />
             <Avatar initials="g" notification="green" size="lg" status="yellow" />
             <Avatar initials="e" notification="green" size="xl" status="yellow" />
-            <Avatar
-              className="bg-teal-800 outline outline-offset-2 outline-teal-500"
-              initials="S"
-              notification="green"
-              size="2xl"
-              status="yellow"
-            />
+            <Avatar initials="S" notification="green" size="2xl" status="yellow" />
           </div>
         </section>
 

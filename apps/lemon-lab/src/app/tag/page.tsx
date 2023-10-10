@@ -47,8 +47,6 @@ export default function TagPage() {
                 Primary + Stroke
               </Tag>
 
-              <Tag color="secondary">Secondary</Tag>
-
               <Tag
                 closable
                 before={
