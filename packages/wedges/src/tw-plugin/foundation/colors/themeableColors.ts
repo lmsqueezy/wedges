@@ -16,9 +16,6 @@ export type ColorScale =
       700: string;
       800: string;
       900: string;
-      foreground: string;
-      "foreground-muted": string;
-      borders: string;
       DEFAULT: string;
     }>
   | string;
@@ -62,7 +59,7 @@ export const themeableColorsLight: ThemeableColors = {
 };
 
 export const themeableColorsDark: ThemeableColors = {
-  background: "#000000",
+  background: palette.gray[900],
   foreground: "#FFFFFF",
 
   primary: {

@@ -218,7 +218,7 @@ export default function AvatarGroupPage() {
             <AvatarGroup.Item src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80" />
             <AvatarGroup.Item src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=250&q=60" />
 
-            <AvatarGroup.Label className="bg-primary text-primary-foreground-contrast z-40 px-3 text-sm">
+            <AvatarGroup.Label className="bg-primary z-40 px-3 text-sm text-white">
               3,000 followers
             </AvatarGroup.Label>
 

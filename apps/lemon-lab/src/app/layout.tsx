@@ -17,8 +17,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-full">
         <ThemeProvider enableSystem attribute="class" defaultTheme="system">
           <div className="flex grow flex-col">
-            <header className="text-surface-foreground-muted mx-auto flex w-full max-w-screen-xl items-center gap-5 px-10 pt-10 text-sm">
-              <Link className="text-foreground flex items-center gap-3" href="/">
+            <header className="text-surface-500 mx-auto flex w-full max-w-screen-xl items-center gap-5 px-10 pt-10 text-sm">
+              <Link className="flex items-center gap-3" href="/">
                 <svg className="fill-current" height="40" viewBox="0 0 56 56" width="40">
                   <path d="M36.2138 26.9603L36.2244 26.9844C36.2244 26.9844 39.9832 36.3415 40.2998 39.2261C40.6164 42.1108 38.0319 44.4492 35.2342 44.4492C32.4366 44.4492 29.8521 42.1108 30.1687 39.2261C30.4853 36.3415 34.244 26.9844 34.244 26.9844L34.2546 26.9603C34.486 26.433 34.6379 26.0867 35.2342 26.0867C35.8306 26.0867 35.9825 26.433 36.2138 26.9603Z" />
                   <path d="M21.706 26.9603L21.7166 26.9844C21.7166 26.9844 25.4754 36.3415 25.792 39.2261C26.1086 42.1108 23.5241 44.4492 20.7264 44.4492C17.9288 44.4492 15.3442 42.1108 15.6608 39.2261C15.9774 36.3415 19.7362 26.9844 19.7362 26.9844L19.7468 26.9603C19.9782 26.433 20.1301 26.0867 20.7264 26.0867C21.3227 26.0867 21.4747 26.433 21.706 26.9603Z" />
@@ -30,36 +30,36 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <span>Lemon Lab</span>
               </Link>
 
-              <nav className="ml-auto flex items-center gap-5">
-                <Link className="hover:text-foreground" href="/alert">
+              <nav className="ml-auto flex items-center gap-6">
+                <Link className="hover:text-foreground transition-colors" href="/alert">
                   Alert
                 </Link>
 
-                <Link className="hover:text-foreground" href="/avatar">
+                <Link className="hover:text-surface-900 transition-colors" href="/avatar">
                   Avatar
                 </Link>
 
-                <Link className="hover:text-foreground" href="/avatar-group">
+                <Link className="hover:text-surface-900 transition-colors" href="/avatar-group">
                   Avatar Group
                 </Link>
 
-                <Link className="hover:text-foreground" href="/badge">
+                <Link className="hover:text-surface-900 transition-colors" href="/badge">
                   Badge
                 </Link>
 
-                <Link className="hover:text-foreground" href="/button">
+                <Link className="hover:text-surface-900 transition-colors" href="/button">
                   Button
                 </Link>
 
-                <Link className="hover:text-foreground" href="/tag">
+                <Link className="hover:text-surface-900 transition-colors" href="/tag">
                   Tag
                 </Link>
 
-                <Link className="hover:text-foreground" href="/tooltip">
+                <Link className="hover:text-surface-900 transition-colors" href="/tooltip">
                   Tooltip
                 </Link>
 
-                <Link className="hover:text-foreground" href="/colors">
+                <Link className="hover:text-surface-900 transition-colors" href="/colors">
                   Colors
                 </Link>
               </nav>

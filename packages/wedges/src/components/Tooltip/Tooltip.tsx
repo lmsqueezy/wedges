@@ -35,7 +35,7 @@ const tooltipVariant = cva(["z-50 rounded-md text-white"], {
     },
     color: {
       primary: "wg-bg-primary text-white",
-      secondary: "wg-bg-secondary text-white",
+      secondary: "wg-bg-secondary text-white dark:text-secondary-900 ",
     },
   },
   defaultVariants: {
