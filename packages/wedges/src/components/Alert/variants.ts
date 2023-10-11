@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 export const alertVariants = cva("", {
   variants: {
     variant: {
-      inline: "rounded-lg",
+      inline: "rounded-lg sm:items-center",
       expanded: "p-4 pl-14px border-l-2 items-start rounded-r-lg",
     },
     color: {

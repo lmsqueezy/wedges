@@ -1,14 +1,15 @@
 import { Slot } from "@radix-ui/react-slot";
-import { VariantProps, cva } from "class-variance-authority";
+import { VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import { cn, isReactElement } from "../../helpers/utils";
 import { Button } from "../Button";
 import { CloseIcon, InfoIcon } from "../icons";
+
 import { alertIconVariants, alertTitleVariants, alertVariants } from "./variants";
 
 const defaultRootClasses =
-  "wg-antialiased flex text-sm leading-6 gap-2 bg-surface dark:bg-surface dark:text-surface-500 p-3 items-center";
+  "wg-antialiased flex text-sm leading-6 gap-2 bg-surface dark:bg-surface dark:text-surface-500 p-3 items-start";
 
 /* ---------------------------------- Types --------------------------------- */
 type ClosableProps = {
@@ -115,8 +116,9 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
 
         <div
           className={cn(
-            "flex grow items-center gap-2",
-            variant === "expanded" && "flex-col items-start gap-3"
+            "flex grow flex-col items-start",
+            variant === "expanded" && "items-start gap-3",
+            variant === "inline" && "sm:flex-row sm:items-center sm:gap-2"
           )}
         >
           <ExpandedWrapper>
@@ -125,7 +127,7 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
           </ExpandedWrapper>
 
           {after && (
-            <div className={cn(variant === "inline" && "ml-auto")}>
+            <div className={cn(variant === "inline" && "mt-3 sm:ml-auto sm:mt-0")}>
               <AlertAfter>{after}</AlertAfter>
             </div>
           )}
