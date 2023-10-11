@@ -32,7 +32,11 @@ describe("Given a Tag with avatar, before props", () => {
 describe("Given a Tag with onClose function", () => {
   it("should call onClose when the close button is clicked", () => {
     const onClose = jest.fn();
-    const { getByRole } = render(<Tag onClose={onClose}>Children</Tag>);
+    const { getByRole } = render(
+      <Tag closable onClose={onClose}>
+        Children
+      </Tag>
+    );
 
     fireEvent.click(getByRole("button"));
     expect(onClose).toBeCalled();
@@ -41,7 +45,7 @@ describe("Given a Tag with onClose function", () => {
   it("should render the custom close icon if provided", () => {
     const onClose = jest.fn();
     const { findByText } = render(
-      <Tag closeIcon={<div>Close</div>} onClose={onClose}>
+      <Tag closable closeIcon={<div>Close</div>} onClose={onClose}>
         Children
       </Tag>
     );

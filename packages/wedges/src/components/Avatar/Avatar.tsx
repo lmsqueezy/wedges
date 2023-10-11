@@ -1,6 +1,6 @@
 import { UserIcon } from "@iconicicons/react";
 import * as Primitive from "@radix-ui/react-avatar";
-import { cva, type VariantProps } from "class-variance-authority";
+import { type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
 import {
@@ -12,79 +12,15 @@ import {
 } from "../../helpers/utils";
 import LemonSqueezyIcon from "../icons/LemonSqueezy";
 
-/* -------------------------------- Variants -------------------------------- */
-const rootClasses =
-  "h-10 min-w-10 text-base [--wg-notification-size:10px] relative inline-flex aspect-square shrink-0 items-center wg-antialiased";
-
-const statusClasses =
-  "absolute right-0 bottom-0 aspect-square bg-wg-gray-300 h-[var(--wg-notification-size,10px)] rounded-full ring-background";
-
-const notificationClasses =
-  "absolute right-0 top-0 aspect-square h-[var(--wg-notification-size,10px)] rounded-full ring-background";
-
-const avatarVariants = cva(rootClasses, {
-  variants: {
-    size: {
-      xxs: "h-4 min-w-4 text-xxs [--wg-notification-size:4px]",
-      xs: "h-6 min-w-6 text-xs [--wg-notification-size:6px]",
-      sm: "h-8 min-w-8 text-sm [--wg-notification-size:8px]",
-      md: "h-10 min-w-10 text-base [--wg-notification-size:10px]",
-      lg: "h-12 min-w-12 text-lg [--wg-notification-size:12px]",
-      xl: "h-14 min-w-14 text-xl [--wg-notification-size:14px]",
-      "2xl": "h-16 min-w-16 text-2xl [--wg-notification-size:16px]",
-    },
-  },
-  defaultVariants: {
-    size: "md",
-  },
-});
-
-const fallbackVariants = cva("", {
-  variants: {
-    size: {
-      xxs: "w-3 h-3",
-      xs: "w-4 h-4",
-      sm: "w-5 h-5",
-      md: "w-6 h-6",
-      lg: "w-7 h-7",
-      xl: "w-8 h-8",
-      "2xl": "w-10 h-10",
-    },
-  },
-  defaultVariants: {
-    size: "md",
-  },
-});
-
-const statusVariants = cva(statusClasses, {
-  variants: {
-    status: {
-      primary: "bg-primary",
-      gray: "bg-wg-gray",
-      green: "bg-wg-green",
-      yellow: "bg-wg-yellow",
-      red: "bg-wg-red",
-    },
-  },
-  defaultVariants: {
-    status: "gray",
-  },
-});
-
-const notificationVariants = cva(notificationClasses, {
-  variants: {
-    notification: {
-      primary: "bg-primary",
-      gray: "bg-wg-gray",
-      green: "bg-wg-green",
-      yellow: "bg-wg-yellow",
-      red: "bg-wg-red",
-    },
-  },
-  defaultVariants: {
-    notification: "gray",
-  },
-});
+import {
+  avatarVariants,
+  fallbackVariants,
+  notificationClasses,
+  notificationVariants,
+  rootClasses,
+  statusClasses,
+  statusVariants,
+} from "./variants";
 
 /* ---------------------------------- Types --------------------------------- */
 export type AvatarElement = React.ElementRef<typeof Primitive.Image> | HTMLSpanElement;
@@ -200,7 +136,9 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
   ];
 
   const identifier = src || "" + alt || "" + initials || "";
-  const bgColor = getElementFromHash(stringToHash(identifier + size), randomColors);
+  const bgColor = React.useMemo(() => {
+    return getElementFromHash(stringToHash(identifier + size), randomColors);
+  }, [identifier, size]);
 
   return (
     <AvatarRoot

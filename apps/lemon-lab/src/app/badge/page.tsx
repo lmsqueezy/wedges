@@ -12,7 +12,17 @@ import { Badge } from "@lmsqueezy/wedges";
 import PageTitle from "@/components/PageTitle";
 
 export default function BadgePage() {
-  const colors = ["green", "orange", "red", "pink", "purple", "blue", "yellow", "gray"] as const;
+  const colors = [
+    "primary",
+    "green",
+    "orange",
+    "red",
+    "pink",
+    "purple",
+    "blue",
+    "yellow",
+    "gray",
+  ] as const;
 
   return (
     <main>
@@ -24,10 +34,6 @@ export default function BadgePage() {
 
           <section>
             <div className="flex flex-wrap items-start gap-2">
-              <Badge color="primary" stroke={true}>
-                Primary
-              </Badge>
-
               {colors.map((color) => (
                 <Badge key={color} after={<StarIcon />} before={<CloseIcon />} color={color}>
                   {color.charAt(0).toUpperCase() + color.slice(1)}
