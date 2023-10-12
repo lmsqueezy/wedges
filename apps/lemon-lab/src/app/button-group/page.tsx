@@ -6,12 +6,13 @@ import {
   CopyIcon,
   DotsVerticalIcon,
   DownloadIcon,
+  EditIcon,
   MoonIcon,
   SendIcon,
   StarIcon,
   SunIcon,
 } from "@iconicicons/react";
-import { ButtonGroup } from "@lmsqueezy/wedges";
+import { ButtonGroup, Tooltip } from "@lmsqueezy/wedges";
 
 import PageTitle from "@/components/PageTitle";
 
@@ -44,7 +45,29 @@ export default function ButtonGroupPage() {
         </ButtonGroup.Root>
 
         <ButtonGroup.Root size="sm">
-          <ButtonGroup.Item disabled>Publish</ButtonGroup.Item>
+          <ButtonGroup.Item disabled>Create pull request</ButtonGroup.Item>
+
+          <ButtonGroup.Item isIconOnly>
+            <ChevronDownIcon />
+          </ButtonGroup.Item>
+        </ButtonGroup.Root>
+
+        <ButtonGroup.Root size="sm">
+          <ButtonGroup.Item>Raw</ButtonGroup.Item>
+
+          <ButtonGroup.Item isIconOnly>
+            <CopyIcon />
+          </ButtonGroup.Item>
+
+          <ButtonGroup.Item isIconOnly>
+            <DownloadIcon />
+          </ButtonGroup.Item>
+
+          <Tooltip align="center" animation={true} content="Edit page" delayDuration={0} side="top">
+            <ButtonGroup.Item isIconOnly>
+              <EditIcon />
+            </ButtonGroup.Item>
+          </Tooltip>
 
           <ButtonGroup.Item isIconOnly>
             <ChevronDownIcon />
