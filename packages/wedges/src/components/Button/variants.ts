@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "group shrink-0 wg-antialiased text-sm leading-6 font-medium transition-colors inline-flex justify-center items-center focus:outline focus:outline-2 outline-offset-2 disabled:pointer-events-none",
+  "group shrink-0 wg-antialiased text-sm leading-6 font-medium inline-flex justify-center items-center focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
   {
     variants: {
       size: {
@@ -14,8 +14,7 @@ export const buttonVariants = cva(
         pill: "rounded-full",
       },
       variant: {
-        primary:
-          "bg-primary text-white outline-primary hover:bg-primary-600 dark:hover:bg-primary-500 disabled:opacity-50",
+        primary: "bg-primary text-white outline-primary hover:bg-primary-600 disabled:opacity-50",
 
         secondary:
           "bg-secondary text-white dark:text-secondary-900 hover:bg-secondary-700 dark:disabled:text-wg-white-500 dark:hover:bg-secondary-800 outline-secondary disabled:bg-secondary-200",
@@ -72,7 +71,7 @@ export const buttonVariants = cva(
         variant: "link",
         destructive: true,
         class:
-          "focus:text-destructive-800 hover:text-destructive-800 dark:hover:text-destructive-400 dark:focus:text-destructive-400",
+          "focus-visible:text-destructive-800 hover:text-destructive-800 dark:hover:text-destructive-400 dark:focus-visible:text-destructive-400",
       },
 
       {
@@ -94,7 +93,7 @@ export const buttonVariants = cva(
   }
 );
 
-export const iconVariants = cva("transition-colors", {
+export const iconVariants = cva("", {
   variants: {
     variant: {
       primary: "",
@@ -105,7 +104,7 @@ export const iconVariants = cva("transition-colors", {
       link: "",
     },
     destructive: {
-      true: "text-current transition-none",
+      true: "text-current",
     },
     size: {
       "xs-icon": "h-5 w-5",
@@ -116,7 +115,7 @@ export const iconVariants = cva("transition-colors", {
   compoundVariants: [
     {
       variant: ["primary", "secondary"],
-      class: "text-current transition-none",
+      class: "text-current",
     },
     {
       variant: ["tertiary", "outline", "transparent", "link"],
@@ -125,7 +124,7 @@ export const iconVariants = cva("transition-colors", {
     {
       variant: ["tertiary", "outline", "transparent", "link"],
       destructive: true,
-      class: "text-current transition-none",
+      class: "text-current",
     },
   ],
   defaultVariants: {

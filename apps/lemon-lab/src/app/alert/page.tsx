@@ -131,15 +131,15 @@ export default function ButtonPage() {
           <Alert.Description>This is alert description here</Alert.Description>
 
           <Alert.CloseButton
-            destructive
-            className="hover:bg-wg-red dark:hover:bg-wg-red ml-1 bg-slate-600 text-white focus:text-white dark:text-white dark:hover:text-white"
+            asChild
+            className="hover:bg-wg-red ml-1 bg-slate-700 !text-white dark:hover:bg-slate-600"
             shape="pill"
             size="sm"
             onClick={() => {
               alert("custom handler");
             }}
           >
-            <TrashIcon className="h-6 w-6" />
+            <TrashIcon className="h-6 w-6 text-current group-hover:text-white" />
           </Alert.CloseButton>
         </Alert.Root>
       </div>

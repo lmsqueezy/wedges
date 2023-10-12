@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 
 import Link from "next/link";
 
+import { Providers } from "./providers";
+
 import ThemeToggle from "@/components/ThemeToggle";
-import { ThemeProvider } from "@/components/theme-provider";
+
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,12 +13,12 @@ export const metadata: Metadata = {
   description: "Explore Wedges components and features",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning className="h-full" lang="en">
       <body className="flex min-h-full">
-        <ThemeProvider enableSystem attribute="class" defaultTheme="system">
-          <div className="flex grow flex-col">
+        <Providers>
+          <div className="bg-background text-foreground flex grow flex-col">
             <header className="text-surface-500 mx-auto flex w-full max-w-screen-xl flex-wrap items-center gap-5 px-10 pt-10 text-sm">
               <Link className="flex items-center gap-3 text-gray-900 dark:text-white" href="/">
                 <svg className="fill-current" height="40" viewBox="0 0 56 56" width="40">
@@ -55,6 +57,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Button Group
                 </Link>
 
+                <Link className="hover:text-surface-900 transition-colors" href="/toggle-group">
+                  Toggle Group
+                </Link>
+
                 <Link className="hover:text-surface-900 transition-colors" href="/tag">
                   Tag
                 </Link>
@@ -68,8 +74,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </Link>
               </nav>
 
-              <span>&middot;</span>
-
               <ThemeToggle />
             </header>
 
@@ -77,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {children}
             </div>
           </div>
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

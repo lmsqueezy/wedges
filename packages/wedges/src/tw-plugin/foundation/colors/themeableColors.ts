@@ -65,6 +65,7 @@ export const themeableColorsDark: ThemeableColors = {
   primary: {
     ...palette["purple"],
     DEFAULT: palette["purple"][400],
+    600: palette["purple"][500],
   },
 
   secondary: {
@@ -78,7 +79,7 @@ export const themeableColorsDark: ThemeableColors = {
     100: "rgba(255,255,255, 0.15)",
     200: "rgba(255,255,255, 0.2)",
     300: "rgba(255,255,255, 0.4)",
-    400: "rgba(255,255,255, 0.45)",
+    400: "rgba(255,255,255, 0.5)",
     500: "rgba(255,255,255, 0.5)",
     600: "rgba(255,255,255, 0.7)",
     700: "rgba(255,255,255, 0.8)",
