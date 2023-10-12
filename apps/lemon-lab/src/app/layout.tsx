@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 import Link from "next/link";
 
-import ThemeToggle from "@/components/ThemeToggle";
-
 import { Providers } from "./providers";
+
+import ThemeToggle from "@/components/ThemeToggle";
 
 import "./globals.css";
 
@@ -51,6 +51,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
                 <Link className="hover:text-surface-900 transition-colors" href="/button">
                   Button
+                </Link>
+
+                <Link className="hover:text-surface-900 transition-colors" href="/button-group">
+                  Button Group
                 </Link>
 
                 <Link className="hover:text-surface-900 transition-colors" href="/toggle-group">

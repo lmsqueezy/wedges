@@ -37,13 +37,15 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     destructive?: boolean;
   };
 
+export type ButtonElement = HTMLButtonElement;
+
 const iconOnlyPadding = {
   md: "p-8px",
   sm: "p-6px",
   "xs-icon": "p-2px",
 };
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = React.forwardRef<ButtonElement, ButtonProps>(
   (
     {
       after,
@@ -121,7 +123,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(
           buttonVariants({ size, variant, shape, destructive }),
-          variant === "link" && children && "focus:outline-0",
+          variant === "link" && children && "focus-visible:outline-0",
           isIcon && iconOnlyPadding[size!],
           className
         )}

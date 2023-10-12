@@ -69,12 +69,12 @@ export default function ToggleGroupPage() {
         </ToggleGroup.Root>
 
         <ToggleGroup.Root size="md" type="multiple">
-          <ToggleGroup.Item before={<ZoomInIcon />} value="zoom-in">
-            In
-          </ToggleGroup.Item>
-
           <ToggleGroup.Item before={<ZoomOutIcon />} value="zoom-out">
             Out
+          </ToggleGroup.Item>
+
+          <ToggleGroup.Item after={<ZoomInIcon />} value="zoom-in">
+            In
           </ToggleGroup.Item>
         </ToggleGroup.Root>
 

@@ -1,8 +1,8 @@
-import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 import * as React from "react";
+import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import Button from "../Button/Button";
+import Button, { ButtonProps } from "../Button/Button";
 
 /* ---------------------------------- Types --------------------------------- */
 export type ToggleGroupProps = React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & {
@@ -14,32 +14,17 @@ export type ToggleGroupProps = React.ComponentPropsWithoutRef<typeof ToggleGroup
 
 export type ToggleGroupItemProps = React.ComponentPropsWithoutRef<
   typeof ToggleGroupPrimitive.Item
-> & {
-  /**
-   * The slot to be rendered before the label.
-   */
-  before?: React.ReactElement<HTMLElement>;
+> &
+  Omit<ButtonProps, "shape" | "size">;
 
-  /**
-   * The slot to be rendered after the label.
-   */
-  after?: React.ReactElement<HTMLElement>;
-
-  /**
-   * Does the button only contains an icon?
-   * If true, the button will be rendered with matching padding.
-   */
-  isIconOnly?: boolean;
-};
-
-type ToggleGroupContext = {
+type ToggleGroupContextProps = {
   size?: "sm" | "md";
   disabled?: boolean;
   orientation?: "horizontal" | "vertical";
 };
 
 /* --------------------------------- Context -------------------------------- */
-const ToggleGroupContext = React.createContext<ToggleGroupContext | null>(null);
+const ToggleGroupContext = React.createContext<ToggleGroupContextProps | null>(null);
 
 /* ------------------------------- Components ------------------------------- */
 const ToggleGroupWedges = React.forwardRef<
@@ -58,11 +43,11 @@ const ToggleGroupWedges = React.forwardRef<
     ref
   ) => {
     return (
-      <ToggleGroupContext.Provider value={{ size, disabled, orientation }}>
+      <ToggleGroupContext.Provider value={{ disabled, orientation, size }}>
         <ToggleGroupPrimitive.Root
           ref={ref}
           className={cn(
-            "border-surface-200 shadow-wg-xs dark:shadow:none inline-flex items-stretch rounded-[9px] border",
+            "border-surface-200 shadow-wg-xs dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border",
             orientation === "vertical" && "flex-col",
             className
           )}
@@ -103,7 +88,7 @@ const ToggleGroupItem = React.forwardRef<
             after={after}
             before={before}
             className={cn(
-              "data-[state=on]:bg-surface-50 focus-visible:outline-primary rounded-none focus:outline-none focus-visible:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 last-of-type:[&+span]:hidden",
+              "data-[state=on]:bg-surface-50 rounded-none focus-visible:z-10 focus-visible:-outline-offset-1 last-of-type:[&+span]:hidden",
               orientation === "horizontal"
                 ? "first-of-type:rounded-s-lg last-of-type:rounded-e-lg"
                 : "first-of-type:rounded-t-lg last-of-type:rounded-b-lg"

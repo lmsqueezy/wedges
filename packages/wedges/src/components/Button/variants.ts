@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "group shrink-0 wg-antialiased text-sm leading-6 font-medium inline-flex justify-center items-center focus:outline focus:outline-2 outline-offset-2 disabled:pointer-events-none",
+  "group shrink-0 wg-antialiased text-sm leading-6 font-medium inline-flex justify-center items-center focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
   {
     variants: {
       size: {
@@ -71,7 +71,7 @@ export const buttonVariants = cva(
         variant: "link",
         destructive: true,
         class:
-          "focus:text-destructive-800 hover:text-destructive-800 dark:hover:text-destructive-400 dark:focus:text-destructive-400",
+          "focus-visible:text-destructive-800 hover:text-destructive-800 dark:hover:text-destructive-400 dark:focus-visible:text-destructive-400",
       },
 
       {
