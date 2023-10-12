@@ -9,6 +9,23 @@ A modern React UI library crafted from Lemon Squeezy's Wedges design system. Sea
 
 This repo is a monorepo structure (powered by turborepo) and is managed with [PNPM](https://pnpm.io/).
 
+## Components
+- [x] Alert
+- [x] Avatar
+- [x] Avatar Group
+- [x] Badge
+- [x] Button
+- [x] Button Group
+- [x] Toggle Group
+- [x] Tag
+- [x] Tooltip
+- [ ] Dropdown
+- [ ] Checkbox
+- [ ] Input
+- [ ] Radio
+- [ ] Select
+- [ ] Switch
+
 ## Packages
 
 - [@lmsqueezy/wedges/](./packages/wedges) - React UI library and TailwindCSS plugin.
