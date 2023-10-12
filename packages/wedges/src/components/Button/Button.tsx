@@ -15,6 +15,12 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
     asChild?: boolean;
 
     /**
+     * Does the button only contains an icon?
+     * If true, the button will be rendered with matching padding.
+     */
+    isIconOnly?: boolean;
+
+    /**
      * The slot to be rendered before the label.
      */
     before?: React.ReactElement<HTMLElement>;
@@ -50,6 +56,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       shape = "rounded",
       size = "md",
       variant = "primary",
+      isIconOnly = false,
       ...otherProps
     },
     ref
@@ -58,9 +65,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Component = useAsChild ? Slot : "button";
 
     // Determine if the button is icon-only.
-    const isIconOnly = React.useMemo(() => {
-      return (before && !after && !children && size) || (after && !before && !children && size);
-    }, [before, after, children, size]);
+    const isIcon =
+      React.useMemo(() => {
+        return (before && !after && !children && size) || (after && !before && !children && size);
+      }, [before, after, children, size]) || isIconOnly === true;
 
     // Determine if the button is a 'link', 'outline', 'tertiary', or 'transparent' variant.
     const isVariantLinkOutlineTertiaryTransparent = React.useMemo(
@@ -73,16 +81,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       const Component = React.isValidElement(icon) ? Slot : "span";
 
       const isNonDestructiveIconOnly =
-        variant && isVariantLinkOutlineTertiaryTransparent && isIconOnly && !destructive;
+        variant && isVariantLinkOutlineTertiaryTransparent && isIcon && !destructive;
 
-      const classNames = cn(
+      const iconClasses = cn(
         iconVariants({ size, variant, destructive }),
         isNonDestructiveIconOnly && "group-hover:text-surface-700",
-        disabled && "text-current transition-none",
+        disabled && isIcon && "opacity-50",
+        disabled && "text-current",
         icon.props?.className
       );
 
-      return <Component className={classNames}>{icon}</Component>;
+      return <Component className={iconClasses}>{icon}</Component>;
     };
 
     const innerContent = useAsChild ? (
@@ -90,7 +99,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         children: (
           <>
             {before ? renderIcon(before) : null}
-            <span className="px-1">{children.props.children}</span>
+            {children.props.children && isIconOnly && renderIcon(children.props.children)}
+            {children.props.children && !isIconOnly && (
+              <span className="px-1">{children.props.children}</span>
+            )}
             {after ? renderIcon(after) : null}
           </>
         ),
@@ -98,7 +110,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ) : (
       <>
         {before ? renderIcon(before) : null}
-        {children ? <span className="px-1">{children}</span> : null}
+        {React.isValidElement(children) && isIconOnly && renderIcon(children as React.ReactElement)}
+        {children && !isIconOnly && <span className="px-1">{children}</span>}
         {after ? renderIcon(after) : null}
       </>
     );
@@ -109,7 +122,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({ size, variant, shape, destructive }),
           variant === "link" && children && "focus:outline-0",
-          isIconOnly && iconOnlyPadding[size!],
+          isIcon && iconOnlyPadding[size!],
           className
         )}
         disabled={disabled}

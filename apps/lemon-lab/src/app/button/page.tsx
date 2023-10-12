@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRightIcon, SpeakerIcon } from "@iconicicons/react";
+import { ArrowUpRightIcon, CursorIcon, SpeakerIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
 import { useState } from "react";
@@ -255,7 +255,11 @@ export default function ButtonPage() {
             Custom
           </Button>
 
-          <Button asChild after={<ArrowUpRightIcon />} size="sm" variant="outline">
+          <Button isIconOnly shape={shape} size={size}>
+            <CursorIcon />
+          </Button>
+
+          <Button asChild after={<ArrowUpRightIcon />} shape={shape} size={size} variant="outline">
             <Link href="/">Go Home</Link>
           </Button>
 
