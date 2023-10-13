@@ -32,7 +32,7 @@ export type ButtonGroupElement = HTMLDivElement;
 
 export type ButtonGroupItemProps = Omit<
   React.ComponentPropsWithoutRef<typeof Button>,
-  "variant" | "shape"
+  "variant" | "shape" | "size"
 >;
 
 /* --------------------------------- Context -------------------------------- */
