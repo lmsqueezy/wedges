@@ -57,6 +57,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Button Group
                 </Link>
 
+                <Link className="hover:text-surface-900 transition-colors" href="/switch">
+                  Switch
+                </Link>
+
                 <Link className="hover:text-surface-900 transition-colors" href="/toggle-group">
                   Toggle Group
                 </Link>
