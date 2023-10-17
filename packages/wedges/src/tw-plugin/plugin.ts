@@ -5,6 +5,8 @@
  * @see https://github.com/nextui-org/nextui
  */
 
+import type { ConfigTheme, ConfigThemes, DefaultThemeType, WedgesOptions } from "./utils/types";
+
 import Color from "color";
 import deepMerge from "deepmerge";
 import omit from "lodash.omit";
@@ -13,7 +15,6 @@ import plugin from "tailwindcss/plugin.js";
 
 import { boxShadows, fontSizes, minWidth, themeableColors, wedgesPalette } from "./foundation";
 import { addPrefix, flattenThemeObject, getColorString, isBaseTheme } from "./utils";
-import { ConfigTheme, ConfigThemes, DefaultThemeType, WedgesOptions } from "./utils/types";
 
 const DEFAULT_PREFIX = "wg";
 

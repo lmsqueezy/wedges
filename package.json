@@ -4,22 +4,23 @@
     "apps/*",
     "packages/*"
   ],
+  "type": "module",
   "scripts": {
     "build": "turbo run build",
-    "clean": "turbo clean && rm -rf node_modules && rm ./pnpm-lock.yaml",
+    "clean": "turbo clean && rm -rf node_modules && rm ./pnpm-lock.yaml && rm -rf ./.turbo && rm -rf ./coverage",
     "dev": "turbo run dev",
     "format": "prettier --check ./packages/**/src ./apps/** --cache",
     "format:fix": "prettier --write ./packages/**/src --cache",
     "lint": "eslint -c .eslintrc \"packages/**/**/*.{ts,tsx}\"",
     "lint:fix": "eslint --fix -c .eslintrc \"packages/**/**/*.{ts,tsx}\"",
-    "test": "jest --passWithNoTests",
-    "test:coverage": "jest --coverage --passWithNoTests"
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --passWithNoTests",
+    "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage --passWithNoTests"
   },
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.5",
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
-    "@types/node": "^20.8.4",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@types/node": "^20.8.6",
     "@types/react": "^18.2.28",
     "@types/react-dom": "^18.2.13",
     "eslint": "^8.51.0",
@@ -36,7 +37,7 @@
     "tailwindcss": "3.3.3",
     "typescript": "^5.2.2",
     "prettier": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.5",
+    "prettier-plugin-tailwindcss": "^0.5.6",
     "react": "^18.2.0",
     "react-dom": "18.2.0"
   },
