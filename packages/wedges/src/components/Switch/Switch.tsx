@@ -2,7 +2,7 @@ import * as React from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
 import { Slot } from "@radix-ui/react-slot";
 
-import { cn, isReactElement } from "../../helpers/utils";
+import { cn, isReactElement, stringToHash } from "../../helpers/utils";
 import { Label } from "../Label";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -31,6 +31,9 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
     const LabelWrapComponent = label || helperText ? "div" : React.Fragment;
     const HelperTextComponent = helperText && isReactElement(helperText) ? Slot : "span";
 
+    const elId =
+      id || `wg-${stringToHash(JSON.stringify({ className, disabled, helperText, label }))}`;
+
     const renderSwitch = (
       <div className="min-h-6 inline-flex items-center">
         <SwitchPrimitive.Root
@@ -41,7 +44,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
             className
           )}
           disabled={disabled}
-          id={id}
+          id={elId}
           {...otherProps}
         >
           <SwitchPrimitive.Thumb className="h-3 w-3 rounded-full bg-white transition-transform duration-200 data-[state=checked]:translate-x-[14px] data-[state=unchecked]:translate-x-0.5" />
@@ -52,7 +55,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
     const renderLabel = (
       <LabelWrapComponent className="inline-flex flex-col">
         {label && (
-          <Label disabled={disabled} htmlFor={id} required={true} tooltip={tooltip}>
+          <Label disabled={disabled} htmlFor={elId} required={true} tooltip={tooltip}>
             {label}
           </Label>
         )}

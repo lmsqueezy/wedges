@@ -10,7 +10,7 @@ export default function SwitchPage() {
       <PageTitle>Switch</PageTitle>
 
       <div className="flex flex-col items-start gap-10">
-        <Switch helperText="Helper Text" id="test" label="Sticky Header" labelPosition="end" />
+        <Switch helperText="Helper Text" label="Sticky Header" labelPosition="end" />
       </div>
     </main>
   );
