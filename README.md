@@ -21,6 +21,7 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [x] Tooltip
 - [x] Switch
 - [x] Switch Group
+- [x] Label
 - [ ] Dropdown
 - [ ] Checkbox
 - [ ] Input
