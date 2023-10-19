@@ -1,5 +1,5 @@
-import * as SwitchPrimitive from "@radix-ui/react-switch";
 import * as React from "react";
+import * as SwitchPrimitive from "@radix-ui/react-switch";
 
 import { cn } from "../../helpers/utils";
 import { Label } from "../Label";
@@ -7,6 +7,10 @@ import { useSwitchGroupContext } from "../SwitchGroup/SwitchGroup";
 
 /* ---------------------------------- Types --------------------------------- */
 type HasLabel = {
+  /**
+   * Label displayed next to the switch. It can be a string, element, or any other
+   * renderable node.
+   */
   label: React.ReactNode;
 
   /**
@@ -79,7 +83,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
         >
           <SwitchPrimitive.Thumb
             className={cn(
-              "h-3 w-3 rounded-full bg-white transition-transform duration-200 data-[state=checked]:translate-x-[14px] data-[state=unchecked]:translate-x-0.5",
+              "h-3 w-3 rounded-full bg-white transition-transform duration-100 data-[state=checked]:translate-x-[14px] data-[state=unchecked]:translate-x-0.5",
               disabled && "dark:bg-surface-200"
             )}
           />
@@ -91,6 +95,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
       <LabelWrapComponent className="inline-flex flex-col">
         {label && (
           <Label
+            className={cn(isInGroup && "font-normal")}
             disabled={disabled}
             htmlFor={elId}
             id={`${elId}__label`}
@@ -102,7 +107,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
         )}
 
         {helperText ? (
-          <Label.Helper className={cn(disabled && "text-surface-300")} id={`${elId}__describer`}>
+          <Label.Helper disabled={disabled} id={`${elId}__describer`}>
             {helperText}
           </Label.Helper>
         ) : null}
@@ -114,7 +119,6 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
         className={cn(
           "inline-flex items-start gap-4",
           isInGroup && alignLabel === "start" && "flex justify-between",
-          disabled && "text-surface-300",
           !disabled && "[&:has([data-state=unchecked])_.wg-label]:text-surface-700"
         )}
       >

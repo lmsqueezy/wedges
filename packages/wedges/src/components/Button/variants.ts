@@ -22,7 +22,7 @@ export const buttonVariants = cva(
         tertiary: "bg-surface hover:bg-surface-100",
 
         outline:
-          "hover:bg-surface disabled:border-surface-100 border-surface-200 border shadow-wg-xs dark:shadow:none [--wg-border-width:1px]",
+          "hover:bg-surface disabled:border-surface-50 border-surface-200 dark:border-surface-100 border shadow-wg-xs dark:shadow:none [--wg-border-width:1px]",
 
         transparent: "bg-transparent hover:bg-surface",
         link: "p-0 underline underline-offset-3",

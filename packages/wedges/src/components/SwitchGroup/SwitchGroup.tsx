@@ -31,7 +31,7 @@ export type SwitchGroupProps = Omit<
 };
 
 type SwitchGroupItemElement = SwitchElement;
-type SwitchGroupItemProps = Omit<SwitchProps, "required">;
+type SwitchGroupItemProps = SwitchProps;
 
 type SwitchGroupContextProps = {
   alignLabels?: SwitchGroupProps["alignLabels"];
@@ -88,25 +88,27 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
           {...otherProps}
         >
           {/* label */}
-          <div className="flex flex-col">
-            {label ? (
-              <Label
-                className="cursor-default"
-                disabled={disabled}
-                id={`${elId}__label`}
-                required={required}
-                tooltip={tooltip}
-              >
-                {label}
-              </Label>
-            ) : null}
+          {(label || helperText) && (
+            <div className="flex flex-col">
+              {label ? (
+                <Label
+                  className="cursor-default"
+                  disabled={disabled}
+                  id={`${elId}__label`}
+                  required={required}
+                  tooltip={tooltip}
+                >
+                  {label}
+                </Label>
+              ) : null}
 
-            {helperText ? (
-              <Label.Helper aria-invalid={ariaInvalid} id={`${elId}__describer`}>
-                {helperText}
-              </Label.Helper>
-            ) : null}
-          </div>
+              {helperText ? (
+                <Label.Helper aria-invalid={ariaInvalid} id={`${elId}__describer`}>
+                  {helperText}
+                </Label.Helper>
+              ) : null}
+            </div>
+          )}
 
           {children ? <div className="flex flex-col gap-2">{children}</div> : null}
         </div>

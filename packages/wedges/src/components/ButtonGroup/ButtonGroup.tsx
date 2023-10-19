@@ -72,7 +72,7 @@ const ButtonGroupWedges = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
         <div
           ref={ref}
           className={cn(
-            "border-surface-200 shadow-wg-xs dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border",
+            "border-surface-200 dark:border-surface-100 shadow-wg-xs dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border",
             orientation === "vertical" && "flex-col",
             className
           )}

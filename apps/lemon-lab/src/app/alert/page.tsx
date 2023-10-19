@@ -6,7 +6,7 @@ import { Alert, Button } from "@lmsqueezy/wedges";
 import PageTitle from "@/components/PageTitle";
 
 const SaveButton = () => (
-  <Button className="bg-white dark:bg-transparent" size="sm" variant="outline">
+  <Button className="light:bg-white/50 light:hover:bg-white" size="sm" variant="outline">
     Save Changes
   </Button>
 );
