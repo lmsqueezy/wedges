@@ -101,15 +101,21 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
           </Label>
         )}
 
-        {helperText ? <Label.Helper id={`${elId}__describer`}>{helperText}</Label.Helper> : null}
+        {helperText ? (
+          <Label.Helper className={cn(disabled && "text-surface-300")} id={`${elId}__describer`}>
+            {helperText}
+          </Label.Helper>
+        ) : null}
       </LabelWrapComponent>
     );
 
     return (
       <div
         className={cn(
-          "[&:has([data-state=unchecked])_.wg-label]:text-surface-700 inline-flex items-start gap-4",
-          isInGroup && alignLabel === "start" && "flex justify-between"
+          "inline-flex items-start gap-4",
+          isInGroup && alignLabel === "start" && "flex justify-between",
+          disabled && "text-surface-300",
+          !disabled && "[&:has([data-state=unchecked])_.wg-label]:text-surface-700"
         )}
       >
         {alignLabel === "start" ? renderLabel : null}

@@ -25,11 +25,12 @@ export default function SwitchPage() {
           <SwitchGroup
             required
             alignLabels="start"
-            helperText="This is helper text"
+            aria-invalid="true"
+            helperText="This field is required"
             label="Hello Label"
             tooltip="This is a custom tooltip message"
           >
-            <SwitchGroup.Item label="Item 1" />
+            <SwitchGroup.Item disabled label="Item 1" />
             <SwitchGroup.Item label="Item 2 with a longer label" />
             <SwitchGroup.Item label="Item 3" />
           </SwitchGroup>

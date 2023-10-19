@@ -60,21 +60,28 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
   }
 );
 
-const HelperText = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
-  ({ children, ...otherProps }, ref) => {
-    const HelperTextComponent = children && isReactElement(children) ? Slot : "span";
+const HelperText = React.forwardRef<
+  HTMLSpanElement,
+  React.HTMLAttributes<HTMLSpanElement> & { error?: boolean }
+>(({ children, className, ...otherProps }, ref) => {
+  const HelperTextComponent = children && isReactElement(children) ? Slot : "span";
+  const ariaInvalid = otherProps["aria-invalid"];
 
-    return children ? (
-      <HelperTextComponent
-        ref={ref}
-        className="wg-antialiased text-surface-500 text-sm leading-6"
-        {...otherProps}
-      >
-        {children}
-      </HelperTextComponent>
-    ) : null;
-  }
-);
+  return children ? (
+    <HelperTextComponent
+      ref={ref}
+      className={cn(
+        "wg-antialiased text-surface-500 text-sm leading-6",
+        ariaInvalid && "text-destructive",
+        className
+      )}
+      role={ariaInvalid ? "alert" : undefined}
+      {...otherProps}
+    >
+      {children}
+    </HelperTextComponent>
+  ) : null;
+});
 
 LabelWedges.displayName = "Label";
 HelperText.displayName = "HelperText";

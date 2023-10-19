@@ -75,6 +75,7 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
   ) => {
     const generatedId = React.useId();
     const elId = id || generatedId;
+    const ariaInvalid = otherProps["aria-invalid"];
 
     return (
       <SwitchGroupContext.Provider value={{ alignLabels, disabled }}>
@@ -101,7 +102,9 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
             ) : null}
 
             {helperText ? (
-              <Label.Helper id={`${elId}__describer`}>{helperText}</Label.Helper>
+              <Label.Helper aria-invalid={ariaInvalid} id={`${elId}__describer`}>
+                {helperText}
+              </Label.Helper>
             ) : null}
           </div>
 
