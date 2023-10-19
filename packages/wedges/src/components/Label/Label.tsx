@@ -45,8 +45,8 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
           ref={ref}
           asChild={useAsChild}
           className={cn(
-            "wg-label inline-flex cursor-pointer items-center gap-1 text-sm leading-6",
-            disabled && "pointer-events-none",
+            "wg-label inline-flex cursor-pointer items-center gap-1 text-sm font-medium leading-6",
+            disabled && "text-surface-300 pointer-events-none",
             className
           )}
           {...otherProps}
@@ -62,8 +62,8 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
 
 const HelperText = React.forwardRef<
   HTMLSpanElement,
-  React.HTMLAttributes<HTMLSpanElement> & { error?: boolean }
->(({ children, className, ...otherProps }, ref) => {
+  React.HTMLAttributes<HTMLSpanElement> & { error?: boolean; disabled?: boolean }
+>(({ children, disabled, className, ...otherProps }, ref) => {
   const HelperTextComponent = children && isReactElement(children) ? Slot : "span";
   const ariaInvalid = otherProps["aria-invalid"];
 
@@ -73,6 +73,7 @@ const HelperText = React.forwardRef<
       className={cn(
         "wg-antialiased text-surface-500 text-sm leading-6",
         ariaInvalid && "text-destructive",
+        disabled && "text-surface-300",
         className
       )}
       role={ariaInvalid ? "alert" : undefined}

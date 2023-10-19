@@ -27,7 +27,7 @@ const {
 
 /* -------------------------------- Variants -------------------------------- */
 
-const tooltipVariant = cva(["z-50 rounded-md text-white"], {
+const tooltipVariant = cva(["wg-antialiased z-50 rounded-md text-white"], {
   variants: {
     size: {
       sm: "text-xs max-w-xs px-3 py-2",
