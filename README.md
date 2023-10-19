@@ -19,12 +19,14 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [x] Toggle Group
 - [x] Tag
 - [x] Tooltip
+- [x] Switch
+- [x] Switch Group
 - [ ] Dropdown
 - [ ] Checkbox
 - [ ] Input
 - [ ] Radio
 - [ ] Select
-- [ ] Switch
+
 
 ## Packages
 
