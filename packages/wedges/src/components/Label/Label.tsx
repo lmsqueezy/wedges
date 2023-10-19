@@ -1,5 +1,6 @@
-import React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
+import { Slot } from "@radix-ui/react-slot";
+import React from "react";
 
 import { cn, isReactElement } from "../../helpers/utils";
 import { Tooltip } from "../Tooltip";
@@ -18,8 +19,11 @@ export type LabelProps = React.ComponentPropsWithoutRef<typeof LabelPrimitive.Ro
 };
 
 /* -------------------------------- Component ------------------------------- */
-const Label = React.forwardRef<LabelElement, LabelProps>(
-  ({ asChild = false, children, className, disabled, required = false, ...otherProps }, ref) => {
+const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
+  (
+    { asChild = false, children, className, disabled, tooltip, required = false, ...otherProps },
+    ref
+  ) => {
     const useAsChild = asChild && isReactElement(children);
 
     const innerContent = useAsChild ? (
@@ -36,12 +40,12 @@ const Label = React.forwardRef<LabelElement, LabelProps>(
     );
 
     return (
-      <div className="inline-flex items-center gap-1">
+      <div className="wg-antialiased inline-flex items-center gap-1">
         <LabelPrimitive.Root
           ref={ref}
           asChild={useAsChild}
           className={cn(
-            "inline-flex items-center gap-1 text-sm leading-6",
+            "wg-label inline-flex cursor-pointer items-center gap-1 text-sm leading-6",
             disabled && "pointer-events-none",
             className
           )}
@@ -50,12 +54,33 @@ const Label = React.forwardRef<LabelElement, LabelProps>(
           {innerContent}
         </LabelPrimitive.Root>
 
-        <Tooltip content="Hello World" />
+        {tooltip ? <Tooltip content={tooltip} /> : null}
       </div>
     );
   }
 );
 
-Label.displayName = "Label";
+const HelperText = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
+  ({ children, ...otherProps }, ref) => {
+    const HelperTextComponent = children && isReactElement(children) ? Slot : "span";
+
+    return children ? (
+      <HelperTextComponent
+        ref={ref}
+        className="wg-antialiased text-surface-500 text-sm leading-6"
+        {...otherProps}
+      >
+        {children}
+      </HelperTextComponent>
+    ) : null;
+  }
+);
+
+LabelWedges.displayName = "Label";
+HelperText.displayName = "HelperText";
+
+const Label = Object.assign(LabelWedges, {
+  Helper: HelperText,
+});
 
 export default Label;
