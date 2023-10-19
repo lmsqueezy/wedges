@@ -75,7 +75,18 @@ export function useSwitchGroupContext() {
 /* -------------------------------- Component ------------------------------- */
 const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
   (
-    { className, label, helperText, disabled, id, tooltip, required, children, ...otherProps },
+    {
+      children,
+      className,
+      disabled,
+      helperText,
+      id,
+      label,
+      orientation,
+      required,
+      tooltip,
+      ...otherProps
+    },
     ref
   ) => {
     const generatedId = React.useId();
@@ -117,7 +128,11 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
             </div>
           )}
 
-          {children ? <div className="flex flex-col gap-2">{children}</div> : null}
+          {children ? (
+            <div className={cn("flex flex-col gap-2", orientation && "flex-row gap-6")}>
+              {children}
+            </div>
+          ) : null}
         </RadioGroupPrimitive.Root>
       </RadioGroupContext.Provider>
     );
@@ -166,11 +181,12 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
             isDisabled && "text-surface-200 dark:text-surface-100 pointer-events-none",
             !isDisabled && "data-[state=checked]:text-primary hover:text-surface-300"
           )}
+          disabled={isDisabled}
           id={elId}
           {...otherProps}
         >
           <svg
-            className={cn("aspect-squarte w-full", isDisabled && "fill-surface-50")}
+            className={cn("aspect-square w-full", isDisabled && "fill-surface-50")}
             fill="none"
             height="24"
             width="24"

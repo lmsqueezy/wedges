@@ -46,7 +46,7 @@ export default function SwitchPage() {
             aria-invalid={false}
             defaultValue="val-1"
             helperText="This field is required"
-            label="Radio Group Label"
+            label="Vertical Radio Group"
             tooltip="This is a custom tooltip message"
           >
             <RadioGroup.Item
@@ -55,6 +55,22 @@ export default function SwitchPage() {
               label="Disabled Item"
               value="val-1"
             />
+            <RadioGroup.Item label="Value 2" value="val-2" />
+            <RadioGroup.Item label="Value 3" value="val-3" />
+          </RadioGroup>
+        </div>
+
+        <div>
+          <RadioGroup
+            required
+            aria-invalid={false}
+            defaultValue="val-1"
+            helperText="This field is required"
+            label="Horizontal Radio Group"
+            orientation="horizontal"
+            tooltip="This is a custom tooltip message"
+          >
+            <RadioGroup.Item disabled label="Disabled Item" value="val-1" />
             <RadioGroup.Item label="Value 2" value="val-2" />
             <RadioGroup.Item label="Value 3" value="val-3" />
           </RadioGroup>
