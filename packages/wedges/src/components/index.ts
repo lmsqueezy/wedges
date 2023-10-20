@@ -6,6 +6,7 @@ export * from "./Badge";
 export * from "./Button";
 export * from "./ButtonGroup";
 export * from "./Checkbox";
+export * from "./CheckboxGroup";
 export * from "./Label";
 export * from "./RadioGroup";
 export * from "./Switch";

@@ -113,10 +113,12 @@ const SwitchGroupItem = React.forwardRef<SwitchGroupItemElement, SwitchGroupItem
       <Switch
         ref={ref}
         alignLabel={alignLabels}
-        className={(cn(alignLabels === "start" && "flex w-full justify-between"), className)}
+        className={
+          (cn("wg-switch-group__item", alignLabels === "start" && "flex w-full justify-between"),
+          className)
+        }
         disabled={ctxDisabled || disabled}
         label={label}
-        required={false}
         {...otherProps}
       />
     );

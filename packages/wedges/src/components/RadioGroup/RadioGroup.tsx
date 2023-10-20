@@ -111,7 +111,9 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
   ({ label, helperText, disabled, required, tooltip, id, ...otherProps }, ref) => {
     const context = useSwitchGroupContext();
     const { disabled: ctxDisabled } = context || {};
+
     const isDisabled = ctxDisabled || disabled;
+    const ariaInvalid = otherProps["aria-invalid"];
 
     const generatedId = React.useId();
     const elId = id || generatedId;
@@ -132,7 +134,7 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
         )}
 
         {helperText ? (
-          <Label.Helper disabled={isDisabled} id={`${elId}__describer`}>
+          <Label.Helper aria-invalid={ariaInvalid} disabled={isDisabled} id={`${elId}__describer`}>
             {helperText}
           </Label.Helper>
         ) : null}
@@ -140,7 +142,7 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
     );
 
     return (
-      <div className="flex gap-2">
+      <div className="wg-radio-group__item flex gap-2">
         <RadioGroupPrimitive.Item
           ref={ref}
           aria-labelledby={label ? `${elId}__label` : undefined}
