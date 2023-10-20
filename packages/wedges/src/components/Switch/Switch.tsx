@@ -4,6 +4,7 @@ import * as SwitchPrimitive from "@radix-ui/react-switch";
 import { cn } from "../../helpers/utils";
 import { Label } from "../Label";
 import { useSwitchGroupContext } from "../SwitchGroup/SwitchGroup";
+import { LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 type HasLabel = {
@@ -29,19 +30,9 @@ type HasNoLabel = {
 };
 
 export type SwitchElement = React.ElementRef<typeof SwitchPrimitive.Root>;
-export type SwitchProps = React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> & {
-  /**
-   * Additional text or information to guide the user. This can be an instruction,
-   * a hint, or any other supplementary information. It's rendered below label.
-   */
-  helperText?: React.ReactNode;
-
-  /**
-   * Tooltip displayed next to the label. It can be a string, element, or any other
-   * renderable node.
-   */
-  tooltip?: React.ReactNode;
-} & (HasLabel | HasNoLabel);
+export type SwitchProps = React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> &
+  Omit<LabelHelperProps, "label"> &
+  (HasLabel | HasNoLabel);
 
 /* -------------------------------- Component ------------------------------- */
 const Switch = React.forwardRef<SwitchElement, SwitchProps>(
@@ -64,9 +55,10 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
 
     const generatedId = React.useId();
     const elId = id || generatedId;
+    const ariaInvalid = otherProps["aria-invalid"];
 
     const renderSwitch = (
-      <div className="min-h-6 inline-flex shrink-0 items-center">
+      <div className="wg-switch min-h-6 inline-flex shrink-0 items-center">
         <SwitchPrimitive.Root
           ref={ref}
           aria-describedby={helperText ? `${elId}__describer` : undefined}
@@ -83,7 +75,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
         >
           <SwitchPrimitive.Thumb
             className={cn(
-              "h-3 w-3 rounded-full bg-white transition-transform duration-100 data-[state=checked]:translate-x-[14px] data-[state=unchecked]:translate-x-0.5",
+              "h-3 w-3 rounded-full bg-white transition-transform duration-200 data-[state=checked]:translate-x-[14px] data-[state=unchecked]:translate-x-0.5",
               disabled && "dark:bg-surface-200"
             )}
           />
@@ -107,7 +99,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
         )}
 
         {helperText ? (
-          <Label.Helper disabled={disabled} id={`${elId}__describer`}>
+          <Label.Helper aria-invalid={ariaInvalid} disabled={disabled} id={`${elId}__describer`}>
             {helperText}
           </Label.Helper>
         ) : null}

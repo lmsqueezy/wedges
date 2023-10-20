@@ -101,12 +101,15 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
     </>
   );
 
-  const renderDeleteIcon = () =>
-    isReactElement(deleteIcon) ? deleteIcon : <CloseIcon className="h-4 w-4" />;
+  const renderDeleteIcon = isReactElement(deleteIcon) ? (
+    deleteIcon
+  ) : (
+    <CloseIcon aria-label="Close" className="h-4 w-4" />
+  );
 
   const renderCloseButton: React.ReactElement<HTMLButtonElement> | undefined = closable ? (
     <Button
-      before={renderDeleteIcon()}
+      before={renderDeleteIcon}
       className="h-auto w-auto p-0 focus:outline-1"
       shape="pill"
       size="xs-icon"

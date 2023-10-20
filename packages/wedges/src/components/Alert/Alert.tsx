@@ -215,7 +215,7 @@ const AlertCloseButton = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof Button>
 >(({ children, ...otherProps }, ref) => {
   const renderCloseIcon = (children: React.ReactNode): React.ReactElement<HTMLElement> => {
-    return isReactElement(children) ? children : <CloseIcon />;
+    return isReactElement(children) ? children : <CloseIcon aria-label="Close" />;
   };
 
   return (

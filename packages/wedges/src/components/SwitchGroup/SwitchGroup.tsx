@@ -3,32 +3,19 @@ import * as React from "react";
 import { cn } from "../../helpers/utils";
 import { Label, LabelProps } from "../Label";
 import { Switch, SwitchElement, SwitchProps } from "../Switch";
+import { LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type SwitchGroupElement = HTMLDivElement;
-export type SwitchGroupProps = Omit<
-  React.HTMLAttributes<HTMLDivElement> & LabelProps,
-  "asChild"
-> & {
-  /**
-   * The main label for the component. It can be a string, element, or any other
-   * renderable node. Typically, this label describes the purpose or main function
-   * of the component.
-   */
-  label?: React.ReactNode;
-
-  /**
-   * Additional text or information to guide the user. This can be an instruction,
-   * a hint, or any other supplementary information. It's rendered below label.
-   */
-  helperText?: React.ReactNode;
-
-  /**
-   * Alignment of the labels: "start" (usually left) or "end" (usually right).
-   * @default "end"
-   */
-  alignLabels?: "start" | "end";
-};
+export type SwitchGroupProps = Omit<React.HTMLAttributes<HTMLDivElement>, "asChild"> &
+  LabelProps &
+  LabelHelperProps & {
+    /**
+     * Alignment of the labels: "start" (usually left) or "end" (usually right).
+     * @default "end"
+     */
+    alignLabels?: "start" | "end";
+  };
 
 type SwitchGroupItemElement = SwitchElement;
 type SwitchGroupItemProps = SwitchProps;
@@ -126,10 +113,12 @@ const SwitchGroupItem = React.forwardRef<SwitchGroupItemElement, SwitchGroupItem
       <Switch
         ref={ref}
         alignLabel={alignLabels}
-        className={(cn(alignLabels === "start" && "flex w-full justify-between"), className)}
+        className={
+          (cn("wg-switch-group__item", alignLabels === "start" && "flex w-full justify-between"),
+          className)
+        }
         disabled={ctxDisabled || disabled}
         label={label}
-        required={false}
         {...otherProps}
       />
     );
