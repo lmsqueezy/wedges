@@ -58,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
 
                 <Link className="hover:text-surface-900 transition-colors" href="/switch">
-                  Switch
+                  Switch/Radio/Checkbox
                 </Link>
 
                 <Link className="hover:text-surface-900 transition-colors" href="/toggle-group">

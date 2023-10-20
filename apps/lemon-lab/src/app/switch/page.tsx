@@ -7,7 +7,7 @@ import PageTitle from "@/components/PageTitle";
 export default function SwitchPage() {
   return (
     <main>
-      <PageTitle>Switch & Radio Group</PageTitle>
+      <PageTitle>Switch/Radio/Checkbox</PageTitle>
 
       <div className="flex flex-col items-start gap-10">
         <Switch

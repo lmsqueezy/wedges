@@ -172,7 +172,7 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
     );
 
     return (
-      <div className="flex gap-3">
+      <div className="flex gap-2">
         <RadioGroupPrimitive.Item
           ref={ref}
           aria-labelledby={label ? `${elId}__label` : undefined}
