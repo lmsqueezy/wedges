@@ -1,6 +1,6 @@
 "use client";
 
-import { RadioGroup, Switch, SwitchGroup } from "@lmsqueezy/wedges";
+import { Checkbox, RadioGroup, Switch, SwitchGroup } from "@lmsqueezy/wedges";
 
 import PageTitle from "@/components/PageTitle";
 
@@ -10,14 +10,17 @@ export default function SwitchPage() {
       <PageTitle>Switch/Radio/Checkbox</PageTitle>
 
       <div className="flex flex-col items-start gap-10">
-        <Switch
-          required
-          alignLabel="end"
-          disabled={false}
-          helperText="Helper Text"
-          label="Sticky Header"
-          tooltip="This is a custom tooltip message"
-        />
+        <div>
+          <h2 className="mb-8 mt-10 text-xl">Switch</h2>
+          <Switch
+            required
+            alignLabel="end"
+            disabled={false}
+            helperText="Helper Text"
+            label="Sticky Header"
+            tooltip="This is a custom tooltip message"
+          />
+        </div>
 
         <div>
           <h2 className="mb-8 mt-10 text-xl">Switch Group</h2>
@@ -74,6 +77,30 @@ export default function SwitchPage() {
             <RadioGroup.Item label="Value 2" value="val-2" />
             <RadioGroup.Item label="Value 3" value="val-3" />
           </RadioGroup>
+        </div>
+
+        <div>
+          <h2 className="mb-8 mt-10 text-xl">Checkbox</h2>
+
+          <Checkbox
+            defaultChecked
+            // disabled
+            helperText="Helper text"
+            label="Checkbox Label"
+            tooltip="Tooltip example"
+          />
+        </div>
+
+        <div>
+          <h2 className="mb-8 mt-10 text-xl">Checkbox Group</h2>
+
+          <Checkbox
+            defaultChecked
+            // disabled
+            helperText="Helper text"
+            label="Checkbox Label"
+            tooltip="Tooltip example"
+          />
         </div>
       </div>
     </main>

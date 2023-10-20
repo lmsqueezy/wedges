@@ -4,6 +4,7 @@ import * as SwitchPrimitive from "@radix-ui/react-switch";
 import { cn } from "../../helpers/utils";
 import { Label } from "../Label";
 import { useSwitchGroupContext } from "../SwitchGroup/SwitchGroup";
+import { LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 type HasLabel = {
@@ -29,19 +30,9 @@ type HasNoLabel = {
 };
 
 export type SwitchElement = React.ElementRef<typeof SwitchPrimitive.Root>;
-export type SwitchProps = React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> & {
-  /**
-   * Additional text or information to guide the user. This can be an instruction,
-   * a hint, or any other supplementary information. It's rendered below label.
-   */
-  helperText?: React.ReactNode;
-
-  /**
-   * Tooltip displayed next to the label. It can be a string, element, or any other
-   * renderable node.
-   */
-  tooltip?: React.ReactNode;
-} & (HasLabel | HasNoLabel);
+export type SwitchProps = React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> &
+  Omit<LabelHelperProps, "label"> &
+  (HasLabel | HasNoLabel);
 
 /* -------------------------------- Component ------------------------------- */
 const Switch = React.forwardRef<SwitchElement, SwitchProps>(
