@@ -55,6 +55,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
 
     const generatedId = React.useId();
     const elId = id || generatedId;
+    const ariaInvalid = otherProps["aria-invalid"];
 
     const renderSwitch = (
       <div className="min-h-6 inline-flex shrink-0 items-center">
@@ -98,7 +99,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
         )}
 
         {helperText ? (
-          <Label.Helper disabled={disabled} id={`${elId}__describer`}>
+          <Label.Helper aria-invalid={ariaInvalid} disabled={disabled} id={`${elId}__describer`}>
             {helperText}
           </Label.Helper>
         ) : null}

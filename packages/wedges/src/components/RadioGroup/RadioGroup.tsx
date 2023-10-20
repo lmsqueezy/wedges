@@ -147,7 +147,7 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
           className={cn(
             "outline-primary text-surface-200 group relative flex flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
             isDisabled && "text-surface-200 dark:text-surface-100 pointer-events-none",
-            !isDisabled && "hover:text-surface-300"
+            !isDisabled && "hover:text-surface-300 data-[state=checked]:text-primary"
           )}
           disabled={isDisabled}
           id={elId}
@@ -168,7 +168,16 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
           </svg>
 
           <RadioGroupPrimitive.Indicator asChild className="text-primary absolute">
-            <svg fill="none" height="24" viewBox="0 0 24 24" width="24">
+            <svg
+              className={cn(
+                "aspect-square w-full",
+                isDisabled && "text-surface-200 dark:text-surface-100"
+              )}
+              fill="none"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
               <path
                 d="M19.25 12C19.25 16.0041 16.0041 19.25 12 19.25C7.99594 19.25 4.75 16.0041 4.75 12C4.75 7.99594 7.99594 4.75 12 4.75C16.0041 4.75 19.25 7.99594 19.25 12Z"
                 stroke="currentColor"

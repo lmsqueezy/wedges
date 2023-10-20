@@ -12,14 +12,19 @@ export default function SwitchPage() {
       <div className="flex flex-col items-start gap-10">
         <div>
           <h2 className="mb-8 mt-10 text-xl">Switch</h2>
-          <Switch
-            required
-            alignLabel="end"
-            disabled={false}
-            helperText="Helper Text"
-            label="Sticky Header"
-            tooltip="This is a custom tooltip message"
-          />
+
+          <div className="flex flex-col gap-6">
+            <Switch
+              required
+              alignLabel="end"
+              disabled={false}
+              helperText="Helper Text"
+              label="Sticky Header"
+              tooltip="This is a custom tooltip message"
+            />
+
+            <Switch disabled alignLabel="end" helperText="Disabled Switch" label="Sticky Header" />
+          </div>
         </div>
 
         <div>
@@ -33,11 +38,9 @@ export default function SwitchPage() {
             label="Hello Label"
             tooltip="This is a custom tooltip message"
           >
-            <SwitchGroup.Item disabled helperText="Disabled helper text" label="Item 1" />
-            <SwitchGroup.Item label="Item 2 with a longer label" tooltip="test" />
-            <SwitchGroup.Item required label="Item 3">
-              Test
-            </SwitchGroup.Item>
+            <SwitchGroup.Item disabled helperText="Disabled item with helper text" label="Item 1" />
+            <SwitchGroup.Item label="Item 2 with a Tooltip" tooltip="test" />
+            <SwitchGroup.Item label="Item 3">Test</SwitchGroup.Item>
           </SwitchGroup>
         </div>
 
@@ -82,13 +85,23 @@ export default function SwitchPage() {
         <div>
           <h2 className="mb-8 mt-10 text-xl">Checkbox</h2>
 
-          <Checkbox
-            defaultChecked
-            // disabled
-            helperText="Helper text"
-            label="Checkbox Label"
-            tooltip="Tooltip example"
-          />
+          <div className="flex flex-col gap-6">
+            <Checkbox
+              defaultChecked
+              // disabled
+              helperText="Helper text"
+              label="Checkbox Label"
+              tooltip="Tooltip example"
+            />
+
+            <Checkbox
+              defaultChecked
+              disabled
+              helperText="Disabled checkbox"
+              label="Checkbox Label"
+              tooltip="Tooltip example"
+            />
+          </div>
         </div>
 
         <div>
