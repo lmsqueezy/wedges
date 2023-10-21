@@ -7,7 +7,7 @@ import { KbdKey, kbdKeysLabelMap, kbdKeysMap } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
 export const kbdVariants = cva(
-  "dark:bg-surface tracking-widest bg-white border-surface-200 border-1 text-surface-800 dark:border-surface-100 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent align-baseline font-sans border [--wg-border-width:1px]",
+  "dark:bg-surface-50 tracking-widest bg-white border-surface-200 border-1 text-surface-700 dark:text-surface-800 dark:border-surface-50 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent align-baseline font-sans border [--wg-border-width:1px]",
   {
     variants: {
       size: {
