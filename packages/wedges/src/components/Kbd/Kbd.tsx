@@ -7,7 +7,7 @@ import { KbdKey, kbdKeysLabelMap, kbdKeysMap } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
 export const kbdVariants = cva(
-  "dark:bg-surface tracking-widest bg-white outline-surface-200 text-surface-900 dark:outline-surface-100 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent px-2 py-1 align-baseline font-sans outline outline-1",
+  "dark:bg-surface tracking-widest bg-white outline-surface-200 text-surface-800 dark:outline-surface-100 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent px-2 py-1 align-baseline font-sans outline outline-1",
   {
     variants: {
       size: {
@@ -25,7 +25,7 @@ export const kbdVariants = cva(
 
 /* ---------------------------------- Types --------------------------------- */
 export type KbdElement = React.ElementRef<"kbd">;
-export type KbdProps = React.HTMLProps<KbdElement> &
+export type KbdProps = Omit<React.HTMLProps<KbdElement>, "size"> &
   VariantProps<typeof kbdVariants> & {
     keys?: KbdKey | KbdKey[];
   };

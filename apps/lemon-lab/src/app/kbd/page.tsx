@@ -9,10 +9,8 @@ export default function KbdPage() {
     <main>
       <PageTitle>Kbd</PageTitle>
 
-      <div className="mt-24 flex flex-col gap-24">
-        <section className="space-y-6">
-          <h2 className="mb-8 text-xl">Example</h2>
-
+      <div className="flex flex-col gap-24">
+        <section className="space-y-6 text-sm leading-6">
           <div className="flex items-center gap-8">
             <Kbd keys={["command", "option", "shift"]}>A</Kbd>
 
