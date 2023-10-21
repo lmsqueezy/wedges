@@ -7,7 +7,7 @@ import { KbdKey, kbdKeysLabelMap, kbdKeysMap } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
 export const kbdVariants = cva(
-  "dark:bg-surface-50 tracking-widest bg-white border-surface-200 border-1 text-surface-700 dark:text-surface-800 dark:border-surface-50 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent align-baseline font-sans border [--wg-border-width:1px]",
+  "dark:bg-surface-50 space-x-[0.1em] bg-white border-surface-200 border-1 text-surface-700 dark:text-surface-800 dark:border-surface-50 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent align-baseline font-sans border [--wg-border-width:1px]",
   {
     variants: {
       size: {
@@ -56,7 +56,7 @@ const Kbd = React.forwardRef<KbdElement, KbdProps>(
     return (
       <kbd ref={ref} className={cn(kbdVariants({ size }), className)} {...otherProps}>
         {renderKeys()}
-        {children}
+        {children ? <span>{children}</span> : null}
       </kbd>
     );
   }
