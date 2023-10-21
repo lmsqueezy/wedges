@@ -20,8 +20,34 @@ export default function KbdPage() {
             </p>
           </div>
 
-          <div>
-            <Kbd keys={["command"]}>C</Kbd> to copy
+          <div className="flex items-center gap-10">
+            <div>
+              <Kbd keys={["command"]} size="lg">
+                A
+              </Kbd>{" "}
+              to copy
+            </div>
+
+            <div>
+              <Kbd keys={["command"]} size="base">
+                B
+              </Kbd>{" "}
+              to copy
+            </div>
+
+            <div>
+              <Kbd keys={["command"]} size="sm">
+                C
+              </Kbd>{" "}
+              to copy
+            </div>
+
+            <div>
+              <Kbd keys={["command"]} size="xs">
+                D
+              </Kbd>{" "}
+              to copy
+            </div>
           </div>
         </section>
       </div>

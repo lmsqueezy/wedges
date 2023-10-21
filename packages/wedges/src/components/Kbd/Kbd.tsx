@@ -7,14 +7,14 @@ import { KbdKey, kbdKeysLabelMap, kbdKeysMap } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
 export const kbdVariants = cva(
-  "dark:bg-surface tracking-widest bg-white outline-surface-200 text-surface-800 dark:outline-surface-100 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent px-2 py-1 align-baseline font-sans outline outline-1",
+  "dark:bg-surface tracking-widest bg-white border-surface-200 border-1 text-surface-800 dark:border-surface-100 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent align-baseline font-sans border [--wg-border-width:1px]",
   {
     variants: {
       size: {
-        xs: "text-xs",
-        sm: "text-sm",
-        base: "text-base",
-        lg: "text-lg",
+        xs: "text-xs px-1.5 py-0.5",
+        sm: "px-8px py-4px text-sm [--wg-border-width:1px]",
+        base: "px-2 py-0.5 text-base",
+        lg: "py-0.5 px-2 text-lg",
       },
     },
     defaultVariants: {
