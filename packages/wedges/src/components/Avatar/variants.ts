@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const rootClasses =
-  "h-10 min-w-10 text-base [--wg-notification-size:10px] relative inline-flex aspect-square shrink-0 items-center wg-antialiased";
+  "h-10 min-w-10 [--wg-notification-size:10px] relative inline-flex aspect-square shrink-0 items-center wg-antialiased";
 
 export const statusClasses =
   "absolute right-0 bottom-0 aspect-square bg-wg-gray-300 h-[var(--wg-notification-size,10px)] rounded-full ring-background";

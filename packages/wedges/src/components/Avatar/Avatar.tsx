@@ -137,7 +137,9 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
 
   const identifier = src || "" + alt || "" + initials || "";
   const bgColor = React.useMemo(() => {
-    return getElementFromHash(stringToHash(identifier + size), randomColors);
+    const color = getElementFromHash(stringToHash(identifier + size), randomColors);
+
+    return color || !randomColors[0];
   }, [identifier, size]);
 
   return (
