@@ -25,6 +25,7 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [x] Radio Group
 - [x] Checkbox
 - [x] Checkbox Group
+- [x] Kbd
 - [ ] Dropdown
 - [ ] Input
 - [ ] Select
