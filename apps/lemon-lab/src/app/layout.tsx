@@ -73,6 +73,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Tooltip
                 </Link>
 
+                <Link className="hover:text-surface-900 transition-colors" href="/kbd">
+                  Kbd
+                </Link>
+
                 <Link className="hover:text-surface-900 transition-colors" href="/colors">
                   Colors
                 </Link>
