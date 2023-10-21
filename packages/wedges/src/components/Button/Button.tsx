@@ -67,10 +67,14 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
     const Component = useAsChild ? Slot : "button";
 
     // Determine if the button is icon-only.
-    const isIcon =
-      React.useMemo(() => {
-        return (before && !after && !children && size) || (after && !before && !children && size);
-      }, [before, after, children, size]) || isIconOnly === true;
+    const isIcon = React.useMemo(() => {
+      return (
+        (before && !after && !children && size) ||
+        (after && !before && !children && size) ||
+        isIconOnly === true ||
+        false
+      );
+    }, [before, after, children, size]);
 
     // Determine if the button is a 'link', 'outline', 'tertiary', or 'transparent' variant.
     const isVariantLinkOutlineTertiaryTransparent = React.useMemo(

@@ -23,7 +23,8 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [x] Switch Group
 - [x] Label
 - [x] Radio Group
-- [ ] Checkbox
+- [x] Checkbox
+- [x] Checkbox Group
 - [ ] Dropdown
 - [ ] Input
 - [ ] Select

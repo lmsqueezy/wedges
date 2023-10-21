@@ -40,7 +40,7 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
     );
 
     return (
-      <div className="wg-antialiased inline-flex items-center gap-1">
+      <div className="wg-antialiased wg-label inline-flex items-center gap-1">
         <LabelPrimitive.Root
           ref={ref}
           asChild={useAsChild}
@@ -71,7 +71,7 @@ const HelperText = React.forwardRef<
     <HelperTextComponent
       ref={ref}
       className={cn(
-        "wg-antialiased text-surface-500 text-sm leading-6",
+        "wg-antialiased wg-label__helper text-surface-500 text-sm leading-6",
         ariaInvalid && "text-destructive",
         disabled && "text-surface-300",
         className
