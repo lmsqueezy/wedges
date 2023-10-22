@@ -1,23 +1,39 @@
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { Slot } from "@radix-ui/react-slot";
 
+import { cn, isReactElement } from "../../helpers/utils";
 import { Label } from "../Label";
 import { LabelHelperProps } from "../types";
-import { cn } from "../../helpers/utils";
 
 /* ---------------------------------- Types --------------------------------- */
 export type CheckboxElement = React.ElementRef<typeof CheckboxPrimitive.Root>;
 export type CheckboxElementProps = React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
-  Omit<LabelHelperProps, "label"> & {
-    label: React.ReactNode;
+  LabelHelperProps & {
     isIndeterminate?: boolean;
   };
 
-/* -------------------------------- Component ------------------------------- */
-const Checkbox = React.forwardRef<CheckboxElement, CheckboxElementProps>(
+type CheckboxRootProps = React.HTMLAttributes<HTMLDivElement> & { asChild?: boolean };
+
+/* ------------------------------- Components ------------------------------- */
+const CheckboxRoot = React.forwardRef<HTMLDivElement, CheckboxRootProps>(
+  ({ className, children, asChild, ...otherProps }, ref) => {
+    const useAsChild = asChild && isReactElement(children);
+    const Component = useAsChild ? Slot : "div";
+
+    return (
+      <Component ref={ref} className={cn("wg-checkbox flex gap-2", className)} {...otherProps}>
+        {children}
+      </Component>
+    );
+  }
+);
+
+const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
   (
     {
       className,
+      children,
       disabled,
       helperText,
       id,
@@ -36,7 +52,7 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     const elId = id || generatedId;
 
     const indeterminateIcon = (
-      <svg fill="none" height="24" viewBox="0 0 24 24" width="24">
+      <svg className="scale-100" fill="none" height="24" viewBox="0 0 24 24" width="24">
         <path
           clipRule="evenodd"
           d="M8 4C5.79086 4 4 5.79086 4 8V16C4 18.2091 5.79086 20 8 20H16C18.2091 20 20 18.2091 20 16V8C20 5.79086 18.2091 4 16 4H8ZM9 11C8.44772 11 8 11.4477 8 12C8 12.5523 8.44772 13 9 13H15C15.5523 13 16 12.5523 16 12C16 11.4477 15.5523 11 15 11H9Z"
@@ -51,7 +67,7 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     ) : (
       <svg
         className={cn(
-          "wg-unchecked aspect-square w-full",
+          "wg-unchecked aspect-square w-full scale-100",
           isDisabled && "text-surface-200 dark:text-surface-100"
         )}
         fill="none"
@@ -78,7 +94,7 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     ) : (
       <svg
         className={cn(
-          "aspect-square w-full",
+          "aspect-square w-full scale-100",
           isDisabled && "text-surface-200 dark:text-surface-100"
         )}
         fill="none"
@@ -98,7 +114,7 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxElementProps>(
 
     const renderLabel = (
       <div className="inline-flex flex-col">
-        {label && (
+        {(label || tooltip) && (
           <Label
             className="font-normal"
             disabled={isDisabled}
@@ -120,7 +136,7 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     );
 
     return (
-      <div className="wg-checkbox flex gap-2">
+      <CheckboxRoot>
         <CheckboxPrimitive.Root
           ref={ref}
           aria-labelledby={label ? `${elId}__label` : undefined}
@@ -142,12 +158,19 @@ const Checkbox = React.forwardRef<CheckboxElement, CheckboxElementProps>(
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
 
-        {renderLabel}
-      </div>
+        {!children && (label || helperText || tooltip) ? renderLabel : null}
+        {children}
+      </CheckboxRoot>
     );
   }
 );
 
-Checkbox.displayName = "Checkbox";
+CheckboxWedges.displayName = "CheckboxWedges";
+CheckboxRoot.displayName = "CheckboxRoot";
+
+const Checkbox = Object.assign(CheckboxWedges, {
+  Root: CheckboxRoot,
+  Item: CheckboxWedges,
+});
 
 export default Checkbox;

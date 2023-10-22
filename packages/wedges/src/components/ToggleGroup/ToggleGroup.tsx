@@ -5,6 +5,7 @@ import { cn, isReactElement } from "../../helpers/utils";
 import Button, { ButtonProps } from "../Button/Button";
 
 /* ---------------------------------- Types --------------------------------- */
+export type ToggleGroupElement = React.ElementRef<typeof ToggleGroupPrimitive.Root>;
 export type ToggleGroupProps = React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & {
   /**
    * The size of the buttons in group.
@@ -27,10 +28,7 @@ type ToggleGroupContextProps = {
 const ToggleGroupContext = React.createContext<ToggleGroupContextProps | null>(null);
 
 /* ------------------------------- Components ------------------------------- */
-const ToggleGroupWedges = React.forwardRef<
-  React.ElementRef<typeof ToggleGroupPrimitive.Root>,
-  ToggleGroupProps
->(
+const ToggleGroupWedges = React.forwardRef<ToggleGroupElement, ToggleGroupProps>(
   (
     {
       className,

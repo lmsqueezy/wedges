@@ -61,6 +61,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Switch/Radio/Checkbox
                 </Link>
 
+                <Link className="hover:text-surface-900 transition-colors" href="/dropdown">
+                  Dropdown
+                </Link>
+
                 <Link className="hover:text-surface-900 transition-colors" href="/toggle-group">
                   Toggle Group
                 </Link>

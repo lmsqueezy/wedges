@@ -1,6 +1,6 @@
+import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { VariantProps } from "class-variance-authority";
-import * as React from "react";
 
 import { cn, isReactElement } from "../../helpers/utils";
 

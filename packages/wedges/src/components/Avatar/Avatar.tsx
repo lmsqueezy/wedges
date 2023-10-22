@@ -135,12 +135,13 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     "bg-wg-red",
   ];
 
-  const identifier = src || "" + alt || "" + initials || "";
   const bgColor = React.useMemo(() => {
-    const color = getElementFromHash(stringToHash(identifier + size), randomColors);
+    const identifier =
+      (initials || "") + (size || "") + (status || "") + (notification || "") + (src || "");
+    const color = getElementFromHash(stringToHash(identifier), randomColors);
 
     return color || !randomColors[0];
-  }, [identifier, size]);
+  }, [size]);
 
   return (
     <AvatarRoot
@@ -195,7 +196,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
           ref={ref}
           aria-label={alt}
           className={cn(
-            "flex aspect-square grow items-center justify-center rounded-full uppercase text-white",
+            "flex aspect-square grow select-none items-center justify-center rounded-full uppercase text-white",
             bgColor,
             className
           )}

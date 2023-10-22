@@ -23,15 +23,24 @@ const TooltipContent = React.forwardRef<
         {children ? (
           children
         ) : (
-          <InfoIcon
+          <span
             className={cn(
-              "text-surface-200 hover:text-primary dark:hover:text-primary focus-visible:text-primary dark:focus-visible:text-primary focus-visible:outline-primary data-[state=delayed-open]:text-primary rounded-full transition-colors duration-100 focus:outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 data-[state=instant-open]:transition-none",
               onClick && "cursor-pointer",
+              'text-surface-200 hover:text-primary dark:hover:text-primary focus-visible:text-primary dark:focus-visible:text-primary focus-visible:outline-primary data-[state=delayed-open]:text-primary data-[state=instant-open]:transition-none", inline-flex items-center justify-center rounded-full transition-colors duration-100 focus:outline-none focus-visible:outline-2 focus-visible:-outline-offset-2',
               className
             )}
+            role="button" // Add role to specify it behaves like a button
             tabIndex={0}
-            onClick={onClick as React.MouseEventHandler}
-          />
+            onClick={onClick}
+            onKeyDown={(e: React.KeyboardEvent) => {
+              // Allow the action on "Enter" and "Space" key
+              if (e.key === "Enter" || e.key === "Space") {
+                onClick && onClick(e as unknown as React.MouseEvent<HTMLButtonElement, MouseEvent>);
+              }
+            }}
+          >
+            <InfoIcon className="scale-100" />
+          </span>
         )}
       </PrimitiveTrigger>
     );

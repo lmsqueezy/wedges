@@ -23,7 +23,10 @@ const avatarGroupVariants = cva(defaultAvatarGroupClasses, {
 });
 
 /* ---------------------------------- Types --------------------------------- */
-type AvatarGroupAvatarProps = Omit<AvatarProps, "size" | "notification" | "status" | "initial">;
+type AvatarGroupAvatarProps = Omit<
+  AvatarProps,
+  "size" | "notification" | "status" | "initial" | "asChild"
+>;
 
 type BaseAvatarGroupProps = {
   /**
@@ -56,7 +59,7 @@ type AvatarMoreLabelProps = Omit<AvatarProps, "notification" | "status" | "initi
 };
 
 /* ------------------------------- Components ------------------------------- */
-const AvatarGroupRoot = React.forwardRef<HTMLDivElement, React.HTMLProps<HTMLDivElement>>(
+const AvatarGroupRoot = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ children, className, ...otherProps }, ref) => (
     <div ref={ref} className={cn(defaultAvatarGroupClasses, className)} {...otherProps}>
       {children}
@@ -101,7 +104,7 @@ const AvatarGroupItem = React.forwardRef<
 });
 
 const AvatarGroupWedges = React.forwardRef<HTMLDivElement, AvatarGroupProps>((props, ref) => {
-  const { items, className, size, previousOnTop, moreLabel, ...otherProps } = props;
+  const { items, className, children, size, previousOnTop, moreLabel, ...otherProps } = props;
 
   return (
     <AvatarGroupRoot
@@ -110,32 +113,36 @@ const AvatarGroupWedges = React.forwardRef<HTMLDivElement, AvatarGroupProps>((pr
       {...otherProps}
     >
       <>
-        {items.map((item, i) => {
-          const {
-            alt: itemAlt,
-            className: itemClassName,
-            src: itemSrc,
-            style: itemStyle,
-            ...otherItemProps
-          } = item;
+        {items
+          ? items.map((item, i) => {
+              const {
+                alt: itemAlt,
+                className: itemClassName,
+                src: itemSrc,
+                style: itemStyle,
+                ...otherItemProps
+              } = item;
 
-          const styleOutput = {
-            zIndex: previousOnTop ? items.length - i : undefined,
-            ...itemStyle,
-          };
+              const styleOutput = {
+                zIndex: previousOnTop ? items.length - i : undefined,
+                ...itemStyle,
+              };
 
-          return (
-            <AvatarGroupItem
-              key={`avatar-${i}`}
-              alt={itemAlt}
-              className={itemClassName}
-              size={size}
-              src={itemSrc}
-              style={styleOutput}
-              {...otherItemProps}
-            />
-          );
-        })}
+              return (
+                <AvatarGroupItem
+                  key={`avatar-${i}`}
+                  alt={itemAlt}
+                  className={itemClassName}
+                  size={size}
+                  src={itemSrc}
+                  style={styleOutput}
+                  {...otherItemProps}
+                />
+              );
+            })
+          : null}
+
+        {children}
 
         {moreLabel && <AvatarMoreLabel label={moreLabel} size={size} />}
       </>

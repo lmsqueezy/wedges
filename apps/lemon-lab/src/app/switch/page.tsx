@@ -1,6 +1,14 @@
 "use client";
 
-import { Checkbox, CheckboxGroup, RadioGroup, Switch, SwitchGroup } from "@lmsqueezy/wedges";
+import {
+  AvatarGroup,
+  Checkbox,
+  CheckboxGroup,
+  Label,
+  RadioGroup,
+  Switch,
+  SwitchGroup,
+} from "@lmsqueezy/wedges";
 
 import PageTitle from "@/components/PageTitle";
 
@@ -77,7 +85,7 @@ export default function SwitchPage() {
             tooltip="This is a custom tooltip message"
           >
             <RadioGroup.Item disabled label="Disabled Item" value="val-1" />
-            <RadioGroup.Item aria-invalid helperText="Helper Text" label="Value 2" value="val-2" />
+            <RadioGroup.Item aria-invalid label="Value 2" value="val-2" />
             <RadioGroup.Item label="Value 3" value="val-3" />
           </RadioGroup>
         </div>
@@ -121,6 +129,7 @@ export default function SwitchPage() {
               helperText="Invalid field"
               label="Option 2"
             />
+
             <CheckboxGroup.Item
               isIndeterminate
               helperText="Has to be controlled"
@@ -128,6 +137,56 @@ export default function SwitchPage() {
             />
             <CheckboxGroup.Item label="Option 4" />
           </CheckboxGroup>
+        </div>
+
+        <div>
+          <CheckboxGroup
+            defaultChecked
+            required
+            helperText="Helper text"
+            label="Horizontal Checkbox Group"
+            orientation="horizontal"
+            tooltip="Tooltip example"
+          >
+            <CheckboxGroup.Item label="Option 1" />
+            <CheckboxGroup.Item aria-invalid defaultChecked label="Option 2" />
+            <CheckboxGroup.Item label="Option 3" />
+            <CheckboxGroup.Item label="Option 4" />
+          </CheckboxGroup>
+        </div>
+
+        <div>
+          <h2 className="mb-8 mt-10 text-xl">Custom Checkbox</h2>
+
+          <Checkbox.Root
+            asChild
+            className="wg-bg-surface-50 dark:wg-bg-neutral-900 border-surface-100 outline-primary flex w-[300px] cursor-pointer items-center justify-between rounded-lg border px-4 py-3 outline-2 -outline-offset-1 [&:has([data-state=checked])]:outline"
+          >
+            <label htmlFor="custom-checkbox">
+              <Checkbox.Item id="custom-checkbox" />
+
+              <div className="flex grow items-center justify-between text-sm">
+                <Label asChild required tooltip="test">
+                  <span>Custom label</span>
+                </Label>
+
+                <AvatarGroup
+                  items={[
+                    {
+                      initials: "A",
+                    },
+                    {
+                      initials: "T",
+                    },
+                    {
+                      initials: "B",
+                    },
+                  ]}
+                  size="xs"
+                />
+              </div>
+            </label>
+          </Checkbox.Root>
         </div>
       </div>
     </main>

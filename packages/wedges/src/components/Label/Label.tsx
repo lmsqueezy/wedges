@@ -29,7 +29,10 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
     const innerContent = useAsChild ? (
       React.cloneElement(children, {
         children: (
-          <>{children.props.children && required && <span className="text-destructive">*</span>}</>
+          <>
+            {children.props.children}
+            {required && <span className="text-destructive">*</span>}
+          </>
         ),
       })
     ) : (
@@ -41,18 +44,20 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
 
     return (
       <div className="wg-antialiased wg-label inline-flex items-center gap-1">
-        <LabelPrimitive.Root
-          ref={ref}
-          asChild={useAsChild}
-          className={cn(
-            "wg-label inline-flex cursor-pointer items-center gap-1 text-sm font-medium leading-6",
-            disabled && "text-surface-300 pointer-events-none",
-            className
-          )}
-          {...otherProps}
-        >
-          {innerContent}
-        </LabelPrimitive.Root>
+        {children ? (
+          <LabelPrimitive.Root
+            ref={ref}
+            asChild={useAsChild}
+            className={cn(
+              "wg-label inline-flex cursor-pointer items-center gap-1 text-sm font-medium leading-6",
+              disabled && "text-surface-300 pointer-events-none",
+              className
+            )}
+            {...otherProps}
+          >
+            {innerContent}
+          </LabelPrimitive.Root>
+        ) : null}
 
         {tooltip ? <Tooltip content={tooltip} /> : null}
       </div>
