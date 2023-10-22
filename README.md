@@ -30,6 +30,12 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [ ] Input
 - [ ] Select
 
+## Upcoming Components
+- [ ] Dialog
+- [ ] Slider
+- [ ] Toast
+- [ ] Tabs
+- [ ] Accordion
 
 ## Packages
 
