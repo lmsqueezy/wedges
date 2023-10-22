@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import Link from "next/link";
+import { Inter } from "next/font/google";
 
 import { Providers } from "./providers";
 
@@ -13,10 +14,15 @@ export const metadata: Metadata = {
   description: "Explore Wedges components and features",
 };
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning className="h-full" lang="en">
-      <body className="flex min-h-full">
+      <body className={`${inter.className} flex min-h-full`}>
         <Providers>
           <div className="bg-background text-foreground flex grow flex-col">
             <header className="text-surface-500 mx-auto flex w-full max-w-screen-xl flex-wrap items-center gap-5 px-10 pt-10 text-sm">

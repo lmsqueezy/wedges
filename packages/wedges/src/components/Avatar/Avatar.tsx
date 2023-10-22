@@ -223,13 +223,13 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
 
       {/* Status and Notification */}
       {status && (
-        <AvatarStatus className={statusVariants({ status })} ring={size === "xs" ? 1 : 2} />
+        <AvatarStatus className={statusVariants({ status })} ring={size === "xxs" ? 1 : 2} />
       )}
 
       {notification && (
         <AvatarNotification
           className={notificationVariants({ notification })}
-          ring={size === "xs" ? 1 : 2}
+          ring={size === "xxs" ? 1 : 2}
         />
       )}
     </AvatarRoot>

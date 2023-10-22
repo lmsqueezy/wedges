@@ -236,17 +236,17 @@ const corePlugin = (
             3: "3px",
           },
           animation: {
-            "fade-in-up": `fadeInUp 0.3s ${animationEasing}`,
-            "fade-in-down": `fadeInDown 0.3s ${animationEasing}`,
-            "fade-in-left": `fadeInLeft 0.3s ${animationEasing}`,
-            "fade-in-right": `fadeInRight 0.3s ${animationEasing}`,
-            "fade-out": `fadeOut 0.3s ${animationEasing}`,
+            "fade-in-up": `fadeInUp 0.32s ${animationEasing}`,
+            "fade-in-down": `fadeInDown 0.28s ${animationEasing}`,
+            "fade-in-left": `fadeInLeft 0.28s ${animationEasing}`,
+            "fade-in-right": `fadeInRight 0.28s ${animationEasing}`,
+            "fade-out": `fadeOut 0.15s ${animationEasing}`,
           },
           keyframes: {
             fadeInUp: {
               "0%": {
                 opacity: "0",
-                transform: "translateY(4px) scale(.96)",
+                transform: "translateY(5px) scale(.98)",
               },
               "100%": {
                 opacity: "1",
@@ -256,7 +256,7 @@ const corePlugin = (
             fadeInDown: {
               "0%": {
                 opacity: "0",
-                transform: "translateY(-4px) scale(.96)",
+                transform: "translateY(-5px) scale(.98)",
               },
               "100%": {
                 opacity: "1",
@@ -266,7 +266,7 @@ const corePlugin = (
             fadeInLeft: {
               "0%": {
                 opacity: "0",
-                transform: "translateX(6px) scale(.96)",
+                transform: "translateX(5px) scale(.98)",
               },
               "100%": {
                 opacity: "1",
@@ -276,7 +276,7 @@ const corePlugin = (
             fadeInRight: {
               "0%": {
                 opacity: "0",
-                transform: "translateX(-4px) scale(.96)",
+                transform: "translateX(-5px) scale(.98)",
               },
               "100%": {
                 opacity: "1",
@@ -290,7 +290,7 @@ const corePlugin = (
               },
               "100%": {
                 opacity: "0",
-                transform: "scale(.96)",
+                transform: "scale(.98)",
               },
             },
           },

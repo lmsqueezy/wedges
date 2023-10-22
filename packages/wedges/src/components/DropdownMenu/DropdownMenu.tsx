@@ -25,7 +25,12 @@ const DropdownMenuContent = React.forwardRef<
       ref={ref}
       align={align}
       className={cn(
-        "wg-antialiased text-surface-900 dark:text-surface-700 shadow-wg-overlay dark:border-surface flex flex-col gap-2 rounded-lg bg-white py-2 text-sm leading-6 dark:border dark:bg-neutral-800 dark:shadow-none",
+        // state animations
+        "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[state=closed]:animate-fade-out",
+
+        // base styles
+        "wg-antialiased text-surface-900 dark:text-surface-700 shadow-wg-overlay dark:border-surface flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 text-sm leading-6 dark:border dark:bg-neutral-800 dark:shadow-none",
+
         className
       )}
       collisionPadding={collisionPadding}
@@ -43,7 +48,11 @@ const DropdownMenuLabel = React.forwardRef<
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Label
     ref={ref}
-    className={cn("px-4 py-1 font-medium opacity-40", inset && "pl-8", className)}
+    className={cn(
+      "text-xxs px-4 py-1 font-medium uppercase tracking-wider opacity-50",
+      inset && "pl-8",
+      className
+    )}
     {...props}
   />
 ));
@@ -52,12 +61,15 @@ const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
     inset?: boolean;
+    destructive?: boolean;
   }
->(({ className, ...props }, ref) => (
+>(({ className, destructive, ...props }, ref) => (
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "focus:bg-surface text-surface-900 dark:text-surface-700 [&_svg]:text-surface-400 relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 outline-none transition-none duration-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
+      "focus:bg-surface [&_svg]:text-surface-400 relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
+      !destructive && "text-surface-900 dark:text-surface-700",
+      destructive && "text-destructive",
       className
     )}
     {...props}
@@ -70,7 +82,7 @@ const DropdownMenuShortcut = React.forwardRef<KbdElement, KbdProps>(
       <Kbd
         ref={ref}
         className={cn(
-          "text-surface-500 dark:text-surface-500 ms-auto border-0 bg-transparent p-0 ps-4 text-xs shadow-none dark:bg-transparent",
+          "text-surface-500 dark:text-surface-500 shadow-0 ms-auto border-0 bg-transparent p-0 ps-4 text-xs dark:bg-transparent",
           className
         )}
         {...props}
@@ -98,7 +110,11 @@ const DropdownMenuSubContent = React.forwardRef<
     ref={ref}
     alignOffset={alignOffset}
     className={cn(
-      "shadow-wg-overlay dark:border-surface z-50 flex min-w-[9rem] flex-col gap-2 rounded-lg bg-white py-2 dark:border dark:bg-neutral-800 dark:shadow-none",
+      // state animations
+      "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[state=closed]:animate-fade-out",
+
+      // base styles
+      "shadow-wg-overlay dark:border-surface z-50 flex min-w-[9rem] origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 dark:border dark:bg-neutral-800 dark:shadow-none",
       className
     )}
     sideOffset={sideOffset}
@@ -115,7 +131,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "focus:bg-surface [&_svg]:text-surface-400 data-[state=open]:bg-surface text-surface-900 dark:text-surface-700 relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 leading-6 outline-none transition-colors duration-100 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-white/5 dark:data-[state=open]:bg-white/5",
+      "focus:bg-surface [&_svg]:text-surface-400 data-[state=open]:bg-surface text-surface-900 dark:text-surface-700 relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 leading-6 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-white/5 dark:data-[state=open]:bg-white/5",
       className
     )}
     {...props}

@@ -1,7 +1,9 @@
 "use client";
 
-import { Avatar, Checkbox, DropdownMenu } from "@lmsqueezy/wedges";
+import { Avatar, Button, DropdownMenu } from "@lmsqueezy/wedges";
 import {
+  ChevronDownIcon,
+  DotsHorizontalIcon,
   DownloadIcon,
   EyeOffIcon,
   MailIcon,
@@ -17,18 +19,10 @@ export default function DropdownMenuPage() {
     <main>
       <PageTitle>Dropdown Menu</PageTitle>
 
-      <div className="flex flex-col gap-24">
+      <div className="flex gap-72">
         <div>
           <DropdownMenu>
             <DropdownMenu.Trigger asChild>
-              {/* <Button
-                size="sm"
-                isIconOnly
-                className="data-[state=open]:bg-surface/5"
-                variant="outline"
-              >
-                <DotsHorizontalIcon />
-              </Button> */}
               <Avatar className="cursor-pointer" initials="B" size="sm" status="green" />
             </DropdownMenu.Trigger>
 
@@ -91,12 +85,129 @@ export default function DropdownMenuPage() {
                     <DropdownMenu.Separator />
 
                     <DropdownMenu.Group>
-                      <DropdownMenu.Item className="text-destructive dark:text-destructive">
+                      <DropdownMenu.Item destructive>
                         <span>Delete account</span>
                       </DropdownMenu.Item>
                     </DropdownMenu.Group>
                   </DropdownMenu.SubContent>
                 </DropdownMenu.Sub>
+              </DropdownMenu.Group>
+            </DropdownMenu.Content>
+          </DropdownMenu>
+        </div>
+
+        <div>
+          <DropdownMenu>
+            <DropdownMenu.Trigger asChild>
+              <Button isIconOnly size="sm" variant="tertiary">
+                <DotsHorizontalIcon />
+              </Button>
+            </DropdownMenu.Trigger>
+
+            <DropdownMenu.Content align="end" side="top">
+              <DropdownMenu.Group>
+                <DropdownMenu.Item>
+                  <span>Bold</span>
+                  <DropdownMenu.Shortcut keys={["command"]}>B</DropdownMenu.Shortcut>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Item>
+                  <span>Italic</span>
+                  <DropdownMenu.Shortcut keys={["command"]}>I</DropdownMenu.Shortcut>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Item>
+                  <span>Underline</span>
+                  <DropdownMenu.Shortcut keys={["command"]}>U</DropdownMenu.Shortcut>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Item>
+                  <span>Strikethrough</span>
+                  <DropdownMenu.Shortcut keys={["command", "option"]}>X</DropdownMenu.Shortcut>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Item>
+                  <span>Create link</span>
+                  <DropdownMenu.Shortcut keys={["command"]}>K</DropdownMenu.Shortcut>
+                </DropdownMenu.Item>
+              </DropdownMenu.Group>
+
+              <DropdownMenu.Separator />
+
+              <DropdownMenu.Group>
+                <DropdownMenu.Item>
+                  <span>Bulleted list</span>
+                  <DropdownMenu.Shortcut keys={["shift", "command"]}>8</DropdownMenu.Shortcut>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Item>
+                  <span>Numbered list</span>
+                  <DropdownMenu.Shortcut keys={["command"]}>7</DropdownMenu.Shortcut>
+                </DropdownMenu.Item>
+              </DropdownMenu.Group>
+            </DropdownMenu.Content>
+          </DropdownMenu>
+        </div>
+
+        <div>
+          <DropdownMenu>
+            <DropdownMenu.Trigger asChild>
+              <span className="wg-antialiased text-surface-600 data-[state=open]:bg-surface hover:bg-surface group flex cursor-pointer select-none items-center gap-1 rounded-lg p-1.5 px-2 text-sm transition-colors duration-100 dark:hover:bg-white/5">
+                <Avatar size="xs" src="https://github.com/brankoconjic.png" status="green" />
+
+                <span className=" ms-2 flex flex-col">
+                  <span className="font-medium">Branko</span>
+                </span>
+
+                <ChevronDownIcon className="trigger-icon text-surface-400 h-5 w-5" />
+              </span>
+            </DropdownMenu.Trigger>
+
+            <DropdownMenu.Content align="center" className="min-w-[140px]">
+              <DropdownMenu.Group>
+                <DropdownMenu.Label>Account</DropdownMenu.Label>
+
+                <DropdownMenu.Item>
+                  <span>Settings</span>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Item>
+                  <span>Privacy</span>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Item>
+                  <span>Notifications</span>
+                </DropdownMenu.Item>
+              </DropdownMenu.Group>
+
+              <DropdownMenu.Separator />
+
+              <DropdownMenu.Group>
+                <DropdownMenu.Label>Help</DropdownMenu.Label>
+
+                <DropdownMenu.Item>
+                  <span>Help Guide</span>
+                </DropdownMenu.Item>
+
+                <DropdownMenu.Item>
+                  <span>Help Center</span>
+                </DropdownMenu.Item>
+              </DropdownMenu.Group>
+
+              <DropdownMenu.Separator />
+
+              <DropdownMenu.Group>
+                <DropdownMenu.Item>
+                  <span>Dark Mode</span>
+                </DropdownMenu.Item>
+              </DropdownMenu.Group>
+
+              <DropdownMenu.Separator />
+
+              <DropdownMenu.Group>
+                <DropdownMenu.Item>
+                  <span>Log Out</span>
+                </DropdownMenu.Item>
               </DropdownMenu.Group>
             </DropdownMenu.Content>
           </DropdownMenu>
