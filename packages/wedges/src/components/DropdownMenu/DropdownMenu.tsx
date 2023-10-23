@@ -67,8 +67,9 @@ const DropdownMenuItem = React.forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "focus:bg-surface [&_svg]:text-surface-400 relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
-      !destructive && "text-surface-900 dark:text-surface-700",
+      "focus:bg-surface relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
+      !destructive &&
+        "text-surface-900 dark:text-surface-700 [&_svg]:text-surface-900 [&_svg]:opacity-40",
       destructive && "text-destructive",
       className
     )}
@@ -131,7 +132,8 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "focus:bg-surface [&_svg]:text-surface-400 data-[state=open]:bg-surface text-surface-900 dark:text-surface-700 relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 leading-6 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-white/5 dark:data-[state=open]:bg-white/5",
+      "focus:bg-surface text-surface-900 dark:text-surface-700 data-[state=open]:bg-surface relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 leading-6 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-white/5 dark:data-[state=open]:bg-white/5",
+      "[&_svg]:text-surface-900 [&_svg]:opacity-40",
       className
     )}
     {...props}
