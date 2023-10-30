@@ -65,7 +65,7 @@ export const buttonVariants = cva(
         variant: "outline",
         destructive: true,
         class:
-          "border-destructive disabled:border-destructive-100 dark:disabled:border-destructive-900 hover:bg-destructive-50 dark:hover:bg-surface",
+          "border-destructive dark:border-destructive disabled:border-destructive-100 dark:disabled:border-destructive-900 hover:bg-destructive-50 dark:hover:bg-surface",
       },
       {
         variant: "link",
@@ -93,7 +93,7 @@ export const buttonVariants = cva(
   }
 );
 
-export const iconVariants = cva("", {
+export const iconVariants = cva("text-current", {
   variants: {
     variant: {
       primary: "",
@@ -114,17 +114,8 @@ export const iconVariants = cva("", {
   },
   compoundVariants: [
     {
-      variant: ["primary", "secondary"],
-      class: "text-current",
-    },
-    {
       variant: ["tertiary", "outline", "transparent", "link"],
-      class: "text-surface-400",
-    },
-    {
-      variant: ["tertiary", "outline", "transparent", "link"],
-      destructive: true,
-      class: "text-current",
+      class: "opacity-50",
     },
   ],
   defaultVariants: {

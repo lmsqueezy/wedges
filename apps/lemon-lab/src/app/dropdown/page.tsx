@@ -64,6 +64,7 @@ export default function DropdownMenuPage() {
               </DropdownMenu.Group>
 
               <DropdownMenu.Separator />
+
               <DropdownMenu.Group>
                 <DropdownMenu.Sub>
                   <DropdownMenu.SubTrigger>
@@ -71,7 +72,7 @@ export default function DropdownMenuPage() {
                     <span>Invite users</span>
                   </DropdownMenu.SubTrigger>
 
-                  <DropdownMenu.SubContent>
+                  <DropdownMenu.SubContent inset={true}>
                     <DropdownMenu.Group>
                       <DropdownMenu.Item>
                         <span>Email</span>
@@ -80,6 +81,36 @@ export default function DropdownMenuPage() {
                       <DropdownMenu.Item>
                         <span>Message</span>
                       </DropdownMenu.Item>
+                    </DropdownMenu.Group>
+
+                    <DropdownMenu.Separator />
+
+                    <DropdownMenu.Group>
+                      <DropdownMenu.Label>Accounts</DropdownMenu.Label>
+
+                      <DropdownMenu.RadioGroup value={"branko"}>
+                        <DropdownMenu.RadioItem value="pedro">Pedro Duarte</DropdownMenu.RadioItem>
+
+                        <DropdownMenu.RadioItem value="branko">
+                          Branko Conjic
+                        </DropdownMenu.RadioItem>
+                      </DropdownMenu.RadioGroup>
+                    </DropdownMenu.Group>
+
+                    <DropdownMenu.Separator />
+
+                    <DropdownMenu.Group>
+                      <DropdownMenu.Label>Options</DropdownMenu.Label>
+
+                      <DropdownMenu.CheckboxItem checked={true}>
+                        <span>Show Full URLs</span>
+                        <DropdownMenu.Shortcut keys={["command"]}>U</DropdownMenu.Shortcut>
+                      </DropdownMenu.CheckboxItem>
+
+                      <DropdownMenu.CheckboxItem>
+                        <span>Show Bookmarks</span>
+                        <DropdownMenu.Shortcut keys={["option"]}>B</DropdownMenu.Shortcut>
+                      </DropdownMenu.CheckboxItem>
                     </DropdownMenu.Group>
 
                     <DropdownMenu.Separator />

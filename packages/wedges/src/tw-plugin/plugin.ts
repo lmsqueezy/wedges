@@ -22,8 +22,10 @@ const DEFAULT_PREFIX = "wg";
  * twMerge with extended options.
  */
 export const twMerge = extendTailwindMerge({
-  theme: {
-    padding: ["2px", "4px", "6px", "8px", "12px", "14px"],
+  extend: {
+    theme: {
+      padding: ["2px", "4px", "6px", "8px", "12px", "14px"],
+    },
   },
 });
 
