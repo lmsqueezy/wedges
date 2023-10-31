@@ -34,8 +34,13 @@ export default function BadgePage() {
 
           <section>
             <div className="flex flex-wrap items-start gap-2">
-              {colors.map((color) => (
-                <Badge key={color} after={<StarIcon />} before={<CloseIcon />} color={color}>
+              {colors.map((color, index) => (
+                <Badge
+                  after={<StarIcon />}
+                  before={<CloseIcon />}
+                  color={color}
+                  key={`${color}-${index}`}
+                >
                   {color.charAt(0).toUpperCase() + color.slice(1)}
                 </Badge>
               ))}

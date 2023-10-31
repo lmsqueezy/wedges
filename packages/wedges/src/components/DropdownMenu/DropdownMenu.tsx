@@ -30,7 +30,7 @@ const DropdownMenuContent = React.forwardRef<
         align={align}
         className={cn(
           // state animations
-          "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[state=closed]:animate-fade-out",
+          "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right",
 
           // base styles
           "wg-antialiased text-surface-900 dark:text-surface-700 shadow-wg-overlay dark:border-surface flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 text-sm leading-6 dark:border dark:bg-neutral-800 dark:shadow-none",
@@ -53,11 +53,11 @@ const DropdownMenuLabel = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
     inset?: boolean;
   }
->(({ className, inset, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
-      "text-xxs px-4 py-1 font-medium uppercase tracking-wider opacity-50",
+      "text-xxs flex select-none items-center gap-1 px-4 py-1 font-medium uppercase tracking-wider opacity-50",
       "pl-[var(--wg-offset-padding-left,1rem)]",
       className
     )}
@@ -86,6 +86,9 @@ const DropdownMenuItem = React.forwardRef<
   />
 ));
 
+/* -------------------------------------------------------------------------- */
+/*                                  Shortcut                                  */
+/* -------------------------------------------------------------------------- */
 const DropdownMenuShortcut = React.forwardRef<KbdElement, KbdProps>(
   ({ className, ...props }, ref) => {
     return (
@@ -101,6 +104,9 @@ const DropdownMenuShortcut = React.forwardRef<KbdElement, KbdProps>(
   }
 );
 
+/* -------------------------------------------------------------------------- */
+/*                                  Separator                                 */
+/* -------------------------------------------------------------------------- */
 const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
@@ -112,7 +118,9 @@ const DropdownMenuSeparator = React.forwardRef<
   />
 ));
 
-/* ------------------------------ Checkbox Item ----------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                Checkbox Item                               */
+/* -------------------------------------------------------------------------- */
 const CheckIcon = ({ className, ...otherProps }: React.ComponentProps<"svg">) => (
   <svg
     {...otherProps}
@@ -126,9 +134,9 @@ const CheckIcon = ({ className, ...otherProps }: React.ComponentProps<"svg">) =>
     <path
       d="M8 11.6923L10.6667 14.7692L16 9.23077"
       stroke="currentColor"
-      stroke-width="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
+      strokeWidth="1.5"
     />
   </svg>
 );
@@ -141,6 +149,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
 >(({ className, children, checked, destructive, ...otherProps }, ref) => (
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
+    checked={checked}
     className={cn(
       "wg-dropdown-menu__checkbox-item focus:bg-surface relative flex cursor-pointer select-none items-center px-4 py-1 pl-7 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
       !destructive &&
@@ -149,11 +158,10 @@ const DropdownMenuCheckboxItem = React.forwardRef<
       "pl-[var(--wg-offset-padding-left,1rem)]",
       className
     )}
-    checked={checked}
     {...otherProps}
   >
     <span className="flex items-center justify-center">
-      <DropdownMenuPrimitive.ItemIndicator asChild>
+      <DropdownMenuPrimitive.ItemIndicator className="flex items-center justify-center">
         <CheckIcon className="absolute left-2" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
@@ -162,7 +170,9 @@ const DropdownMenuCheckboxItem = React.forwardRef<
   </DropdownMenuPrimitive.CheckboxItem>
 ));
 
-/* ------------------------------- Radio Item ------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                 Radio Item                                 */
+/* -------------------------------------------------------------------------- */
 const CircleIcon = ({ className, ...otherProps }: React.ComponentProps<"svg">) => (
   <svg
     {...otherProps}
@@ -173,7 +183,7 @@ const CircleIcon = ({ className, ...otherProps }: React.ComponentProps<"svg">) =
     viewBox="0 0 24 24"
     width="24"
   >
-    <circle cx="12" cy="12" r="2.5" fill="currentColor" />
+    <circle cx="12" cy="12" fill="currentColor" r="2.5" />
   </svg>
 );
 
@@ -196,7 +206,7 @@ const DropdownMenuRadioItem = React.forwardRef<
     {...otherProps}
   >
     <span className="flex items-center justify-center">
-      <DropdownMenuPrimitive.ItemIndicator asChild>
+      <DropdownMenuPrimitive.ItemIndicator className="flex items-center justify-center">
         <CircleIcon className="absolute left-2" />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
@@ -205,29 +215,37 @@ const DropdownMenuRadioItem = React.forwardRef<
   </DropdownMenuPrimitive.RadioItem>
 ));
 
-/* ------------------------------- Sub Content ------------------------------ */
+/* -------------------------------------------------------------------------- */
+/*                                 Sub Content                                */
+/* -------------------------------------------------------------------------- */
 const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent> & { inset?: boolean }
->(({ className, sideOffset = -4, alignOffset = -9, inset = false, ...props }, ref) => (
-  <DropdownMenuPrimitive.SubContent
-    ref={ref}
-    alignOffset={alignOffset}
-    className={cn(
-      // state animations
-      "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[state=closed]:animate-fade-out",
+>(
+  (
+    { className, collisionPadding = 8, sideOffset = -4, alignOffset = -9, inset = false, ...props },
+    ref
+  ) => (
+    <DropdownMenuPrimitive.SubContent
+      ref={ref}
+      alignOffset={alignOffset}
+      collisionPadding={collisionPadding}
+      className={cn(
+        // state animations
+        "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[state=closed]:animate-fade-out",
 
-      // base styles
-      "shadow-wg-overlay dark:border-surface z-50 flex min-w-[9rem] origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 dark:border dark:bg-neutral-800 dark:shadow-none",
+        // base styles
+        "shadow-wg-overlay dark:border-surface z-50 flex min-w-[9rem] origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 dark:border dark:bg-neutral-800 dark:shadow-none",
 
-      // has checkbox or radio item - offset start padding
-      inset && "[--wg-offset-padding-left:34px]",
-      className
-    )}
-    sideOffset={sideOffset}
-    {...props}
-  />
-));
+        // has checkbox or radio item - offset start padding
+        inset && "[--wg-offset-padding-left:34px]",
+        className
+      )}
+      sideOffset={sideOffset}
+      {...props}
+    />
+  )
+);
 
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,

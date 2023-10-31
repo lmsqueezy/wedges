@@ -36,8 +36,8 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
       children,
       disabled,
       helperText,
+      checked,
       id,
-      isIndeterminate,
       label,
       required,
       tooltip,
@@ -47,6 +47,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
   ) => {
     const isDisabled = disabled;
     const ariaInvalid = otherProps["aria-invalid"];
+    const isIndeterminate = checked === "indeterminate";
 
     const generatedId = React.useId();
     const elId = id || generatedId;
@@ -140,6 +141,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
         <CheckboxPrimitive.Root
           ref={ref}
           aria-labelledby={label ? `${elId}__label` : undefined}
+          checked={checked}
           className={cn(
             "outline-primary text-surface-200 group relative flex flex h-6 w-6 items-center justify-center rounded-lg transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
             isDisabled && "text-surface-200 dark:text-surface-100 pointer-events-none",

@@ -48,7 +48,7 @@ export default function SwitchPage() {
           >
             <SwitchGroup.Item disabled helperText="Disabled item with helper text" label="Item 1" />
             <SwitchGroup.Item required label="Item 2 with a Tooltip" tooltip="test" />
-            <SwitchGroup.Item label="Item 3">Test</SwitchGroup.Item>
+            <SwitchGroup.Item label="With Label" />
           </SwitchGroup>
         </div>
 
@@ -131,7 +131,7 @@ export default function SwitchPage() {
             />
 
             <CheckboxGroup.Item
-              isIndeterminate
+              checked="indeterminate"
               helperText="Has to be controlled"
               label="Indeterminate"
             />

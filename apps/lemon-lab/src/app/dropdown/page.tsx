@@ -1,20 +1,34 @@
 "use client";
 
-import { Avatar, Button, DropdownMenu } from "@lmsqueezy/wedges";
 import {
+  BellIcon,
+  BookIcon,
   ChevronDownIcon,
   DotsHorizontalIcon,
   DownloadIcon,
   EyeOffIcon,
+  HelpCircleIcon,
+  LockIcon,
+  LogOutIcon,
   MailIcon,
+  MoonIcon,
   PinIcon,
   RedoIcon,
+  SettingsIcon,
+  UserIcon,
   UsersIcon,
 } from "@iconicicons/react";
+import { Avatar, Button, DropdownMenu, Switch } from "@lmsqueezy/wedges";
 
 import PageTitle from "@/components/PageTitle";
+import { useState } from "react";
 
 export default function DropdownMenuPage() {
+  const [account, setAccount] = useState("branko");
+  const [showURL, setShowURL] = useState(false);
+  const [showBookmarks, setShowBookmarks] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
     <main>
       <PageTitle>Dropdown Menu</PageTitle>
@@ -86,9 +100,11 @@ export default function DropdownMenuPage() {
                     <DropdownMenu.Separator />
 
                     <DropdownMenu.Group>
-                      <DropdownMenu.Label>Accounts</DropdownMenu.Label>
+                      <DropdownMenu.Label>
+                        <span>Account</span>
+                      </DropdownMenu.Label>
 
-                      <DropdownMenu.RadioGroup value={"branko"}>
+                      <DropdownMenu.RadioGroup value={account} onValueChange={setAccount}>
                         <DropdownMenu.RadioItem value="pedro">Pedro Duarte</DropdownMenu.RadioItem>
 
                         <DropdownMenu.RadioItem value="branko">
@@ -102,12 +118,15 @@ export default function DropdownMenuPage() {
                     <DropdownMenu.Group>
                       <DropdownMenu.Label>Options</DropdownMenu.Label>
 
-                      <DropdownMenu.CheckboxItem checked={true}>
+                      <DropdownMenu.CheckboxItem checked={showURL} onCheckedChange={setShowURL}>
                         <span>Show Full URLs</span>
                         <DropdownMenu.Shortcut keys={["command"]}>U</DropdownMenu.Shortcut>
                       </DropdownMenu.CheckboxItem>
 
-                      <DropdownMenu.CheckboxItem>
+                      <DropdownMenu.CheckboxItem
+                        checked={showBookmarks}
+                        onCheckedChange={setShowBookmarks}
+                      >
                         <span>Show Bookmarks</span>
                         <DropdownMenu.Shortcut keys={["option"]}>B</DropdownMenu.Shortcut>
                       </DropdownMenu.CheckboxItem>
@@ -183,7 +202,7 @@ export default function DropdownMenuPage() {
         <div>
           <DropdownMenu>
             <DropdownMenu.Trigger asChild>
-              <span className="wg-antialiased text-surface-600 data-[state=open]:bg-surface hover:bg-surface group flex cursor-pointer select-none items-center gap-1 rounded-lg p-1.5 px-2 text-sm transition-colors duration-100 dark:hover:bg-white/5">
+              <span className="wg-antialiased text-surface-600 hover:bg-surface group flex cursor-pointer select-none items-center gap-1 rounded-lg p-1.5 px-2 text-sm transition-colors duration-100 dark:hover:bg-white/5">
                 <Avatar size="xs" src="https://github.com/brankoconjic.png" status="green" />
 
                 <span className=" ms-2 flex flex-col">
@@ -196,17 +215,23 @@ export default function DropdownMenuPage() {
 
             <DropdownMenu.Content align="center" className="min-w-[140px]">
               <DropdownMenu.Group>
-                <DropdownMenu.Label>Account</DropdownMenu.Label>
+                <DropdownMenu.Item>
+                  <UserIcon />
+                  <span>Account</span>
+                </DropdownMenu.Item>
 
                 <DropdownMenu.Item>
+                  <SettingsIcon />
                   <span>Settings</span>
                 </DropdownMenu.Item>
 
                 <DropdownMenu.Item>
+                  <LockIcon />
                   <span>Privacy</span>
                 </DropdownMenu.Item>
 
                 <DropdownMenu.Item>
+                  <BellIcon />
                   <span>Notifications</span>
                 </DropdownMenu.Item>
               </DropdownMenu.Group>
@@ -214,13 +239,13 @@ export default function DropdownMenuPage() {
               <DropdownMenu.Separator />
 
               <DropdownMenu.Group>
-                <DropdownMenu.Label>Help</DropdownMenu.Label>
-
                 <DropdownMenu.Item>
+                  <BookIcon />
                   <span>Help Guide</span>
                 </DropdownMenu.Item>
 
                 <DropdownMenu.Item>
+                  <HelpCircleIcon />
                   <span>Help Center</span>
                 </DropdownMenu.Item>
               </DropdownMenu.Group>
@@ -228,8 +253,15 @@ export default function DropdownMenuPage() {
               <DropdownMenu.Separator />
 
               <DropdownMenu.Group>
-                <DropdownMenu.Item>
+                <DropdownMenu.Item
+                  onSelect={(e) => {
+                    e.preventDefault();
+                    setDarkMode(!darkMode);
+                  }}
+                >
+                  <MoonIcon />
                   <span>Dark Mode</span>
+                  <Switch checked={darkMode} className="pointer-events-none ml-2" />
                 </DropdownMenu.Item>
               </DropdownMenu.Group>
 
@@ -237,6 +269,7 @@ export default function DropdownMenuPage() {
 
               <DropdownMenu.Group>
                 <DropdownMenu.Item>
+                  <LogOutIcon />
                   <span>Log Out</span>
                 </DropdownMenu.Item>
               </DropdownMenu.Group>
