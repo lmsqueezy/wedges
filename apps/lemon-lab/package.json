@@ -12,11 +12,11 @@
   "dependencies": {
     "@iconicicons/react": "^1.5.1",
     "@lmsqueezy/wedges": "workspace:*",
-    "@types/react": "^18.2.28",
-    "@types/react-dom": "^18.2.13",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
     "autoprefixer": "10.4.16",
-    "eslint-config-next": "13.5.4",
-    "next": "13.5.4",
+    "eslint-config-next": "14.0.0",
+    "next": "14.0.0",
     "next-themes": "^0.2.1",
     "postcss": "8.4.31"
   }

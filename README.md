@@ -36,6 +36,7 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [ ] Toast
 - [ ] Tabs
 - [ ] Accordion
+- [ ] Popover
 
 ## Packages
 

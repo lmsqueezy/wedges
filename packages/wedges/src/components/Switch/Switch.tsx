@@ -38,14 +38,15 @@ export type SwitchProps = React.ComponentPropsWithoutRef<typeof SwitchPrimitive.
 const Switch = React.forwardRef<SwitchElement, SwitchProps>(
   (
     {
+      alignLabel = "end",
+      children,
       className,
-      required,
       disabled,
       helperText,
-      tooltip,
-      label,
-      alignLabel = "end",
       id,
+      label,
+      required,
+      tooltip,
       ...otherProps
     },
     ref
@@ -85,7 +86,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
 
     const renderLabel = (
       <LabelWrapComponent className="inline-flex flex-col">
-        {label && (
+        {(label || children) && (
           <Label
             className={cn(isInGroup && "font-normal")}
             disabled={disabled}
@@ -94,7 +95,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
             required={required}
             tooltip={tooltip}
           >
-            {label}
+            {label || children}
           </Label>
         )}
 

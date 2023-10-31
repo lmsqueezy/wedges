@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "group shrink-0 wg-antialiased text-sm leading-6 transition-colors duration-100 font-medium inline-flex justify-center items-center focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
+  "group shrink-0 select-none wg-antialiased text-sm leading-6 transition-colors duration-100 font-medium inline-flex justify-center items-center focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
   {
     variants: {
       size: {
@@ -65,7 +65,7 @@ export const buttonVariants = cva(
         variant: "outline",
         destructive: true,
         class:
-          "border-destructive disabled:border-destructive-100 dark:disabled:border-destructive-900 hover:bg-destructive-50 dark:hover:bg-surface",
+          "border-destructive dark:border-destructive disabled:border-destructive-100 dark:disabled:border-destructive-900 hover:bg-destructive-50 dark:hover:bg-surface",
       },
       {
         variant: "link",
@@ -93,7 +93,7 @@ export const buttonVariants = cva(
   }
 );
 
-export const iconVariants = cva("", {
+export const iconVariants = cva("text-current", {
   variants: {
     variant: {
       primary: "",
@@ -114,17 +114,8 @@ export const iconVariants = cva("", {
   },
   compoundVariants: [
     {
-      variant: ["primary", "secondary"],
-      class: "text-current",
-    },
-    {
       variant: ["tertiary", "outline", "transparent", "link"],
-      class: "text-surface-400",
-    },
-    {
-      variant: ["tertiary", "outline", "transparent", "link"],
-      destructive: true,
-      class: "text-current",
+      class: "opacity-50",
     },
   ],
   defaultVariants: {

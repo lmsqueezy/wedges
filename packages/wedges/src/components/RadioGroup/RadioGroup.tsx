@@ -11,11 +11,21 @@ export type RadioGroupProps = React.ComponentPropsWithoutRef<typeof RadioGroupPr
   LabelHelperProps;
 
 type RadioGroupItemElement = React.ElementRef<typeof RadioGroupPrimitive.Item>;
-type RadioGroupItemProps = React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> &
+type RadioGroupItemPropsBase = React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item> &
   LabelProps &
-  Omit<LabelHelperProps, "label"> & {
-    label: React.ReactNode;
-  };
+  Omit<LabelHelperProps, "label">;
+
+type WithChildren = {
+  children: React.ReactNode;
+  label?: React.ReactNode;
+};
+
+type WithoutChildren = {
+  children?: never;
+  label: React.ReactNode;
+};
+
+type RadioGroupItemProps = RadioGroupItemPropsBase & (WithChildren | WithoutChildren);
 
 type SwitchGroupContextProps = {
   disabled?: RadioGroupProps["disabled"];
@@ -156,7 +166,7 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
           {...otherProps}
         >
           <svg
-            className={cn("aspect-square w-full", isDisabled && "fill-surface-50")}
+            className={cn("aspect-square w-full scale-100", isDisabled && "fill-surface-50")}
             fill="none"
             height="24"
             viewBox="0 0 24 24"
@@ -169,10 +179,10 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
             />
           </svg>
 
-          <RadioGroupPrimitive.Indicator asChild className="text-primary absolute">
+          <RadioGroupPrimitive.Indicator asChild>
             <svg
               className={cn(
-                "aspect-square w-full",
+                "text-primary absolute aspect-square w-full scale-100",
                 isDisabled && "text-surface-200 dark:text-surface-100"
               )}
               fill="none"
