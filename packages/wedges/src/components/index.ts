@@ -15,6 +15,7 @@ export * from "./RadioGroup";
 export * from "./Switch";
 export * from "./SwitchGroup";
 export * from "./Tag";
+export * from "./Textarea";
 export * from "./ToggleGroup";
 export * from "./Tooltip";
 

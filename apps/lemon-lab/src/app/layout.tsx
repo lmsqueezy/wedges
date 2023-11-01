@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body className={`${inter.className} flex min-h-full`}>
         <Providers>
           <div className="bg-background text-foreground flex grow flex-col">
-            <header className="text-surface-500 mx-auto flex w-full max-w-screen-xl flex-wrap items-center gap-5 px-10 pt-10 text-sm">
+            <header className="text-surface-500 mx-auto flex w-full max-w-screen-xl items-center justify-between gap-5 px-10 pt-10 text-sm">
               <Link className="flex items-center gap-3 text-gray-900 dark:text-white" href="/">
                 <svg className="fill-current" height="40" viewBox="0 0 56 56" width="40">
                   <path d="M36.2138 26.9603L36.2244 26.9844C36.2244 26.9844 39.9832 36.3415 40.2998 39.2261C40.6164 42.1108 38.0319 44.4492 35.2342 44.4492C32.4366 44.4492 29.8521 42.1108 30.1687 39.2261C30.4853 36.3415 34.244 26.9844 34.244 26.9844L34.2546 26.9603C34.486 26.433 34.6379 26.0867 35.2342 26.0867C35.8306 26.0867 35.9825 26.433 36.2138 26.9603Z" />
@@ -38,7 +38,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <span className="shrink-0">Lemon Lab</span>
               </Link>
 
-              <nav className="ml-auto flex flex-wrap items-center gap-6">
+              <ThemeToggle />
+            </header>
+
+            <div className="mx-auto flex w-full max-w-screen-xl grow gap-24 px-10 pb-20 pt-24">
+              <nav className="text-surface-700 sticky top-10 flex grow-0 flex-col items-start gap-2 self-start text-sm leading-6">
                 <Link className="hover:text-foreground transition-colors" href="/alert">
                   Alert
                 </Link>
@@ -65,6 +69,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
                 <Link className="hover:text-surface-900 transition-colors" href="/popover">
                   Popover
+                </Link>
+
+                <Link className="hover:text-surface-900 transition-colors" href="/textarea">
+                  Textarea
                 </Link>
 
                 <Link className="hover:text-surface-900 transition-colors" href="/switch">
@@ -96,11 +104,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               </nav>
 
-              <ThemeToggle />
-            </header>
-
-            <div className="mx-auto flex w-full max-w-screen-xl grow flex-col px-10 pb-20 pt-24">
-              {children}
+              <div className="grow">{children}</div>
             </div>
           </div>
         </Providers>
