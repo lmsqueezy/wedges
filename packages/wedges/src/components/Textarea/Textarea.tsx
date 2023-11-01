@@ -49,7 +49,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             !disabled && "hover:border-surface-300 dark:hover:border-surface-200 text-surface-900",
 
             disabled &&
-              "text-surface-300 placeholder-surface-300 dark:text-surface-200 dark:placeholder-surface-200 bg-surface-50 cursor-not-allowed",
+              "text-surface-300 placeholder-surface-300 dark:text-surface-200 dark:placeholder-surface-200 bg-surface-50 cursor-not-allowed dark:bg-white/5",
 
             ariaInvalid &&
               "border-destructive outline-destructive hover:border-destructive dark:hover:border-destructive",

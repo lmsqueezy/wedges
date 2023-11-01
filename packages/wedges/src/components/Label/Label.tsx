@@ -37,7 +37,8 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
       })
     ) : (
       <>
-        {children}
+        <span className="font-medium">{children}</span>
+        <span className={cn("text-surface-500", disabled && "text-current")}>(optional)</span>
         {required && <span className="text-destructive">*</span>}
       </>
     );
@@ -49,7 +50,7 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
             ref={ref}
             asChild={useAsChild}
             className={cn(
-              "wg-label inline-flex cursor-pointer items-center gap-1 text-sm font-medium leading-6",
+              "wg-label inline-flex cursor-pointer items-center gap-1 text-sm leading-6",
               disabled && "text-surface-300 pointer-events-none",
               className
             )}
