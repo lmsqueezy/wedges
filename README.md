@@ -27,6 +27,7 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [x] Checkbox Group
 - [x] Kbd
 - [x] Dropdown
+- [x] Popover
 - [ ] Input
 - [ ] Select
 
@@ -36,7 +37,6 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [ ] Toast
 - [ ] Tabs
 - [ ] Accordion
-- [ ] Popover
 
 ## Packages
 
