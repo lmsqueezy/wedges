@@ -21,7 +21,14 @@ const DropdownMenuContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content> & { inset?: boolean }
 >(
   (
-    { align = "start", collisionPadding = 8, className, inset = false, sideOffset = 8, ...props },
+    {
+      align = "start",
+      collisionPadding = 8,
+      className,
+      inset = false,
+      sideOffset = 8,
+      ...otherProps
+    },
     ref
   ) => (
     <DropdownMenuPrimitive.Portal>
@@ -42,7 +49,7 @@ const DropdownMenuContent = React.forwardRef<
         )}
         collisionPadding={collisionPadding}
         sideOffset={sideOffset}
-        {...props}
+        {...otherProps}
       />
     </DropdownMenuPrimitive.Portal>
   )
@@ -53,7 +60,7 @@ const DropdownMenuLabel = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
     inset?: boolean;
   }
->(({ className, ...props }, ref) => (
+>(({ className, ...otherProps }, ref) => (
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
@@ -61,7 +68,7 @@ const DropdownMenuLabel = React.forwardRef<
       "pl-[var(--wg-offset-padding-left,1rem)]",
       className
     )}
-    {...props}
+    {...otherProps}
   />
 ));
 
@@ -71,7 +78,7 @@ const DropdownMenuItem = React.forwardRef<
     inset?: boolean;
     destructive?: boolean;
   }
->(({ className, destructive, ...props }, ref) => (
+>(({ className, destructive, ...otherProps }, ref) => (
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
@@ -82,7 +89,7 @@ const DropdownMenuItem = React.forwardRef<
       "pl-[var(--wg-offset-padding-left,1rem)]",
       className
     )}
-    {...props}
+    {...otherProps}
   />
 ));
 
@@ -90,7 +97,7 @@ const DropdownMenuItem = React.forwardRef<
 /*                                  Shortcut                                  */
 /* -------------------------------------------------------------------------- */
 const DropdownMenuShortcut = React.forwardRef<KbdElement, KbdProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, ...otherProps }, ref) => {
     return (
       <Kbd
         ref={ref}
@@ -98,7 +105,7 @@ const DropdownMenuShortcut = React.forwardRef<KbdElement, KbdProps>(
           "text-surface-500 dark:text-surface-500 shadow-0 ms-auto border-0 bg-transparent p-0 ps-4 text-xs dark:bg-transparent",
           className
         )}
-        {...props}
+        {...otherProps}
       />
     );
   }
@@ -110,11 +117,11 @@ const DropdownMenuShortcut = React.forwardRef<KbdElement, KbdProps>(
 const DropdownMenuSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
->(({ className, ...props }, ref) => (
+>(({ className, ...otherProps }, ref) => (
   <DropdownMenuPrimitive.Separator
     ref={ref}
     className={cn("bg-surface-100 h-px dark:bg-white/5", className)}
-    {...props}
+    {...otherProps}
   />
 ));
 
@@ -223,7 +230,14 @@ const DropdownMenuSubContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubContent> & { inset?: boolean }
 >(
   (
-    { className, collisionPadding = 8, sideOffset = -4, alignOffset = -9, inset = false, ...props },
+    {
+      className,
+      collisionPadding = 8,
+      sideOffset = -4,
+      alignOffset = -9,
+      inset = false,
+      ...otherProps
+    },
     ref
   ) => (
     <DropdownMenuPrimitive.SubContent
@@ -242,7 +256,7 @@ const DropdownMenuSubContent = React.forwardRef<
         className
       )}
       sideOffset={sideOffset}
-      {...props}
+      {...otherProps}
     />
   )
 );
@@ -252,7 +266,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
     inset?: boolean;
   }
->(({ className, children, ...props }, ref) => (
+>(({ className, children, ...otherProps }, ref) => (
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
@@ -260,7 +274,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
       "[&_svg]:text-surface-900 [&_svg]:opacity-40",
       className
     )}
-    {...props}
+    {...otherProps}
   >
     {children}
 

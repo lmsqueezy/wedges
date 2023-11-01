@@ -63,12 +63,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Button Group
                 </Link>
 
+                <Link className="hover:text-surface-900 transition-colors" href="/popover">
+                  Popover
+                </Link>
+
                 <Link className="hover:text-surface-900 transition-colors" href="/switch">
                   Switch/Radio/Checkbox
                 </Link>
 
                 <Link className="hover:text-surface-900 transition-colors" href="/dropdown">
-                  Dropdown
+                  Dropdown Menu
                 </Link>
 
                 <Link className="hover:text-surface-900 transition-colors" href="/toggle-group">

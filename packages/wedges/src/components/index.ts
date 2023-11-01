@@ -10,6 +10,7 @@ export * from "./CheckboxGroup";
 export * from "./DropdownMenu";
 export * from "./Kbd";
 export * from "./Label";
+export * from "./Popover";
 export * from "./RadioGroup";
 export * from "./Switch";
 export * from "./SwitchGroup";
