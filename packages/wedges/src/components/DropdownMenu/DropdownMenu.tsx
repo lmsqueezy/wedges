@@ -139,11 +139,11 @@ const CheckIcon = ({ className, ...otherProps }: React.ComponentProps<"svg">) =>
     width="24"
   >
     <path
-      d="M8 11.6923L10.6667 14.7692L16 9.23077"
+      d="M7.75 12.75L10 15.25L16.25 8.75"
       stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="1.5"
     />
   </svg>
 );

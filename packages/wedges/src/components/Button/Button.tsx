@@ -92,7 +92,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
       const iconClasses = cn(
         iconVariants({ size, variant, destructive }),
         isNonDestructiveIconOnly && "group-hover:opacity-70",
-        !isNonDestructiveIconOnly && "opacity-100",
+        destructive && "opacity-100",
         icon.props?.className
       );
 
