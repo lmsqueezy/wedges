@@ -28,6 +28,7 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [x] Kbd
 - [x] Dropdown
 - [x] Popover
+- [x] Textarea 
 - [ ] Input
 - [ ] Select
 
