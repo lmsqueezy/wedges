@@ -23,11 +23,12 @@ export default function SwitchPage() {
 
           <div className="flex flex-col gap-6">
             <Switch
-              required
               alignLabel="end"
+              description="(optional)"
               disabled={false}
               helperText="Helper Text"
               label="Sticky Header"
+              required
               tooltip="This is a custom tooltip message"
             />
 
@@ -42,6 +43,7 @@ export default function SwitchPage() {
             required
             alignLabels="end"
             aria-invalid="true"
+            description="(optional)"
             helperText="This field is required"
             label="Hello Label"
             tooltip="This is a custom tooltip message"
@@ -60,6 +62,7 @@ export default function SwitchPage() {
             aria-invalid={false}
             defaultValue="val-1"
             helperText="This field is required"
+            description="(optional)"
             label="Vertical Radio Group"
             tooltip="This is a custom tooltip message"
           >
@@ -103,6 +106,14 @@ export default function SwitchPage() {
 
             <Checkbox
               defaultChecked
+              helperText="Helper text"
+              label="Checkbox Label"
+              tooltip="Tooltip example"
+              description="(optional)"
+            />
+
+            <Checkbox
+              defaultChecked
               disabled
               helperText="Disabled checkbox"
               label="Checkbox Label"
@@ -115,10 +126,10 @@ export default function SwitchPage() {
           <h2 className="mb-8 mt-10 text-xl">Checkbox Group</h2>
 
           <CheckboxGroup
-            defaultChecked
-            required
+            description="(optional)"
             helperText="Helper text"
             label="Checkbox Label"
+            required
             tooltip="Tooltip example"
           >
             <CheckboxGroup.Item label="Option 1" />

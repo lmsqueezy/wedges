@@ -8,6 +8,7 @@ import { LabelHelperProps } from "../types";
 /* ---------------------------------- Types --------------------------------- */
 export type RadioGroupElement = React.ElementRef<typeof RadioGroupPrimitive.Root>;
 export type RadioGroupProps = React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root> &
+  LabelProps &
   LabelHelperProps;
 
 type RadioGroupItemElement = React.ElementRef<typeof RadioGroupPrimitive.Item>;
@@ -56,6 +57,7 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
     {
       children,
       className,
+      description,
       disabled,
       helperText,
       id,
@@ -71,6 +73,27 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
     const elId = id || generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
 
+    const renderLabel =
+      label || description || tooltip || helperText ? (
+        <div className="inline-flex flex-col">
+          <Label
+            className="font-normal"
+            description={description}
+            disabled={disabled}
+            htmlFor={elId}
+            id={`${elId}__label`}
+            required={required}
+            tooltip={tooltip}
+          >
+            {label}
+          </Label>
+
+          <Label.Helper aria-invalid={ariaInvalid} disabled={disabled} id={`${elId}__describer`}>
+            {helperText}
+          </Label.Helper>
+        </div>
+      ) : null;
+
     return (
       <RadioGroupContext.Provider value={{ disabled }}>
         <RadioGroupPrimitive.Root
@@ -80,31 +103,7 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
           {...otherProps}
         >
           {/* label */}
-          {(label || helperText) && (
-            <div className="flex flex-col">
-              {label ? (
-                <Label
-                  className="cursor-default"
-                  disabled={disabled}
-                  id={`${elId}__label`}
-                  required={required}
-                  tooltip={tooltip}
-                >
-                  {label}
-                </Label>
-              ) : null}
-
-              {helperText ? (
-                <Label.Helper
-                  aria-invalid={ariaInvalid}
-                  disabled={disabled}
-                  id={`${elId}__describer`}
-                >
-                  {helperText}
-                </Label.Helper>
-              ) : null}
-            </div>
-          )}
+          {renderLabel}
 
           {children ? (
             <div className={cn("flex flex-col gap-2", orientation && "flex-row gap-6")}>

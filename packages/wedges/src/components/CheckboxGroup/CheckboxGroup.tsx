@@ -42,12 +42,44 @@ export function useCheckboxGroupContext() {
 /* -------------------------------- Component ------------------------------- */
 const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroupProps>(
   (
-    { children, disabled, helperText, id, label, orientation, required, tooltip, ...otherProps },
+    {
+      children,
+      description,
+      disabled,
+      helperText,
+      id,
+      label,
+      orientation,
+      required,
+      tooltip,
+      ...otherProps
+    },
     ref
   ) => {
     const generatedId = React.useId();
     const elId = id || generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
+
+    const renderLabel =
+      label || description || tooltip || helperText ? (
+        <div className="inline-flex flex-col">
+          <Label
+            className="font-normal"
+            description={description}
+            disabled={disabled}
+            htmlFor={elId}
+            id={`${elId}__label`}
+            required={required}
+            tooltip={tooltip}
+          >
+            {label}
+          </Label>
+
+          <Label.Helper aria-invalid={ariaInvalid} disabled={disabled} id={`${elId}__describer`}>
+            {helperText}
+          </Label.Helper>
+        </div>
+      ) : null;
 
     return (
       <CheckboxGroupContext.Provider value={{ disabled }}>
@@ -60,27 +92,9 @@ const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroup
           {...otherProps}
         >
           {/* label */}
-          {(label || helperText) && (
-            <div className="flex flex-col">
-              {label ? (
-                <Label
-                  className="cursor-default"
-                  disabled={disabled}
-                  id={`${elId}__label`}
-                  required={required}
-                  tooltip={tooltip}
-                >
-                  {label}
-                </Label>
-              ) : null}
-
-              {helperText ? (
-                <Label.Helper aria-invalid={ariaInvalid} id={`${elId}__describer`}>
-                  {helperText}
-                </Label.Helper>
-              ) : null}
-            </div>
-          )}
+          {label || helperText || description || tooltip ? (
+            <div className="flex flex-col">{renderLabel}</div>
+          ) : null}
 
           {children ? (
             <div className={cn("flex flex-col gap-2", orientation && "flex-row gap-6")}>
