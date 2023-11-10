@@ -11,6 +11,9 @@ export type LabelProps = React.ComponentPropsWithoutRef<typeof LabelPrimitive.Ro
   /** Tooltip text to display when hovering over the label */
   tooltip?: React.ReactNode;
 
+  /** Additional description text, shown next to the primary label */
+  description?: React.ReactNode;
+
   /** Indicates if the label is associated with a required field */
   required?: boolean;
 
@@ -21,7 +24,16 @@ export type LabelProps = React.ComponentPropsWithoutRef<typeof LabelPrimitive.Ro
 /* -------------------------------- Component ------------------------------- */
 const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
   (
-    { asChild = false, children, className, disabled, tooltip, required = false, ...otherProps },
+    {
+      asChild = false,
+      children,
+      className,
+      description,
+      disabled,
+      required = false,
+      tooltip,
+      ...otherProps
+    },
     ref
   ) => {
     const useAsChild = asChild && isReactElement(children);
@@ -37,28 +49,34 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
       })
     ) : (
       <>
-        <span className="font-medium">{children}</span>
-        <span className={cn("text-surface-500", disabled && "text-current")}>(optional)</span>
-        {required && <span className="text-destructive">*</span>}
+        {children ? <span className="font-medium">{children}</span> : null}
+
+        {description ? (
+          <span className={cn("text-surface-500", disabled && "text-current")}>{description}</span>
+        ) : null}
+
+        {required ? <span className="text-destructive">*</span> : null}
       </>
     );
 
+    if (!children && !tooltip && !description) {
+      return null;
+    }
+
     return (
       <div className="wg-antialiased wg-label inline-flex items-center gap-1">
-        {children ? (
-          <LabelPrimitive.Root
-            ref={ref}
-            asChild={useAsChild}
-            className={cn(
-              "wg-label inline-flex cursor-pointer items-center gap-1 text-sm leading-6",
-              disabled && "text-surface-300 pointer-events-none",
-              className
-            )}
-            {...otherProps}
-          >
-            {innerContent}
-          </LabelPrimitive.Root>
-        ) : null}
+        <LabelPrimitive.Root
+          ref={ref}
+          asChild={useAsChild}
+          className={cn(
+            "wg-label inline-flex cursor-pointer items-center gap-1 text-sm leading-6",
+            disabled && "text-surface-300 pointer-events-none",
+            className
+          )}
+          {...otherProps}
+        >
+          {innerContent}
+        </LabelPrimitive.Root>
 
         {tooltip ? <Tooltip content={tooltip} /> : null}
       </div>

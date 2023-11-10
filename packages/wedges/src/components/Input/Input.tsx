@@ -5,15 +5,15 @@ import { Label, LabelProps } from "../Label";
 import { LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
-export type TextareaElement = HTMLTextAreaElement;
-export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> &
+export type InputElement = HTMLInputElement;
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement> &
   LabelProps &
   LabelHelperProps & {
     destructive?: boolean;
   };
 
 /* -------------------------------- Component ------------------------------- */
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+const Input = React.forwardRef<InputElement, InputProps>(
   (
     {
       className,
@@ -46,16 +46,15 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           {label}
         </Label>
 
-        <textarea
+        <input
           ref={ref}
           aria-describedby={helperText ? `${elId}__describer` : undefined}
           aria-invalid={ariaInvalid}
           aria-labelledby={label ? `${elId}__label` : undefined}
           disabled={disabled}
           id={elId}
-          required={required}
           className={cn(
-            "shadow-wg-xs placeholder-surface-500 bg-background flex min-h-[112px] rounded-lg border px-4 py-2 text-sm leading-6 transition-colors duration-100",
+            "shadow-wg-xs placeholder-surface-500 bg-background flex rounded-lg border px-4 py-2 text-sm leading-6 transition-colors duration-100",
             "outline-primary focus:outline focus:outline-2 focus:-outline-offset-1",
             !disabled && "hover:border-surface-300 dark:hover:border-surface-200 text-surface-900",
             disabled &&
@@ -63,7 +62,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             ariaInvalid &&
               "border-destructive outline-destructive hover:border-destructive dark:hover:border-destructive",
             !ariaInvalid && "border-surface-200 dark:border-surface-100",
-
             className
           )}
           {...otherProps}
@@ -79,6 +77,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   }
 );
 
-Textarea.displayName = "Textarea";
+Input.displayName = "Input";
 
-export default Textarea;
+export default Input;

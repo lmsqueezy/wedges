@@ -67,6 +67,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Button Group
                 </Link>
 
+                <Link className="hover:text-surface-900 transition-colors" href="/input">
+                  Input
+                </Link>
+
                 <Link className="hover:text-surface-900 transition-colors" href="/popover">
                   Popover
                 </Link>

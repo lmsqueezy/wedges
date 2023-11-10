@@ -50,12 +50,13 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
     {
       alignLabels = "end",
       children,
-      tooltip,
-      required = false,
-      helperText,
+      description,
       disabled = false,
-      label,
+      helperText,
       id,
+      label,
+      required = false,
+      tooltip,
       ...otherProps
     },
     ref
@@ -63,6 +64,27 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
     const generatedId = React.useId();
     const elId = id || generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
+
+    const renderLabel =
+      label || description || tooltip || helperText ? (
+        <div className="inline-flex flex-col">
+          <Label
+            className="font-normal"
+            description={description}
+            disabled={disabled}
+            htmlFor={elId}
+            id={`${elId}__label`}
+            required={required}
+            tooltip={tooltip}
+          >
+            {label}
+          </Label>
+
+          <Label.Helper aria-invalid={ariaInvalid} disabled={disabled} id={`${elId}__describer`}>
+            {helperText}
+          </Label.Helper>
+        </div>
+      ) : null;
 
     return (
       <SwitchGroupContext.Provider value={{ alignLabels, disabled }}>
@@ -75,27 +97,9 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
           {...otherProps}
         >
           {/* label */}
-          {(label || helperText) && (
-            <div className="flex flex-col">
-              {label ? (
-                <Label
-                  className="cursor-default"
-                  disabled={disabled}
-                  id={`${elId}__label`}
-                  required={required}
-                  tooltip={tooltip}
-                >
-                  {label}
-                </Label>
-              ) : null}
-
-              {helperText ? (
-                <Label.Helper aria-invalid={ariaInvalid} id={`${elId}__describer`}>
-                  {helperText}
-                </Label.Helper>
-              ) : null}
-            </div>
-          )}
+          {label || helperText || description || tooltip ? (
+            <div className="flex flex-col">{renderLabel}</div>
+          ) : null}
 
           {children ? <div className="flex flex-col gap-2">{children}</div> : null}
         </div>
