@@ -26,11 +26,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
       <div className="wg-antialiased flex flex-col gap-2">
         {label || tooltip ? (
           <Label
-            tooltip={tooltip}
             disabled={disabled}
             htmlFor={elId}
             id={`${elId}__label`}
             required={required}
+            tooltip={tooltip}
           >
             {label}
           </Label>
@@ -39,8 +39,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
         <textarea
           ref={ref}
           aria-describedby={helperText ? `${elId}__describer` : undefined}
-          aria-labelledby={label ? `${elId}__label` : undefined}
           aria-invalid={ariaInvalid}
+          aria-labelledby={label ? `${elId}__label` : undefined}
           className={cn(
             "shadow-wg-xs placeholder-surface-500 bg-background flex min-h-[112px] rounded-lg border px-4 py-2 text-sm leading-6 transition-colors duration-100",
 
@@ -59,16 +59,14 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             className
           )}
           disabled={disabled}
-          required={required}
           id={elId}
+          required={required}
           {...otherProps}
         />
 
-        {helperText ? (
-          <Label.Helper disabled={disabled} aria-invalid={ariaInvalid} id={`${elId}__describer`}>
-            {helperText}
-          </Label.Helper>
-        ) : null}
+        <Label.Helper aria-invalid={ariaInvalid} disabled={disabled} id={`${elId}__describer`}>
+          {helperText}
+        </Label.Helper>
       </div>
     );
   }

@@ -27,7 +27,7 @@
     "jsx": "react-jsx"
   },
   "include": ["packages"],
-  "exclude": ["**/node_modules", "**/dist", "**/.turbo"],
+  "exclude": ["node_modules", "**/node_modules", "**/dist", "**/.turbo"],
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default"
 }

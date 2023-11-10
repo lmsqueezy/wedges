@@ -1,23 +1,24 @@
 {
   "name": "lemon-lab",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 9987",
+    "start": "next start",
     "lint": "next lint",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
   },
   "dependencies": {
+    "typescript": "^5",
     "@iconicicons/react": "^1.5.1",
     "@lmsqueezy/wedges": "workspace:*",
-    "@types/react": "^18.2.33",
-    "@types/react-dom": "^18.2.14",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "autoprefixer": "10.4.16",
-    "eslint-config-next": "14.0.1",
-    "next": "14.0.1",
+    "eslint-config-next": "14.0.2",
+    "next": "14.0.2",
     "next-themes": "^0.2.1",
-    "postcss": "8.4.31"
+    "postcss": "^8"
   }
 }

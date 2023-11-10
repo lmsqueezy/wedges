@@ -1,0 +1,4 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+  "extends": ["../../.eslintrc", "next"]
+}

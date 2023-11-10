@@ -1,0 +1,36 @@
+{
+  "name": "docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
+  },
+  "dependencies": {
+    "@iconicicons/react": "^1.5.1",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "clsx": "^1.2.1",
+    "next": "14.0.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "tailwind-merge": "^1.12.0",
+    "zod": "^3"
+  },
+  "devDependencies": {
+    "@lmsqueezy/wedges": "workspace:*",
+    "@next/eslint-plugin-next": "^14.0.2",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.2",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

@@ -105,9 +105,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
           <>
             {before ? renderIcon(before) : null}
             {children.props.children && isIconOnly && renderIcon(children.props.children)}
-            {children.props.children && !isIconOnly && (
-              <span className="px-1">{children.props.children}</span>
-            )}
+            {children.props.children && !isIconOnly && <>{children.props.children}</>}
             {after ? renderIcon(after) : null}
           </>
         ),

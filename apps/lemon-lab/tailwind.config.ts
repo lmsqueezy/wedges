@@ -1,5 +1,6 @@
+import type { Config } from "tailwindcss/types/config";
+
 import { wedgesTW } from "@lmsqueezy/wedges";
-import { Config } from "tailwindcss/types/config";
 
 const config: Config = {
   content: [
