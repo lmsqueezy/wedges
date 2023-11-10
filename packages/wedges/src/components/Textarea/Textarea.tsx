@@ -51,9 +51,6 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-describedby={helperText ? `${elId}__describer` : undefined}
           aria-invalid={ariaInvalid}
           aria-labelledby={label ? `${elId}__label` : undefined}
-          disabled={disabled}
-          id={elId}
-          required={required}
           className={cn(
             "shadow-wg-xs placeholder-surface-500 bg-background flex min-h-[112px] rounded-lg border px-4 py-2 text-sm leading-6 transition-colors duration-100",
             "outline-primary focus:outline focus:outline-2 focus:-outline-offset-1",
@@ -66,6 +63,9 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
             className
           )}
+          disabled={disabled}
+          id={elId}
+          required={required}
           {...otherProps}
         />
 
