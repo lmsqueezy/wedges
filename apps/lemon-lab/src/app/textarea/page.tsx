@@ -26,6 +26,7 @@ export default function TextareaPage() {
             placeholder="Your message"
             helperText="Please describe the issue"
             label="Hello world"
+            description="(optional)"
             required
             tooltip="Hello world"
             destructive

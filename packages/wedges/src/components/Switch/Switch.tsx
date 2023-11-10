@@ -2,7 +2,7 @@ import * as React from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
 
 import { cn } from "../../helpers/utils";
-import { Label } from "../Label";
+import { Label, LabelProps } from "../Label";
 import { useSwitchGroupContext } from "../SwitchGroup/SwitchGroup";
 import { LabelHelperProps } from "../types";
 
@@ -31,6 +31,7 @@ type HasNoLabel = {
 
 export type SwitchElement = React.ElementRef<typeof SwitchPrimitive.Root>;
 export type SwitchProps = React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root> &
+  LabelProps &
   Omit<LabelHelperProps, "label"> &
   (HasLabel | HasNoLabel);
 
@@ -41,6 +42,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
       alignLabel = "end",
       children,
       className,
+      description,
       disabled,
       helperText,
       id,
@@ -86,18 +88,17 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
 
     const renderLabel = (
       <LabelWrapComponent className="inline-flex flex-col">
-        {(label || children) && (
-          <Label
-            className={cn(isInGroup && "font-normal")}
-            disabled={disabled}
-            htmlFor={elId}
-            id={`${elId}__label`}
-            required={required}
-            tooltip={tooltip}
-          >
-            {label || children}
-          </Label>
-        )}
+        <Label
+          className={cn(isInGroup && "font-normal")}
+          description={description}
+          disabled={disabled}
+          htmlFor={elId}
+          id={`${elId}__label`}
+          required={required}
+          tooltip={tooltip}
+        >
+          {label || children}
+        </Label>
 
         {helperText ? (
           <Label.Helper aria-invalid={ariaInvalid} disabled={disabled} id={`${elId}__describer`}>

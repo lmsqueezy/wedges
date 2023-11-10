@@ -3,12 +3,13 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import { Label } from "../Label";
+import { Label, LabelProps } from "../Label";
 import { LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type CheckboxElement = React.ElementRef<typeof CheckboxPrimitive.Root>;
 export type CheckboxElementProps = React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
+  LabelProps &
   LabelHelperProps & {
     isIndeterminate?: boolean;
   };
@@ -32,11 +33,12 @@ const CheckboxRoot = React.forwardRef<HTMLDivElement, CheckboxRootProps>(
 const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
   (
     {
-      className,
+      checked,
       children,
+      className,
+      description,
       disabled,
       helperText,
-      checked,
       id,
       label,
       required,
@@ -113,11 +115,12 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
       </svg>
     );
 
-    const renderLabel = (
-      <div className="inline-flex flex-col">
-        {(label || tooltip) && (
+    const renderLabel =
+      label || description || tooltip || helperText ? (
+        <div className="inline-flex flex-col">
           <Label
             className="font-normal"
+            description={description}
             disabled={isDisabled}
             htmlFor={elId}
             id={`${elId}__label`}
@@ -126,15 +129,12 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
           >
             {label}
           </Label>
-        )}
 
-        {helperText ? (
           <Label.Helper aria-invalid={ariaInvalid} disabled={isDisabled} id={`${elId}__describer`}>
             {helperText}
           </Label.Helper>
-        ) : null}
-      </div>
-    );
+        </div>
+      ) : null;
 
     return (
       <CheckboxRoot>
@@ -160,8 +160,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
 
-        {!children && (label || helperText || tooltip) ? renderLabel : null}
-        {children}
+        {!children ? renderLabel : children}
       </CheckboxRoot>
     );
   }

@@ -15,7 +15,18 @@ export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> &
 /* -------------------------------- Component ------------------------------- */
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
-    { className, tooltip, id, helperText, label, destructive, required, disabled, ...otherProps },
+    {
+      className,
+      description,
+      destructive,
+      disabled,
+      helperText,
+      id,
+      label,
+      required,
+      tooltip,
+      ...otherProps
+    },
     ref
   ) => {
     const generatedId = React.useId();
@@ -24,43 +35,37 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
 
     return (
       <div className="wg-antialiased flex flex-col gap-2">
-        {label || tooltip ? (
-          <Label
-            disabled={disabled}
-            htmlFor={elId}
-            id={`${elId}__label`}
-            required={required}
-            tooltip={tooltip}
-          >
-            {label}
-          </Label>
-        ) : null}
+        <Label
+          description={description}
+          disabled={disabled}
+          htmlFor={elId}
+          id={`${elId}__label`}
+          required={required}
+          tooltip={tooltip}
+        >
+          {label}
+        </Label>
 
         <textarea
           ref={ref}
           aria-describedby={helperText ? `${elId}__describer` : undefined}
           aria-invalid={ariaInvalid}
           aria-labelledby={label ? `${elId}__label` : undefined}
+          disabled={disabled}
+          id={elId}
+          required={required}
           className={cn(
             "shadow-wg-xs placeholder-surface-500 bg-background flex min-h-[112px] rounded-lg border px-4 py-2 text-sm leading-6 transition-colors duration-100",
-
             "outline-primary focus:outline focus:outline-2 focus:-outline-offset-1",
-
             !disabled && "hover:border-surface-300 dark:hover:border-surface-200 text-surface-900",
-
             disabled &&
               "text-surface-300 placeholder-surface-300 dark:text-surface-200 dark:placeholder-surface-200 bg-surface-50 cursor-not-allowed dark:bg-white/5",
-
             ariaInvalid &&
               "border-destructive outline-destructive hover:border-destructive dark:hover:border-destructive",
-
             !ariaInvalid && "border-surface-200 dark:border-surface-100",
 
             className
           )}
-          disabled={disabled}
-          id={elId}
-          required={required}
           {...otherProps}
         />
 

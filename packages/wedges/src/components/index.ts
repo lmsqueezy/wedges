@@ -8,6 +8,7 @@ export * from "./ButtonGroup";
 export * from "./Checkbox";
 export * from "./CheckboxGroup";
 export * from "./DropdownMenu";
+export * from "./Input";
 export * from "./Kbd";
 export * from "./Label";
 export * from "./Popover";
