@@ -141,9 +141,9 @@ const CheckIcon = ({ className, ...otherProps }: React.ComponentProps<"svg">) =>
     <path
       d="M7.75 12.75L10 15.25L16.25 8.75"
       stroke="currentColor"
-      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
+      strokeWidth="1.5"
     />
   </svg>
 );
@@ -243,7 +243,6 @@ const DropdownMenuSubContent = React.forwardRef<
     <DropdownMenuPrimitive.SubContent
       ref={ref}
       alignOffset={alignOffset}
-      collisionPadding={collisionPadding}
       className={cn(
         // state animations
         "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[state=closed]:animate-fade-out",
@@ -255,6 +254,7 @@ const DropdownMenuSubContent = React.forwardRef<
         inset && "[--wg-offset-padding-left:34px]",
         className
       )}
+      collisionPadding={collisionPadding}
       sideOffset={sideOffset}
       {...otherProps}
     />
