@@ -10,7 +10,7 @@ export function useActiveItem(itemIds: string[]) {
           setActiveId(entry.target.id);
         }
       },
-      { rootMargin: `0% 0% -80% 0%` }
+      { rootMargin: `0% 0% -82% 0%` }
     );
 
     itemIds?.forEach((id) => {

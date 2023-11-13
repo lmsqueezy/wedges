@@ -2,18 +2,22 @@ import { HomeIcon, SearchIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
 
+import { Logomark } from "@/components/Logo";
+
 export default function NotFound() {
   return (
-    <div className="flex grow flex-col items-center justify-center gap-6 py-16">
-      <h2 className="font-display text-wg-gray-900 text-center text-4xl tracking-tight [text-wrap:balance]">
+    <div className="pb-24">
+      <Logomark />
+
+      <h2 className="font-display text-wg-gray-900 mb-6 mt-10 text-4xl tracking-tight [text-wrap:balance]">
         Sorry, page not found
       </h2>
 
-      <p className="text-center [text-wrap:balance]">
-        The content you are looking for does not exist or it has been moved.
+      <p className="text-surface-600 max-w-[400px] text-base lg:text-lg">
+        The content you are looking for either does not exist or has been moved.
       </p>
 
-      <div className="mt-2 flex items-center gap-3 md:mb-[10vh]">
+      <div className="mt-8 flex items-center gap-3 md:mb-[10vh]">
         <Button
           asChild
           before={<HomeIcon aria-hidden />}

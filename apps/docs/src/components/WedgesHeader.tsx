@@ -1,13 +1,18 @@
 "use client";
 
+import { MenuIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
-import { Button, Kbd } from "@lmsqueezy/wedges";
-import { SearchIcon } from "@iconicicons/react";
+
+import { useSidebar } from "./Providers";
+import { Search } from "./Search";
 
 import { focusClasses } from "@/lib/a11y";
 import { cn } from "@/lib/utils";
 
 export function WedgesHeader() {
+  const { toggle } = useSidebar();
+
   return (
     <>
       <header
@@ -20,31 +25,15 @@ export function WedgesHeader() {
               className="font-display text-2xl font-medium tracking-tight text-white"
               id="wedges-site-title"
             >
-              Wedges Documentation
+              <span>Wedges</span>
+              <span className="hidden sm:inline"> Documentation</span>
             </h1>
           </Link>
 
-          <div className="flex items-center gap-1 md:gap-2" data-theme="dark">
-            <Button
-              asChild
-              className="md:px-12px md:py-8px md:shadow-wg-xs duration-180 group flex aspect-square w-10 justify-center border-transparent p-0 shadow-none outline-white hover:border-transparent hover:bg-white/10 md:aspect-auto md:w-auto md:min-w-[18rem] md:justify-between md:border-white/20 md:hover:border-white/40 md:hover:bg-transparent"
-              variant="outline"
-            >
-              <button>
-                <span className="text-surface-500 md:group-hover:text-surface-500 duration-180 flex items-center gap-1.5 transition-colors group-hover:text-white">
-                  <SearchIcon aria-label="Quick search" />
-                  <span className="hidden md:block">Quick search&hellip;</span>
-                </span>
+          <div className="flex items-center gap-1 md:gap-1" data-theme="dark">
+            <Search />
 
-                <Kbd
-                  className="text-surface-500 ml-2 hidden border-none md:inline-flex"
-                  keys={["command"]}
-                >
-                  K
-                </Kbd>
-              </button>
-            </Button>
-
+            {/* Github */}
             <Link
               aria-label="Github"
               className={cn(
@@ -61,6 +50,17 @@ export function WedgesHeader() {
                 />
               </svg>
             </Link>
+
+            {/* Mobile menu */}
+            <Button
+              isIconOnly
+              className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white md:hidden"
+              data-theme="dark"
+              variant="transparent"
+              onClick={toggle}
+            >
+              <MenuIcon className="duration-180 text-white transition-colors group-hover:opacity-100" />
+            </Button>
           </div>
         </div>
       </header>

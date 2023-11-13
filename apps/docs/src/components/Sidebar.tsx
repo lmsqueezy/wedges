@@ -3,20 +3,55 @@
 import { useId, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDownIcon } from "@iconicicons/react";
+import { ChevronDownIcon, CloseIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
 
 import { ScrollArea } from "./ScrollArea";
+import { useSidebar } from "./Providers";
+import { Logomark } from "./Logo";
 
 import { sidebarConfig } from "@/config/sidebarConfig";
 import { cn } from "@/lib/utils";
 import { NavItem } from "@/types/nav";
+import { siteConfig } from "@/config/siteConfig";
 
 export function Sidebar() {
   const sidebarNav = sidebarConfig.nav;
+  const { isOpen, toggle } = useSidebar();
+
+  const handleSidebarClick = () => {
+    if (isOpen) {
+      toggle();
+    }
+  };
 
   return (
-    <aside className="sticky top-16 z-30 hidden h-[calc(100vh-153px)] min-h-[30vh] w-full shrink-0 pb-4 pt-14 text-sm leading-6 md:sticky md:block">
-      <ScrollArea className="-ms-3 h-full pr-3">
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
+    <aside
+      className={cn(
+        "bg-wg-gray-900/50 fixed bottom-0 left-0 top-0 m-0 md:bg-transparent",
+        isOpen ? "block" : "hidden",
+        "z-[60] w-full text-base leading-8 backdrop-blur md:sticky md:sticky md:top-[104px] md:z-30 md:mt-14 md:block md:h-[calc(100vh-153px)] md:min-h-[30vh] md:shrink-0 md:pb-4 md:text-sm md:leading-6 md:backdrop-blur-none"
+      )}
+      role={isOpen ? "dialog" : undefined}
+      onClick={handleSidebarClick}
+    >
+      <ScrollArea
+        className="h-full w-80 bg-white px-4 pb-12 pt-5 md:-ms-3 md:w-[auto] md:bg-transparent md:p-0 md:pr-3"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <div className="mb-5 flex items-center space-x-6 md:hidden">
+          <Button isIconOnly aria-label="Toggle sidebar" variant="transparent" onClick={toggle}>
+            <CloseIcon aria-hidden />
+          </Button>
+
+          <a aria-label="Go to Lemon Squeezy home page" href={siteConfig.lemonSqueezyURL}>
+            <Logomark />
+          </a>
+        </div>
+
         <SidebarNav items={sidebarNav} />
       </ScrollArea>
     </aside>
@@ -53,10 +88,8 @@ function SidebarDropdown({ item, pathname }: { item: NavItem; pathname?: string 
 
   return (
     <div>
-      <div className="sticky -top-2 flex items-center justify-between">
-        <h3 className="text-surface-900 rounded-md bg-white/90 px-3 py-2 font-medium">
-          {item.label}
-        </h3>
+      <div className="bg-background sticky -top-2 flex items-center justify-between px-3 py-2">
+        <h3 className="text-surface-900 rounded-md font-medium">{item.label}</h3>
 
         <button className="rounded-lg transition-colors hover:bg-gray-50" onClick={toggle}>
           {<ChevronDownIcon className={cn(isOpen ? "" : "rotate-180")} />}
@@ -70,6 +103,7 @@ function SidebarDropdown({ item, pathname }: { item: NavItem; pathname?: string 
 
 function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname?: string }) {
   const id = useId();
+  const { toggle, isOpen } = useSidebar();
 
   if (!items) {
     return null;
@@ -96,6 +130,7 @@ function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname
             href={item.href}
             rel={item.external ? "noreferrer" : ""}
             target={item.external ? "_blank" : ""}
+            onClick={() => isOpen && toggle()}
           >
             {item.label}
           </Link>

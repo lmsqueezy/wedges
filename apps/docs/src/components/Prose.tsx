@@ -17,7 +17,7 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
         ref={ref}
         className={cn(
           className,
-          "prose prose-slate dark:prose-invert max-w-none text-gray-500 dark:text-white/60",
+          "prose prose-neutral dark:prose-invert text-surface-600 max-w-none leading-relaxed dark:text-white/60",
 
           // headings
           "prose-headings:scroll-mt-28 prose-headings:text-gray-900 dark:prose-headings:text-white prose-headings:font-display prose-headings:font-normal lg:prose-headings:scroll-mt-[8.5rem]",
@@ -27,7 +27,7 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
           "prose-p:my-6",
 
           // lead
-          "prose-lead:text-slate-500 dark:prose-lead:text-slate-400",
+          "prose-lead:text-surface-500 dark:prose-lead:text-surface-400",
 
           // links
           "prose-a:text-purple-500 dark:prose-a:text-purple-400 hover:dark:prose-a:text-white prose-a:border-b prose-a:border-purple-500 dark:prose-a:border-purple-400 prose-a:font-normal hover:prose-a:text-gray-900",
@@ -35,14 +35,8 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
           // link underline
           "prose-a:no-underline",
 
-          // pre
-          "prose-pre:rounded-xl prose-pre:bg-gray-50 dark:prose-pre:bg-white/10 dark:prose-pre:ring-1 dark:prose-pre:ring-slate-300/10 prose-pre:text-[13px]",
-
           // hr
           "dark:prose-hr:border-slate-800 prose-hr:my-12",
-
-          // code
-          "prose-code:before:content-none prose-code:after:content-none prose-code:px-2 prose-code:py-1 prose-code:bg-gray-50 prose-code:dark:bg-transparent prose-code:font-normal prose-code:border prose-code:rounded prose-code:border-wtf-gainsboro prose-code:dark:border-white/20 prose-code:dark:text-white/60",
 
           // th
           "prose-th:font-sans prose-th:font-medium"

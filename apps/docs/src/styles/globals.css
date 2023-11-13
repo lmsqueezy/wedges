@@ -1,0 +1,23 @@
+@import "./docsearch.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .fade-mask {
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), transparent 100%);
+  }
+}
+
+@layer utilities {
+  .step {
+    counter-increment: step;
+  }
+
+  .step:before {
+    @apply bg-surface border-background text-surface-600 absolute inline-flex h-10 w-10 items-center justify-center rounded-full border-4 font-sans text-sm font-medium;
+    @apply ml-[-52px];
+    content: counter(step);
+  }
+}

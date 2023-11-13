@@ -15,6 +15,17 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            pre: {
+              padding: 0,
+              borderRadius: "0.5rem",
+              margin: 0,
+            },
+          },
+        },
+      },
       maxWidth: {
         "8xl": "88rem",
         "9xl": "96rem",

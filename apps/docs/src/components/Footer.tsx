@@ -9,14 +9,15 @@ import { Logomark } from "@/components/Logo";
 import { footerNavigation } from "@/config/footerNav";
 import { cn } from "@/lib/utils";
 import { focusClasses } from "@/lib/a11y";
+import { siteConfig } from "@/config/siteConfig";
 
 export function Footer() {
   return (
-    <footer className="[&_a]:duration-180 mt-24 bg-purple-600 text-white dark:bg-transparent [&_a]:transition-colors">
+    <footer className="[&_a]:duration-180 bg-purple-600 text-white dark:bg-transparent [&_a]:transition-colors">
       <div className="container py-16">
         <div className="grid gap-10 sm:grid-cols-5 sm:gap-6">
           <div>
-            <a aria-label="Go to Lemon Squeezy home page" href="https://lemonsqueezy.com">
+            <a aria-label="Go to Lemon Squeezy home page" href={siteConfig.lemonSqueezyURL}>
               <Logomark />
             </a>
           </div>
@@ -68,7 +69,7 @@ const FooterNav = forwardRef<
             <Link
               aria-label={label}
               className="group flex items-center gap-1 py-2 text-base leading-[26px] text-white/60 hover:text-white dark:text-white/50 dark:hover:text-white"
-              href={href ?? "https://www.lemonsqueezy.com/"}
+              href={href ?? siteConfig.lemonSqueezyURL}
             >
               {label}
 
@@ -100,7 +101,7 @@ function CopyrightLine({ navigation }: { navigation: keyof typeof footerNavigati
           <Link
             aria-label={label}
             className={cn("hover:text-white focus-visible:outline-white", focusClasses)}
-            href={href ?? "https://www.lemonsqueezy.com/"}
+            href={href ?? siteConfig.lemonSqueezyURL}
           >
             {label}
           </Link>

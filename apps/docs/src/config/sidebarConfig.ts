@@ -15,15 +15,15 @@ export const sidebarConfig: DocsConfig = {
         },
         {
           label: "Installation",
-          href: "/installation",
+          href: "/getting-started/installation",
         },
         {
           label: "Theming",
-          href: "/theming",
+          href: "/getting-started/theming",
         },
         {
           label: "Dark mode",
-          href: "/dark-mode",
+          href: "/getting-started/dark-mode",
         },
       ],
     },

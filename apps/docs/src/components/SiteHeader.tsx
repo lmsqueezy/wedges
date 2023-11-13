@@ -4,6 +4,7 @@ import { WedgesHeader } from "./WedgesHeader";
 
 import { cn } from "@/lib/utils";
 import { focusClasses } from "@/lib/a11y";
+import { siteConfig } from "@/config/siteConfig";
 
 export function SiteHeader() {
   return (
@@ -22,7 +23,7 @@ function LemonSqueezyHeader() {
         <a
           aria-label="Lemon Squeezy home page"
           className={cn(focusClasses, "outline-white")}
-          href="https://lemonsqueezy.com"
+          href={siteConfig.lemonSqueezyURL}
         >
           <Logomark className="lg:hidden" />
           <Logo className="hidden w-auto fill-slate-700 dark:fill-sky-100 lg:block" />

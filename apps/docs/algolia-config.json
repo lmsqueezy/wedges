@@ -1,0 +1,28 @@
+{
+  "index_name": "docsearch",
+  "start_urls": ["https://docs.lemonsqueezy.com"],
+  "sitemap_urls": ["https://docs.lemonsqueezy.com/sitemap.xml"],
+  "sitemap_alternate_links": true,
+  "selectors": {
+    "default": {
+      "lvl0": {
+        "selector": "header h1",
+        "global": true,
+        "default_value": "Documentation"
+      },
+      "lvl1": "article header h1",
+      "lvl2": "article h2",
+      "lvl3": "article h3",
+      "lvl4": "article h4",
+      "lvl5": "article h5, article td:first-child",
+      "lvl6": "article h6",
+      "text": "article p, article li, article td:last-child"
+    }
+  },
+  "strip_chars": " .,;:#",
+  "custom_settings": {
+    "separatorsToIndex": "_",
+    "attributesForFaceting": ["language", "version", "type"],
+    "attributesToRetrieve": ["hierarchy", "content", "anchor", "url", "url_without_anchor", "type"]
+  }
+}

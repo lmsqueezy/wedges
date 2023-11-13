@@ -3,34 +3,45 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
+    "preview": "next build && next start -p 3000",
+    "typecheck": "contentlayer build && tsc --noEmit",
     "lint": "next lint",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
+    "clean": "rm -rf .turbo && rm -rf .contentlayer && rm -rf node_modules && rm -rf .next"
   },
   "dependencies": {
     "@iconicicons/react": "^1.5.1",
     "@radix-ui/react-scroll-area": "^1.0.5",
-    "clsx": "^1.2.1",
+    "clsx": "^2.0.0",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^1.12.0",
+    "sass": "^1.69.5",
+    "shiki": "^0.14.5",
+    "tailwind-merge": "^2.0.0",
     "zod": "^3"
   },
   "devDependencies": {
+    "@docsearch/react": "^3.5.2",
     "@lmsqueezy/wedges": "workspace:*",
     "@next/eslint-plugin-next": "^14.0.2",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.4.16",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
+    "mdast-util-toc": "^7.0.0",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "rehype-pretty-code": "^0.10.2",
+    "rehype-slug": "^6.0.0",
+    "remark": "^15.0.1",
+    "remark-gfm": "^3.0.1",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5",
+    "unist-util-visit": "^5.0.0"
   }
 }

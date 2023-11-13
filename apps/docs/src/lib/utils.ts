@@ -8,6 +8,6 @@ import { twMerge } from "tailwind-merge";
  * @returns A string of merged class names.
  */
 
-export const cn = (...inputs: ClassValue[]) => {
+export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
-};
+}
