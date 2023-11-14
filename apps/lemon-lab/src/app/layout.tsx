@@ -91,6 +91,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   Toggle Group
                 </Link>
 
+                <Link className="hover:text-surface-900 transition-colors" href="/tabs">
+                  Tabs
+                </Link>
+
                 <Link className="hover:text-surface-900 transition-colors" href="/tag">
                   Tag
                 </Link>
