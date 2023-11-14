@@ -29,11 +29,24 @@ function useTabsContext() {
 }
 
 /* -------------------------------- Component ------------------------------- */
-const TabsRoot = React.forwardRef<TabsElement, TabsProps>(({ children, ...otherProps }, ref) => (
-  <TabsPrimitive.Root ref={ref} className="wg-antialiased" {...otherProps}>
-    <TabsContext.Provider value={{ variant: otherProps.variant }}>{children}</TabsContext.Provider>
-  </TabsPrimitive.Root>
-));
+const TabsRoot = React.forwardRef<TabsElement, TabsProps>(
+  ({ children, className, orientation = "horizontal", ...otherProps }, ref) => (
+    <TabsPrimitive.Root
+      ref={ref}
+      className={cn(
+        "wg-antialiased",
+        orientation === "vertical" && "flex flex-wrap space-x-6",
+        orientation === "horizontal" && "space-y-6",
+        className
+      )}
+      {...otherProps}
+    >
+      <TabsContext.Provider value={{ variant: otherProps.variant }}>
+        {children}
+      </TabsContext.Provider>
+    </TabsPrimitive.Root>
+  )
+);
 
 const TabsList = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
@@ -106,7 +119,6 @@ const TabsTrigger = React.forwardRef<
         "text-surface-500 outline-primary inline-flex items-center justify-center gap-1 whitespace-nowrap transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50",
 
         tabVariants({ variant }),
-
         className
       )}
       {...otherProps}
@@ -120,7 +132,14 @@ const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
 >(({ className, ...otherProps }, ref) => (
-  <TabsPrimitive.Content ref={ref} className={cn(className)} {...otherProps} />
+  <TabsPrimitive.Content
+    ref={ref}
+    className={cn(
+      "outline-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+      className
+    )}
+    {...otherProps}
+  />
 ));
 
 const Tabs = Object.assign(TabsRoot, {

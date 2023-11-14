@@ -22,10 +22,7 @@ export default function KbdPage() {
 
           <div className="flex items-center gap-10">
             <div>
-              <Kbd keys={["command", "delete"]} size="lg">
-                A
-              </Kbd>{" "}
-              to copy
+              <Kbd size="lg">A</Kbd> to copy
             </div>
 
             <div>

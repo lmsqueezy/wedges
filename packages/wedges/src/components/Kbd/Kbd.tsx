@@ -7,18 +7,18 @@ import { KbdKey, kbdKeysLabelMap, kbdKeysMap } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
 export const kbdVariants = cva(
-  "wg-antialiased dark:bg-surface-50 space-x-[0.1em] bg-white border-surface-200 border-1 text-surface-600 dark:text-surface-700 dark:border-surface-50 shadow-wg-xs dark:shadow:none inline-flex items-center rounded-lg bg-transparent align-baseline font-sans border [--wg-border-width:1px]",
+  "wg-antialiased border-surface-200 border-1 text-surface-600 dark:border-surface-100 inline-flex items-center rounded-full px-8px font-sans border",
   {
     variants: {
       size: {
-        xs: "text-xs px-1.5 py-0.5",
-        sm: "px-8px py-4px text-sm [--wg-border-width:1px]",
-        base: "px-2 py-0.5 text-base",
-        lg: "py-0.5 px-2 text-lg",
+        xs: "text-xs leading-6 [--wg-border-width:1px]",
+        sm: "text-sm leading-6 px-8px py-2px [--wg-border-width:1px]",
+        base: "py-0.5 text-base",
+        lg: "text-lg",
       },
     },
     defaultVariants: {
-      size: "sm",
+      size: "xs",
     },
   }
 );
