@@ -2,8 +2,12 @@ import { cva } from "class-variance-authority";
 
 const defaultDarkClasses = "dark:wg-bg-surface dark:outline-surface-50";
 
-export const badgeVariants = cva("wg-antialiased py-1 px-2 rounded-lg text-sm flex items-center", {
+export const badgeVariants = cva("wg-antialiased rounded-lg py-1 px-2 flex items-center", {
   variants: {
+    size: {
+      sm: "text-xs leading-4",
+      md: "text-sm leading-6",
+    },
     color: {
       gray: [
         "wg-bg-surface text-surface-900 dark:text-surface-800 outline-surface-200 dark:outline-surface-100",

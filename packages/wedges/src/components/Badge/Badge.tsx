@@ -24,7 +24,7 @@ type BaseBadgeProps = {
   after?: React.ReactElement<HTMLElement>;
 };
 
-export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> &
+export type BadgeProps = Omit<React.HTMLAttributes<HTMLSpanElement>, "size"> &
   VariantProps<typeof badgeVariants> &
   BaseBadgeProps;
 
@@ -38,6 +38,7 @@ const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => {
     children,
     className,
     color = "gray",
+    size = "md",
     shape = "rounded",
     stroke = false,
     ...otherProps
@@ -54,11 +55,13 @@ const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => {
   return (
     <span
       ref={ref}
-      className={cn(badgeVariants({ color, shape, stroke }), className)}
+      className={cn(badgeVariants({ color, shape, size, stroke }), className)}
       {...otherProps}
     >
       {before && renderIcon(before)}
-      {children && <span className="px-1">{children}</span>}
+      {children && (
+        <span className={cn(size === "md" && "px-1", size === "sm" && "px-0.5")}>{children}</span>
+      )}
       {after && renderIcon(after)}
     </span>
   );

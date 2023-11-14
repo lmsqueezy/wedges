@@ -15,6 +15,7 @@ export * from "./Popover";
 export * from "./RadioGroup";
 export * from "./Switch";
 export * from "./SwitchGroup";
+export * from "./Tabs";
 export * from "./Tag";
 export * from "./Textarea";
 export * from "./ToggleGroup";
