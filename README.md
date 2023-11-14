@@ -29,14 +29,14 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [x] Dropdown
 - [x] Popover
 - [x] Textarea 
-- [ ] Input
+- [x] Tabs
 - [ ] Select
+- [ ] Input
 
 ## Upcoming Components
 - [ ] Dialog
 - [ ] Slider
 - [ ] Toast
-- [ ] Tabs
 - [ ] Accordion
 
 ## Packages
