@@ -39,6 +39,7 @@ const TabsRoot = React.forwardRef<TabsElement, TabsProps>(
         orientation === "horizontal" && "space-y-6",
         className
       )}
+      orientation={orientation}
       {...otherProps}
     >
       <TabsContext.Provider value={{ variant: otherProps.variant }}>
