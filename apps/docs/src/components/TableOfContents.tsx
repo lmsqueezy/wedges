@@ -52,7 +52,7 @@ function Tree({ items, activeItemId, className, sub }: TreeProps) {
   const id = React.useId();
 
   if (!items) {
-    return null;
+    return <div>a</div>;
   }
 
   return (

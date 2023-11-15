@@ -26,6 +26,15 @@ const config: Config = {
           },
         },
       },
+      animation: {
+        flash: "flash 1s ease-in-out infinite",
+      },
+      keyframes: {
+        flash: {
+          "0%, 20%": { opacity: "0.4" },
+          "70%, 100%": { opacity: "1" },
+        },
+      },
       maxWidth: {
         "8xl": "88rem",
         "9xl": "96rem",

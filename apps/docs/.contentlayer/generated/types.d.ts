@@ -19,6 +19,8 @@ export type Doc = {
   description?: string | undefined
   /** The breadcrumbs of the article. An array of strings. */
   breadcrumbs?: string[] | undefined
+  /** The links of the article. An array of strings. */
+  links?: LinkProperties | undefined
   toc: boolean
   /** MDX file body */
   body: MDX
@@ -27,7 +29,16 @@ export type Doc = {
 }  
 
 /** Nested types */
-  
+export type LinkProperties = {
+  /** File path relative to `contentDirPath` */
+  _id: string
+  _raw: Local.RawDocumentData
+  type: 'LinkProperties'
+  radix?: string | undefined
+  source?: string | undefined
+  sandbox?: string | undefined
+
+}  
 
 /** Helper types */
 
@@ -37,8 +48,8 @@ export type AllTypeNames = DocumentTypeNames | NestedTypeNames
 export type DocumentTypes = Doc
 export type DocumentTypeNames = 'Doc'
 
-export type NestedTypes = never
-export type NestedTypeNames = never
+export type NestedTypes = LinkProperties
+export type NestedTypeNames = 'LinkProperties'
 
 export type DataExports = {
   allDocuments: DocumentTypes[]
@@ -66,7 +77,7 @@ export type DocumentTypeMap = {
 }
 
 export type NestedTypeMap = {
-
+  LinkProperties: LinkProperties
 }
 
  

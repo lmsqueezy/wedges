@@ -3,13 +3,13 @@ import type { FooterNav, FooterNavItem } from "@/types/nav";
 import Link from "next/link";
 import { HTMLAttributes, forwardRef, useId } from "react";
 
-import { ArrowRightIcon } from "./HeaderNav";
-
 import { Logomark } from "@/components/Logo";
 import { footerNavigation } from "@/config/footerNav";
 import { cn } from "@/lib/utils";
 import { focusClasses } from "@/lib/a11y";
 import { siteConfig } from "@/config/siteConfig";
+
+import { ArrowRightIcon } from "./HeaderNav";
 
 export function Footer() {
   return (

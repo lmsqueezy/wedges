@@ -1,10 +1,10 @@
-import { HeaderNav } from "./HeaderNav";
-import { Logo, Logomark } from "./Logo";
-import { WedgesHeader } from "./WedgesHeader";
-
 import { cn } from "@/lib/utils";
 import { focusClasses } from "@/lib/a11y";
 import { siteConfig } from "@/config/siteConfig";
+
+import { HeaderNav } from "./HeaderNav";
+import { Logo, Logomark } from "./Logo";
+import { WedgesHeader } from "./WedgesHeader";
 
 export function SiteHeader() {
   return (

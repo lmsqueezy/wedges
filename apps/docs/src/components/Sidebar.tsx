@@ -6,14 +6,14 @@ import { usePathname } from "next/navigation";
 import { ChevronDownIcon, CloseIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 
-import { ScrollArea } from "./ScrollArea";
-import { useSidebar } from "./Providers";
-import { Logomark } from "./Logo";
-
 import { sidebarConfig } from "@/config/sidebarConfig";
 import { cn } from "@/lib/utils";
 import { NavItem } from "@/types/nav";
 import { siteConfig } from "@/config/siteConfig";
+
+import { Logomark } from "./Logo";
+import { useSidebar } from "./Providers";
+import { ScrollArea } from "./ScrollArea";
 
 export function Sidebar() {
   const sidebarNav = sidebarConfig.nav;
