@@ -1,4 +1,4 @@
-import { ThemeableColors } from "../foundation";
+import { ThemableColors } from "../foundation";
 
 export type ConfigTheme = {
   /**
@@ -25,7 +25,7 @@ export type ConfigTheme = {
    *   },
    * }
    */
-  colors?: Partial<ThemeableColors> | Record<string, string | Record<string, string>>;
+  colors?: Partial<ThemableColors> | Record<string, string | Record<string, string>>;
 };
 
 export type BaseThemes = "light" | "dark";

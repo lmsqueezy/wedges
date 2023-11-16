@@ -4,12 +4,12 @@ import { MenuIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
 
-import { focusClasses } from "@/lib/a11y";
-import { cn } from "@/lib/utils";
-
-import { GithubIcon } from "./GithubIcon";
+import { GithubIcon } from "./Icons";
 import { useSidebar } from "./Providers";
 import { Search } from "./Search";
+
+import { cn } from "@/lib/utils";
+import { focusClasses } from "@/lib/a11y";
 
 export function WedgesHeader() {
   const { toggle } = useSidebar();

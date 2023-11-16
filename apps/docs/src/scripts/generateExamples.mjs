@@ -14,7 +14,6 @@ const examplesPath = path.join(process.cwd(), "src/examples");
 const indexPath = `${examplesPath}/index.ts`;
 
 console.log("🚀 Generating component examples...");
-console.log({ examplesPath, indexPath });
 
 let indexContent = `// @ts-nocheck
 // Generated file - do not edit manually!
@@ -28,7 +27,7 @@ const processDirectory = (dir, prefix = "") => {
   const entries = fs.readdirSync(dir);
 
   entries.forEach((entry) => {
-    // Skip index and _index files
+    // Skip index.ts
     if (entry === "index.ts") {
       return;
     }
@@ -42,7 +41,10 @@ const processDirectory = (dir, prefix = "") => {
       const relativePath = `@/examples/${path
         .relative(examplesPath, fullPath)
         .replace(/\\/g, "/")}`;
-      const fileContents = fs.readFileSync(fullPath, "utf8").replace(/`/g, "\\`");
+      const fileContents = fs
+        .readFileSync(fullPath, "utf8")
+        .replace(/`/g, "\\`")
+        .replace("export default function", "export function");
 
       indexContent += `  '${key}': { 
     component: lazy(() => import('${relativePath}')), 

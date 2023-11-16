@@ -20,7 +20,7 @@ export type ColorScale =
     }>
   | string;
 
-export type ThemeableColors = {
+export type ThemableColors = {
   background: string;
   foreground: string;
   primary: ColorScale;
@@ -30,7 +30,7 @@ export type ThemeableColors = {
 };
 
 /* -------------------------------------------------------------------------- */
-export const themeableColorsLight: ThemeableColors = {
+export const themableColorsLight: ThemableColors = {
   background: "#FFFFFF",
   foreground: palette.gray[900],
 
@@ -58,7 +58,7 @@ export const themeableColorsLight: ThemeableColors = {
   },
 };
 
-export const themeableColorsDark: ThemeableColors = {
+export const themableColorsDark: ThemableColors = {
   background: palette.gray[900],
   foreground: "#FFFFFF",
 
@@ -93,7 +93,7 @@ export const themeableColorsDark: ThemeableColors = {
   },
 };
 
-export const themeableColors = {
-  light: themeableColorsLight,
-  dark: themeableColorsDark,
+export const themableColors = {
+  light: themableColorsLight,
+  dark: themableColorsDark,
 } as const;

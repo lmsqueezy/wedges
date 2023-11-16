@@ -19,9 +19,9 @@ import {
   UsersIcon,
 } from "@iconicicons/react";
 import { Avatar, Button, DropdownMenu, Switch } from "@lmsqueezy/wedges";
+import { useState } from "react";
 
 import PageTitle from "@/components/PageTitle";
-import { useState } from "react";
 
 export default function DropdownMenuPage() {
   const [account, setAccount] = useState("branko");

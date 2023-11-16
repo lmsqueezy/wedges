@@ -2,10 +2,10 @@ import { CodeIcon, EyeIcon, MoonIcon, SunIcon } from "@iconicicons/react";
 import { Button, Tabs, TabsElement, TabsProps } from "@lmsqueezy/wedges";
 import { Suspense, forwardRef, useEffect, useMemo, useRef, useState } from "react";
 
+import { Logomark } from "./Logo";
+
 import { cn } from "@/lib/utils";
 import { Demos } from "@/examples";
-
-import { Logomark } from "./Logo";
 
 type PreviewComponentType = TabsElement;
 type PreviewComponentProps = TabsProps & {
@@ -58,7 +58,7 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
           </Tabs.Trigger>
         </Tabs.List>
 
-        <Tabs.Content className={cn(theme)} value="preview">
+        <Tabs.Content className={cn("rounded-lg", theme)} value="preview">
           <div
             ref={previewRef}
             className={cn(
@@ -86,7 +86,10 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
           </div>
         </Tabs.Content>
 
-        <Tabs.Content className="[&_pre]:max-h-[300px] [&_pre]:overflow-auto" value="code">
+        <Tabs.Content
+          className="rounded-lg [&_pre]:max-h-[300px] [&_pre]:overflow-auto"
+          value="code"
+        >
           <div className="not-prose w-full">{children}</div>
         </Tabs.Content>
       </Tabs>

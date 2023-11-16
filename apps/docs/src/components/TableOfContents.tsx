@@ -59,12 +59,12 @@ function Tree({ items, activeItemId, className, sub }: TreeProps) {
     <ul className={cn("text-surface-500 m-0 list-none space-y-1", sub && "pt-1", className)}>
       {items.map((item, index) => {
         return (
-          <li key={`${id}-${index}`} className="[&:has(.active)&_a]:text-surface-900">
+          <li key={`${id}-${index}`} className="[&:has(.active)&_>a]:text-surface-900">
             <a
               className={cn(
-                "-ml-px flex w-full items-center px-4 py-0 !outline-0 transition-colors",
+                "-ml-px flex w-full items-center border-l border-transparent px-4 py-0 !outline-0 transition-colors",
                 " hover:text-surface-900",
-                item.url === `#${activeItemId}` && "active border-l border-purple-600",
+                item.url === `#${activeItemId}` && "active border-purple-600",
                 sub && "pl-6"
               )}
               href={item.url}

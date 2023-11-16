@@ -1,7 +1,8 @@
 "use client";
 
-import PageTitle from "@/components/PageTitle";
 import { Textarea } from "@lmsqueezy/wedges";
+
+import PageTitle from "@/components/PageTitle";
 
 export default function TextareaPage() {
   return (
@@ -11,42 +12,42 @@ export default function TextareaPage() {
       <div className="flex flex-col gap-24">
         <div className="max-w-[400px] grow">
           <Textarea
+            required
             className="resize-none"
-            placeholder="Your message"
             helperText="Please describe the issue"
             label="Hello world"
-            required
+            placeholder="Your message"
             tooltip="Hello world"
           />
         </div>
 
         <div className="max-w-[400px] grow">
           <Textarea
-            className="resize-none"
-            placeholder="Your message"
-            helperText="Please describe the issue"
-            label="Hello world"
-            description="(optional)"
-            required
-            tooltip="Hello world"
             destructive
+            required
+            className="resize-none"
+            description="(optional)"
+            helperText="Please describe the issue"
+            label="Hello world"
+            placeholder="Your message"
+            tooltip="Hello world"
           />
         </div>
 
         <div className="max-w-[400px] grow">
           <Textarea
+            disabled
+            required
             className="resize-none"
-            placeholder="Your message"
             helperText="Please describe the issue"
             label="Hello world"
-            required
+            placeholder="Your message"
             tooltip="Hello world"
             value="Custom value in disabled textfield"
-            disabled
           />
         </div>
 
-        <div></div>
+        <div />
       </div>
     </main>
   );

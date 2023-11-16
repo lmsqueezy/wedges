@@ -5,11 +5,12 @@ height="42" />
 
 # Wedges
 
-A modern React UI library crafted from Lemon Squeezy's Wedges design system. Seamlessly integrated with Radix UI and styled using TailwindCSS.
+A modern React UI library crafted from Lemon Squeezy's Wedges design system. Seamlessly integrated with Radix UI and styled using Tailwind CSS.
 
 This repo is a monorepo structure (powered by turborepo) and is managed with [PNPM](https://pnpm.io/).
 
 ## Components
+
 - [x] Alert
 - [x] Avatar
 - [x] Avatar Group
@@ -28,12 +29,13 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 - [x] Kbd
 - [x] Dropdown
 - [x] Popover
-- [x] Textarea 
+- [x] Textarea
 - [x] Tabs
 - [ ] Select
 - [ ] Input
 
 ## Upcoming Components
+
 - [ ] Dialog
 - [ ] Slider
 - [ ] Toast
@@ -41,7 +43,7 @@ This repo is a monorepo structure (powered by turborepo) and is managed with [PN
 
 ## Packages
 
-- [@lmsqueezy/wedges/](./packages/wedges) - React UI library and TailwindCSS plugin.
+- [@lmsqueezy/wedges/](./packages/wedges) - React UI library and Tailwind CSS plugin.
 
 ## Apps
 

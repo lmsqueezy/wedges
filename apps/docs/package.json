@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "pnpm generate:examples && next dev -p 3000",
-    "build": "next build",
+    "build": "pnpm generate:examples next build",
     "start": "next start",
     "preview": "next build && next start -p 3000",
     "typecheck": "contentlayer build && tsc --noEmit",
-    "lint": "next lint",
     "clean": "rm -rf .turbo && rm -rf .contentlayer && rm -rf node_modules && rm -rf .next",
     "generate:examples": "node src/scripts/generateExamples.mjs && prettier . --write --log-level silent"
   },

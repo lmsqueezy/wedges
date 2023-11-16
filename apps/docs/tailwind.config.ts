@@ -7,10 +7,12 @@ const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/examples/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/content/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 
     // This is required in order to include Tailwind classes from Wedges.
-    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx,mdx}",
+    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -79,7 +81,23 @@ const config: Config = {
       },
     },
   },
-  plugins: [wedgesTW(), tailwindTypography],
+  plugins: [
+    wedgesTW({
+      themes: {
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: "#7047EB",
+              400: "#8D6CEF",
+              500: "#7047EB",
+              600: "#5423E7",
+            },
+          },
+        },
+      },
+    }),
+    tailwindTypography,
+  ],
 };
 
 export default config;

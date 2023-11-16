@@ -23,12 +23,12 @@ export default function SwitchPage() {
 
           <div className="flex flex-col gap-6">
             <Switch
+              required
               alignLabel="end"
               description="(optional)"
               disabled={false}
               helperText="Helper Text"
               label="Sticky Header"
-              required
               tooltip="This is a custom tooltip message"
             />
 
@@ -61,8 +61,8 @@ export default function SwitchPage() {
             required
             aria-invalid={false}
             defaultValue="val-1"
-            helperText="This field is required"
             description="(optional)"
+            helperText="This field is required"
             label="Vertical Radio Group"
             tooltip="This is a custom tooltip message"
           >
@@ -106,10 +106,10 @@ export default function SwitchPage() {
 
             <Checkbox
               defaultChecked
+              description="(optional)"
               helperText="Helper text"
               label="Checkbox Label"
               tooltip="Tooltip example"
-              description="(optional)"
             />
 
             <Checkbox
@@ -126,10 +126,10 @@ export default function SwitchPage() {
           <h2 className="mb-8 mt-10 text-xl">Checkbox Group</h2>
 
           <CheckboxGroup
+            required
             description="(optional)"
             helperText="Helper text"
             label="Checkbox Label"
-            required
             tooltip="Tooltip example"
           >
             <CheckboxGroup.Item label="Option 1" />
@@ -173,6 +173,7 @@ export default function SwitchPage() {
             asChild
             className="wg-bg-surface-50 dark:wg-bg-neutral-900 border-surface-100 outline-primary flex w-[300px] cursor-pointer items-center justify-between rounded-lg border px-4 py-3 outline-2 -outline-offset-1 [&:has([data-state=checked])]:outline"
           >
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="custom-checkbox">
               <Checkbox.Item id="custom-checkbox" />
 

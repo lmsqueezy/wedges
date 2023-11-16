@@ -1,11 +1,13 @@
 "use client";
-import { Alert, Button, Tabs } from "@lmsqueezy/wedges";
+import { Alert, Button, Tabs, Tooltip } from "@lmsqueezy/wedges";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import Image from "next/image";
 
-import { cn } from "@/lib/utils";
-
+import { Colors } from "./Colors";
 import { CopyButton } from "./CopyButton";
 import { PreviewComponent } from "./PreviewComponent";
+
+import { cn } from "@/lib/utils";
 
 type MdxProps = {
   code: string;
@@ -15,8 +17,11 @@ type MdxProps = {
 const components = {
   Alert,
   Button,
+  Image,
   PreviewComponent,
   Tabs,
+  Tooltip,
+  Colors,
   Steps: ({ ...props }) => (
     <div
       className="[&>h3]:step steps border-surface-100 mb-16 ml-4 border-l pl-8 [counter-reset:step]"
@@ -39,7 +44,7 @@ const components = {
         {...otherProps}
       >
         {children}
-        {raw ? <CopyButton className="absolute right-3 top-2" content={raw} /> : null}
+        {raw ? <CopyButton className="absolute right-3 top-3" content={raw} /> : null}
       </pre>
     );
   },

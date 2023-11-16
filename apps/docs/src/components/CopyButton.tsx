@@ -29,19 +29,19 @@ export function CopyButton({ className, content }: CopyButtonProps) {
           isIconOnly
           aria-label="Copy code to clipboard"
           className={cn(
-            "bg-wg-gray-700 hover:bg-wg-gray-600",
+            "wg-copy-button hover:bg-wg-gray-700 bg-wg-gray-800",
             className,
-            isCopied && "pointer-events-none text-white"
+            isCopied && "bg-wg-gray-700 pointer-events-none text-white"
           )}
           data-theme="dark"
           size="sm"
-          variant="tertiary"
+          variant="transparent"
           onClick={handleCopy}
         >
           {isCopied ? (
-            <CheckIcon aria-hidden="true" className="h-4 w-4 opacity-100" />
+            <CheckIcon aria-hidden="true" className="opacity-100" />
           ) : (
-            <CopyIcon aria-hidden="true" className="h-4 w-4" />
+            <CopyIcon aria-hidden="true" />
           )}
         </Button>
       </Tooltip>
