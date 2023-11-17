@@ -13,8 +13,8 @@ const ColorsWedges = forwardRef<
       {title ? (
         <div className="text-surface-900 mb-3 mt-2 flex items-center gap-2 text-sm font-medium">
           <span>{title}</span>
-          <span className="text-surface-200 text-xs">•</span>
-          <span className="not-prose text-surface-500 relative rounded px-[0.3rem] py-[0.2rem] font-mono text-xs">{`wg-${title.toLowerCase()}`}</span>
+          <span className="text-surface-200 select-none text-xs">•</span>
+          <span className="not-prose text-surface-500 font-mono text-xs">{`wg-${title.toLowerCase()}`}</span>
         </div>
       ) : null}
 
@@ -49,7 +49,29 @@ const Color = forwardRef<
   );
 });
 
-ColorsWedges.displayName = "Colors";
-Color.displayName = "Color";
+const ColorThemable = forwardRef<
+  HTMLDivElement,
+  HTMLAttributes<HTMLElement> & {
+    title: string;
+    hex: string;
+  }
+>(({ className, title, hex, ...otherProps }, ref) => {
+  return (
+    <div className="group flex w-full flex-col">
+      <div
+        ref={ref}
+        className={cn("h-10 w-full rounded-sm ring-1 ring-inset ring-black/10 sm:h-12", className)}
+        {...otherProps}
+      />
 
-export const Colors = Object.assign(ColorsWedges, { Color });
+      <span className="text-surface-700 mt-1.5 pl-1 text-xs">{title}</span>
+      {hex && <span className="text-surface-400 pl-1 font-mono text-[9px]">{hex}</span>}
+    </div>
+  );
+});
+
+Color.displayName = "Color";
+ColorsWedges.displayName = "Colors";
+ColorThemable.displayName = "ColorThemable";
+
+export const Colors = Object.assign(ColorsWedges, { Color, ColorThemable });

@@ -62,7 +62,7 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
           <div
             ref={previewRef}
             className={cn(
-              "preview border-surface-100 bg-background text-foreground shadow-wg-xs dark:bg-wg-gray-950 relative flex min-h-[300px] w-full items-center justify-center rounded-lg border p-10 text-sm",
+              "preview not-prose border-surface-100 bg-background text-foreground shadow-wg-xs dark:bg-wg-gray-950 relative flex min-h-[300px] w-full items-center justify-center rounded-lg border p-10 text-sm",
               {
                 "items-center": align === "center",
                 "items-start": align === "start",

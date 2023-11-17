@@ -1,18 +1,21 @@
 "use client";
 
-import { MenuIcon } from "@iconicicons/react";
+import { MenuIcon, SearchIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { GithubIcon } from "./Icons";
 import { useSidebar } from "./Providers";
-import { Search } from "./Search";
+import { Navigation } from "./Navigation";
 
 import { cn } from "@/lib/utils";
 import { focusClasses } from "@/lib/a11y";
+import { siteConfig } from "@/config/siteConfig";
 
 export function WedgesHeader() {
-  const { toggle } = useSidebar();
+  const { toggleSidebar, toggleSearch } = useSidebar();
+  const pathname = usePathname();
 
   return (
     <>
@@ -20,44 +23,97 @@ export function WedgesHeader() {
         aria-labelledby="wedges-site-title"
         className="[&_a]:duration-180 sticky top-0 z-50 border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors"
       >
-        <div className="container flex min-h-[60px] items-center justify-between md:min-h-[88px]">
-          <Link className={cn(focusClasses, "outline-white")} href="/">
+        <div className="container flex min-h-[72px] gap-6 md:grid md:min-h-[88px] md:grid-cols-[1fr_auto_1fr]">
+          <Link
+            className={cn(
+              "hidden self-center justify-self-start md:block",
+              focusClasses,
+              "outline-white"
+            )}
+            href={siteConfig.wedgesURL}
+          >
             <h1
-              className="font-display text-2xl font-medium tracking-tight text-white"
+              className="font-display text-2xl font-medium tracking-tight text-white md:block"
               id="wedges-site-title"
             >
-              <span>Wedges</span>
-              <span className="hidden sm:inline"> Documentation</span>
+              Wedges
             </h1>
           </Link>
 
-          <div className="flex items-center gap-1 md:gap-1" data-theme="dark">
-            <Search />
+          <Navigation
+            aria-label="Wedges Nav"
+            className="-ml-3 justify-self-start md:flex md:justify-self-center"
+          >
+            <Navigation.Item href={siteConfig.wedgesURL}>React</Navigation.Item>
 
-            {/* Github */}
-            <Link
-              aria-label="Github"
-              className={cn(
-                "text-surface-500 inline-flex h-10 w-10 items-center justify-center rounded-lg outline-white hover:bg-white/10 hover:text-white",
-                focusClasses
-              )}
-              href="https://github.com/lmsqueezy"
+            <Navigation.Item asChild active={pathname !== "/components"}>
+              <Link href="/">Docs</Link>
+            </Navigation.Item>
+
+            <Navigation.Item
+              asChild
+              active={pathname === "/components"}
+              className="hidden md:inline-flex"
+            >
+              <Link href="/components">Components</Link>
+            </Navigation.Item>
+
+            <Navigation.Item href={siteConfig.wedgesURL + "/figma"}>Figma</Navigation.Item>
+          </Navigation>
+
+          <Navigation aria-label="Social Links" className="hidden justify-self-end md:flex">
+            <Navigation.Item
+              className="px-0 md:px-0"
+              href={siteConfig.github}
+              rel="noreferrer"
               target="_blank"
             >
-              <GithubIcon />
-            </Link>
+              GitHub
+            </Navigation.Item>
+          </Navigation>
+
+          <Navigation
+            aria-label="Mobile Menu"
+            className="ml-auto self-center justify-self-end md:hidden"
+          >
+            {/* Search */}
+            <Button
+              isIconOnly
+              aria-label="Open search"
+              className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
+              data-theme="dark"
+              variant="transparent"
+              onClick={toggleSearch}
+            >
+              <SearchIcon className="duration-180 text-white transition-colors group-hover:opacity-100" />
+            </Button>
+
+            {/* Github */}
+            <Button
+              asChild
+              isIconOnly
+              aria-label="GitHub link"
+              className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
+              data-theme="dark"
+              variant="transparent"
+            >
+              <a href={siteConfig.github} rel="noreferrer" target="_blank">
+                <GithubIcon className="duration-180 text-white transition-colors group-hover:opacity-100" />
+              </a>
+            </Button>
 
             {/* Mobile menu */}
             <Button
               isIconOnly
-              className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white md:hidden"
+              aria-label="Open menu"
+              className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
               data-theme="dark"
               variant="transparent"
-              onClick={toggle}
+              onClick={toggleSidebar}
             >
               <MenuIcon className="duration-180 text-white transition-colors group-hover:opacity-100" />
             </Button>
-          </div>
+          </Navigation>
         </div>
       </header>
     </>

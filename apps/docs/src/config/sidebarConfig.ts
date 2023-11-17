@@ -64,12 +64,12 @@ export const sidebarConfig: DocsConfig = {
           href: "/theming/colors",
         },
         {
-          label: "Customizations",
-          href: "/theming/customizations",
-        },
-        {
           label: "Dark Mode",
           href: "/theming/dark-mode",
+        },
+        {
+          label: "Custom Themes",
+          href: "/theming/custom-themes",
         },
       ],
     },

@@ -3,7 +3,7 @@ import type { FooterNav, FooterNavItem } from "@/types/nav";
 import Link from "next/link";
 import { HTMLAttributes, forwardRef, useId } from "react";
 
-import { ArrowRightIcon } from "./HeaderNav";
+import { ArrowRightIcon } from "./Navigation";
 
 import { Logomark } from "@/components/Logo";
 import { footerNavigation } from "@/config/footerNav";
