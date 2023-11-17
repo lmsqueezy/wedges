@@ -46,13 +46,13 @@ export function WedgesHeader() {
           >
             <Navigation.Item href={siteConfig.wedgesURL}>React</Navigation.Item>
 
-            <Navigation.Item asChild active={pathname !== "/components"}>
+            <Navigation.Item asChild active={!pathname.includes("/components")}>
               <Link href="/">Docs</Link>
             </Navigation.Item>
 
             <Navigation.Item
               asChild
-              active={pathname === "/components"}
+              active={pathname.includes("/components")}
               className="hidden md:inline-flex"
             >
               <Link href="/components">Components</Link>

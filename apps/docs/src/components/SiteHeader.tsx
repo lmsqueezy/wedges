@@ -1,4 +1,5 @@
 import { Button } from "@lmsqueezy/wedges";
+import { ChevronDownIcon } from "@iconicicons/react";
 
 import { Logo, Logomark } from "./Logo";
 import { ArrowRightIcon, Navigation } from "./Navigation";
@@ -32,11 +33,23 @@ function LemonSqueezyHeader() {
         </a>
 
         <Navigation aria-label="Main Nav" className="hidden self-stretch md:flex">
-          <Navigation.Item>Platform</Navigation.Item>
-          <Navigation.Item>Resources</Navigation.Item>
-          <Navigation.Item>Pricing</Navigation.Item>
-          <Navigation.Item active={true}>Wedges</Navigation.Item>
-          <Navigation.Item>Help</Navigation.Item>
+          <Navigation.Item>
+            <span>Platform</span>
+            <ChevronDownIcon />
+          </Navigation.Item>
+
+          <Navigation.Item>
+            <span>Resources</span>
+            <ChevronDownIcon />
+          </Navigation.Item>
+
+          <Navigation.Item href="https://www.lemonsqueezy.com/pricing">Pricing</Navigation.Item>
+
+          <Navigation.Item active={true} href="https://www.lemonsqueezy.com/wedges">
+            Wedges
+          </Navigation.Item>
+
+          <Navigation.Item href="https://www.lemonsqueezy.com/help">Help</Navigation.Item>
         </Navigation>
 
         <Navigation aria-label="Login Nav" className="ml-auto justify-self-end">

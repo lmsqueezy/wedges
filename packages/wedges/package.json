@@ -67,15 +67,15 @@
   "sideEffects": false,
   "license": "MIT",
   "devDependencies": {
-    "@types/color": "^3.0.5",
-    "@types/lodash.omit": "^4.5.8",
+    "@types/color": "^3.0.6",
+    "@types/lodash.omit": "^4.5.9",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "concurrently": "^8.2.2",
     "lodash.omit": "^4.5.0",
-    "prettier-plugin-tailwindcss": "^0.5.6",
+    "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwind-merge": "^2.0.0",
-    "tsup": "^7.2.0"
+    "tsup": "^7.3.0"
   },
   "dependencies": {
     "@iconicicons/react": "latest",
