@@ -21,12 +21,8 @@ export function EditPageLink() {
 
   const editURL = `${DATA_FOLDER_PATH}${routerSlug}.mdx`;
 
-  const handleBackToTopClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <div className="border-surface-100 mt-8 flex items-center justify-between gap-3 border-t pt-3">
+    <div className="border-surface-100 mt-8 flex items-center justify-between gap-3 border-t pt-3.5">
       <Button
         asChild
         before={<GithubIcon className="h-5 w-5 opacity-100" />}
@@ -42,7 +38,7 @@ export function EditPageLink() {
         before={<ChevronUpIcon className="h-5 w-5 opacity-100" />}
         className="text-surface-400 hover:text-surface-900 font-normal no-underline hover:underline"
         variant="link"
-        onClick={handleBackToTopClick}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         Back to top
       </Button>
