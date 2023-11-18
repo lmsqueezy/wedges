@@ -1,18 +1,20 @@
 import { Button } from "@lmsqueezy/wedges";
+import { LinkProperties, allDocs } from "contentlayer/generated";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { LinkProperties, allDocs } from "contentlayer/generated";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EditPageLink } from "@/components/EditPageLink";
+import { GithubIcon, RadixIcon, StackBlitzIcon } from "@/components/Icons";
 import { Mdx } from "@/components/Mdx";
 import { Pagination } from "@/components/Pagination";
+import { PreloadResources } from "@/components/PreloadResources";
 import { Prose } from "@/components/Prose";
 import { TableOfContents } from "@/components/TableOfContents";
 import { siteConfig } from "@/config/siteConfig";
 import { getTableOfContents } from "@/lib/toc";
-import { GithubIcon, RadixIcon, StackBlitzIcon } from "@/components/Icons";
+
 import "@/styles/mdx.scss";
 
 type DocPageProps = {
@@ -39,9 +41,10 @@ export default async function DocPage({ params }: DocPageProps) {
 
   return (
     <div className="w-full xl:grid xl:grid-cols-[1fr_200px] xl:gap-10">
+      <PreloadResources />
+
       <div className="mx-auto w-full min-w-0">
         <Breadcrumbs path={breadcrumbs} />
-
         <div className="mb-10 space-y-3">
           <h2 className="text-surface-900 font-display text-4xl tracking-tight">{title}</h2>
 
