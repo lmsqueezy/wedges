@@ -44,7 +44,7 @@ const NavItem = forwardRef<
       {...otherProps}
       className={cn(
         focusClasses,
-        "-mb-px inline-flex items-center justify-center border-b-2 border-transparent px-3 outline-white hover:text-white md:px-4",
+        "-mb-px inline-flex shrink-0 items-center justify-center border-b-2 border-transparent px-[10px] outline-white hover:text-white lg:px-4",
         active && "border-yellow-500 text-white",
         !active && "hover:text-white",
         className
