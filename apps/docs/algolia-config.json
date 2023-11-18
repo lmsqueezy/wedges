@@ -1,7 +1,7 @@
 {
   "index_name": "docsearch",
-  "start_urls": ["https://docs.lemonsqueezy.com"],
-  "sitemap_urls": ["https://docs.lemonsqueezy.com/sitemap.xml"],
+  "start_urls": ["https://www.lemonsqueezy.com/wedges/docs"],
+  "sitemap_urls": ["https://www.lemonsqueezy.com/weges/docs/sitemap.xml"],
   "sitemap_alternate_links": true,
   "selectors": {
     "default": {
