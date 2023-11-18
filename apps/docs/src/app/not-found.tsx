@@ -1,13 +1,14 @@
-import { HomeIcon, SearchIcon } from "@iconicicons/react";
+import { HomeIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
 
 import { Logomark } from "@/components/Logo";
+import { SearchButton } from "@/components/Search";
 
 export default function NotFound() {
   return (
     <div className="pb-24">
-      <Logomark />
+      <Logomark className="mt-[7px]" />
 
       <h2 className="font-display text-wg-gray-900 mb-6 mt-10 text-4xl tracking-tight [text-wrap:balance]">
         Sorry, page not found
@@ -30,14 +31,7 @@ export default function NotFound() {
           </Link>
         </Button>
 
-        <Button
-          before={<SearchIcon aria-hidden="true" />}
-          className="px-4"
-          shape="pill"
-          variant="transparent"
-        >
-          Search
-        </Button>
+        <SearchButton />
       </div>
     </div>
   );

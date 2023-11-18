@@ -1,7 +1,7 @@
-import { Doc } from "contentlayer/generated";
 import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
 import { ChevronLeftIcon, ChevronRightIcon } from "@iconicicons/react";
+import { Doc } from "contentlayer/generated";
 
 import { sidebarConfig } from "@/config/sidebarConfig";
 import { NavItem } from "@/types/nav";

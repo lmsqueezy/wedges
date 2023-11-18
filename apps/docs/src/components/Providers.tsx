@@ -1,19 +1,57 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
-type SidebarProps = { isOpen: boolean; toggle: () => void };
+type SidebarProps = {
+  isSidebarOpen: boolean;
+  isSearchOpen: boolean;
+  toggleSidebar: () => void;
+  toggleSearch: () => void;
+};
 
-const SidebarContext = createContext<SidebarProps>({ isOpen: false, toggle: () => {} });
+const SidebarContext = createContext<SidebarProps>({
+  isSidebarOpen: false,
+  isSearchOpen: false,
+  toggleSidebar: () => {},
+  toggleSearch: () => {},
+});
 
 export const useSidebar = () => useContext(SidebarContext);
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSearchOpen, setSearchOpen] = useState(false);
 
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
+  // Toggle off on ESC key press
+  useEffect(() => {
+    if (!isSidebarOpen) {
+      return;
+    }
 
-  return <SidebarContext.Provider value={{ isOpen, toggle }}>{children}</SidebarContext.Provider>;
+    const handleEsc = (ev: KeyboardEvent) => {
+      if (ev.key === "Escape") {
+        setSidebarOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [isSidebarOpen]);
+
+  const toggleSidebar = useCallback(() => {
+    setSidebarOpen((prev) => !prev);
+  }, []);
+
+  const toggleSearch = useCallback(() => {
+    setSearchOpen((prev) => !prev);
+  }, []);
+
+  return (
+    <SidebarContext.Provider value={{ isSidebarOpen, toggleSidebar, isSearchOpen, toggleSearch }}>
+      {children}
+    </SidebarContext.Provider>
+  );
 }

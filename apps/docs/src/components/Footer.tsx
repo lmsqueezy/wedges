@@ -3,7 +3,7 @@ import type { FooterNav, FooterNavItem } from "@/types/nav";
 import Link from "next/link";
 import { HTMLAttributes, forwardRef, useId } from "react";
 
-import { ArrowRightIcon } from "./HeaderNav";
+import { ArrowRightIcon } from "./Navigation";
 
 import { Logomark } from "@/components/Logo";
 import { footerNavigation } from "@/config/footerNav";
@@ -13,7 +13,7 @@ import { siteConfig } from "@/config/siteConfig";
 
 export function Footer() {
   return (
-    <footer className="[&_a]:duration-180 bg-purple-600 text-white dark:bg-transparent [&_a]:transition-colors">
+    <footer className="[&_a]:duration-180 mt-24 bg-purple-600 text-white dark:bg-transparent [&_a]:transition-colors">
       <div className="container py-16">
         <div className="grid gap-10 sm:grid-cols-5 sm:gap-6">
           <div>

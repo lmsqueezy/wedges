@@ -28,10 +28,14 @@ export function CopyButton({ className, content }: CopyButtonProps) {
         <Button
           isIconOnly
           aria-label="Copy code to clipboard"
-          className={cn(className, isCopied && "pointer-events-none text-white")}
+          className={cn(
+            "wg-copy-button hover:bg-wg-gray-700 bg-wg-gray-800",
+            className,
+            isCopied && "bg-wg-gray-700 pointer-events-none text-white"
+          )}
           data-theme="dark"
           size="sm"
-          variant="tertiary"
+          variant="transparent"
           onClick={handleCopy}
         >
           {isCopied ? (

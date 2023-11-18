@@ -8,7 +8,7 @@
       "lvl0": {
         "selector": "header h1",
         "global": true,
-        "default_value": "Documentation"
+        "default_value": "Wedges Docs"
       },
       "lvl1": "article header h1",
       "lvl2": "article h2",

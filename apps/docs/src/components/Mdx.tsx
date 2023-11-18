@@ -1,8 +1,11 @@
 "use client";
-import { Alert, Button } from "@lmsqueezy/wedges";
+import { Alert, Button, Tabs, Tooltip } from "@lmsqueezy/wedges";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import Image from "next/image";
 
+import { Colors } from "./Colors";
 import { CopyButton } from "./CopyButton";
+import { PreviewComponent } from "./PreviewComponent";
 
 import { cn } from "@/lib/utils";
 
@@ -12,16 +15,19 @@ type MdxProps = {
 
 // Here we register components we want to use in MDX.
 const components = {
-  Button,
   Alert,
-
+  Button,
+  Image,
+  PreviewComponent,
+  Tabs,
+  Tooltip,
+  Colors,
   Steps: ({ ...props }) => (
     <div
       className="[&>h3]:step steps border-surface-100 mb-16 ml-4 border-l pl-8 [counter-reset:step]"
       {...props}
     />
   ),
-
   pre: ({
     children,
     className,
@@ -31,17 +37,17 @@ const components = {
     return (
       <pre
         className={cn(
-          "not-prose relative my-6 max-h-[650px] overflow-x-auto rounded-lg py-4",
+          "not-prose my-6 max-h-[650px] overflow-x-auto rounded-lg py-4",
+          raw && "!bg-wg-gray-800",
           className
         )}
         {...otherProps}
       >
         {children}
-        {raw ? <CopyButton className="absolute right-3 top-2" content={raw} /> : null}
+        {raw ? <CopyButton className="absolute right-3 top-3" content={raw} /> : null}
       </pre>
     );
   },
-
   code: ({ className, ...otherProps }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(

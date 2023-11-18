@@ -30,9 +30,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Providers>
             <SiteHeader />
 
-            <div className="container flex flex-1 flex-col items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[256px_minmax(0,1fr)] lg:gap-10">
+            <div className="container relative flex flex-1 flex-col items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[256px_minmax(0,1fr)] lg:gap-10">
               <Sidebar />
-              <main className="mt-16 flex w-full grow flex-col pb-24 md:h-full">{children}</main>
+
+              <main className="mx-auto mt-16 flex w-full min-w-0 flex-col md:h-full">
+                {children}
+              </main>
             </div>
           </Providers>
 

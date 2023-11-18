@@ -1,49 +1,51 @@
 "use client";
 
-import { useId, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ChevronDownIcon, CloseIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useId, useState } from "react";
 
-import { ScrollArea } from "./ScrollArea";
-import { useSidebar } from "./Providers";
 import { Logomark } from "./Logo";
+import { useSidebar } from "./Providers";
+import { ScrollArea } from "./ScrollArea";
+import { Search } from "./Search";
 
 import { sidebarConfig } from "@/config/sidebarConfig";
+import { siteConfig } from "@/config/siteConfig";
 import { cn } from "@/lib/utils";
 import { NavItem } from "@/types/nav";
-import { siteConfig } from "@/config/siteConfig";
 
 export function Sidebar() {
   const sidebarNav = sidebarConfig.nav;
-  const { isOpen, toggle } = useSidebar();
-
-  const handleSidebarClick = () => {
-    if (isOpen) {
-      toggle();
-    }
-  };
+  const { isSidebarOpen, toggleSidebar } = useSidebar();
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
     <aside
       className={cn(
-        "bg-wg-gray-900/50 fixed bottom-0 left-0 top-0 m-0 md:bg-transparent",
-        isOpen ? "block" : "hidden",
-        "z-[60] w-full text-base leading-8 backdrop-blur md:sticky md:sticky md:top-[104px] md:z-30 md:mt-14 md:block md:h-[calc(100vh-153px)] md:min-h-[30vh] md:shrink-0 md:pb-4 md:text-sm md:leading-6 md:backdrop-blur-none"
+        "bg-wg-gray-900/50 fixed bottom-0 left-0 top-0 m-0 md:mt-14 md:bg-transparent md:pb-20",
+        isSidebarOpen ? "block" : "hidden",
+        "z-[60] w-full text-base leading-8 backdrop-blur md:sticky md:top-[104px] md:z-30 md:block md:h-[calc(100vh-119px)] md:shrink-0 md:text-sm md:leading-6 md:backdrop-blur-none"
       )}
-      role={isOpen ? "dialog" : undefined}
-      onClick={handleSidebarClick}
+      role={isSidebarOpen ? "dialog" : undefined}
+      onClick={() => isSidebarOpen && toggleSidebar()}
     >
+      <Search className="hidden md:flex" />
+
       <ScrollArea
-        className="h-full w-80 bg-white px-4 pb-12 pt-5 md:-ms-3 md:w-[auto] md:bg-transparent md:p-0 md:pr-3"
+        className="relative h-full w-80 bg-white px-4 py-6 md:-ms-3 md:w-[auto] md:bg-transparent md:py-0 md:pl-0 md:pr-2"
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
         <div className="mb-5 flex items-center space-x-6 md:hidden">
-          <Button isIconOnly aria-label="Toggle sidebar" variant="transparent" onClick={toggle}>
+          <Button
+            isIconOnly
+            aria-label="Toggle sidebar"
+            variant="transparent"
+            onClick={toggleSidebar}
+          >
             <CloseIcon aria-hidden />
           </Button>
 
@@ -88,12 +90,18 @@ function SidebarDropdown({ item, pathname }: { item: NavItem; pathname?: string 
 
   return (
     <div>
-      <div className="bg-background sticky -top-2 flex items-center justify-between px-3 py-2">
+      <div className="bg-background sticky -top-2 flex items-center justify-between py-2 pl-3">
         <h3 className="text-surface-900 rounded-md font-medium">{item.label}</h3>
 
-        <button className="rounded-lg transition-colors hover:bg-gray-50" onClick={toggle}>
+        <Button
+          isIconOnly
+          className="hover:bg-gray-50 focus-visible:-outline-offset-2"
+          size="xs-icon"
+          variant="transparent"
+          onClick={toggle}
+        >
           {<ChevronDownIcon className={cn(isOpen ? "" : "rotate-180")} />}
-        </button>
+        </Button>
       </div>
 
       {isOpen ? <SidebarDropdownItems items={item.items} pathname={pathname} /> : null}
@@ -103,7 +111,7 @@ function SidebarDropdown({ item, pathname }: { item: NavItem; pathname?: string 
 
 function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname?: string }) {
   const id = useId();
-  const { toggle, isOpen } = useSidebar();
+  const { toggleSidebar } = useSidebar();
 
   if (!items) {
     return null;
@@ -130,7 +138,7 @@ function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname
             href={item.href}
             rel={item.external ? "noreferrer" : ""}
             target={item.external ? "_blank" : ""}
-            onClick={() => isOpen && toggle()}
+            onClick={toggleSidebar}
           >
             {item.label}
           </Link>

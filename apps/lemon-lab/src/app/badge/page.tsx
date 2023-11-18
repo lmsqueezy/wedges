@@ -36,10 +36,10 @@ export default function BadgePage() {
             <div className="flex flex-wrap items-start gap-2">
               {colors.map((color, index) => (
                 <Badge
+                  key={`${color}-${index}`}
                   after={<StarIcon />}
                   before={<CloseIcon />}
                   color={color}
-                  key={`${color}-${index}`}
                 >
                   {color.charAt(0).toUpperCase() + color.slice(1)}
                 </Badge>

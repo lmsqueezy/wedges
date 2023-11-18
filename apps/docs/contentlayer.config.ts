@@ -1,9 +1,14 @@
-import { ComputedFields, defineDocumentType, makeSource } from "contentlayer/source-files";
+import {
+  ComputedFields,
+  defineDocumentType,
+  defineNestedType,
+  makeSource,
+} from "contentlayer/source-files";
 import rehypePrettyCode, { Options } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
-import { postProcess, preProcess } from "./src/lib/rehype";
+import { addCode, postProcess, preProcess } from "./src/lib/rehype";
 
 const computedFields: ComputedFields = {
   slug: {
@@ -15,6 +20,21 @@ const computedFields: ComputedFields = {
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
 };
+
+const LinkProperties = defineNestedType(() => ({
+  name: "LinkProperties",
+  fields: {
+    radix: {
+      type: "string",
+    },
+    source: {
+      type: "string",
+    },
+    sandbox: {
+      type: "string",
+    },
+  },
+}));
 
 const Doc = defineDocumentType(() => ({
   name: "Doc",
@@ -35,6 +55,12 @@ const Doc = defineDocumentType(() => ({
       type: "list",
       of: { type: "string" },
       description: "The breadcrumbs of the article. An array of strings.",
+      required: false,
+    },
+    links: {
+      type: "nested",
+      of: LinkProperties,
+      description: "The links of the article. An array of strings.",
       required: false,
     },
     toc: {
@@ -58,6 +84,12 @@ export default makeSource({
   documentTypes: [Doc],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [preProcess, rehypeSlug, [rehypePrettyCode, prettyCodeOptions], postProcess],
+    rehypePlugins: [
+      preProcess,
+      rehypeSlug,
+      addCode,
+      [rehypePrettyCode, prettyCodeOptions],
+      postProcess,
+    ],
   },
 });

@@ -13,7 +13,7 @@ import omit from "lodash.omit";
 import { extendTailwindMerge } from "tailwind-merge";
 import plugin from "tailwindcss/plugin.js";
 
-import { boxShadows, fontSizes, minWidth, themeableColors, wedgesPalette } from "./foundation";
+import { boxShadows, fontSizes, minWidth, themableColors, wedgesPalette } from "./foundation";
 import { addPrefix, flattenThemeObject, getColorString, isBaseTheme } from "./utils";
 
 const DEFAULT_PREFIX = "wg";
@@ -323,12 +323,12 @@ export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> 
     const baseTheme = extend && isBaseTheme(extend) ? extend : defaultExtendTheme;
 
     if (colors && typeof colors === "object") {
-      otherUserThemes[themeName]!.colors = deepMerge(themeableColors[baseTheme], colors);
+      otherUserThemes[themeName]!.colors = deepMerge(themableColors[baseTheme], colors);
     }
   });
 
-  const light: ConfigTheme = { colors: deepMerge(themeableColors.light, userLightColors) };
-  const dark: ConfigTheme = { colors: deepMerge(themeableColors.dark, userDarkColors) };
+  const light: ConfigTheme = { colors: deepMerge(themableColors.light, userLightColors) };
+  const dark: ConfigTheme = { colors: deepMerge(themableColors.dark, userDarkColors) };
 
   const themes = {
     light,

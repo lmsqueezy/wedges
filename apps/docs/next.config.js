@@ -2,6 +2,7 @@ const { withContentlayer } = require("next-contentlayer");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: "/wedges/docs",
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -14,6 +15,25 @@ const nextConfig = {
         hostname: "**.unsplash.com",
       },
     ],
+  },
+  redirects() {
+    return [
+      {
+        source: "/getting-started",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/components",
+        destination: "/components/alert",
+        permanent: true,
+      },
+      {
+        source: "/docs/components",
+        destination: "/components/alert",
+        permanent: true,
+      },
+    ];
   },
 };
 
