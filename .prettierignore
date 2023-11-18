@@ -3,3 +3,5 @@
 .next/
 /coverage
 dist/
+.contentlayer
+*.mdx

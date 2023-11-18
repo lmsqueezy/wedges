@@ -1,17 +1,57 @@
-.DS_Store
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
 node_modules
-.turbo
-*.log
-.next
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# testing
+/coverage
+
+#misc
 dist
 dist-ssr
-*.local
-.env
 .cache
-server/dist
-public/dist
+.turbo
+
+# next.js
+/.next/
+.next/
+/out/
+
+# production
+/build
 storybook-static/
+public/dist
+server/dist
+
+# misc
+.DS_Store
+*.pem
+*.log
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+#testing
 coverage/
 
-# Allow own todo files in the project
+# local env files
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# content layer
+.contentlayer
+
+# allow local todo files in the project
 TODO.md

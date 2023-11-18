@@ -1,10 +1,15 @@
-import { allDocs } from "contentlayer/generated";
+import { Button } from "@lmsqueezy/wedges";
+import { LinkProperties, allDocs } from "contentlayer/generated";
 import { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { EditPageLink } from "@/components/EditPageLink";
+import { GithubIcon, RadixIcon, StackBlitzIcon } from "@/components/Icons";
 import { Mdx } from "@/components/Mdx";
 import { Pagination } from "@/components/Pagination";
+import { PreloadResources } from "@/components/PreloadResources";
 import { Prose } from "@/components/Prose";
 import { TableOfContents } from "@/components/TableOfContents";
 import { siteConfig } from "@/config/siteConfig";
@@ -31,14 +36,16 @@ export default async function DocPage({ params }: DocPageProps) {
   const title = doc.title;
   const description = doc.description;
   const breadcrumbs = doc.breadcrumbs ?? [];
+  const links = doc.links ?? undefined;
   const showTOC = doc.toc !== false && toc?.items?.length;
 
   return (
-    <div className="xl:grid xl:grid-cols-[1fr_200px] xl:gap-10">
-      <div>
-        <Breadcrumbs path={breadcrumbs} />
+    <div className="w-full xl:grid xl:grid-cols-[1fr_200px] xl:gap-10">
+      <PreloadResources />
 
-        <div className="mb-12 space-y-3">
+      <div className="mx-auto w-full min-w-0">
+        <Breadcrumbs path={breadcrumbs} />
+        <div className="mb-10 space-y-3">
           <h2 className="text-surface-900 font-display text-4xl tracking-tight">{title}</h2>
 
           {description ? (
@@ -46,6 +53,8 @@ export default async function DocPage({ params }: DocPageProps) {
               {description}
             </p>
           ) : null}
+
+          <Links links={links} />
         </div>
 
         <Prose>
@@ -53,6 +62,7 @@ export default async function DocPage({ params }: DocPageProps) {
         </Prose>
 
         <Pagination doc={doc} />
+        <EditPageLink />
       </div>
 
       {showTOC ? <TableOfContents items={toc?.items} /> : null}
@@ -83,4 +93,57 @@ async function getDocFromParams({ params }: DocPageProps) {
   const doc = allDocs.find((doc) => doc.slug === slug);
 
   return doc ? doc : null;
+}
+
+/* ------------------------------ Header links ------------------------------ */
+function Links({ links }: { links?: LinkProperties }) {
+  if (!links) {
+    return null;
+  }
+
+  return (
+    <div className="flex items-center gap-2 pt-2">
+      {links.radix ? (
+        <Button
+          asChild
+          before={<RadixIcon aria-hidden />}
+          className="gap-0.5 px-3"
+          size="sm"
+          variant="tertiary"
+        >
+          <Link href={links.radix ?? "#"} rel="noopener noreferrer" target="_blank">
+            Radix UI
+          </Link>
+        </Button>
+      ) : null}
+
+      {links.source ? (
+        <Button
+          asChild
+          before={<GithubIcon aria-hidden />}
+          className="gap-0.5 px-3"
+          size="sm"
+          variant="tertiary"
+        >
+          <Link href={links.source ?? "#"} rel="noopener noreferrer" target="_blank">
+            Source
+          </Link>
+        </Button>
+      ) : null}
+
+      {links.sandbox ? (
+        <Button
+          asChild
+          before={<StackBlitzIcon aria-hidden />}
+          className="gap-0.5 px-3"
+          size="sm"
+          variant="tertiary"
+        >
+          <Link href={links.sandbox ?? "#"} rel="noopener noreferrer" target="_blank">
+            StackBlitz
+          </Link>
+        </Button>
+      ) : null}
+    </div>
+  );
 }

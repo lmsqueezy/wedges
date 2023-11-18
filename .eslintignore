@@ -2,6 +2,7 @@
 .next/*
 *.css
 .changeset
+.contentlayer
 dist
 tests/*
 .DS_Store

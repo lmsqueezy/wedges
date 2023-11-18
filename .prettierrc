@@ -5,5 +5,13 @@
   "printWidth": 100,
   "singleQuote": false,
   "tabWidth": 2,
-  "trailingComma": "es5"
+  "trailingComma": "es5",
+  "overrides": [
+    {
+      "files": "*.mdx",
+      "options": {
+        "printWidth": 500
+      }
+    }
+  ]
 }

@@ -14,6 +14,10 @@ body [data-rehype-pretty-code-fragment]:is(span) {
 [data-rehype-pretty-code-fragment] {
   @apply relative;
 
+  &:has([data-rehype-pretty-code-title]) .wg-copy-button {
+    top: 2.5rem;
+  }
+
   code {
     @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0;
     counter-reset: line;

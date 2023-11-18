@@ -1,13 +1,15 @@
 // @ts-nocheck
 "use client";
 
-import { createPortal } from "react-dom";
 import { DocSearchModal, useDocSearchKeyboardEvents } from "@docsearch/react";
 import { SearchIcon } from "@iconicicons/react";
 import { Button, Kbd } from "@lmsqueezy/wedges";
 import Link from "next/link";
 import Router from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+
+import { useSidebar } from "./Providers";
 
 import { cn } from "@/lib/utils";
 
@@ -34,8 +36,8 @@ function Hit({ hit, children }) {
   );
 }
 
-export function Search() {
-  let [isOpen, setIsOpen] = useState(false);
+export function Search({ className, ...otherProps }: { className?: string; otherProps?: any }) {
+  const { isSearchOpen, toggleSearch } = useSidebar();
   let [modifierKey, setModifierKey] = useState("command");
 
   const suffixTitle = (title) => {
@@ -48,15 +50,7 @@ export function Search() {
     return `${title} - ${section}`;
   };
 
-  const onOpen = useCallback(() => {
-    setIsOpen(true);
-  }, [setIsOpen]);
-
-  const onClose = useCallback(() => {
-    setIsOpen(false);
-  }, [setIsOpen]);
-
-  useDocSearchKeyboardEvents({ isOpen, onOpen, onClose });
+  useDocSearchKeyboardEvents({ isOpen: isSearchOpen, onOpen: toggleSearch, onClose: toggleSearch });
 
   useEffect(() => {
     setModifierKey(/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform) ? "command" : "ctrl");
@@ -66,13 +60,17 @@ export function Search() {
     <>
       <Button
         asChild
-        className="md:px-12px md:py-8px md:shadow-wg-xs duration-180 group flex aspect-square w-10 justify-center border-transparent p-0 shadow-none outline-white hover:border-transparent hover:bg-white/10 md:mr-2 md:aspect-auto md:w-auto md:min-w-[18rem] md:justify-between md:border-white/20 md:hover:border-white/40 md:hover:bg-transparent"
+        className={cn(
+          "px-12px py-8px shadow-wg-xs duration-180 outline-primary border-surface-100 hover:border-surface-200 group group mb-6 mt-2 flex w-full justify-between !bg-transparent",
+          className
+        )}
         variant="outline"
-        onClick={onOpen}
+        onClick={toggleSearch}
+        {...otherProps}
       >
         <button>
-          <span className="text-surface-500 md:group-hover:text-surface-500 duration-180 flex items-center gap-1.5 transition-colors group-hover:text-white">
-            <SearchIcon aria-label="Quick search" />
+          <span className="text-surface-400 group-hover:text-surface-500 duration-180 flex items-center gap-1.5 transition-colors">
+            <SearchIcon aria-label="Quick search" className="h-5 w-5" />
             <span className="hidden md:block">Quick search&hellip;</span>
           </span>
 
@@ -85,7 +83,7 @@ export function Search() {
         </button>
       </Button>
 
-      {isOpen &&
+      {isSearchOpen &&
         createPortal(
           <DocSearchModal
             {...docSearchConfig}
@@ -168,10 +166,26 @@ export function Search() {
                 };
               });
             }}
-            onClose={onClose}
+            onClose={toggleSearch}
           />,
           document.body
         )}
     </>
+  );
+}
+
+export function SearchButton() {
+  const { toggleSearch } = useSidebar();
+
+  return (
+    <Button
+      before={<SearchIcon aria-hidden="true" />}
+      className="px-4"
+      shape="pill"
+      variant="transparent"
+      onClick={toggleSearch}
+    >
+      Search
+    </Button>
   );
 }

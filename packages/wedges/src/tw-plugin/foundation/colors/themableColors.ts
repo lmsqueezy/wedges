@@ -4,61 +4,57 @@ import { palette } from "./palette";
 /*                                    Types                                   */
 /* -------------------------------------------------------------------------- */
 
-export type ColorScale =
-  | Partial<{
-      50: string;
-      100: string;
-      200: string;
-      300: string;
-      400: string;
-      500: string;
-      600: string;
-      700: string;
-      800: string;
-      900: string;
-      DEFAULT: string;
-    }>
-  | string;
+export type ColorScale = {
+  50: string;
+  100: string;
+  200: string;
+  300: string;
+  400: string;
+  500: string;
+  600: string;
+  700: string;
+  800: string;
+  900: string;
+  DEFAULT: string;
+};
 
-export type ThemeableColors = {
+export type ThemableColorScale = Partial<ColorScale> | string;
+
+export type ThemableColors = {
   background: string;
   foreground: string;
-  primary: ColorScale;
-  secondary: ColorScale;
-  surface: ColorScale;
-  destructive: ColorScale;
+  primary: ThemableColorScale;
+  secondary: ThemableColorScale;
+  surface: ThemableColorScale;
+  destructive: ThemableColorScale;
 };
 
 /* -------------------------------------------------------------------------- */
-export const themeableColorsLight: ThemeableColors = {
+export const themableColorsLight: ThemableColors = {
   background: "#FFFFFF",
   foreground: palette.gray[900],
 
-  // Primary
   primary: {
     ...palette["purple"],
     DEFAULT: palette["purple"][500],
   },
 
-  // Secondary
   secondary: {
     ...palette["gray"],
     DEFAULT: palette["gray"][900],
   },
 
-  // Surface
   surface: {
     ...palette["gray"],
     DEFAULT: palette["gray"][50],
   },
 
-  // Destructive
   destructive: {
     ...palette["red"],
   },
 };
 
-export const themeableColorsDark: ThemeableColors = {
+export const themableColorsDark: ThemableColors = {
   background: palette.gray[900],
   foreground: "#FFFFFF",
 
@@ -93,7 +89,7 @@ export const themeableColorsDark: ThemeableColors = {
   },
 };
 
-export const themeableColors = {
-  light: themeableColorsLight,
-  dark: themeableColorsDark,
+export const themableColors = {
+  light: themableColorsLight,
+  dark: themableColorsDark,
 } as const;

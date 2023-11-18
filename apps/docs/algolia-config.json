@@ -1,14 +1,14 @@
 {
   "index_name": "docsearch",
-  "start_urls": ["https://docs.lemonsqueezy.com"],
-  "sitemap_urls": ["https://docs.lemonsqueezy.com/sitemap.xml"],
+  "start_urls": ["https://www.lemonsqueezy.com/wedges/docs"],
+  "sitemap_urls": ["https://www.lemonsqueezy.com/sitemap.xml"],
   "sitemap_alternate_links": true,
   "selectors": {
     "default": {
       "lvl0": {
         "selector": "header h1",
         "global": true,
-        "default_value": "Documentation"
+        "default_value": "Wedges Docs"
       },
       "lvl1": "article header h1",
       "lvl2": "article h2",
