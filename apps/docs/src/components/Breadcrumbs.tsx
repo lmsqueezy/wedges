@@ -1,6 +1,8 @@
-import { BreadcrumbsItem } from "./BreadcrumbsItem";
+import * as React from "react";
 
 import { siteConfig } from "@/config/siteConfig";
+
+import { BreadcrumbsItem } from "./BreadcrumbsItem";
 
 export function Breadcrumbs({ path }: { path: string[] }) {
   if (!path || !path.length) {
@@ -8,9 +10,9 @@ export function Breadcrumbs({ path }: { path: string[] }) {
   }
 
   return (
-    <nav aria-label="Breadcrumbs" className="text-surface-500 mb-6 flex text-sm">
+    <nav aria-label="Breadcrumbs" className="mb-6 flex text-sm text-surface-500">
       <ol className="flex items-center space-x-0.5">
-        <li className="overflow-hidden text-ellipsis whitespace-nowrap">
+        <li className="truncate">
           <a className="hover:underline" href={siteConfig.wedgesURL}>
             Wedges
           </a>

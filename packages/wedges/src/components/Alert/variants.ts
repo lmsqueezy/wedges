@@ -4,7 +4,7 @@ export const alertVariants = cva("", {
   variants: {
     variant: {
       inline: "rounded-lg sm:items-center",
-      expanded: "p-4 pl-14px border-l-2 items-start rounded-r-lg",
+      expanded: "pl-14px items-start rounded-r-lg border-l-2 p-4",
     },
     color: {
       gray: "text-surface-500 border-surface-200",

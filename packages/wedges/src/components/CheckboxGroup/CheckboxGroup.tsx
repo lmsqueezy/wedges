@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { LabelHelperProps } from "../types";
 import { cn } from "../../helpers/utils";
 import { Checkbox, CheckboxElement, CheckboxElementProps } from "../Checkbox";
 import { Label, LabelProps } from "../Label";
+import { LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type CheckboxGroupElement = HTMLDivElement;

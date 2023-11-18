@@ -6,6 +6,8 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "preview": "next build && next start -p 3001",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next"
   },

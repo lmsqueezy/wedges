@@ -1,6 +1,6 @@
+import React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
-import React from "react";
 
 import { cn, isReactElement } from "../../helpers/utils";
 import { Tooltip } from "../Tooltip";

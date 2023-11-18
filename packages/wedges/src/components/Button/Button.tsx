@@ -3,7 +3,6 @@ import { Slot } from "@radix-ui/react-slot";
 import { VariantProps } from "class-variance-authority";
 
 import { cn, isReactElement } from "../../helpers/utils";
-
 import { buttonVariants, iconVariants } from "./variants";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -74,7 +73,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
         isIconOnly === true ||
         false
       );
-    }, [before, after, children, size]);
+    }, [before, after, children, size, isIconOnly]);
 
     // Determine if the button is a 'link', 'outline', 'tertiary', or 'transparent' variant.
     const isVariantLinkOutlineTertiaryTransparent = React.useMemo(

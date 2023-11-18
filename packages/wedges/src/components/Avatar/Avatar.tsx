@@ -1,7 +1,7 @@
+import * as React from "react";
 import { UserIcon } from "@iconicicons/react";
 import * as Primitive from "@radix-ui/react-avatar";
 import { type VariantProps } from "class-variance-authority";
-import * as React from "react";
 
 import {
   cn,
@@ -11,7 +11,6 @@ import {
   stringToHash,
 } from "../../helpers/utils";
 import LemonSqueezyIcon from "../icons/LemonSqueezy";
-
 import {
   avatarVariants,
   fallbackVariants,
@@ -124,24 +123,24 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     ...otherProps
   } = props;
 
-  // Get a random color for initial variant.
-  const randomColors = [
-    "bg-wg-blue",
-    "bg-wg-pink",
-    "bg-wg-purple",
-    "bg-wg-green",
-    "bg-wg-orange",
-    "bg-wg-yellow",
-    "bg-wg-red",
-  ];
-
   const bgColor = React.useMemo(() => {
+    // Get a random color for initial variant.
+    const randomColors = [
+      "bg-wg-blue",
+      "bg-wg-pink",
+      "bg-wg-purple",
+      "bg-wg-green",
+      "bg-wg-orange",
+      "bg-wg-yellow",
+      "bg-wg-red",
+    ];
+
     const identifier =
       (initials || "") + (size || "") + (status || "") + (notification || "") + (src || "");
     const color = getElementFromHash(stringToHash(identifier), randomColors);
 
     return color || !randomColors[0];
-  }, [size]);
+  }, [initials, notification, size, src, status]);
 
   return (
     <AvatarRoot
@@ -185,7 +184,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
         >
           <LemonSqueezyIcon
             aria-hidden="true"
-            className={cn(fallbackVariants({ size }), "-mr-[4.5%] w-auto fill-current stroke-none")}
+            className={cn(fallbackVariants({ size }), "mr-[-4.5%] w-auto fill-current stroke-none")}
           />
         </AvatarFallback>
       )}

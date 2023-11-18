@@ -1,17 +1,17 @@
 // @ts-nocheck
 "use client";
 
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Router from "next/router";
 import { DocSearchModal, useDocSearchKeyboardEvents } from "@docsearch/react";
 import { SearchIcon } from "@iconicicons/react";
 import { Button, Kbd } from "@lmsqueezy/wedges";
-import Link from "next/link";
-import Router from "next/router";
-import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
-import { useSidebar } from "./Providers";
-
 import { cn } from "@/lib/utils";
+
+import { useSidebar } from "./Providers";
 
 const docSearchConfig = {
   appId: process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID,
@@ -61,7 +61,7 @@ export function Search({ className, ...otherProps }: { className?: string; other
       <Button
         asChild
         className={cn(
-          "px-12px py-8px shadow-wg-xs duration-180 outline-primary border-surface-100 hover:border-surface-200 group group mb-6 mt-2 flex w-full justify-between !bg-transparent",
+          "group mb-6 mt-2 flex w-full justify-between border-surface-100 !bg-transparent px-12px py-8px shadow-wg-xs outline-primary duration-180 hover:border-surface-200",
           className
         )}
         variant="outline"
@@ -69,13 +69,13 @@ export function Search({ className, ...otherProps }: { className?: string; other
         {...otherProps}
       >
         <button>
-          <span className="text-surface-400 group-hover:text-surface-500 duration-180 flex items-center gap-1.5 transition-colors">
+          <span className="flex items-center gap-1.5 text-surface-400 transition-colors duration-180 group-hover:text-surface-500">
             <SearchIcon aria-label="Quick search" className="h-5 w-5" />
             <span className="hidden md:block">Quick search&hellip;</span>
           </span>
 
           <Kbd
-            className="text-surface-500 ml-2 hidden border-none md:inline-flex"
+            className="ml-2 hidden border-none text-surface-500 md:inline-flex"
             keys={[modifierKey]}
           >
             K

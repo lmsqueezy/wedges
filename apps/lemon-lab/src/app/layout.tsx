@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-
-import Link from "next/link";
 import { Inter } from "next/font/google";
-
-import { Providers } from "./providers";
+import Link from "next/link";
 
 import ThemeToggle from "@/components/ThemeToggle";
+
+import { Providers } from "./providers";
 
 import "./globals.css";
 
@@ -24,8 +23,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <html suppressHydrationWarning className="h-full" lang="en">
       <body className={`${inter.className} flex min-h-full`}>
         <Providers>
-          <div className="bg-background text-foreground flex grow flex-col">
-            <header className="text-surface-500 mx-auto flex w-full max-w-screen-xl items-center justify-between gap-5 px-10 pt-10 text-sm">
+          <div className="flex grow flex-col bg-background text-foreground">
+            <header className="mx-auto flex w-full max-w-screen-xl items-center justify-between gap-5 px-10 pt-10 text-sm text-surface-500">
               <Link className="flex items-center gap-3 text-gray-900 dark:text-white" href="/">
                 <svg className="fill-current" height="40" viewBox="0 0 56 56" width="40">
                   <path d="M36.2138 26.9603L36.2244 26.9844C36.2244 26.9844 39.9832 36.3415 40.2998 39.2261C40.6164 42.1108 38.0319 44.4492 35.2342 44.4492C32.4366 44.4492 29.8521 42.1108 30.1687 39.2261C30.4853 36.3415 34.244 26.9844 34.244 26.9844L34.2546 26.9603C34.486 26.433 34.6379 26.0867 35.2342 26.0867C35.8306 26.0867 35.9825 26.433 36.2138 26.9603Z" />
@@ -42,72 +41,72 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </header>
 
             <div className="mx-auto flex w-full max-w-screen-xl grow gap-24 px-10 pb-20 pt-24">
-              <nav className="text-surface-700 sticky top-10 flex grow-0 flex-col items-start gap-2 self-start text-sm leading-6">
-                <Link className="hover:text-foreground transition-colors" href="/alert">
+              <nav className="sticky top-10 flex grow-0 flex-col items-start gap-2 self-start text-sm leading-6 text-surface-700">
+                <Link className="transition-colors hover:text-foreground" href="/alert">
                   Alert
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/avatar">
+                <Link className="transition-colors hover:text-surface-900" href="/avatar">
                   Avatar
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/avatar-group">
+                <Link className="transition-colors hover:text-surface-900" href="/avatar-group">
                   Avatar Group
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/badge">
+                <Link className="transition-colors hover:text-surface-900" href="/badge">
                   Badge
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/button">
+                <Link className="transition-colors hover:text-surface-900" href="/button">
                   Button
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/button-group">
+                <Link className="transition-colors hover:text-surface-900" href="/button-group">
                   Button Group
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/input">
+                <Link className="transition-colors hover:text-surface-900" href="/input">
                   Input
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/popover">
+                <Link className="transition-colors hover:text-surface-900" href="/popover">
                   Popover
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/textarea">
+                <Link className="transition-colors hover:text-surface-900" href="/textarea">
                   Textarea
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/switch">
+                <Link className="transition-colors hover:text-surface-900" href="/switch">
                   Switch/Radio/Checkbox
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/dropdown">
+                <Link className="transition-colors hover:text-surface-900" href="/dropdown">
                   Dropdown Menu
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/toggle-group">
+                <Link className="transition-colors hover:text-surface-900" href="/toggle-group">
                   Toggle Group
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/tabs">
+                <Link className="transition-colors hover:text-surface-900" href="/tabs">
                   Tabs
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/tag">
+                <Link className="transition-colors hover:text-surface-900" href="/tag">
                   Tag
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/tooltip">
+                <Link className="transition-colors hover:text-surface-900" href="/tooltip">
                   Tooltip
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/kbd">
+                <Link className="transition-colors hover:text-surface-900" href="/kbd">
                   Kbd
                 </Link>
 
-                <Link className="hover:text-surface-900 transition-colors" href="/colors">
+                <Link className="transition-colors hover:text-surface-900" href="/colors">
                   Colors
                 </Link>
               </nav>
