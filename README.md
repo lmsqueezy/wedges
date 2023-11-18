@@ -1,69 +1,36 @@
-<a href="https://lemonsqueezy.com/" target="_blank">
-    <img src="https://avatars.githubusercontent.com/u/129315959?s=84" alt="Lemon Squeezy Logo" title="Lemon Squeezy" align="right" 
-height="42" />
-</a>
-
 # Wedges
+Wedges is a professionally designed <a href="https://lemonsqueezy.com/wedges/figma/" target="_blank">design system for Figma</a> and an open-source React UI library that combines <a href="https://www.radix-ui.com/primitives" target="_blank" rel="noopener noreferrer">Radix UI primitives</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>. Its goal is to simplify the process of building beautiful, functional and accessible user interfaces.
 
-A modern React UI library crafted from Lemon Squeezy's Wedges design system. Seamlessly integrated with Radix UI and styled using Tailwind CSS.
+With Wedges, you get a range of pre-built, customizable components that are easy to use and integrate into your React projects. It also comes with full TypeScript support, ensuring type safety and developer-friendly experience.
 
-This repo is a monorepo structure (powered by turborepo) and is managed with [PNPM](https://pnpm.io/).
+## Getting Started
+Visit <a href="https://lemonsqueezy.com/wedges" target="_blank">Wedges Docs</a> to get started.
 
-## Components
-
-- [x] Alert
-- [x] Avatar
-- [x] Avatar Group
-- [x] Badge
-- [x] Button
-- [x] Button Group
-- [x] Toggle Group
-- [x] Tag
-- [x] Tooltip
-- [x] Switch
-- [x] Switch Group
-- [x] Label
-- [x] Radio Group
-- [x] Checkbox
-- [x] Checkbox Group
-- [x] Kbd
-- [x] Dropdown
-- [x] Popover
-- [x] Textarea
-- [x] Tabs
-- [ ] Select
-- [ ] Input
-
-## Upcoming Components
-
-- [ ] Dialog
-- [ ] Slider
-- [ ] Toast
-- [ ] Accordion
+## Repository Structure
+This repository is organized as a monorepo (Turborepo) and is managed with <a href="https://pnpm.io" target="_blank">PNPM</a>.
 
 ## Packages
-
-- [@lmsqueezy/wedges/](./packages/wedges) - React UI library and Tailwind CSS plugin.
+- [@lmsqueezy/wedges/](./packages/wedges) - React UI library.
 
 ## Apps
+- [docs](./apps/docs) - Wedges documentation Next.js app.
 
-- [lemon-lab](./apps/lemon-lab) - A NextJS-based application that serves as a testing ground and showcase for the library's capabilities.
-
-## Installation
-
-To integrate this library into your workflow:
-
-1. Clone the repository.
+## Development
+1. Clone the monorepo.
 2. Install the necessary dependencies using PNPM:
 
 ```bash
 pnpm i
 ```
 
-## Development
-
-To start the development server for the library, run:
+To start the development server, run:
 
 ```bash
 pnpm dev
 ```
+
+## License
+Wedges is licensed under the <a href="https://github.com/lmsqueezy/wedges/LICENSE" target="_blank" rel="noreferrer noopener">MIT License</a>.
+
+## Connect with us
+Follow us <a href="https://twitter.com/lmsqueezy/" target="_blank" rel="noreferrer">@lmsqueezy</a> for the latest and coolest. Let us know what you're building with Wedges!
