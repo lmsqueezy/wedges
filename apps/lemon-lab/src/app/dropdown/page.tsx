@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   BellIcon,
   BookIcon,
@@ -19,7 +20,6 @@ import {
   UsersIcon,
 } from "@iconicicons/react";
 import { Avatar, Button, DropdownMenu, Switch } from "@lmsqueezy/wedges";
-import { useState } from "react";
 
 import PageTitle from "@/components/PageTitle";
 
@@ -202,14 +202,14 @@ export default function DropdownMenuPage() {
         <div>
           <DropdownMenu>
             <DropdownMenu.Trigger asChild>
-              <span className="wg-antialiased text-surface-600 hover:bg-surface group flex cursor-pointer select-none items-center gap-1 rounded-lg p-1.5 px-2 text-sm transition-colors duration-100 dark:hover:bg-white/5">
+              <span className="group flex cursor-pointer select-none items-center gap-1 rounded-lg p-1.5 px-2 text-sm text-surface-600 transition-colors duration-100 wg-antialiased hover:bg-surface dark:hover:bg-white/5">
                 <Avatar size="xs" src="https://github.com/brankoconjic.png" status="green" />
 
                 <span className=" ms-2 flex flex-col">
                   <span className="font-medium">Branko</span>
                 </span>
 
-                <ChevronDownIcon className="trigger-icon text-surface-400 h-5 w-5" />
+                <ChevronDownIcon className="trigger-icon h-5 w-5 text-surface-400" />
               </span>
             </DropdownMenu.Trigger>
 

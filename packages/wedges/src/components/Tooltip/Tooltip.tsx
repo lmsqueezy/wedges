@@ -1,9 +1,8 @@
-import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import { cva, VariantProps } from "class-variance-authority";
 
 import { cn } from "../../helpers/utils";
-
 import TooltipArrow from "./TooltipArrow";
 import TooltipTrigger from "./TooltipTrigger";
 
@@ -30,12 +29,12 @@ const {
 const tooltipVariant = cva(["wg-antialiased z-50 rounded-md text-white"], {
   variants: {
     size: {
-      sm: "text-xs max-w-xs px-3 py-2",
-      md: "text-sm max-w-xs px-4 py-3",
+      sm: "max-w-xs px-3 py-2 text-xs",
+      md: "max-w-xs px-4 py-3 text-sm",
     },
     color: {
       primary: "wg-bg-primary text-white",
-      secondary: "wg-bg-secondary text-white dark:text-secondary-900 ",
+      secondary: "wg-bg-secondary dark:text-secondary-900 text-white ",
     },
   },
   defaultVariants: {

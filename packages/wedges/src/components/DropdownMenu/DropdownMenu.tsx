@@ -158,11 +158,10 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     ref={ref}
     checked={checked}
     className={cn(
-      "wg-dropdown-menu__checkbox-item focus:bg-surface relative flex cursor-pointer select-none items-center px-4 py-1 pl-7 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
+      "wg-dropdown-menu__checkbox-item focus:bg-surface relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
       !destructive &&
         "text-surface-900 dark:text-surface-700 [&_svg]:text-surface-900 [&_svg]:opacity-40",
       destructive && "text-destructive",
-      "pl-[var(--wg-offset-padding-left,1rem)]",
       className
     )}
     {...otherProps}
@@ -203,11 +202,10 @@ const DropdownMenuRadioItem = React.forwardRef<
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "wg-dropdown-menu__checkbox-item focus:bg-surface relative flex cursor-pointer select-none items-center px-4 py-1 pl-7 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
+      "wg-dropdown-menu__checkbox-item focus:bg-surface relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
       !destructive &&
         "text-surface-900 dark:text-surface-700 [&_svg]:text-surface-900 [&_svg]:opacity-40",
       destructive && "text-destructive",
-      "pl-[var(--wg-offset-padding-left,1rem)]",
       className
     )}
     {...otherProps}

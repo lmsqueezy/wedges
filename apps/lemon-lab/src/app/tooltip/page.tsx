@@ -1,8 +1,8 @@
 "use client";
 
-import { Button, Tooltip } from "@lmsqueezy/wedges";
 import * as React from "react";
 import { HelpIcon } from "@iconicicons/react";
+import { Button, Tooltip } from "@lmsqueezy/wedges";
 
 import PageTitle from "@/components/PageTitle";
 

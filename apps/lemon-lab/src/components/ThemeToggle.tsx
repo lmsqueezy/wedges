@@ -1,9 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { MoonIcon, SunIcon } from "@iconicicons/react";
 import { ToggleGroup } from "@lmsqueezy/wedges";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
   const { setTheme, resolvedTheme } = useTheme();
@@ -15,7 +15,7 @@ const ThemeToggle = () => {
   }, []);
 
   if (!mounted) {
-    return <div className="bg-surface shadow-xs ml-4 h-[34px] w-[67px] rounded-lg" />;
+    return <div className="shadow-xs ml-4 h-[34px] w-[67px] rounded-lg bg-surface" />;
   }
 
   return (

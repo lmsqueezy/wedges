@@ -1,18 +1,17 @@
 import * as React from "react";
-import { VariantProps, cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 
 import { cn } from "../../helpers/utils";
-
 import { KbdKey, kbdKeysLabelMap, kbdKeysMap } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
 export const kbdVariants = cva(
-  "wg-antialiased border-surface-200 border-1 text-surface-600 dark:border-surface-100 inline-flex items-center rounded-full px-8px font-sans border",
+  "wg-antialiased border-surface-200 border-1 text-surface-600 dark:border-surface-100 px-8px inline-flex items-center rounded-full border font-sans",
   {
     variants: {
       size: {
         xs: "text-xs leading-6 [--wg-border-width:1px]",
-        sm: "text-sm leading-6 px-8px py-2px [--wg-border-width:1px]",
+        sm: "px-8px py-2px text-sm leading-6 [--wg-border-width:1px]",
         base: "py-0.5 text-base",
         lg: "text-lg",
       },

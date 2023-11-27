@@ -1,8 +1,8 @@
 "use client";
 
-import { ChevronRightIcon } from "@iconicicons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ChevronRightIcon } from "@iconicicons/react";
 
 export function BreadcrumbsItem({
   label,
@@ -32,9 +32,9 @@ export function BreadcrumbsItem({
   return (
     <li
       aria-current={isLast ? "page" : undefined}
-      className="last-of-type:text-surface-900 flex items-center space-x-0.5 last-of-type:font-medium"
+      className="flex items-center space-x-0.5 last-of-type:font-medium last-of-type:text-surface-900"
     >
-      <ChevronRightIcon aria-hidden={true} className="text-surface-500 h-5 w-5" />
+      <ChevronRightIcon aria-hidden={true} className="h-5 w-5 text-surface-500" />
       {wrappedLabel}
     </li>
   );

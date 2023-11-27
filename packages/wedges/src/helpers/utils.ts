@@ -1,5 +1,5 @@
 import * as React from "react";
-import { type ClassValue, clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
 
 import { twMerge } from "../tw-plugin/plugin";
 

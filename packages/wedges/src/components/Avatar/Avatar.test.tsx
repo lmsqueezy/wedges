@@ -1,5 +1,5 @@
 import React from "react";
-import { RenderResult, render } from "@testing-library/react";
+import { render, RenderResult } from "@testing-library/react";
 
 import Avatar from "./Avatar";
 

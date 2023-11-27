@@ -132,7 +132,7 @@ export default function ButtonPage() {
 
           <Alert.CloseButton
             asChild
-            className="hover:bg-wg-red ml-1 bg-slate-700 !text-white dark:hover:bg-slate-600"
+            className="ml-1 bg-slate-700 !text-white hover:bg-wg-red dark:hover:bg-slate-600"
             shape="pill"
             size="sm"
             onClick={() => {

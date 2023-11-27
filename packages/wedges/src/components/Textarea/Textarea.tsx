@@ -52,11 +52,11 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           aria-invalid={ariaInvalid}
           aria-labelledby={label ? `${elId}__label` : undefined}
           className={cn(
-            "shadow-wg-xs placeholder-surface-500 bg-background flex min-h-[112px] rounded-lg border px-4 py-2 text-sm leading-6 transition-colors duration-100",
+            "shadow-wg-xs placeholder:text-surface-500 bg-background flex min-h-[112px] rounded-lg border px-4 py-2 text-sm leading-6 transition-colors duration-100",
             "outline-primary focus:outline focus:outline-2 focus:-outline-offset-1",
             !disabled && "hover:border-surface-300 dark:hover:border-surface-200 text-surface-900",
             disabled &&
-              "text-surface-300 placeholder-surface-300 dark:text-surface-200 dark:placeholder-surface-200 bg-surface-50 cursor-not-allowed dark:bg-white/5",
+              "text-surface-300 placeholder:text-surface-300 dark:text-surface-200 dark:placeholder:text-surface-200 bg-surface-50 cursor-not-allowed dark:bg-white/5",
             ariaInvalid &&
               "border-destructive outline-destructive hover:border-destructive dark:hover:border-destructive",
             !ariaInvalid && "border-surface-200 dark:border-surface-100",

@@ -1,6 +1,5 @@
-import type { Config } from "tailwindcss/types/config";
-
 import { wedgesTW } from "@lmsqueezy/wedges";
+import type { Config } from "tailwindcss/types/config";
 
 const config: Config = {
   content: [
@@ -16,6 +15,7 @@ const config: Config = {
       colors: {},
     },
   },
+  tailwindFunctions: ["clsx", "cn", "cva"],
   darkMode: "class",
   plugins: [wedgesTW()],
 };

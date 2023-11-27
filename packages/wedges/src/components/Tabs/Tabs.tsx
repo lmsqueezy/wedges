@@ -3,7 +3,6 @@ import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { VariantProps } from "class-variance-authority";
 
 import { cn, isReactElement } from "../../helpers/utils";
-
 import { tabListVariants, tabVariants } from "./variants";
 
 /* ---------------------------------- Types --------------------------------- */

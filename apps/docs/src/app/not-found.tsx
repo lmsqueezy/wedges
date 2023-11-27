@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { HomeIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
-import Link from "next/link";
 
 import { Logomark } from "@/components/Logo";
 import { SearchButton } from "@/components/Search";
@@ -10,11 +10,11 @@ export default function NotFound() {
     <div className="pb-24">
       <Logomark className="mt-[7px]" />
 
-      <h2 className="font-display text-wg-gray-900 mb-6 mt-10 text-4xl tracking-tight [text-wrap:balance]">
+      <h2 className="mb-6 mt-10 font-display text-4xl tracking-tight text-wg-gray-900 [text-wrap:balance]">
         Sorry, page not found
       </h2>
 
-      <p className="text-surface-600 max-w-[400px] text-base lg:text-lg">
+      <p className="max-w-[400px] text-base text-surface-600 lg:text-lg">
         The content you are looking for either does not exist or has been moved.
       </p>
 

@@ -1,10 +1,9 @@
+import React from "react";
 import { jest } from "@jest/globals";
 import { fireEvent, render } from "@testing-library/react";
-import React from "react";
 
 import { Avatar } from "../Avatar";
 import { BadgeElement } from "../Badge";
-
 import Tag from "./Tag"; // Adjust the import as necessary
 
 describe("Tag", () => {

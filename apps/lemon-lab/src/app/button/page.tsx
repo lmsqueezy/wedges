@@ -1,9 +1,9 @@
 "use client";
 
+import { useState } from "react";
+import Link from "next/link";
 import { ArrowUpRightIcon, CursorIcon, SpeakerIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
-import Link from "next/link";
-import { useState } from "react";
 
 import CloseIcon from "@/components/CloseIcon";
 import PageTitle from "@/components/PageTitle";
@@ -19,7 +19,7 @@ export default function ButtonPage() {
     <main>
       <PageTitle>Button</PageTitle>
 
-      <div className="bg-surface-50 divide-surface-200 mb-10 flex items-center divide-x rounded-xl p-2 text-sm">
+      <div className="mb-10 flex items-center divide-x divide-surface-200 rounded-xl bg-surface-50 p-2 text-sm">
         <div className="flex items-center gap-2 px-4 pt-0">
           <span>Size:</span>
           <Button
@@ -245,7 +245,7 @@ export default function ButtonPage() {
         <div className="flex items-center gap-4">
           <Button
             after={<SpeakerIcon />}
-            className="bg-wg-orange-600 hover:bg-wg-orange-500 outline-wg-orange-600 rounded-0"
+            className="rounded-0 bg-wg-orange-600 outline-wg-orange-600 hover:bg-wg-orange-500"
             destructive={destructive}
             disabled={disabled}
             shape={shape}
