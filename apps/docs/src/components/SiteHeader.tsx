@@ -1,13 +1,15 @@
-import { Button } from "@lmsqueezy/wedges";
-import { ChevronDownIcon } from "@iconicicons/react";
+"use client";
 
-import { Logo, Logomark } from "./Logo";
-import { ArrowRightIcon, Navigation } from "./Navigation";
-import { WedgesHeader } from "./WedgesHeader";
+import { ChevronDownIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
 
 import { siteConfig } from "@/config/siteConfig";
 import { focusClasses } from "@/lib/a11y";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import { Logo, Logomark } from "./Logo";
+import { ArrowRightIcon, Navigation } from "./Navigation";
+import { WedgesHeader } from "./WedgesHeader";
 
 export function SiteHeader() {
   return (
@@ -20,8 +22,30 @@ export function SiteHeader() {
 
 /* ------------------------------- Components ------------------------------- */
 function LemonSqueezyHeader() {
+  const [resourcedDropdownOpen, setResourcesDropdownOpen] = useState(false);
+  const [dropdownTimer, setDropdownTimer] = useState<NodeJS.Timeout | null>(null);
+
+  // Reset timer on mouse enter
+  const onMouseEnter = (showSetter: (value: boolean) => void) => {
+    if (dropdownTimer) {
+      clearTimeout(dropdownTimer);
+    }
+
+    showSetter(true);
+  };
+
+  // Add 300ms delay before closing dropdown
+  const onMouseLeave = (showSetter: (value: boolean) => void) => {
+    if (dropdownTimer) {
+      clearTimeout(dropdownTimer);
+    }
+
+    const t = setTimeout(() => showSetter(false), 300);
+    setDropdownTimer(t);
+  };
+
   return (
-    <header className="[&_a]:duration-180 border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors">
+    <header className="[&_a]:duration-180 relative border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors">
       <div className="container flex min-h-[88px] items-center justify-start gap-6 md:grid-cols-[1fr_auto_1fr] lg:grid">
         <a
           aria-label="Lemon Squeezy home page"
@@ -38,9 +62,22 @@ function LemonSqueezyHeader() {
             <ChevronDownIcon />
           </Navigation.Item>
 
-          <Navigation.Item>
-            <span>Resources</span>
-            <ChevronDownIcon />
+          <Navigation.Item
+            asChild
+            onMouseEnter={() => onMouseEnter(setResourcesDropdownOpen)}
+            onMouseLeave={() => onMouseLeave(setResourcesDropdownOpen)}
+          >
+            <div role="button" aria-haspopup="true" aria-expanded="false">
+              <span id="menu-item__resources">Resources</span>
+              <ChevronDownIcon />
+
+              <Navigation.Dropdown
+                show={resourcedDropdownOpen}
+                aria-labelledby="menu-item__resources"
+              >
+                <ResourcesDropdown />
+              </Navigation.Dropdown>
+            </div>
           </Navigation.Item>
 
           <Navigation.Item href="https://www.lemonsqueezy.com/pricing">Pricing</Navigation.Item>
@@ -77,5 +114,83 @@ function LemonSqueezyHeader() {
         </Navigation>
       </div>
     </header>
+  );
+}
+
+function ResourcesDropdown() {
+  const links = [
+    {
+      label: "Help center",
+      description: "Need help or have a question?",
+      href: "https://www.lemonsqueezy.com/help",
+    },
+    {
+      label: "Help docs",
+      description: "Detailed help docs and knowledge base",
+      href: "https://docs.lemonsqueezy.com/help",
+    },
+    {
+      label: "Developer docs",
+      description: "Browse our extensive developer docs",
+      href: "https://docs.lemonsqueezy.com/api",
+    },
+    {
+      label: "Suggest a feature",
+      description: "Vote on new ideas or suggest your own",
+      href: "https://www.lemonsqueezy.com/suggest-feature",
+    },
+  ];
+
+  return (
+    <div className="container">
+      <div className="mr-6 grid grid-cols-3">
+        {/* ----------------------------- Helpful Links ----------------------------- */}
+        <Navigation.DropdownColumn>
+          <Navigation.DropdownTitle label="Helpful Links" id="dropdown-menu__helpful-links" />
+
+          {links.map(({ label, description, href }, index) => (
+            <Navigation.DropdownLink
+              key={`${label}-${index}`}
+              href={href}
+              label={label}
+              description={description}
+              role="menuitem"
+            />
+          ))}
+        </Navigation.DropdownColumn>
+
+        {/* ----------------------------- Case Studies ----------------------------- */}
+        <Navigation.DropdownColumn>
+          <Navigation.DropdownTitle
+            buttonHref="https://www.lemonsqueezy.com/case-studies"
+            buttonLabel="All studies"
+            id="dropdown-menu__case-studies"
+            label="Case studies"
+          />
+
+          <Navigation.DropdownBlogLink
+            href="https://www.lemonsqueezy.com/case-study/uipress"
+            imgSrc="https://assets-global.website-files.com/6347244ba8d63461aa51c0af/652373a3059536649fe49bbb_UI-Press-Website-Mockup-p-2600.jpg"
+            label="How uiPress Boosted WordPress Plugin Sales by 600% Using Lemon Squeezy"
+          />
+        </Navigation.DropdownColumn>
+
+        {/* ----------------------------- Blog Articles ---------------------------- */}
+        <Navigation.DropdownColumn className="place-content-start">
+          <Navigation.DropdownTitle
+            buttonHref="https://www.lemonsqueezy.com/blog"
+            buttonLabel="All articles"
+            id="dropdown-menu__blog-articles"
+            label="Blog"
+          />
+
+          <Navigation.DropdownBlogLink
+            href="https://www.lemonsqueezy.com/case-study/uipress"
+            imgSrc="https://assets-global.website-files.com/6347244ba8d63461aa51c0af/655b80f26454aa9bd55bfa50_50m-min.jpg"
+            label="Turning down a Series A term sheet ($50m+ valuation)"
+          />
+        </Navigation.DropdownColumn>
+      </div>
+    </div>
   );
 }

@@ -36,15 +36,12 @@ const Color = forwardRef<
     <div className="group flex w-full flex-col">
       <div
         ref={ref}
-        className={cn(
-          "h-10 w-10 sm:w-full sm:group-first:rounded-l sm:group-last:rounded-r",
-          className
-        )}
+        className={cn("h-10 w-full group-first:rounded-l group-last:rounded-r", className)}
         {...otherProps}
       />
 
-      <span className="text-surface-700 mt-1 pl-1 text-xs">{title}</span>
-      <span className="text-surface-400 pl-1 font-mono text-[9px]">{hex}</span>
+      <span className="text-surface-700 mt-1 pl-1 text-center text-xs md:text-start">{title}</span>
+      <span className="text-surface-400 hidden pl-1 font-mono text-[9px] md:block">{hex}</span>
     </div>
   );
 });

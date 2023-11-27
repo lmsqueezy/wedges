@@ -192,11 +192,11 @@ export default config;
 
 ### Themable Colors
 
-Themable colors are configurable and can adapt with multiple themes. By default, themable colors will adapt to `dark` and `light` themes, but you can easily add more themes to your project. 
+Themable colors are configurable and can adapt with multiple themes. By default, themable colors will adapt to `dark` and `light` themes, but you can easily add more themes to your project.
 
 The following themable colors are available:
 
-<Colors className="grid-cols-6 gap-2.5">
+<Colors className="grid-cols-3 gap-2.5 gap-y-6 md:grid-cols-6">
   <Colors.ColorThemable className="bg-background" title="Background" />
   <Colors.ColorThemable className="bg-foreground" title="Foreground" />
   <Colors.ColorThemable className="bg-primary" title="Primary" />
@@ -211,14 +211,14 @@ By default, `background` and `foreground` colors are applied to the `<html>` ele
 
 The following example demonstrates how a themable color adapts to different themes. Click on the theme button to toggle between dark and light themes.
 
-<PreviewComponent name='colors/themableColors' />
+<PreviewComponent name="colors/themableColors" />
 
 #### Color Scale
 
 Themable color scale is more flexible than Wedges Palette color scale, it is defined like this:
 
 ```tsx showLineNumbers
-type ThemableColorScale = Partial<ColorScale> | string
+type ThemableColorScale = Partial<ColorScale> | string;
 
 type ThemableColors = {
   background: string;
@@ -229,6 +229,7 @@ type ThemableColors = {
   destructive: ThemableColorScale;
 };
 ```
+
 This structure allows for a wide range of customization options, adapting to various design needs.
 
 #### Default Values
@@ -256,7 +257,7 @@ const themableColorsLight: ThemableColors = {
   },
 };
 
- const themableColorsDark: ThemableColors = {
+const themableColorsDark: ThemableColors = {
   background: palette.gray[900],
   foreground: "#FFFFFF",
   primary: {
@@ -285,6 +286,7 @@ const themableColorsLight: ThemableColors = {
   destructive: palette["red"],
 };
 ```
+
 #### Customization
 
 For optimal results, we suggest creating a ten-step graded color scale for your custom colors. You may find these online tools helpful in generating custom color scales: <a href="https://palettte.app/" target="_blank" rel="noreferrer nofollow">Palettte</a> and <a href="https://colors.eva.design/" target="_blank" rel="noreferrer nofollow">Eva Design System</a>.
@@ -297,8 +299,9 @@ import { wedgesTW } from "@lmsqueezy/wedges";
 
 const config: Config = {
   // Other Tailwind CSS options...
-  plugins: [wedgesTW({
-    themes: {
+  plugins: [
+    wedgesTW({
+      themes: {
         dark: {
           colors: {
             primary: {
@@ -317,12 +320,13 @@ const config: Config = {
           },
         },
         light: {
-            colors: { 
-                // Define colors for `light` theme here... 
-            },
+          colors: {
+            // Define colors for `light` theme here...
+          },
         },
       },
-  })],
+    }),
+  ],
 };
 
 export default config;
@@ -330,25 +334,30 @@ export default config;
 
 If you want to use one of the Wedges Color Palette colors, `wedgesPalette` can be imported from `@lmsqueezy/wedges`, for example:
 
-```tsx {10} title="tailwind.config.ts" showLineNumbers /wedgesPalette/
+```tsx {11} title="tailwind.config.ts" showLineNumbers /wedgesPalette/
 import type { Config } from "tailwindcss";
 import { wedgesTW, wedgesPalette } from "@lmsqueezy/wedges";
 
 const config: Config = {
   // Other Tailwind CSS options...
-  plugins: [wedgesTW({
-    themes: {
+  plugins: [
+    wedgesTW({
+      themes: {
         dark: {
           colors: {
             primary: wedgesPalette.yellow,
           },
         },
       },
-  })],
+    }),
+  ],
 };
 
 export default config;
 ```
+
 This will set all ten steps of the yellow color scale as the primary color for the dark theme.
 
-<Alert variant='expanded' className='not-prose'>Ensure that these changes are applied to the `wedgesTW` plugin options, rather than the `theme` section in your `tailwind.config.ts` file.</Alert>
+<Alert variant="expanded" className="not-prose">
+  Ensure that these changes are applied to the `wedgesTW` plugin options, rather than the `theme` section in your `tailwind.config.ts` file.
+</Alert>
