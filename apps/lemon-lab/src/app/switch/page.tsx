@@ -171,7 +171,7 @@ export default function SwitchPage() {
 
           <Checkbox.Root
             asChild
-            className="wg-bg-surface-50 dark:wg-bg-neutral-900 border-surface-100 outline-primary flex w-[300px] cursor-pointer items-center justify-between rounded-lg border px-4 py-3 outline-2 -outline-offset-1 [&:has([data-state=checked])]:outline"
+            className="flex w-[300px] cursor-pointer items-center justify-between rounded-lg border border-surface-100 px-4 py-3 outline-2 -outline-offset-1 outline-primary wg-bg-surface-50 dark:wg-bg-neutral-900 [&:has([data-state=checked])]:outline"
           >
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="custom-checkbox">

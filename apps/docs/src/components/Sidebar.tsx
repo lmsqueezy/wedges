@@ -1,20 +1,20 @@
 "use client";
 
-import { ChevronDownIcon, CloseIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
+import { useId, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useId, useState } from "react";
+import { ChevronDownIcon, CloseIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
+
+import { NavItem } from "@/types/nav";
+import { sidebarConfig } from "@/config/sidebarConfig";
+import { siteConfig } from "@/config/siteConfig";
+import { cn } from "@/lib/utils";
 
 import { Logomark } from "./Logo";
 import { useSidebar } from "./Providers";
 import { ScrollArea } from "./ScrollArea";
 import { Search } from "./Search";
-
-import { sidebarConfig } from "@/config/sidebarConfig";
-import { siteConfig } from "@/config/siteConfig";
-import { cn } from "@/lib/utils";
-import { NavItem } from "@/types/nav";
 
 export function Sidebar() {
   const sidebarNav = sidebarConfig.nav;
@@ -24,7 +24,7 @@ export function Sidebar() {
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
     <aside
       className={cn(
-        "bg-wg-gray-900/50 fixed bottom-0 left-0 top-0 m-0 md:mt-14 md:bg-transparent md:pb-20",
+        "fixed inset-y-0 left-0 m-0 bg-wg-gray-900/50 md:mt-14 md:bg-transparent md:pb-20",
         isSidebarOpen ? "block" : "hidden",
         "z-[60] w-full text-base leading-8 backdrop-blur md:sticky md:top-[104px] md:z-30 md:block md:h-[calc(100vh-119px)] md:shrink-0 md:text-sm md:leading-6 md:backdrop-blur-none"
       )}
@@ -90,8 +90,8 @@ function SidebarDropdown({ item, pathname }: { item: NavItem; pathname?: string 
 
   return (
     <div>
-      <div className="bg-background sticky -top-2 flex items-center justify-between py-2 pl-3">
-        <h3 className="text-surface-900 rounded-md font-medium">{item.label}</h3>
+      <div className="sticky -top-2 flex items-center justify-between bg-background py-2 pl-3">
+        <h3 className="rounded-md font-medium text-surface-900">{item.label}</h3>
 
         <Button
           isIconOnly
@@ -128,7 +128,7 @@ function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname
           <Link
             key={`${id}-${index}`}
             className={cn(
-              "hover:bg-surface flex w-full items-center rounded-md px-3 py-1 !outline-0 transition-colors",
+              "flex w-full items-center rounded-md px-3 py-1 !outline-0 transition-colors hover:bg-surface",
               pathname === item.href
                 ? "font-medium text-purple-600"
                 : "text-surface-500 hover:text-surface-700",

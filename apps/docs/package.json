@@ -6,8 +6,9 @@
     "dev": "pnpm generate:examples && next dev -p 3000",
     "build": "pnpm generate:examples && next build",
     "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "preview": "pnpm generate:examples && next build && next start -p 3000",
-    "typecheck": "contentlayer build && tsc --noEmit",
     "clean": "rm -rf .turbo && rm -rf .contentlayer && rm -rf node_modules && rm -rf .next",
     "generate:examples": "node src/scripts/generateExamples.mjs"
   },
@@ -21,13 +22,11 @@
     "react-dom": "^18",
     "sass": "^1.69.5",
     "shiki": "^0.14.5",
-    "tailwind-merge": "^2.0.0",
-    "zod": "^3"
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
     "@docsearch/react": "^3.5.2",
     "@lmsqueezy/wedges": "workspace:*",
-    "@next/eslint-plugin-next": "^14.0.3",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -35,7 +34,6 @@
     "autoprefixer": "^10.4.16",
     "contentlayer": "latest",
     "eslint": "^8",
-    "eslint-config-next": "14.0.3",
     "mdast-util-toc": "^7.0.0",
     "next-contentlayer": "latest",
     "postcss": "^8",

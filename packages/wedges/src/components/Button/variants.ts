@@ -1,31 +1,31 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "group shrink-0 select-none wg-antialiased text-sm leading-6 transition-colors duration-100 font-medium inline-flex justify-center items-center focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
+  "wg-antialiased group inline-flex shrink-0 select-none items-center justify-center text-sm font-medium leading-6 transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
   {
     variants: {
       size: {
-        "xs-icon": "py-1 px-8px gap-0",
-        sm: "py-1 px-8px gap-0",
-        md: "py-2 px-12px gap-1",
+        "xs-icon": "px-8px gap-0 py-1",
+        sm: "px-8px gap-0 py-1",
+        md: "px-12px gap-1 py-2",
       },
       shape: {
         rounded: "rounded-lg",
         pill: "rounded-full",
       },
       variant: {
-        primary: "bg-primary text-white outline-primary hover:bg-primary-600 disabled:opacity-50",
+        primary: "bg-primary outline-primary hover:bg-primary-600 text-white disabled:opacity-50",
 
         secondary:
-          "bg-secondary text-white dark:text-secondary-900 hover:bg-secondary-700 dark:disabled:text-wg-white-500 dark:hover:bg-secondary-800 outline-secondary disabled:bg-secondary-200",
+          "bg-secondary dark:text-secondary-900 hover:bg-secondary-700 dark:disabled:text-wg-white-500 dark:hover:bg-secondary-800 outline-secondary disabled:bg-secondary-200 text-white",
 
         tertiary: "bg-surface hover:bg-surface-100",
 
         outline:
-          "hover:bg-surface disabled:border-surface-50 border-surface-200 dark:border-surface-100 border shadow-wg-xs dark:shadow:none [--wg-border-width:1px]",
+          "hover:bg-surface disabled:border-surface-50 border-surface-200 dark:border-surface-100 shadow-wg-xs dark:shadow:none border [--wg-border-width:1px]",
 
-        transparent: "bg-transparent hover:bg-surface",
-        link: "p-0 underline underline-offset-3",
+        transparent: "hover:bg-surface bg-transparent",
+        link: "underline-offset-3 p-0 underline",
       },
 
       destructive: {
@@ -48,7 +48,7 @@ export const buttonVariants = cva(
         variant: ["primary", "secondary"],
         destructive: true,
         class:
-          "bg-destructive hover:bg-destructive-600 dark:hover:bg-destructive-600 outline-destructive text-white dark:text-white dark:disabled:text-white disabled:bg-destructive disabled:opacity-50",
+          "bg-destructive hover:bg-destructive-600 dark:hover:bg-destructive-600 outline-destructive disabled:bg-destructive text-white disabled:opacity-50 dark:text-white dark:disabled:text-white",
       },
       {
         variant: "tertiary",

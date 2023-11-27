@@ -1,4 +1,4 @@
-import { SVGProps, forwardRef } from "react";
+import { forwardRef, SVGProps } from "react";
 
 export const StackBlitzIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>((props, ref) => {
   return (

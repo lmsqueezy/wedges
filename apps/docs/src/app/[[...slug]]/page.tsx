@@ -1,9 +1,11 @@
-import { Button } from "@lmsqueezy/wedges";
-import { LinkProperties, allDocs } from "contentlayer/generated";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Button } from "@lmsqueezy/wedges";
+import { allDocs, LinkProperties } from "contentlayer/generated";
 
+import { siteConfig } from "@/config/siteConfig";
+import { getTableOfContents } from "@/lib/toc";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EditPageLink } from "@/components/EditPageLink";
 import { GithubIcon, RadixIcon, StackBlitzIcon } from "@/components/Icons";
@@ -12,8 +14,6 @@ import { Pagination } from "@/components/Pagination";
 import { PreloadResources } from "@/components/PreloadResources";
 import { Prose } from "@/components/Prose";
 import { TableOfContents } from "@/components/TableOfContents";
-import { siteConfig } from "@/config/siteConfig";
-import { getTableOfContents } from "@/lib/toc";
 
 import "@/styles/mdx.scss";
 
@@ -46,10 +46,10 @@ export default async function DocPage({ params }: DocPageProps) {
       <div className="mx-auto w-full min-w-0">
         <Breadcrumbs path={breadcrumbs} />
         <div className="mb-10 space-y-3">
-          <h2 className="text-surface-900 font-display text-4xl tracking-tight">{title}</h2>
+          <h2 className="font-display text-4xl tracking-tight text-surface-900">{title}</h2>
 
           {description ? (
-            <p className="text-surface-600 max-w-md text-base leading-normal [text-wrap:balance] lg:text-lg lg:leading-normal">
+            <p className="max-w-md text-base leading-normal text-surface-600 [text-wrap:balance] lg:text-lg lg:leading-normal">
               {description}
             </p>
           ) : null}

@@ -1,5 +1,5 @@
-import { visit } from "unist-util-visit";
 import { u } from "unist-builder";
+import { visit } from "unist-util-visit";
 
 import { Demos } from "../examples";
 

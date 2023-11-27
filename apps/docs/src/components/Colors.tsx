@@ -1,4 +1,4 @@
-import { HTMLAttributes, forwardRef } from "react";
+import { forwardRef, HTMLAttributes } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -11,10 +11,10 @@ const ColorsWedges = forwardRef<
   return (
     <div className="my-8">
       {title ? (
-        <div className="text-surface-900 mb-3 mt-2 flex items-center gap-2 text-sm font-medium">
+        <div className="mb-3 mt-2 flex items-center gap-2 text-sm font-medium text-surface-900">
           <span>{title}</span>
-          <span className="text-surface-200 select-none text-xs">•</span>
-          <span className="not-prose text-surface-500 font-mono text-xs">{`wg-${title.toLowerCase()}`}</span>
+          <span className="select-none text-xs text-surface-200">•</span>
+          <span className="not-prose font-mono text-xs text-surface-500">{`wg-${title.toLowerCase()}`}</span>
         </div>
       ) : null}
 
@@ -61,8 +61,8 @@ const ColorThemable = forwardRef<
         {...otherProps}
       />
 
-      <span className="text-surface-700 mt-1.5 pl-1 text-xs">{title}</span>
-      {hex && <span className="text-surface-400 pl-1 font-mono text-[9px]">{hex}</span>}
+      <span className="mt-1.5 pl-1 text-xs text-surface-700">{title}</span>
+      {hex && <span className="pl-1 font-mono text-[9px] text-surface-400">{hex}</span>}
     </div>
   );
 });

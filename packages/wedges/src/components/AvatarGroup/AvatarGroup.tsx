@@ -1,5 +1,5 @@
 import * as React from "react";
-import { VariantProps, cva } from "class-variance-authority";
+import { cva, VariantProps } from "class-variance-authority";
 
 import { cn, isReactElement } from "../../helpers/utils";
 import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";

@@ -1,4 +1,5 @@
 "use client";
+
 import { Avatar } from "@lmsqueezy/wedges";
 
 import PageTitle from "@/components/PageTitle";
@@ -96,7 +97,7 @@ export default function AvatarPage() {
                 WG
               </span>
 
-              <Avatar.Status className="bg-wg-red -bottom-1 -left-1" />
+              <Avatar.Status className="-bottom-1 -left-1 bg-wg-red" />
               <Avatar.Notification className="-right-0.5 -top-1 bg-purple-400" />
             </Avatar.Root>
           </div>

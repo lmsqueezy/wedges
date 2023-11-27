@@ -1,17 +1,17 @@
 "use client";
 
-import { MenuIcon, SearchIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MenuIcon, SearchIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
+
+import { siteConfig } from "@/config/siteConfig";
+import { focusClasses } from "@/lib/a11y";
+import { cn } from "@/lib/utils";
 
 import { GithubIcon } from "./Icons";
-import { useSidebar } from "./Providers";
 import { Navigation } from "./Navigation";
-
-import { cn } from "@/lib/utils";
-import { focusClasses } from "@/lib/a11y";
-import { siteConfig } from "@/config/siteConfig";
+import { useSidebar } from "./Providers";
 
 export function WedgesHeader() {
   const { toggleSidebar, toggleSearch } = useSidebar();
@@ -21,7 +21,7 @@ export function WedgesHeader() {
     <>
       <header
         aria-labelledby="wedges-site-title"
-        className="[&_a]:duration-180 sticky top-0 z-50 border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors"
+        className="sticky top-0 z-50 border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors [&_a]:duration-180"
       >
         <div className="container flex min-h-[72px] gap-6 md:grid md:min-h-[88px] md:grid-cols-[1fr_auto_1fr]">
           <Link
@@ -80,12 +80,12 @@ export function WedgesHeader() {
             <Button
               isIconOnly
               aria-label="Open search"
-              className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
+              className="group h-10 w-10 items-center justify-center transition-colors duration-180 hover:text-white"
               data-theme="dark"
               variant="transparent"
               onClick={toggleSearch}
             >
-              <SearchIcon className="duration-180 text-white transition-colors group-hover:opacity-100" />
+              <SearchIcon className="text-white transition-colors duration-180 group-hover:opacity-100" />
             </Button>
 
             {/* Github */}
@@ -93,12 +93,12 @@ export function WedgesHeader() {
               asChild
               isIconOnly
               aria-label="GitHub link"
-              className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
+              className="group h-10 w-10 items-center justify-center transition-colors duration-180 hover:text-white"
               data-theme="dark"
               variant="transparent"
             >
               <a href={siteConfig.github} rel="noreferrer" target="_blank">
-                <GithubIcon className="duration-180 text-white transition-colors group-hover:opacity-100" />
+                <GithubIcon className="text-white transition-colors duration-180 group-hover:opacity-100" />
               </a>
             </Button>
 
@@ -106,12 +106,12 @@ export function WedgesHeader() {
             <Button
               isIconOnly
               aria-label="Open menu"
-              className="duration-180 group h-10 w-10 items-center justify-center transition-colors hover:text-white"
+              className="group h-10 w-10 items-center justify-center transition-colors duration-180 hover:text-white"
               data-theme="dark"
               variant="transparent"
               onClick={toggleSidebar}
             >
-              <MenuIcon className="duration-180 text-white transition-colors group-hover:opacity-100" />
+              <MenuIcon className="text-white transition-colors duration-180 group-hover:opacity-100" />
             </Button>
           </Navigation>
         </div>

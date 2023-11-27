@@ -1,11 +1,11 @@
+import { forwardRef, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import { Demos } from "@/examples";
 import { CodeIcon, EyeIcon, MoonIcon, SunIcon } from "@iconicicons/react";
 import { Button, Tabs, TabsElement, TabsProps } from "@lmsqueezy/wedges";
-import { Suspense, forwardRef, useEffect, useMemo, useRef, useState } from "react";
-
-import { Logomark } from "./Logo";
 
 import { cn } from "@/lib/utils";
-import { Demos } from "@/examples";
+
+import { Logomark } from "./Logo";
 
 type PreviewComponentType = TabsElement;
 type PreviewComponentProps = TabsProps & {
@@ -62,7 +62,7 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
           <div
             ref={previewRef}
             className={cn(
-              "preview not-prose border-surface-100 bg-background text-foreground shadow-wg-xs dark:bg-wg-gray-950 relative flex min-h-[300px] w-full items-center justify-center rounded-lg border p-10 text-sm",
+              "preview not-prose dark:bg-wg-gray-950 relative flex min-h-[300px] w-full items-center justify-center rounded-lg border border-surface-100 bg-background p-10 text-sm text-foreground shadow-wg-xs",
               {
                 "items-center": align === "center",
                 "items-start": align === "start",
@@ -101,7 +101,7 @@ PreviewComponent.displayName = "PreviewComponent";
 
 function SuspenseFallback() {
   return (
-    <div className="text-surface-500 flex flex-col items-center gap-4 text-xs leading-6">
+    <div className="flex flex-col items-center gap-4 text-xs leading-6 text-surface-500">
       <Logomark className="fill-surface-200" fill="none" loading={true} />
       <span>Loading preview</span>
     </div>

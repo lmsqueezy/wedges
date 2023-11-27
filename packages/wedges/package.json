@@ -41,11 +41,13 @@
     "build:watch:cjs": "npm run build:cjs -- --watch",
     "build:watch": "concurrently \"npm:build:watch:*\"",
     "dev": "npm run build:watch",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix"
   },
   "author": {
     "name": "Lemon Squeezy",
-    "email": "hello@wedges.app",
+    "email": "hello@lemonsqueezy.com",
     "url": "https://lemonsqueezy.com/wedges"
   },
   "homepage": "https://lemonsqueezy.com/wedges",
@@ -75,7 +77,7 @@
     "lodash.omit": "^4.5.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwind-merge": "^2.0.0",
-    "tsup": "^7.3.0"
+    "tsup": "^8.0.1"
   },
   "dependencies": {
     "@iconicicons/react": "latest",

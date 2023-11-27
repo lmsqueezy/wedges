@@ -12,13 +12,13 @@ export const notificationClasses =
 export const avatarVariants = cva(rootClasses, {
   variants: {
     size: {
-      xxs: "h-4 min-w-4 text-xxs [--wg-notification-size:4px]",
-      xs: "h-6 min-w-6 text-xs [--wg-notification-size:6px]",
-      sm: "h-8 min-w-8 text-sm [--wg-notification-size:8px]",
-      md: "h-10 min-w-10 text-base [--wg-notification-size:10px]",
-      lg: "h-12 min-w-12 text-lg [--wg-notification-size:12px]",
-      xl: "h-14 min-w-14 text-xl [--wg-notification-size:14px]",
-      "2xl": "h-16 min-w-16 text-2xl [--wg-notification-size:16px]",
+      xxs: "min-w-4 text-xxs h-4 [--wg-notification-size:4px]",
+      xs: "min-w-6 h-6 text-xs [--wg-notification-size:6px]",
+      sm: "min-w-8 h-8 text-sm [--wg-notification-size:8px]",
+      md: "min-w-10 h-10 text-base [--wg-notification-size:10px]",
+      lg: "min-w-12 h-12 text-lg [--wg-notification-size:12px]",
+      xl: "min-w-14 h-14 text-xl [--wg-notification-size:14px]",
+      "2xl": "min-w-16 h-16 text-2xl [--wg-notification-size:16px]",
     },
   },
   defaultVariants: {
@@ -29,13 +29,13 @@ export const avatarVariants = cva(rootClasses, {
 export const fallbackVariants = cva("", {
   variants: {
     size: {
-      xxs: "w-3 h-3",
-      xs: "w-4 h-4",
-      sm: "w-5 h-5",
-      md: "w-6 h-6",
-      lg: "w-7 h-7",
-      xl: "w-8 h-8",
-      "2xl": "w-10 h-10",
+      xxs: "h-3 w-3",
+      xs: "h-4 w-4",
+      sm: "h-5 w-5",
+      md: "h-6 w-6",
+      lg: "h-7 w-7",
+      xl: "h-8 w-8",
+      "2xl": "h-10 w-10",
     },
   },
   defaultVariants: {

@@ -140,7 +140,7 @@ export default function BadgePage() {
 
               <Badge
                 before={
-                  <span className="before:bg-wg-green flex h-4 w-4 items-center justify-center rounded-full before:flex before:aspect-square before:w-[6px] before:rounded-full before:content-['']" />
+                  <span className="flex h-4 w-4 items-center justify-center rounded-full before:flex before:aspect-square before:w-[6px] before:rounded-full before:bg-wg-green before:content-['']" />
                 }
               >
                 Online

@@ -4,10 +4,10 @@ import { Slot } from "@radix-ui/react-slot";
 import {
   AnchorHTMLAttributes,
   ComponentPropsWithoutRef,
-  HTMLAttributes,
-  SVGAttributes,
   forwardRef,
+  HTMLAttributes,
   isValidElement,
+  SVGAttributes,
 } from "react";
 
 import { focusClasses } from "@/lib/a11y";

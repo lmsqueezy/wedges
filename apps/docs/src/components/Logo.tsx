@@ -1,4 +1,4 @@
-import { SVGProps, forwardRef } from "react";
+import { forwardRef, SVGProps } from "react";
 
 import { cn } from "@/lib/utils";
 

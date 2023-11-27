@@ -76,7 +76,7 @@ const ToggleGroupItem = React.forwardRef<
         {useAsChild ? (
           React.cloneElement(children, {
             className: cn(
-              "last-of-type:[&+span]:hidden focus:outline-none",
+              "focus:outline-none last-of-type:[&+span]:hidden",
               children.props.className
             ),
           })

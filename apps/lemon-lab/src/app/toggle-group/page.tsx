@@ -83,13 +83,13 @@ export default function ToggleGroupPage() {
 
           <ToggleGroup.Root defaultValue="zoom-out" size="sm" type="single">
             <ToggleGroup.Item asChild isIconOnly value="light">
-              <button className="hover:bg-surface data-[state=on]:bg-primary m-[2px] rounded-s-md p-2 data-[state=on]:text-white">
+              <button className="m-[2px] rounded-s-md p-2 hover:bg-surface data-[state=on]:bg-primary data-[state=on]:text-white">
                 <SunIcon className="h-6 w-6 text-current" />
               </button>
             </ToggleGroup.Item>
 
             <ToggleGroup.Item asChild isIconOnly value="dark">
-              <button className="hover:bg-surface data-[state=on]:bg-primary m-[2px] rounded-e-md p-2 data-[state=on]:text-white">
+              <button className="m-[2px] rounded-e-md p-2 hover:bg-surface data-[state=on]:bg-primary data-[state=on]:text-white">
                 <MoonIcon className="h-6 w-6 text-current" />
               </button>
             </ToggleGroup.Item>

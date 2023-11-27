@@ -3,10 +3,10 @@
 import * as React from "react";
 import { useMemo } from "react";
 
-import { useMounted } from "@/hooks/useMounted";
-import { useActiveItem } from "@/hooks/useActiveMenu";
-import { cn } from "@/lib/utils";
 import { Items } from "@/lib/toc";
+import { cn } from "@/lib/utils";
+import { useActiveItem } from "@/hooks/useActiveMenu";
+import { useMounted } from "@/hooks/useMounted";
 
 type TOCProps = Items;
 
@@ -35,8 +35,8 @@ export function TableOfContents({ items }: TOCProps) {
   }
 
   return (
-    <div className="border-surface-100 sticky top-28 hidden space-y-2 self-start border-l text-sm leading-6 xl:block">
-      <p className="text-surface-900 -mt-2 px-4 py-2 font-medium">On this page</p>
+    <div className="sticky top-28 hidden space-y-2 self-start border-l border-surface-100 text-sm leading-6 xl:block">
+      <p className="-mt-2 px-4 py-2 font-medium text-surface-900">On this page</p>
       <Tree activeItemId={activeItemId ?? undefined} items={items} />
     </div>
   );
@@ -56,7 +56,7 @@ function Tree({ items, activeItemId, className, sub }: TreeProps) {
   }
 
   return (
-    <ul className={cn("text-surface-500 m-0 list-none space-y-1", sub && "pt-1", className)}>
+    <ul className={cn("m-0 list-none space-y-1 text-surface-500", sub && "pt-1", className)}>
       {items.map((item, index) => {
         return (
           <li key={`${id}-${index}`} className="[&:has(.active)&_>a]:text-surface-900">

@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 const defaultDarkClasses = "dark:wg-bg-surface dark:outline-surface-50";
 
-export const badgeVariants = cva("wg-antialiased rounded-lg py-1 px-2 inline-flex items-center", {
+export const badgeVariants = cva("wg-antialiased inline-flex items-center rounded-lg px-2 py-1", {
   variants: {
     size: {
       sm: "text-xs leading-4",
@@ -51,7 +51,7 @@ export const badgeVariants = cva("wg-antialiased rounded-lg py-1 px-2 inline-fle
       pill: "rounded-full",
     },
     stroke: {
-      true: "outline -outline-offset-1 outline-1",
+      true: "outline outline-1 -outline-offset-1",
       false: "",
     },
   },

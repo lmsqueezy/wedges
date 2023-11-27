@@ -1,8 +1,8 @@
 export default function ColorsExample() {
   return (
-    <div className="bg-surface border-surface-100 flex flex-col items-center rounded border p-20 leading-6">
+    <div className="flex flex-col items-center rounded border border-surface-100 bg-surface p-20 leading-6">
       <span className="text-surface-500">Easy Peasy</span>
-      <span className="text-surface-900 font-medium">Lemon Squeezy</span>
+      <span className="font-medium text-surface-900">Lemon Squeezy</span>
     </div>
   );
 }

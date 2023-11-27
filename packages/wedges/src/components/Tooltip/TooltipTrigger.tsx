@@ -1,5 +1,5 @@
-import { TooltipTrigger as PrimitiveTrigger } from "@radix-ui/react-tooltip";
 import * as React from "react";
+import { TooltipTrigger as PrimitiveTrigger } from "@radix-ui/react-tooltip";
 
 import { cn, isReactElement } from "../../helpers/utils";
 import { InfoIcon } from "../icons";

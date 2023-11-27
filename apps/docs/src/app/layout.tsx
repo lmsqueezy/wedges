@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
+import { siteConfig } from "@/config/siteConfig";
+import { displayFont, monoFont, sansFont } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
 import { Sidebar } from "@/components/Sidebar";
 import { SiteHeader } from "@/components/SiteHeader";
-import { siteConfig } from "@/config/siteConfig";
-import { displayFont, monoFont, sansFont } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
 
 import "@/styles/globals.css";
 
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           monoFont.variable
         )}
       >
-        <div className="min-h-screen-dvh flex flex-col">
+        <div className="flex min-h-screen-dvh flex-col">
           <Providers>
             <SiteHeader />
 

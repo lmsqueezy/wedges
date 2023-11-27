@@ -16,7 +16,6 @@ dist-ssr
 .turbo
 
 # next.js
-/.next/
 .next/
 /out/
 
@@ -51,7 +50,7 @@ coverage/
 next-env.d.ts
 
 # content layer
-.contentlayer
+.contentlayer/
 
 # allow local todo files in the project
 TODO.md
