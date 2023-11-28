@@ -139,19 +139,19 @@ const NavDropdownLink = forwardRef<
       ref={ref}
       className={cn(
         focusClasses,
-        "duration-180 group flex select-none flex-col justify-center rounded-lg px-4 py-3 outline-white transition-colors hover:bg-white",
+        "duration-180 group flex select-none flex-col justify-center rounded-lg px-4 py-3 outline-white transition-colors hover:bg-white focus-visible:bg-white",
         className
       )}
       {...otherProps}
     >
-      <span className="duration-180 flex items-center text-base leading-[1.6] text-white transition-colors group-hover:text-gray-900">
+      <span className="duration-180 flex items-center text-base leading-[1.6] text-white transition-colors group-hover:text-gray-900 group-focus-visible:text-gray-900">
         <span>{label}</span>
         {badge === "new" && newBadge}
         {badge === "updates" && updatesBadge}
         <ArrowRightIcon className="duration-180 text-gray-900 opacity-0 transition-all group-hover:translate-x-1.5 group-hover:opacity-100" />
       </span>
 
-      <span className="duration-180 text-sm leading-[1.7] text-white/60 transition-colors group-hover:text-gray-500">
+      <span className="duration-180 text-sm leading-[1.7] text-white/60 transition-colors group-hover:text-gray-500 group-focus-visible:text-gray-500">
         {description}
       </span>
     </Link>
@@ -172,21 +172,16 @@ const NavDropdownBlogLink = forwardRef<
       ref={ref}
       className={cn(
         focusClasses,
-        "duration-180 group flex select-none flex-col rounded-lg p-4 leading-6 outline-white transition-colors hover:bg-white",
+        "duration-180 group flex select-none flex-col rounded-lg p-4 leading-6 outline-white transition-colors hover:bg-white focus-visible:bg-white",
         className
       )}
       {...otherProps}
     >
-      <Image
-        className="mb-5 rounded-md bg-gray-50"
-        src={imgSrc}
-        alt={label}
-        width={292}
-        height={186}
-        placeholder="empty"
-      />
+      <div className="relative mb-5 aspect-[3/2] w-full rounded-md bg-gray-50">
+        <Image className="rounded-md" src={imgSrc} alt={label} layout="fill" placeholder="empty" />
+      </div>
 
-      <span className="duration-180 flex items-center text-base text-white transition-colors group-hover:text-gray-900">
+      <span className="duration-180 flex items-center text-base text-white transition-colors group-hover:text-gray-900 group-focus-visible:text-gray-900">
         {label}
       </span>
     </Link>
@@ -221,7 +216,7 @@ const NavDropdownTitle = forwardRef<HTMLDivElement, NavDropdownTitleProps>(
 
         {buttonLabel && (
           <Link
-            className="duration-180 group flex items-center gap-1.5 text-white/60 transition-colors hover:text-white"
+            className="duration-180 group flex items-center gap-1.5 text-white/60 outline-white transition-colors hover:text-white focus-visible:outline-offset-2"
             href={buttonHref}
           >
             <span>{buttonLabel}</span>

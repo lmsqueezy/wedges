@@ -173,22 +173,22 @@ type LinksConfig = {
 function ResourcesDropdown() {
   const links: LinksConfig[] = [
     {
-      label: "Help center",
+      label: "Help Center",
       description: "Need help or have a question?",
       href: "https://www.lemonsqueezy.com/help",
     },
     {
-      label: "Help docs",
+      label: "Help Docs",
       description: "Detailed help docs and knowledge base",
       href: "https://docs.lemonsqueezy.com/help",
     },
     {
-      label: "Developer docs",
+      label: "Developer Docs",
       description: "Browse our extensive developer docs",
       href: "https://docs.lemonsqueezy.com/api",
     },
     {
-      label: "Suggest a feature",
+      label: "Suggest a Feature",
       description: "Vote on new ideas or suggest your own",
       href: "https://www.lemonsqueezy.com/suggest-feature",
     },
@@ -238,7 +238,7 @@ function ResourcesDropdown() {
           />
 
           <Navigation.DropdownBlogLink
-            href="https://www.lemonsqueezy.com/case-study/uipress"
+            href="https://www.lemonsqueezy.com/blog/50m-valuation"
             imgSrc="https://assets-global.website-files.com/6347244ba8d63461aa51c0af/655b80f26454aa9bd55bfa50_50m-min.jpg"
             label="Turning down a Series A term sheet ($50m+ valuation)"
           />
