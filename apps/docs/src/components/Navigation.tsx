@@ -1,6 +1,5 @@
 "use client";
 
-import { Slot } from "@radix-ui/react-slot";
 import {
   AnchorHTMLAttributes,
   ComponentPropsWithoutRef,
@@ -9,12 +8,13 @@ import {
   isValidElement,
   SVGAttributes,
 } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Transition } from "@headlessui/react";
+import { Slot } from "@radix-ui/react-slot";
 
 import { focusClasses } from "@/lib/a11y";
 import { cn } from "@/lib/utils";
-import { Transition } from "@headlessui/react";
-import Link from "next/link";
-import Image from "next/image";
 
 /* -------------------------------------------------------------------------- */
 /*                               Navigation Root                              */
@@ -85,7 +85,7 @@ const NavDropdown = forwardRef<
         ref={ref}
         role="menu"
         className={cn(
-          "absolute left-0 right-0 top-full z-[50] cursor-default border-t border-white/20 bg-purple-600 shadow-2xl",
+          "absolute inset-x-0 top-full z-[50] cursor-default border-t border-white/20 bg-purple-600 shadow-2xl",
           className
         )}
         {...otherProps}
@@ -116,8 +116,24 @@ const NavDropdownLink = forwardRef<
   ComponentPropsWithoutRef<typeof Link> & {
     label: string;
     description?: string;
+    badge?: "new" | "updates";
   }
->(({ className, label, description, ...otherProps }, ref) => {
+>(({ className, badge, label, description, ...otherProps }, ref) => {
+  const newBadge = (
+    <span
+      className="ml-2 rounded-full bg-orange-200 px-3 text-sm leading-6 text-[#8a6100]"
+      aria-hidden
+    >
+      new
+    </span>
+  );
+
+  const updatesBadge = (
+    <span className="ml-2 rounded-full bg-purple-500 px-3 text-sm leading-6 text-white">
+      updates
+    </span>
+  );
+
   return (
     <Link
       ref={ref}
@@ -130,6 +146,8 @@ const NavDropdownLink = forwardRef<
     >
       <span className="duration-180 flex items-center text-base leading-[1.6] text-white transition-colors group-hover:text-gray-900">
         <span>{label}</span>
+        {badge === "new" && newBadge}
+        {badge === "updates" && updatesBadge}
         <ArrowRightIcon className="duration-180 text-gray-900 opacity-0 transition-all group-hover:translate-x-1.5 group-hover:opacity-100" />
       </span>
 
@@ -148,7 +166,7 @@ const NavDropdownBlogLink = forwardRef<
     description?: string;
     imgSrc: string;
   }
->(({ className, label, imgSrc, description, ...otherProps }, ref) => {
+>(({ className, label, imgSrc, ...otherProps }, ref) => {
   return (
     <Link
       ref={ref}
