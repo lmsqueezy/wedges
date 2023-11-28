@@ -29,13 +29,24 @@ const config: Config = {
       },
       animation: {
         flash: "flash 1s ease-in-out infinite",
+        "fade-in": "fadeIn 0.5s ease-in-out",
+        "fade-out": "fadeOut 0.5s ease-in-out",
       },
       keyframes: {
         flash: {
           "0%, 20%": { opacity: "0.4" },
           "70%, 100%": { opacity: "1" },
         },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeOut: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
       },
+
       maxWidth: {
         "8xl": "88rem",
         "9xl": "96rem",

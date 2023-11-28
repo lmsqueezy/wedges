@@ -77,7 +77,7 @@
     "lodash.omit": "^4.5.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwind-merge": "^2.0.0",
-    "tsup": "^7.3.0"
+    "tsup": "^8.0.1"
   },
   "dependencies": {
     "@iconicicons/react": "latest",

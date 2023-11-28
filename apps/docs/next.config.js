@@ -14,6 +14,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "assets-global.website-files.com",
+      },
     ],
   },
   redirects() {
