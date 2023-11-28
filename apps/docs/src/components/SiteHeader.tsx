@@ -48,7 +48,7 @@ function LemonSqueezyHeader() {
   };
 
   return (
-    <header className="[&_a]:duration-180 relative border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors">
+    <header className="relative border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors [&_a]:duration-180">
       <div className="container flex min-h-[88px] items-center justify-start gap-6 md:grid-cols-[1fr_auto_1fr] lg:grid">
         <a
           aria-label="Lemon Squeezy home page"
@@ -145,7 +145,7 @@ function LemonSqueezyHeader() {
 
           <Button
             asChild
-            className="!text-wg-gray-900 group gap-[6px] !bg-white px-5 py-2 text-[15px] tracking-[-0.01em] !outline-white hover:[&_svg]:hidden"
+            className="group gap-[6px] !bg-white px-5 py-2 text-[15px] tracking-[-0.01em] !text-wg-gray-900 !outline-white hover:[&_svg]:hidden"
             shape="pill"
           >
             <a href="https://app.lemonsqueezy.com/register">
@@ -153,7 +153,7 @@ function LemonSqueezyHeader() {
 
               <ArrowRightIcon
                 aria-hidden
-                className="duration-180 pointer-events-none transition-transform group-hover:translate-x-2"
+                className="pointer-events-none transition-transform duration-180 group-hover:translate-x-2"
               />
             </a>
           </Button>

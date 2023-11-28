@@ -40,8 +40,8 @@ const Color = forwardRef<
         {...otherProps}
       />
 
-      <span className="text-surface-700 mt-1 pl-1 text-center text-xs md:text-start">{title}</span>
-      <span className="text-surface-400 hidden pl-1 font-mono text-[9px] md:block">{hex}</span>
+      <span className="mt-1 pl-1 text-center text-xs text-surface-700 md:text-start">{title}</span>
+      <span className="hidden pl-1 font-mono text-[9px] text-surface-400 md:block">{hex}</span>
     </div>
   );
 });

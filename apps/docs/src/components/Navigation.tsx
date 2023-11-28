@@ -50,7 +50,7 @@ const NavItem = forwardRef<
       {...otherProps}
       className={cn(
         focusClasses,
-        "duration-180 z-[51] -mb-px inline-flex shrink-0 items-center justify-center border-b-2 border-transparent px-[10px] outline-white transition-colors hover:text-white lg:px-4",
+        "z-[51] -mb-px inline-flex shrink-0 items-center justify-center border-b-2 border-transparent px-[10px] outline-white transition-colors duration-180 hover:text-white lg:px-4",
         active && "border-yellow-500 text-white",
         !active && "hover:text-white",
         className
@@ -139,19 +139,19 @@ const NavDropdownLink = forwardRef<
       ref={ref}
       className={cn(
         focusClasses,
-        "duration-180 group flex select-none flex-col justify-center rounded-lg px-4 py-3 outline-white transition-colors hover:bg-white focus-visible:bg-white",
+        "group flex select-none flex-col justify-center rounded-lg px-4 py-3 outline-white transition-colors duration-180 hover:bg-white focus-visible:bg-white",
         className
       )}
       {...otherProps}
     >
-      <span className="duration-180 flex items-center text-base leading-[1.6] text-white transition-colors group-hover:text-gray-900 group-focus-visible:text-gray-900">
+      <span className="flex items-center text-base leading-[1.6] text-white transition-colors duration-180 group-hover:text-gray-900 group-focus-visible:text-gray-900">
         <span>{label}</span>
         {badge === "new" && newBadge}
         {badge === "updates" && updatesBadge}
-        <ArrowRightIcon className="duration-180 text-gray-900 opacity-0 transition-all group-hover:translate-x-1.5 group-hover:opacity-100" />
+        <ArrowRightIcon className="text-gray-900 opacity-0 transition-all duration-180 group-hover:translate-x-1.5 group-hover:opacity-100" />
       </span>
 
-      <span className="duration-180 text-sm leading-[1.7] text-white/60 transition-colors group-hover:text-gray-500 group-focus-visible:text-gray-500">
+      <span className="text-sm leading-[1.7] text-white/60 transition-colors duration-180 group-hover:text-gray-500 group-focus-visible:text-gray-500">
         {description}
       </span>
     </Link>
@@ -172,7 +172,7 @@ const NavDropdownBlogLink = forwardRef<
       ref={ref}
       className={cn(
         focusClasses,
-        "duration-180 group flex select-none flex-col rounded-lg p-4 leading-6 outline-white transition-colors hover:bg-white focus-visible:bg-white",
+        "group flex select-none flex-col rounded-lg p-4 leading-6 outline-white transition-colors duration-180 hover:bg-white focus-visible:bg-white",
         className
       )}
       {...otherProps}
@@ -181,7 +181,7 @@ const NavDropdownBlogLink = forwardRef<
         <Image className="rounded-md" src={imgSrc} alt={label} layout="fill" placeholder="empty" />
       </div>
 
-      <span className="duration-180 flex items-center text-base text-white transition-colors group-hover:text-gray-900 group-focus-visible:text-gray-900">
+      <span className="flex items-center text-base text-white transition-colors duration-180 group-hover:text-gray-900 group-focus-visible:text-gray-900">
         {label}
       </span>
     </Link>
@@ -216,11 +216,11 @@ const NavDropdownTitle = forwardRef<HTMLDivElement, NavDropdownTitleProps>(
 
         {buttonLabel && (
           <Link
-            className="duration-180 group flex items-center gap-1.5 text-white/60 outline-white transition-colors hover:text-white focus-visible:outline-offset-2"
+            className="group flex items-center gap-1.5 text-white/60 outline-white transition-colors duration-180 hover:text-white focus-visible:outline-offset-2"
             href={buttonHref}
           >
             <span>{buttonLabel}</span>
-            <ArrowRightIcon className="duration-180 transition-transform group-hover:translate-x-1" />
+            <ArrowRightIcon className="transition-transform duration-180 group-hover:translate-x-1" />
           </Link>
         )}
       </div>
