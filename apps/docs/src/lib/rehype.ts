@@ -19,17 +19,8 @@ export const preProcess = () => (tree: any) => {
 
 export const postProcess = () => (tree: any) => {
   visit(tree, "element", (node) => {
-    if (node?.type === "element" && node?.tagName === "span") {
-      if (!("data-rehype-pretty-code-fragment" in node.properties)) {
-        return;
-      }
-
-      // Skip for inline code
-      node.properties = undefined;
-    }
-
-    if (node?.type === "element" && node?.tagName === "div") {
-      if (!("data-rehype-pretty-code-fragment" in node.properties)) {
+    if (node?.type === "element" && node?.tagName === "figure") {
+      if (!("data-rehype-pretty-code-figure" in node.properties)) {
         return;
       }
 

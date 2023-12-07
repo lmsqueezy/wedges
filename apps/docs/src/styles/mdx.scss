@@ -1,17 +1,4 @@
-body [data-rehype-pretty-code-fragment]:is(span) {
-  @apply inline-flex;
-
-  code {
-    @apply text-surface-900 rounded px-1;
-    background-color: #eee !important;
-
-    .line span {
-      color: #000 !important;
-    }
-  }
-}
-
-[data-rehype-pretty-code-fragment] {
+[data-rehype-pretty-code-figure] {
   @apply relative;
 
   &:has([data-rehype-pretty-code-title]) .wg-copy-button {
