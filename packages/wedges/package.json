@@ -75,8 +75,8 @@
     "clsx": "^2.0.0",
     "concurrently": "^8.2.2",
     "lodash.omit": "^4.5.0",
-    "prettier-plugin-tailwindcss": "^0.5.7",
-    "tailwind-merge": "^2.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "tailwind-merge": "^2.1.0",
     "tsup": "^8.0.1"
   },
   "dependencies": {
