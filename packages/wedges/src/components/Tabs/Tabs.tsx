@@ -116,7 +116,7 @@ const TabsTrigger = React.forwardRef<
       asChild={asChild}
       className={cn(
         // base
-        "text-surface-500 outline-primary inline-flex items-center justify-center gap-1 whitespace-nowrap transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex items-center justify-center gap-1 whitespace-nowrap text-surface-500 outline-primary transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50",
 
         tabVariants({ variant }),
         className

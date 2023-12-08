@@ -26,15 +26,15 @@ const {
 
 /* -------------------------------- Variants -------------------------------- */
 
-const tooltipVariant = cva(["wg-antialiased z-50 rounded-md text-white"], {
+const tooltipVariant = cva(["z-50 rounded-md text-white wg-antialiased"], {
   variants: {
     size: {
       sm: "max-w-xs px-3 py-2 text-xs",
       md: "max-w-xs px-4 py-3 text-sm",
     },
     color: {
-      primary: "wg-bg-primary text-white",
-      secondary: "wg-bg-secondary dark:text-secondary-900 text-white ",
+      primary: "text-white wg-bg-primary",
+      secondary: "text-white wg-bg-secondary dark:text-secondary-900 ",
     },
   },
   defaultVariants: {

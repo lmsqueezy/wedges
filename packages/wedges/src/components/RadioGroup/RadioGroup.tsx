@@ -156,8 +156,8 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
           ref={ref}
           aria-labelledby={label ? `${elId}__label` : undefined}
           className={cn(
-            "outline-primary text-surface-200 group relative flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
-            isDisabled && "text-surface-200 dark:text-surface-100 pointer-events-none",
+            "group relative flex h-6 w-6 items-center justify-center rounded-full text-surface-200 outline-primary transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
+            isDisabled && "pointer-events-none text-surface-200 dark:text-surface-100",
             !isDisabled && "hover:text-surface-300 data-[state=checked]:text-primary"
           )}
           disabled={isDisabled}
@@ -181,7 +181,7 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
           <RadioGroupPrimitive.Indicator asChild>
             <svg
               className={cn(
-                "text-primary absolute aspect-square w-full scale-100",
+                "absolute aspect-square w-full scale-100 text-primary",
                 isDisabled && "text-surface-200 dark:text-surface-100"
               )}
               fill="none"

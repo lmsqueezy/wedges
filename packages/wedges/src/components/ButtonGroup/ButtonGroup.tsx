@@ -72,7 +72,7 @@ const ButtonGroupWedges = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
         <div
           ref={ref}
           className={cn(
-            "border-surface-200 dark:border-surface-100 shadow-wg-xs dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border",
+            "dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border border-surface-200 shadow-wg-xs dark:border-surface-100",
             orientation === "vertical" && "flex-col",
             className
           )}
@@ -115,7 +115,7 @@ const ButtonGroupItem = React.forwardRef<ButtonElement, ButtonGroupItemProps>(
 
         <span
           aria-hidden
-          className={cn("bg-surface-100 flex w-px", orientation === "vertical" && "h-px w-full")}
+          className={cn("flex w-px bg-surface-100", orientation === "vertical" && "h-px w-full")}
         />
       </>
     );

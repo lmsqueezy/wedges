@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 const defaultDarkClasses = "dark:wg-bg-surface dark:outline-surface-50";
 
-export const badgeVariants = cva("wg-antialiased inline-flex items-center rounded-lg px-2 py-1", {
+export const badgeVariants = cva("inline-flex items-center rounded-lg px-2 py-1 wg-antialiased", {
   variants: {
     size: {
       sm: "text-xs leading-4",
@@ -10,39 +10,39 @@ export const badgeVariants = cva("wg-antialiased inline-flex items-center rounde
     },
     color: {
       gray: [
-        "wg-bg-surface text-surface-900 dark:text-surface-800 outline-surface-200 dark:outline-surface-100",
+        "text-surface-900 outline-surface-200 wg-bg-surface dark:text-surface-800 dark:outline-surface-100",
         defaultDarkClasses,
       ],
       green: [
-        "wg-bg-wg-green-50 outline-wg-green-200 text-wg-green-800 dark:text-wg-green",
+        "text-wg-green-800 outline-wg-green-200 wg-bg-wg-green-50 dark:text-wg-green",
         defaultDarkClasses,
       ],
       purple: [
-        "wg-bg-wg-purple-50 outline-wg-purple-200 text-wg-purple-700 dark:text-wg-purple-400",
+        "text-wg-purple-700 outline-wg-purple-200 wg-bg-wg-purple-50 dark:text-wg-purple-400",
         defaultDarkClasses,
       ],
       orange: [
-        "wg-bg-wg-orange-50 outline-wg-orange-200 text-wg-orange-800 dark:text-wg-orange",
+        "text-wg-orange-800 outline-wg-orange-200 wg-bg-wg-orange-50 dark:text-wg-orange",
         defaultDarkClasses,
       ],
       red: [
-        "wg-bg-wg-red-50 outline-wg-red-200 text-wg-red-700 dark:text-wg-red",
+        "text-wg-red-700 outline-wg-red-200 wg-bg-wg-red-50 dark:text-wg-red",
         defaultDarkClasses,
       ],
       pink: [
-        "wg-bg-wg-pink-50 outline-wg-pink-200 text-wg-pink-700 dark:text-wg-pink",
+        "text-wg-pink-700 outline-wg-pink-200 wg-bg-wg-pink-50 dark:text-wg-pink",
         defaultDarkClasses,
       ],
       blue: [
-        "wg-bg-wg-blue-50 outline-wg-blue-200 text-wg-blue-700 dark:text-wg-blue",
+        "text-wg-blue-700 outline-wg-blue-200 wg-bg-wg-blue-50 dark:text-wg-blue",
         defaultDarkClasses,
       ],
       yellow: [
-        "wg-bg-wg-yellow-50 outline-wg-yellow-300 text-wg-yellow-800 dark:text-wg-yellow",
+        "text-wg-yellow-800 outline-wg-yellow-300 wg-bg-wg-yellow-50 dark:text-wg-yellow",
         defaultDarkClasses,
       ],
       primary: [
-        "wg-bg-primary-50 outline-primary-200 text-primary-800 dark:text-primary-300",
+        "text-primary-800 outline-primary-200 wg-bg-primary-50 dark:text-primary-300",
         defaultDarkClasses,
       ],
     },

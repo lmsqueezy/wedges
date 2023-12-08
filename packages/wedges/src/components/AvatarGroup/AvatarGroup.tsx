@@ -74,7 +74,7 @@ const AvatarMoreLabel = React.forwardRef<AvatarElement, AvatarMoreLabelProps>(
         ref={ref}
         asChild={isReactElement(children)}
         className={cn(
-          "ring-background bg-surface-200 aspect-auto h-full px-2 font-medium text-white ring-2 dark:text-white",
+          "aspect-auto h-full bg-surface-200 px-2 font-medium text-white ring-2 ring-background dark:text-white",
           className
         )}
         size={size}
@@ -94,7 +94,7 @@ const AvatarGroupItem = React.forwardRef<
   return (
     <Avatar
       ref={ref}
-      className={cn("ring-background ring-2 backdrop-blur-3xl", className)}
+      className={cn("ring-2 ring-background backdrop-blur-3xl", className)}
       initials={initials}
       {...otherProps}
     >

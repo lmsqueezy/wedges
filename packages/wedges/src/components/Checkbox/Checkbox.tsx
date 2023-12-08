@@ -143,8 +143,8 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
           aria-labelledby={label ? `${elId}__label` : undefined}
           checked={checked}
           className={cn(
-            "outline-primary text-surface-200 group relative flex h-6 w-6 items-center justify-center rounded-lg transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
-            isDisabled && "text-surface-200 dark:text-surface-100 pointer-events-none",
+            "group relative flex h-6 w-6 items-center justify-center rounded-lg text-surface-200 outline-primary transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
+            isDisabled && "pointer-events-none text-surface-200 dark:text-surface-100",
             !isDisabled && !isIndeterminate && "hover:text-surface-300",
             !isDisabled && isIndeterminate && "text-primary",
             className
@@ -155,7 +155,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
         >
           {renderEmptyBox}
 
-          <CheckboxPrimitive.Indicator asChild className="text-primary absolute">
+          <CheckboxPrimitive.Indicator asChild className="absolute text-primary">
             {renderCheckedBox}
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>

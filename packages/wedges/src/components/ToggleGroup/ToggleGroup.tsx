@@ -45,7 +45,7 @@ const ToggleGroupWedges = React.forwardRef<ToggleGroupElement, ToggleGroupProps>
         <ToggleGroupPrimitive.Root
           ref={ref}
           className={cn(
-            "border-surface-200 dark:border-surface-100 shadow-wg-xs dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border",
+            "dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border border-surface-200 shadow-wg-xs dark:border-surface-100",
             orientation === "vertical" && "flex-col",
             className
           )}
@@ -86,7 +86,7 @@ const ToggleGroupItem = React.forwardRef<
             after={after}
             before={before}
             className={cn(
-              "data-[state=on]:bg-surface-50 rounded-none focus-visible:z-10 focus-visible:-outline-offset-1 last-of-type:[&+span]:hidden",
+              "rounded-none focus-visible:z-10 focus-visible:-outline-offset-1 data-[state=on]:bg-surface-50 last-of-type:[&+span]:hidden",
               orientation === "horizontal"
                 ? "first-of-type:rounded-s-lg last-of-type:rounded-e-lg"
                 : "first-of-type:rounded-t-lg last-of-type:rounded-b-lg"
@@ -104,7 +104,7 @@ const ToggleGroupItem = React.forwardRef<
 
       <span
         aria-hidden
-        className={cn("bg-surface-100 flex w-px", orientation === "vertical" && "h-px w-full")}
+        className={cn("flex w-px bg-surface-100", orientation === "vertical" && "h-px w-full")}
       />
     </>
   );
