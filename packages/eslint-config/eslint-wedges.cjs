@@ -10,7 +10,13 @@ const config = {
     es2021: true,
     node: true,
   },
-  extends: ["eslint:recommended", "prettier", "turbo", "plugin:jsx-a11y/recommended"],
+  extends: [
+    "eslint:recommended",
+    "prettier",
+    "turbo",
+    "plugin:jsx-a11y/recommended",
+    "plugin:tailwindcss/recommended",
+  ],
   plugins: ["jsx-a11y"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -24,6 +30,9 @@ const config = {
     react: {
       version: "detect",
     },
+    tailwindcss: {
+      callees: ["cn", "clsx", "cva"],
+    },
     "import/resolver": {
       typescript: {
         project,
@@ -34,11 +43,16 @@ const config = {
     // Ignore dotfiles
     ".*.js",
     ".*.cjs",
+    "tailwind.config.cjs",
     "node_modules/",
     "dist/",
   ],
   rules: {
     "no-console": "warn",
+    "no-unused-vars": "off",
+
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/classnames-order": "off",
   },
 };
 
