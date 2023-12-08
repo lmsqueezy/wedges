@@ -11,13 +11,15 @@ const config = {
     node: true,
   },
   extends: [
-    "eslint:recommended",
-    "prettier",
     "turbo",
+    "eslint:recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:tailwindcss/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
   ],
-  plugins: ["jsx-a11y"],
+  plugins: ["jsx-a11y", "@typescript-eslint"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
@@ -53,6 +55,16 @@ const config = {
 
     "tailwindcss/no-custom-classname": "off",
     "tailwindcss/classnames-order": "off",
+
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: { attributes: false },
+      },
+    ],
   },
 };
 
