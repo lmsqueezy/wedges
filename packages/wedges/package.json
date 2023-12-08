@@ -80,6 +80,7 @@
     "tsup": "^8.0.1"
   },
   "dependencies": {
+    "@wedges/eslint-config": "workspace:*",
     "@iconicicons/react": "latest",
     "@radix-ui/react-avatar": "latest",
     "@radix-ui/react-checkbox": "^1.0.4",

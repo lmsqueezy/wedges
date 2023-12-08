@@ -1,9 +1,10 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
   "compilerOptions": {
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "ES2022",
-    "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
 
@@ -13,21 +14,16 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
 
-    "moduleResolution": "Node",
-    "module": "ESNext",
-    "outDir": "dist",
-    "sourceMap": true,
-
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-
     "declaration": true,
     "declarationMap": true,
 
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx"
-  },
-  "include": ["packages"],
-  "exclude": ["node_modules", "**/node_modules", "**/dist", "**/.turbo"],
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Default"
+    "jsx": "react-jsx",
+
+    "incremental": false,
+    "isolatedModules": true,
+    "moduleResolution": "Node",
+    "module": "ESNext"
+  }
 }
