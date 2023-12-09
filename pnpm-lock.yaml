@@ -111,6 +111,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.10
         version: 0.5.10(tailwindcss@3.3.6)
+      '@types/hast':
+        specifier: ^3.0.3
+        version: 3.0.3
       '@types/node':
         specifier: ^20
         version: 20.10.4
@@ -120,6 +123,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.2.17
+      '@types/unist':
+        specifier: ^3.0.2
+        version: 3.0.2
       autoprefixer:
         specifier: ^10.4.16
         version: 10.4.16(postcss@8.4.32)
@@ -201,6 +207,9 @@ importers:
 
   packages/eslint-config:
     devDependencies:
+      '@next/eslint-plugin-next':
+        specifier: ^14.0.4
+        version: 14.0.4
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.13.2
         version: 6.13.2(@typescript-eslint/parser@6.13.2)(eslint@8.55.0)(typescript@5.3.3)
@@ -1848,7 +1857,6 @@ packages:
     resolution: {integrity: sha512-U3qMNHmEZoVmHA0j/57nRfi3AscXNvkOnxDmle/69Jz/G0o/gWjXTDdlgILZdrxQ0Lw/jv2mPW8PGy0EGIHXhQ==}
     dependencies:
       glob: 7.1.7
-    dev: false
 
   /@next/swc-darwin-arm64@14.0.4:
     resolution: {integrity: sha512-mF05E/5uPthWzyYDyptcwHptucf/jj09i2SXBPwNzbgBNc+XnwzrL0U6BmPjQeOL+FiB+iG1gwBeq7mlDjSRPg==}
@@ -5518,7 +5526,6 @@ packages:
       minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
-    dev: false
 
   /glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}

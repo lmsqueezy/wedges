@@ -1,3 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 // @ts-nocheck
 "use client";
 
@@ -38,14 +44,14 @@ function Hit({ hit, children }) {
 
 export function Search({ className, ...otherProps }: { className?: string; otherProps?: any }) {
   const { isSearchOpen, toggleSearch } = useSidebar();
-  let [modifierKey, setModifierKey] = useState("command");
+  const [modifierKey, setModifierKey] = useState("command");
 
   const suffixTitle = (title) => {
     if (!title) {
       return title;
     }
 
-    let section = "Wedges Docs";
+    const section = "Wedges Docs";
 
     return `${title} - ${section}`;
   };
@@ -61,7 +67,7 @@ export function Search({ className, ...otherProps }: { className?: string; other
       <Button
         asChild
         className={cn(
-          "group mb-6 mt-2 flex w-full justify-between border-surface-100 !bg-transparent px-12px py-8px shadow-wg-xs outline-primary duration-180 hover:border-surface-200",
+          "duration-180 group mb-6 mt-2 flex w-full justify-between border-surface-100 !bg-transparent px-12px py-8px shadow-wg-xs outline-primary hover:border-surface-200",
           className
         )}
         variant="outline"
@@ -69,7 +75,7 @@ export function Search({ className, ...otherProps }: { className?: string; other
         {...otherProps}
       >
         <button>
-          <span className="flex items-center gap-1.5 text-surface-400 transition-colors duration-180 group-hover:text-surface-500">
+          <span className="duration-180 flex items-center gap-1.5 text-surface-400 transition-colors group-hover:text-surface-500">
             <SearchIcon aria-label="Quick search" className="h-5 w-5" />
             <span className="hidden md:block">Quick search&hellip;</span>
           </span>

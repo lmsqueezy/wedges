@@ -48,7 +48,7 @@ function LemonSqueezyHeader() {
   };
 
   return (
-    <header className="relative border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors [&_a]:duration-180">
+    <header className="[&_a]:duration-180 relative border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors">
       <div className="container flex min-h-[88px] items-center justify-start gap-6 md:grid-cols-[1fr_auto_1fr] lg:grid">
         <a
           aria-label="Lemon Squeezy home page"
@@ -153,7 +153,7 @@ function LemonSqueezyHeader() {
 
               <ArrowRightIcon
                 aria-hidden
-                className="pointer-events-none transition-transform duration-180 group-hover:translate-x-2"
+                className="duration-180 pointer-events-none transition-transform group-hover:translate-x-2"
               />
             </a>
           </Button>
@@ -342,7 +342,7 @@ function PlatformDropdown() {
         <Navigation.DropdownColumn>
           <Navigation.DropdownTitle label="eCommerce" id="dropdown-menu__ecommerce" />
 
-          {links["ecommerce"]?.map(({ label, description, href }, index) => (
+          {links.ecommerce?.map(({ label, description, href }, index) => (
             <Navigation.DropdownLink
               key={`${label}-${index}`}
               href={href}
@@ -357,7 +357,7 @@ function PlatformDropdown() {
         <Navigation.DropdownColumn>
           <Navigation.DropdownTitle label="Features" id="dropdown-menu__features" />
 
-          {links["features"]?.map(({ label, description, href, badge }, index) => (
+          {links.features?.map(({ label, description, href, badge }, index) => (
             <Navigation.DropdownLink
               key={`${label}-${index}`}
               href={href}
@@ -373,7 +373,7 @@ function PlatformDropdown() {
         <Navigation.DropdownColumn>
           <Navigation.DropdownTitle label="Reporting" id="dropdown-menu__reporting" />
 
-          {links["reporting"]?.map(({ label, description, href }, index) => (
+          {links.reporting?.map(({ label, description, href }, index) => (
             <Navigation.DropdownLink
               key={`${label}-${index}`}
               href={href}

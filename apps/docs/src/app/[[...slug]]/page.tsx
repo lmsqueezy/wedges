@@ -1,8 +1,8 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@lmsqueezy/wedges";
-import { allDocs, LinkProperties } from "contentlayer/generated";
+import { allDocs, type LinkProperties } from "contentlayer/generated";
 
 import { siteConfig } from "@/config/siteConfig";
 import { getTableOfContents } from "@/lib/toc";

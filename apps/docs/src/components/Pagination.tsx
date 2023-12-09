@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { ChevronLeftIcon, ChevronRightIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
-import { Doc } from "contentlayer/generated";
+import { type Doc } from "contentlayer/generated";
 
-import { NavItem } from "@/types/nav";
+import { type NavItem } from "@/types/nav";
 import { sidebarConfig } from "@/config/sidebarConfig";
 
 export function Pagination({ doc }: { doc: Doc }) {

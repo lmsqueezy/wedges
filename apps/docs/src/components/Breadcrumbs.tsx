@@ -5,7 +5,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { BreadcrumbsItem } from "./BreadcrumbsItem";
 
 export function Breadcrumbs({ path }: { path: string[] }) {
-  if (!path || !path.length) {
+  if (path?.length) {
     return null;
   }
 

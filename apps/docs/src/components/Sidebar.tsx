@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDownIcon, CloseIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 
-import { NavItem } from "@/types/nav";
+import { type NavItem } from "@/types/nav";
 import { sidebarConfig } from "@/config/sidebarConfig";
 import { siteConfig } from "@/config/siteConfig";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,6 @@ export function Sidebar() {
   const { isSidebarOpen, toggleSidebar } = useSidebar();
 
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions
     <aside
       className={cn(
         "fixed inset-y-0 left-0 m-0 bg-wg-gray-900/50 md:mt-14 md:bg-transparent md:pb-20",

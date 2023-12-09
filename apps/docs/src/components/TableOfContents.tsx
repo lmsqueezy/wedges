@@ -3,14 +3,12 @@
 import * as React from "react";
 import { useMemo } from "react";
 
-import { Items } from "@/lib/toc";
+import { type TOCItems } from "@/lib/toc";
 import { cn } from "@/lib/utils";
 import { useActiveItem } from "@/hooks/useActiveMenu";
 import { useMounted } from "@/hooks/useMounted";
 
-type TOCProps = Items;
-
-export function TableOfContents({ items }: TOCProps) {
+export function TableOfContents({ items }: TOCItems) {
   /**
    * Generate an array of item IDs from the items prop.
    * Each ID is extracted from the URL of an item and its sub-items (if any), specifically the part after the "#".
@@ -46,7 +44,7 @@ type TreeProps = {
   activeItemId?: string;
   className?: string;
   sub?: boolean;
-} & Items;
+} & TOCItems;
 
 function Tree({ items, activeItemId, className, sub }: TreeProps) {
   const id = React.useId();

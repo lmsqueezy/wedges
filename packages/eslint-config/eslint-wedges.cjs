@@ -10,6 +10,15 @@ const config = {
     es2021: true,
     node: true,
   },
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: "module",
+  },
+  plugins: ["jsx-a11y", "@typescript-eslint"],
   extends: [
     "turbo",
     "eslint:recommended",
@@ -19,15 +28,6 @@ const config = {
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
   ],
-  plugins: ["jsx-a11y", "@typescript-eslint"],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 12,
-    sourceType: "module",
-  },
   settings: {
     react: {
       version: "detect",
