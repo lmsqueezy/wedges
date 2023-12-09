@@ -136,10 +136,10 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     ];
 
     const identifier =
-      (initials || "") + (size || "") + (status || "") + (notification || "") + (src || "");
+      (initials ?? "") + (size ?? "") + (status ?? "") + (notification ?? "") + (src ?? "");
     const color = getElementFromHash(stringToHash(identifier), randomColors);
 
-    return color || !randomColors[0];
+    return color ?? !randomColors[0];
   }, [initials, notification, size, src, status]);
 
   return (

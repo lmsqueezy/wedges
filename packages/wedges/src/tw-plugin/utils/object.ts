@@ -14,21 +14,19 @@ export const isBaseTheme = (theme: string) => theme === "light" || theme === "da
  * @param obj - The object to remove keys from.
  * @returns A new object with keys ending in "-DEFAULT" removed.
  */
-const removeDefaultKeys = <T extends Object>(obj: T) => {
-  const newObj = {};
+type TransformedKeys<T extends Record<string, unknown>> = {
+  [K in keyof T as K extends `${infer Prefix}-DEFAULT` ? Prefix : K]: T[K];
+};
+
+const removeDefaultKeys = <T extends Record<string, unknown>>(obj: T) => {
+  const newObj = {} as Record<string, unknown>;
 
   for (const key in obj) {
-    if (key.endsWith("-DEFAULT")) {
-      // @ts-ignore
-      newObj[key.replace("-DEFAULT", "")] = obj[key];
-      continue;
-    }
-
-    // @ts-ignore
-    newObj[key] = obj[key];
+    const newKey = key.endsWith("-DEFAULT") ? key.replace("-DEFAULT", "") : key;
+    newObj[newKey] = obj[key];
   }
 
-  return newObj;
+  return newObj as TransformedKeys<T>;
 };
 
 /**
@@ -40,8 +38,9 @@ const removeDefaultKeys = <T extends Object>(obj: T) => {
  */
 export const flattenThemeObject = <T>(obj: T) =>
   removeDefaultKeys(
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     flatten(obj, {
       safe: true,
       delimiter: "-",
-    }) as Object
+    }) as Record<string, unknown>
   );

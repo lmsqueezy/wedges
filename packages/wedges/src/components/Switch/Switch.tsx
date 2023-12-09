@@ -53,11 +53,11 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
     },
     ref
   ) => {
-    const LabelWrapComponent = label || helperText ? "div" : React.Fragment;
+    const LabelWrapComponent = label ?? helperText ? "div" : React.Fragment;
     const isInGroup = useSwitchGroupContext(true) ? true : false;
 
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
 
     const renderSwitch = (
@@ -97,7 +97,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
           required={required}
           tooltip={tooltip}
         >
-          {label || children}
+          {label ?? children}
         </Label>
 
         {helperText ? (

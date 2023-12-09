@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 
-import { cn, isReactElement } from "../../helpers/utils";
+import { cn, isElementWithClassName, isReactElement } from "../../helpers/utils";
 import Button, { ButtonProps } from "../Button/Button";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -42,6 +42,7 @@ const ToggleGroupWedges = React.forwardRef<ToggleGroupElement, ToggleGroupProps>
   ) => {
     return (
       <ToggleGroupContext.Provider value={{ disabled, orientation, size }}>
+        {/* @ts-expect-error requires separate props */}
         <ToggleGroupPrimitive.Root
           ref={ref}
           className={cn(
@@ -49,7 +50,7 @@ const ToggleGroupWedges = React.forwardRef<ToggleGroupElement, ToggleGroupProps>
             orientation === "vertical" && "flex-col",
             className
           )}
-          type={type as any}
+          type={type}
           {...otherProps}
         />
       </ToggleGroupContext.Provider>
@@ -62,7 +63,7 @@ const ToggleGroupItem = React.forwardRef<
   ToggleGroupItemProps
 >(({ className, children, asChild, isIconOnly = false, before, after, ...otherProps }, ref) => {
   const context = React.useContext(ToggleGroupContext);
-  const { size, disabled, orientation } = context || {};
+  const { size, disabled, orientation } = context ?? {};
 
   const useAsChild = asChild && isReactElement(children);
 
@@ -77,7 +78,7 @@ const ToggleGroupItem = React.forwardRef<
           React.cloneElement(children, {
             className: cn(
               "focus:outline-none last-of-type:[&+span]:hidden",
-              children.props.className
+              isElementWithClassName(children) && children.props.className
             ),
           })
         ) : (

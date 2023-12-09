@@ -52,7 +52,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     const isIndeterminate = checked === "indeterminate";
 
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
 
     const indeterminateIcon = (
       <svg className="scale-100" fill="none" height="24" viewBox="0 0 24 24" width="24">
@@ -116,7 +116,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     );
 
     const renderLabel =
-      label || description || tooltip || helperText ? (
+      label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
             className="font-normal"

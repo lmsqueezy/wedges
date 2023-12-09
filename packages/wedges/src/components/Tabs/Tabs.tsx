@@ -2,7 +2,7 @@ import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { VariantProps } from "class-variance-authority";
 
-import { cn, isReactElement } from "../../helpers/utils";
+import { cn, isElementWithChildren, isReactElement } from "../../helpers/utils";
 import { tabListVariants, tabVariants } from "./variants";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -97,7 +97,7 @@ const TabsTrigger = React.forwardRef<
       children: (
         <>
           {before}
-          {children.props.children}
+          {isElementWithChildren(children) && children.props.children}
           {after}
         </>
       ),

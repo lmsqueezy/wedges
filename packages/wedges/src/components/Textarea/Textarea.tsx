@@ -30,8 +30,8 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     ref
   ) => {
     const generatedId = React.useId();
-    const elId = id || generatedId;
-    const ariaInvalid = otherProps["aria-invalid"] || destructive;
+    const elId = id ?? generatedId;
+    const ariaInvalid = otherProps["aria-invalid"] ?? destructive;
 
     return (
       <div className="flex flex-col gap-2 wg-antialiased">

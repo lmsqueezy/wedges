@@ -2,7 +2,7 @@ import React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 
-import { cn, isReactElement } from "../../helpers/utils";
+import { cn, isElementWithChildren, isReactElement } from "../../helpers/utils";
 import { Tooltip } from "../Tooltip";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -42,7 +42,7 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
       React.cloneElement(children, {
         children: (
           <>
-            {children.props.children}
+            {isElementWithChildren(children) && children.props.children}
             {required && <span className="text-destructive">*</span>}
           </>
         ),

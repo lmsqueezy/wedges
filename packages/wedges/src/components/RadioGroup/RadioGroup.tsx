@@ -70,11 +70,11 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
     ref
   ) => {
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
 
     const renderLabel =
-      label || description || tooltip || helperText ? (
+      label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
             className="font-normal"
@@ -119,13 +119,13 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
 const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemProps>(
   ({ label, helperText, disabled, required, tooltip, id, ...otherProps }, ref) => {
     const context = useSwitchGroupContext();
-    const { disabled: ctxDisabled } = context || {};
+    const { disabled: ctxDisabled } = context ?? {};
 
-    const isDisabled = ctxDisabled || disabled;
+    const isDisabled = ctxDisabled ?? disabled;
     const ariaInvalid = otherProps["aria-invalid"];
 
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
 
     const renderLabel = (
       <div className="inline-flex flex-col">
