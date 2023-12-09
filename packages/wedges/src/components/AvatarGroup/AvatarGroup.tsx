@@ -1,8 +1,8 @@
 import * as React from "react";
-import { cva, VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";
+import Avatar, { type AvatarElement, type AvatarProps } from "../Avatar/Avatar";
 
 /* -------------------------------- Variants -------------------------------- */
 const defaultAvatarGroupClasses = "wg-antialiased flex flex-wrap items-center gap-y-1 -space-x-3";

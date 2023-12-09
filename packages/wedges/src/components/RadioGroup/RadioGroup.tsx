@@ -2,8 +2,8 @@ import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 
 import { cn } from "../../helpers/utils";
-import { Label, LabelProps } from "../Label";
-import { LabelHelperProps } from "../types";
+import { Label, type LabelProps } from "../Label";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type RadioGroupElement = React.ElementRef<typeof RadioGroupPrimitive.Root>;

@@ -3,8 +3,8 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import { Label, LabelProps } from "../Label";
-import { LabelHelperProps } from "../types";
+import { Label, type LabelProps } from "../Label";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type CheckboxElement = React.ElementRef<typeof CheckboxPrimitive.Root>;

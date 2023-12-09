@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { IconProps } from "./types";
+import { type IconProps } from "./types";
 
 const TippyIcon = React.forwardRef<SVGSVGElement, IconProps>((props, ref) => {
   const { size = 24, title, ...rest } = props;

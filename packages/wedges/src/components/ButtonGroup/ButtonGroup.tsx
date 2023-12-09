@@ -2,7 +2,7 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import { Button, ButtonElement } from "../Button/";
+import { Button, type ButtonElement } from "../Button/";
 
 /* ---------------------------------- Types --------------------------------- */
 export type ButtonGroupProps = React.HTMLAttributes<HTMLDivElement> & {

@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
 
 import { cn, isElementWithClassName, isReactElement } from "../../helpers/utils";
-import Button, { ButtonProps } from "../Button/Button";
+import Button, { type ButtonProps } from "../Button/Button";
 
 /* ---------------------------------- Types --------------------------------- */
 export type ToggleGroupElement = React.ElementRef<typeof ToggleGroupPrimitive.Root>;

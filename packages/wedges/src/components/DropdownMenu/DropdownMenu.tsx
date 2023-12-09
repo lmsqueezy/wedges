@@ -2,7 +2,7 @@ import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 
 import { cn } from "../../helpers/utils";
-import { Kbd, KbdElement, KbdProps } from "../Kbd";
+import { Kbd, type KbdElement, type KbdProps } from "../Kbd";
 
 /* ---------------------------------- Types --------------------------------- */
 export type DropdownMenuElement = React.ElementRef<typeof DropdownMenuPrimitive.Root>;

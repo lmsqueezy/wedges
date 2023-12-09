@@ -2,9 +2,9 @@ import * as React from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
 
 import { cn } from "../../helpers/utils";
-import { Label, LabelProps } from "../Label";
+import { Label, type LabelProps } from "../Label";
 import { useSwitchGroupContext } from "../SwitchGroup/SwitchGroup";
-import { LabelHelperProps } from "../types";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 type HasLabel = {

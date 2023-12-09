@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { cva, VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "../../helpers/utils";
 import TooltipArrow from "./TooltipArrow";

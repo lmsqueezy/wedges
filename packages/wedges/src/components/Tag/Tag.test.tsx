@@ -3,7 +3,7 @@ import { jest } from "@jest/globals";
 import { fireEvent, render } from "@testing-library/react";
 
 import { Avatar } from "../Avatar";
-import { BadgeElement } from "../Badge";
+import { type BadgeElement } from "../Badge";
 import Tag from "./Tag"; // Adjust the import as necessary
 
 describe("Tag", () => {

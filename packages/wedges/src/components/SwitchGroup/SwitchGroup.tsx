@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import { cn } from "../../helpers/utils";
-import { Label, LabelProps } from "../Label";
-import { Switch, SwitchElement, SwitchProps } from "../Switch";
-import { LabelHelperProps } from "../types";
+import { Label, type LabelProps } from "../Label";
+import { Switch, type SwitchElement, type SwitchProps } from "../Switch";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type SwitchGroupElement = HTMLDivElement;
