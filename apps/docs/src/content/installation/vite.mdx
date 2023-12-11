@@ -1,67 +1,15 @@
 ---
-title: Next.js
-description: Start using Wedges with Next.js.
+title: Vite
+description: Start using Wedges with Vite.
 breadcrumbs:
-  - Getting Started
+  - Installation
 ---
 
-Wedges is fully compatible with the latest version of Next.js, supporting both app and page routers. It works with both server and client components, due to the `'use client'` directive added to the components.
-
-Follow the instructions on this page to add Wedges into your Next.js project.
-
-### Starter Template
-
-The easiest way to get started with Next.js is by using `create-next-app` with our example template.
-
 <Steps>
 
-#### Installation
+### Create Project
 
-To create a fresh Next.js project with Wedges pre-configured, run the following command:
-
-<Tabs variant='underlined' defaultValue='pnpm'>
-    <Tabs.List>
-        <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
-        <Tabs.Trigger value="npm">npm</Tabs.Trigger>
-        <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
-    </Tabs.List>
-
-    <Tabs.Content value="pnpm">
-        ```bash
-        pnpm create next-app -e https://github.com/lmsqueezy/wedges/templates/next-app-template
-        ```
-    </Tabs.Content>
-
-    <Tabs.Content value="npm">
-        ```bash
-        npx create-next-app -e https://github.com/lmsqueezy/wedges/templates/next-app-template
-        ```
-    </Tabs.Content>
-
-    <Tabs.Content value="yarn">
-        ```bash
-        yarn create next-app -e https://github.com/lmsqueezy/wedges/templates/next-app-template
-        ```
-    </Tabs.Content>
-</Tabs>
-
-You will then be asked the following prompt:
-
-```txt showLineNumbers
-What is your project named?  my-app
-```
-
-#### Start dev server
-
-Once the installation is complete, run the following command to navigate to your project directory:
-
-```bash /my-app/
-cd my-app
-```
-
-Ensure to replace `my-app` with the actual name you chose for your project during installation.
-
-After that, run the following command to start the development server:
+Begin by initializing a new **React** project with Vite:
 
 <Tabs variant='underlined' defaultValue='pnpm'>
     <Tabs.List>
@@ -72,41 +20,30 @@ After that, run the following command to start the development server:
 
     <Tabs.Content value="pnpm">
         ```bash
-        pnpm dev
+        pnpm create vite
         ```
     </Tabs.Content>
 
     <Tabs.Content value="npm">
         ```bash
-        npm run dev
+        npm create vite@latest
         ```
     </Tabs.Content>
 
     <Tabs.Content value="yarn">
         ```bash
-        yarn dev
+        yarn create vite
         ```
     </Tabs.Content>
 </Tabs>
 
-#### Using the components
+Then follow the prompts to create a React project. Typescript is recommended but not required.
 
-That's all. You can now start using the components in your project.
+### Install Tailwind CSS
 
-```tsx {1,4} showLineNumbers
-import { Alert } from "@lmsqueezy/wedges";
+By default, Vite doesn't install Tailwind CSS, so we'll need to do that manually. Let's start by installing the Tailwind CSS and its peer dependencies.
 
-export default function Example() {
-return <Alert>You're awesome!</Alert>;
-}
-```
-</Steps>
-
-### Manual Installation
-
-<Steps>
-
-#### Install the package
+More information can be found in the <a href="https://tailwindcss.com/docs/installation/" target="_blank" rel='nofollow noreferrer'>official Tailwind CSS installation guide</a>.
 
 <Tabs variant='underlined' defaultValue='pnpm'>
     <Tabs.List>
@@ -117,47 +54,73 @@ return <Alert>You're awesome!</Alert>;
 
     <Tabs.Content value="pnpm">
         ```bash
-        pnpm add @lmsqueezy/wedges
+        pnpm add tailwindcss postcss autoprefixer -D
         ```
     </Tabs.Content>
 
     <Tabs.Content value="npm">
         ```bash
-        npm i @lmsqueezy/wedges
+        npm install tailwindcss postcss autoprefixer -D
         ```
     </Tabs.Content>
 
     <Tabs.Content value="yarn">
         ```bash
-        yarn add @lmsqueezy/wedges
+        yarn install tailwindcss postcss autoprefixer -D
         ```
     </Tabs.Content>
 </Tabs>
 
-#### Configure Tailwind CSS
+Then generate your `tailwind.config.js` and `postcss.config.js` files by running the following command:
 
-Wedges requires Tailwind CSS to be installed prior to use. If you haven't installed it already, follow the instructions in the <a href="https://tailwindcss.com/docs/installation/" target="_blank" rel='nofollow noreferrer'>official Tailwind CSS installation guide</a>.
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <Tabs.List>
+        <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
+        <Tabs.Trigger value="npm">npm</Tabs.Trigger>
+        <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
+    </Tabs.List>
+
+    <Tabs.Content value="pnpm">
+        ```bash
+        pnpx tailwindcss init -p
+        ```
+    </Tabs.Content>
+
+    <Tabs.Content value="npm">
+        ```bash
+        npx tailwindcss init -p
+        ```
+    </Tabs.Content>
+
+    <Tabs.Content value="yarn">
+        ```bash
+        npx tailwindcss init -p
+        ```
+    </Tabs.Content>
+</Tabs>
+
+### Configure Tailwind CSS
 
 Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
 
-```tsx {7,10,11} title="tailwind.config.ts"
-import type { Config } from "tailwindcss";
+```js {1,7,12,13} title="tailwind.config.js"
 import { wedgesTW } from "@lmsqueezy/wedges";
 
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    // ...
+    "./src/**/*.{js,ts,jsx,tsx}",
     "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {},
+  theme: {
+    extend: {},
+  },
   darkMode: "class",
   plugins: [wedgesTW()],
-};
-
-export default config;
+}
 ```
 
-#### Setup pnpm (optional)
+### Setup pnpm (optional)
 
 If you're using pnpm, add the following line to your `.npmrc` file:
 

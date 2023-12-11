@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Alert, Button, Tabs, Tooltip } from "@lmsqueezy/wedges";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
@@ -8,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 import { Colors } from "./Colors";
 import { CopyButton } from "./CopyButton";
+import { Logomark } from "./Logo";
 import { PreviewComponent } from "./PreviewComponent";
 
 type MdxProps = {
@@ -23,9 +25,19 @@ const components = {
   Tabs,
   Tooltip,
   Colors,
+  Logomark,
   Steps: ({ ...props }) => (
     <div
       className="[&>h3]:step [&>h4]:step steps border-surface-100 mb-16 ml-4 border-l pl-8 [counter-reset:step] [&>h3::before]:top-0 [&>h3]:relative [&>h4::before]:-top-1 [&>h4]:relative"
+      {...props}
+    />
+  ),
+  LinkCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
+    <Link
+      className={cn(
+        "border-surface-100 not-prose hover:bg-surface-50/50 outline-primary hover:border-surface-200/70 shadow-wg-xs text-surface-400 hover:text-surface-900 flex w-full flex-col items-center gap-4 rounded-xl border bg-white p-6 transition-colors sm:p-10",
+        className
+      )}
       {...props}
     />
   ),
