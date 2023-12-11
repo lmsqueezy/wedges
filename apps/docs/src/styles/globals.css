@@ -16,7 +16,7 @@
   }
 
   .step:before {
-    @apply bg-surface border-background text-surface-600 absolute inline-flex h-10 w-10 items-center justify-center rounded-full border-4 font-sans text-sm font-medium;
+    @apply border-surface-100 text-surface-900 absolute inline-flex h-10 w-10 items-center justify-center rounded-full border bg-white font-sans text-sm font-medium ring-4 ring-white;
     @apply ml-[-52px];
     content: counter(step);
   }

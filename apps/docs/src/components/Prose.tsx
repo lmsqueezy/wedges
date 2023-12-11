@@ -17,15 +17,16 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
         ref={ref}
         className={cn(
           className,
-          "prose prose-neutral max-w-none leading-relaxed text-surface-600 dark:prose-invert dark:text-white/60 [&_h4+p]:!mt-0",
+          "prose prose-neutral text-surface-600 dark:prose-invert max-w-none leading-relaxed dark:text-white/60 [&_h4+p]:!mt-0",
 
           // headings
           "prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-normal prose-headings:text-gray-900 dark:prose-headings:text-white lg:prose-headings:scroll-mt-[8.5rem]",
           "prose-h1:leading-[44px] prose-h1:tracking-[-.02em]",
           "prose-h2:text-[32px] prose-h2:leading-[42px] prose-h2:tracking-[-.02em]",
           "prose-h3:text-[26px] prose-h3:leading-[40px] prose-h3:tracking-[-.02em]",
-          "prose-h4:mt-[2.5rem] prose-h4:tracking-[-.02em]",
+          "prose-h4:text-[18px] prose-h4:mt-[2.5rem] prose-h4:tracking-[-.02em]",
           "prose-p:my-6",
+          "[&_[data-link]>a]:text-surface-400 [&_[data-link]:hover>a]:duration-180 [&_[data-link]>a:hover]:text-primary [&_[data-link]:hover>a]:opacity-100 [&_[data-link]:hover>a]:transition-opacity [&_[data-link]>a>svg]:h-[1em] [&_[data-link]>a>svg]:w-[1em] [&_[data-link]>a]:border-none [&_[data-link]>a]:opacity-0 [&_[data-link]]:flex [&_[data-link]]:items-center [&_[data-link]]:gap-2",
 
           // lead
           "prose-lead:text-surface-500 dark:prose-lead:text-surface-400",
