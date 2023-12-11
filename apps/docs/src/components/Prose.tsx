@@ -24,7 +24,7 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
           "prose-h1:leading-[44px] prose-h1:tracking-[-.02em]",
           "prose-h2:text-[32px] prose-h2:leading-[42px] prose-h2:tracking-[-.02em]",
           "prose-h3:text-[26px] prose-h3:leading-[40px] prose-h3:tracking-[-.02em]",
-          "prose-h4:text-[18px] prose-h4:mt-[2.5rem] prose-h4:tracking-[-.02em]",
+          "prose-h4:text-[20px] prose-h4:mt-[2.5rem] prose-h4:tracking-[-.02em]",
           "prose-p:my-6",
           "[&_[data-link]>a]:text-surface-400 [&_[data-link]:hover>a]:duration-180 [&_[data-link]>a:hover]:text-primary [&_[data-link]:hover>a]:opacity-100 [&_[data-link]:hover>a]:transition-opacity [&_[data-link]>a>svg]:h-[1em] [&_[data-link]>a>svg]:w-[1em] [&_[data-link]>a]:border-none [&_[data-link]>a]:opacity-0 [&_[data-link]]:flex [&_[data-link]]:items-center [&_[data-link]]:gap-2",
 
@@ -41,7 +41,13 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
           "prose-hr:my-12 dark:prose-hr:border-slate-800",
 
           // th
-          "prose-th:font-sans prose-th:font-medium"
+          "prose-th:font-sans prose-th:font-medium",
+
+          // p
+          "prose-p:[text-wrap:pretty]",
+
+          // figure
+          "[&_[role=tabpanel]>[data-rehype-pretty-code-figure]]:mt-0"
         )}
         {...otherProps}
       >

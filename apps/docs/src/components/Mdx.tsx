@@ -25,7 +25,7 @@ const components = {
   Colors,
   Steps: ({ ...props }) => (
     <div
-      className="[&>h3]:step [&>h4]:step steps border-surface-100 mb-16 ml-4 border-l pl-8 [counter-reset:step] [&>h3::before]:top-0 [&>h3]:relative [&>h4::before]:-top-2 [&>h4]:relative"
+      className="[&>h3]:step [&>h4]:step steps border-surface-100 mb-16 ml-4 border-l pl-8 [counter-reset:step] [&>h3::before]:top-0 [&>h3]:relative [&>h4::before]:-top-1 [&>h4]:relative"
       {...props}
     />
   ),
