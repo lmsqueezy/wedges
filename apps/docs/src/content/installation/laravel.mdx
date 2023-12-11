@@ -19,7 +19,7 @@ laravel new my-laravel-app --typescript --breeze --stack=react --git --no-intera
 This command requires the Laravel Installer version 5.2.0 or higher. Ensure you have this version installed to utilize the features and options specified in the command.
 </Alert>
 
-### Install the package
+### Install Wedges
 
 <Tabs variant='underlined' defaultValue='pnpm'>
   <Tabs.List>
@@ -58,16 +58,19 @@ yarn add @lmsqueezy/wedges
 
 Wedges requires Tailwind CSS to be installed prior to use. If you haven't installed it already, follow the instructions in the <a href="https://tailwindcss.com/docs/installation/" target="_blank" rel='nofollow noreferrer'>official Tailwind CSS installation guide</a>.
 
-Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
+Once Tailwind CSS is installed, update your `tailwind.config.js` file to add the necessary configuration for Wedges:
 
-```js {1,7,10,11} title="tailwind.config.js" showLineNumbers
+```js {1,10,13,14} title="tailwind.config.js" showLineNumbers
 import { wedgesTW } from "@lmsqueezy/wedges";
 
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-      // ...
-      "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+      './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+      './storage/framework/views/*.php',
+      './resources/views/**/*.blade.php',
+      './resources/js/**/*.tsx',
+      'node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {},
     darkMode: "class",

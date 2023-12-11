@@ -65,6 +65,12 @@ Initialize a new git repository?
 - Yes/No
 ```
 
+After the installation is complete, navigate to your project directory:
+
+```bash
+cd my-astro-project
+```
+
 #### Add React and Tailwind
 
 To install React and Tailwind CSS, run the following command:
@@ -101,7 +107,7 @@ yarn astro add react tailwind --yes
 
 <Steps>
 
-#### Install the package
+#### Install Wedges
 
 <Tabs variant='underlined' defaultValue='pnpm'>
   <Tabs.List>
@@ -138,7 +144,7 @@ yarn add @lmsqueezy/wedges
 
 #### Configure Tailwind CSS
 
-Update your `tailwind.config` file to add the necessary configuration for Wedges:
+Update your `tailwind.config.mjs` file to add the necessary configuration for Wedges:
 
 ```tsx {1,7,10,11} title="tailwind.config.mjs" showLineNumbers
 import { wedgesTW } from "@lmsqueezy/wedges";
@@ -146,8 +152,8 @@ import { wedgesTW } from "@lmsqueezy/wedges";
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: [
-    // ...
-    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    'node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {},
   darkMode: "class",

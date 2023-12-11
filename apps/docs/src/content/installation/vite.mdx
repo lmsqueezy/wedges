@@ -41,9 +41,11 @@ Then follow the prompts to create a React project. Typescript is recommended but
 
 ### Install Tailwind CSS
 
-By default, Vite doesn't install Tailwind CSS, so we'll need to do that manually. Let's start by installing the Tailwind CSS and its peer dependencies.
+By default, Vite doesn't install Tailwind CSS, so we'll need to do that manually.
 
 More information can be found in the <a href="https://tailwindcss.com/docs/installation/" target="_blank" rel='nofollow noreferrer'>official Tailwind CSS installation guide</a>.
+
+Let's start by installing the Tailwind CSS and its peer dependencies:
 
 <Tabs variant='underlined' defaultValue='pnpm'>
     <Tabs.List>
@@ -82,7 +84,7 @@ Then generate your `tailwind.config.js` and `postcss.config.js` files by running
 
     <Tabs.Content value="pnpm">
         ```bash
-        pnpx tailwindcss init -p
+        pnpm dlx tailwindcss init -p
         ```
     </Tabs.Content>
 
@@ -94,14 +96,14 @@ Then generate your `tailwind.config.js` and `postcss.config.js` files by running
 
     <Tabs.Content value="yarn">
         ```bash
-        npx tailwindcss init -p
+        yarn dlx tailwindcss init -p
         ```
     </Tabs.Content>
 </Tabs>
 
 ### Configure Tailwind CSS
 
-Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
+Once Tailwind CSS is installed, update `tailwind.config.js` file to add the necessary configuration for Wedges:
 
 ```js {1,7,12,13} title="tailwind.config.js" showLineNumbers
 const { wedgesTW } = require("@lmsqueezy/wedges");
@@ -132,7 +134,7 @@ This ensures that pnpm correctly handles dependencies for Wedges, allowing neces
 
 After updating, run `pnpm install` again to reconfigure your dependencies correctly.
 
-#### That's all
+### That's all
 
 You can now start using the components in your application.
 

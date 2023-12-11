@@ -11,9 +11,31 @@ breadcrumbs:
 
 To set up a new project, run the following command in your terminal:
 
-```bash
-npm init gatsby
-```
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <Tabs.List>
+        <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
+        <Tabs.Trigger value="npm">npm</Tabs.Trigger>
+        <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
+    </Tabs.List>
+
+    <Tabs.Content value="pnpm">
+        ```bash
+        pnpm create gatsby
+        ```
+    </Tabs.Content>
+
+    <Tabs.Content value="npm">
+        ```bash
+        npm init gatsby
+        ```
+    </Tabs.Content>
+
+    <Tabs.Content value="yarn">
+        ```bash
+        yarn create gatsby
+        ```
+    </Tabs.Content>
+</Tabs>
 
 ### Configure Project
 
@@ -42,7 +64,13 @@ Shall we do this?
 - Yes
 ```
 
-### Install the Package
+After the installation navigate to the project folder:
+
+```bash
+cd my-gatsby-project
+```
+
+### Install Wedges
 
 <Tabs variant='underlined' defaultValue='pnpm'>
   <Tabs.List>
@@ -79,7 +107,7 @@ yarn add @lmsqueezy/wedges
 
 ### Configure Tailwind CSS
 
-Update your `tailwind.config` file to add the necessary configuration for Wedges:
+Update your `tailwind.config.js` file to add the necessary configuration for Wedges:
 
 ```tsx {1,8,13-14} title="tailwind.config.js" showLineNumbers
 const { wedgesTW } = require("@lmsqueezy/wedges");
@@ -87,9 +115,9 @@ const { wedgesTW } = require("@lmsqueezy/wedges");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    `./src/pages/**/.{js,jsx,ts,tsx}`,
-    `./src/components/**/*.{js,jsx,ts,tsx}`,
-    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+    './src/pages/**/.{js,jsx,ts,tsx}',
+    './src/components/**/*.{js,jsx,ts,tsx}',
+    'node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {},
