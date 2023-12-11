@@ -1,38 +1,57 @@
 ---
-title: Manual
-description: How to install and get started with Wedges.
+title: Laravel
+description: Start using Wedges with Laravel + Inertia.
 breadcrumbs:
   - Installation
 ---
 
 <Steps>
 
+### Create Laravel project
+
+To set up a new Laravel project with Inertia and React, run the following command in your terminal:
+
+```bash
+laravel new my-laravel-app --typescript --breeze --stack=react --git --no-interaction
+```
+
+<Alert variant="expanded" className="not-prose">
+This command requires the Laravel Installer version 5.2.0 or higher. Ensure you have this version installed to utilize the features and options specified in the command.
+</Alert>
+
 ### Install the package
 
 <Tabs variant='underlined' defaultValue='pnpm'>
-    <Tabs.List>
-        <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
-        <Tabs.Trigger value="npm">npm</Tabs.Trigger>
-        <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
-    </Tabs.List>
+  <Tabs.List>
+    <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
+    <Tabs.Trigger value="npm">npm</Tabs.Trigger>
+    <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
+  </Tabs.List>
 
     <Tabs.Content value="pnpm">
-        ```bash
-        pnpm add @lmsqueezy/wedges
-        ```
+
+```bash
+pnpm add @lmsqueezy/wedges
+```
+
     </Tabs.Content>
 
     <Tabs.Content value="npm">
-        ```bash
-        npm i @lmsqueezy/wedges
-        ```
+
+```bash
+npm i @lmsqueezy/wedges
+```
+
     </Tabs.Content>
 
     <Tabs.Content value="yarn">
-        ```bash
-        yarn add @lmsqueezy/wedges
-        ```
+
+```bash
+yarn add @lmsqueezy/wedges
+```
+
     </Tabs.Content>
+
 </Tabs>
 
 ### Configure Tailwind CSS
@@ -41,21 +60,19 @@ Wedges requires Tailwind CSS to be installed prior to use. If you haven't instal
 
 Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
 
-```tsx {2,7,10,11} title="tailwind.config.ts" showLineNumbers
-import type { Config } from "tailwindcss";
+```js {1,7,10,11} title="tailwind.config.js" showLineNumbers
 import { wedgesTW } from "@lmsqueezy/wedges";
 
-const config: Config = {
-  content: [
-    // ...
-    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {},
-  darkMode: "class",
-  plugins: [wedgesTW()],
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+      // ...
+      "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+    ],
+    theme: {},
+    darkMode: "class",
+    plugins: [wedgesTW()],
 };
-
-export default config;
 ```
 
 ### Setup pnpm (optional)
@@ -74,10 +91,10 @@ After updating, run `pnpm install` again to reconfigure your dependencies correc
 
 That's all. You can now start using the components in your application.
 
-```tsx {1,4}
+```tsx {1,4} showLineNumbers
 import { Alert } from "@lmsqueezy/wedges";
 
-export default function Example() {
+export default function ExampleComponent() {
   return <Alert>You're awesome!</Alert>;
 }
 ```

@@ -140,7 +140,7 @@ Wedges requires Tailwind CSS to be installed prior to use. If you haven't instal
 
 Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
 
-```tsx {7,10,11} title="tailwind.config.ts"
+```tsx {2,7,10,11} title="tailwind.config.ts" showLineNumbers
 import type { Config } from "tailwindcss";
 import { wedgesTW } from "@lmsqueezy/wedges";
 
@@ -173,7 +173,7 @@ After updating, run `pnpm install` again to reconfigure your dependencies correc
 
 You can now start using the components in your application.
 
-```tsx {1,4}
+```tsx {1,4} showLineNumbers
 import { Alert } from "@lmsqueezy/wedges";
 
 export default function Example() {

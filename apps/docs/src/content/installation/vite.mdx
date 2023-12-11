@@ -103,8 +103,8 @@ Then generate your `tailwind.config.js` and `postcss.config.js` files by running
 
 Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
 
-```js {1,7,12,13} title="tailwind.config.js"
-import { wedgesTW } from "@lmsqueezy/wedges";
+```js {1,7,12,13} title="tailwind.config.js" showLineNumbers
+const { wedgesTW } = require("@lmsqueezy/wedges");
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -136,7 +136,7 @@ After updating, run `pnpm install` again to reconfigure your dependencies correc
 
 You can now start using the components in your application.
 
-```tsx {1,4}
+```tsx {1,4} showLineNumbers
 import { Alert } from "@lmsqueezy/wedges";
 
 export default function Example() {
