@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { focusClasses } from "@/lib/a11y";
 import { cn } from "@/lib/utils";
 
-import { WebflowData } from "./Header";
+import { type WebflowData } from "./Header";
 import { Logo, Logomark } from "./Logo";
 import { ArrowRightIcon, Navigation } from "./Navigation";
 

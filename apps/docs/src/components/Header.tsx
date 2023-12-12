@@ -57,28 +57,29 @@ async function getWebflowData(): Promise<{ caseStudy: WebflowData; blog: Webflow
     }
 
     const [blogData, caseStudiesData] = await Promise.all([
-      blogResponse.json(),
-      caseStudiesResponse.json(),
+      blogResponse.json() as Promise<WebflowCollectionBlogResponse>,
+      caseStudiesResponse.json() as Promise<WebflowCollectionCaseStudyResponse>,
     ]);
 
     const caseStudyPost = caseStudiesData.items[0];
+
     const caseStudy: WebflowData = {
-      id: caseStudyPost.id,
-      isArchived: caseStudyPost.isArchived,
-      isDraft: caseStudyPost.isDraft,
-      title: caseStudyPost.fieldData?.name,
-      image: caseStudyPost.fieldData["case-study-image"]?.url,
-      url: `https://www.lemonsqueezy.com/case-study/${caseStudyPost.fieldData?.slug}`,
+      id: caseStudyPost?.id ?? "",
+      isArchived: caseStudyPost?.isArchived ?? true,
+      isDraft: caseStudyPost?.isDraft ?? true,
+      title: caseStudyPost?.fieldData?.name ?? "",
+      image: caseStudyPost?.fieldData["case-study-image"]?.url ?? "",
+      url: `https://www.lemonsqueezy.com/case-study/${caseStudyPost?.fieldData?.slug}`,
     } as const;
 
     const blogPost = blogData.items[0];
     const blog: WebflowData = {
-      id: blogPost.id,
-      isArchived: blogPost.isArchived,
-      isDraft: blogPost.isDraft,
-      title: blogPost.fieldData?.name,
-      image: blogPost.fieldData["main-image"]?.url,
-      url: `https://www.lemonsqueezy.com/blog/${blogPost.fieldData?.slug}`,
+      id: blogPost?.id ?? "",
+      isArchived: blogPost?.isArchived ?? true,
+      isDraft: blogPost?.isDraft ?? true,
+      title: blogPost?.fieldData?.name ?? "",
+      image: blogPost?.fieldData["main-image"]?.url ?? "",
+      url: `https://www.lemonsqueezy.com/blog/${blogPost?.fieldData?.slug}`,
     } as const;
 
     return { caseStudy, blog };
@@ -113,4 +114,34 @@ export type WebflowData = {
   title: string;
   image: string;
   url: string;
+};
+
+export type WebflowCollectionCaseStudyResponse = {
+  items: {
+    id: string;
+    isArchived: boolean;
+    isDraft: boolean;
+    fieldData: {
+      name: string;
+      slug: string;
+      "case-study-image": {
+        url: string;
+      };
+    };
+  }[];
+};
+
+export type WebflowCollectionBlogResponse = {
+  items: {
+    id: string;
+    isArchived: boolean;
+    isDraft: boolean;
+    fieldData: {
+      name: string;
+      slug: string;
+      "main-image": {
+        url: string;
+      };
+    };
+  }[];
 };
