@@ -28,7 +28,10 @@
       "env": [
         "NEXT_PUBLIC_DOCSEARCH_APP_ID",
         "NEXT_PUBLIC_DOCSEARCH_API_KEY",
-        "NEXT_PUBLIC_DOCSEARCH_INDEX_NAME"
+        "NEXT_PUBLIC_DOCSEARCH_INDEX_NAME",
+        "WEBFLOW_API_KEY",
+        "WEBFLOW_BLOG_ID",
+        "WEBFLOW_CASE_STUDIES_ID"
       ]
     },
     "clean": {

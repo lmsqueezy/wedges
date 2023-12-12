@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
 import { Sidebar } from "@/components/Sidebar";
-import { SiteHeader } from "@/components/SiteHeader";
 
 import "@/styles/globals.css";
+
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Wedges Docs",
@@ -26,9 +27,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           monoFont.variable
         )}
       >
-        <div className="flex min-h-screen-dvh flex-col">
+        <div className="min-h-screen-dvh flex flex-col">
           <Providers>
-            <SiteHeader />
+            <Header />
 
             <div className="container relative flex flex-1 flex-col items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[256px_minmax(0,1fr)] lg:gap-10">
               <Sidebar />
