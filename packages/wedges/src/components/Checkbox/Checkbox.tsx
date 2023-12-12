@@ -3,8 +3,8 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import { Label, LabelProps } from "../Label";
-import { LabelHelperProps } from "../types";
+import { Label, type LabelProps } from "../Label";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type CheckboxElement = React.ElementRef<typeof CheckboxPrimitive.Root>;
@@ -52,7 +52,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     const isIndeterminate = checked === "indeterminate";
 
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
 
     const indeterminateIcon = (
       <svg className="scale-100" fill="none" height="24" viewBox="0 0 24 24" width="24">
@@ -116,7 +116,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     );
 
     const renderLabel =
-      label || description || tooltip || helperText ? (
+      label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
             className="font-normal"
@@ -143,8 +143,8 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
           aria-labelledby={label ? `${elId}__label` : undefined}
           checked={checked}
           className={cn(
-            "outline-primary text-surface-200 group relative flex h-6 w-6 items-center justify-center rounded-lg transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
-            isDisabled && "text-surface-200 dark:text-surface-100 pointer-events-none",
+            "group relative flex h-6 w-6 items-center justify-center rounded-lg text-surface-200 outline-primary transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
+            isDisabled && "pointer-events-none text-surface-200 dark:text-surface-100",
             !isDisabled && !isIndeterminate && "hover:text-surface-300",
             !isDisabled && isIndeterminate && "text-primary",
             className
@@ -155,7 +155,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
         >
           {renderEmptyBox}
 
-          <CheckboxPrimitive.Indicator asChild className="text-primary absolute">
+          <CheckboxPrimitive.Indicator asChild className="absolute text-primary">
             {renderCheckedBox}
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>

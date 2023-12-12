@@ -20,10 +20,10 @@ const PopoverContent = React.forwardRef<PopoverContentElement, PopoverContentPro
           align={align}
           className={cn(
             // state animations
-            "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right",
+            "data-[side=bottom]:animate-fade-in-down data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[side=top]:animate-fade-in-up",
 
             // base styles
-            "wg-antialiased text-surface-900 dark:text-surface-700 shadow-wg-overlay dark:border-surface flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white p-4 text-sm leading-6 dark:border dark:bg-neutral-800 dark:shadow-none",
+            "flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white p-4 text-sm leading-6 text-surface-900 shadow-wg-overlay wg-antialiased dark:border dark:border-surface dark:bg-neutral-800 dark:text-surface-700 dark:shadow-none",
 
             className
           )}

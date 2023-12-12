@@ -12,15 +12,21 @@ const sluggify = (str) => str.replace(/[\s_]+/g, "-").replace(/[^\w-]+/g, "");
 const examplesPath = path.join(process.cwd(), "src/examples");
 const indexPath = `${examplesPath}/index.ts`;
 
-console.log("🚀 Generating component examples...");
+console.log("🍋 🚀 Generating component examples...");
 
-let indexContent = `// @ts-nocheck
+let indexContent = `/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 /* -------------------------------------------------------------------------- */
 /*                    GENERATED FILE, DO NOT EDIT MANUALLY!                   */
 /* -------------------------------------------------------------------------- */
-import { lazy } from "react";
+import { lazy, type LazyExoticComponent } from "react";
 
-export const Demos: Record<string, any> = {
+type Demo = {
+  component: LazyExoticComponent<() => JSX.Element>;
+  code: string;
+}
+
+export const Demos: Record<string, Demo> = {
 `;
 
 // Process directory

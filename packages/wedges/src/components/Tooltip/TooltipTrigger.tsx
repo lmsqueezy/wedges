@@ -26,7 +26,7 @@ const TooltipContent = React.forwardRef<
           <span
             className={cn(
               onClick && "cursor-pointer",
-              'text-surface-200 hover:text-primary dark:hover:text-primary focus-visible:text-primary dark:focus-visible:text-primary focus-visible:outline-primary data-[state=delayed-open]:text-primary data-[state=instant-open]:transition-none", inline-flex items-center justify-center rounded-full transition-colors duration-100 focus:outline-none focus-visible:outline-2 focus-visible:-outline-offset-2',
+              'data-[state=instant-open]:transition-none", inline-flex items-center justify-center rounded-full text-surface-200 transition-colors duration-100 hover:text-primary focus:outline-none focus-visible:text-primary focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-primary data-[state=delayed-open]:text-primary dark:hover:text-primary dark:focus-visible:text-primary',
               className
             )}
             role="button" // Add role to specify it behaves like a button

@@ -1,10 +1,10 @@
 import {
-  ComputedFields,
   defineDocumentType,
   defineNestedType,
   makeSource,
+  type ComputedFields,
 } from "contentlayer/source-files";
-import rehypePrettyCode, { Options } from "rehype-pretty-code";
+import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
@@ -88,6 +88,7 @@ export default makeSource({
       preProcess,
       rehypeSlug,
       addCode,
+      // @ts-expect-error rehype-pretty-code types are wrong
       [rehypePrettyCode, prettyCodeOptions],
       postProcess,
     ],

@@ -1,6 +1,6 @@
-import type { FooterNav } from "@/types/nav";
+import type { FooterNavType } from "@/types/nav";
 
-export const footerNavigation: FooterNav = {
+export const footerNavigation: FooterNavType = {
   resources: [
     { label: "Help center", href: "https://www.lemonsqueezy.com/help" },
     { label: "Help docs", href: "https://docs.lemonsqueezy.com/help" },

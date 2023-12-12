@@ -84,6 +84,39 @@ export const getElementFromHash = (hash: number, strings: string[]) => {
  * @param element - The element to check.
  * @returns Whether the element is a React element.
  */
-export const isReactElement = (element: any): element is React.ReactElement => {
+export const isReactElement = (element: React.ReactNode): element is React.ReactElement => {
   return React.isValidElement(element);
+};
+
+/**
+ * Typeguard function that checks if the given element is a
+ * React element with a className prop.
+ *
+ * @param element
+ * @returns Whether the element is a React element with a className prop.
+ */
+export const isElementWithClassName = (
+  element: React.ReactNode
+): element is React.ReactElement<{ className?: string }> => {
+  return (
+    React.isValidElement(element) &&
+    typeof (element as React.ReactElement<{ className?: string }>).props.className === "string"
+  );
+};
+
+/**
+ * Typeguard function that checks if the given element is a
+ * React element with a children prop.
+ *
+ * @param element
+ * @returns Whether the element is a React element with a children prop.
+ */
+export const isElementWithChildren = (
+  element: React.ReactNode
+): element is React.ReactElement<{ children?: React.ReactNode }> => {
+  return (
+    React.isValidElement(element) &&
+    typeof (element as React.ReactElement<{ children?: React.ReactNode }>).props.children !==
+      "undefined"
+  );
 };

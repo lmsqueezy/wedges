@@ -1,4 +1,4 @@
-import { NavItem } from "@/types/nav";
+import type { NavItem } from "@/types/nav";
 
 type DocsConfig = {
   nav: NavItem[];

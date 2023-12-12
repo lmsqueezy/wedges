@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import { cn } from "../../helpers/utils";
-import { Checkbox, CheckboxElement, CheckboxElementProps } from "../Checkbox";
-import { Label, LabelProps } from "../Label";
-import { LabelHelperProps } from "../types";
+import { Checkbox, type CheckboxElement, type CheckboxElementProps } from "../Checkbox";
+import { Label, type LabelProps } from "../Label";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type CheckboxGroupElement = HTMLDivElement;
@@ -57,11 +57,11 @@ const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroup
     ref
   ) => {
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
 
     const renderLabel =
-      label || description || tooltip || helperText ? (
+      label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
             className="font-normal"
@@ -92,7 +92,7 @@ const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroup
           {...otherProps}
         >
           {/* label */}
-          {label || helperText || description || tooltip ? (
+          {label ?? helperText ?? description ?? tooltip ? (
             <div className="flex flex-col">{renderLabel}</div>
           ) : null}
 
@@ -110,13 +110,13 @@ const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroup
 const CheckboxGroupItem = React.forwardRef<CheckboxGroupItemElement, CheckboxGroupItemProps>(
   ({ disabled, label, ...otherProps }, ref) => {
     const context = useCheckboxGroupContext();
-    const { disabled: ctxDisabled } = context || {};
+    const { disabled: ctxDisabled } = context ?? {};
 
     return (
       <Checkbox
         ref={ref}
         className="wg-checkbox-group__item"
-        disabled={disabled || ctxDisabled}
+        disabled={disabled ?? ctxDisabled}
         label={label}
         {...otherProps}
       />

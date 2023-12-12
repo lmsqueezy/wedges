@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 /**
  * Constructs a new type by prefixing all keys of a given object type with a string.
  *
@@ -6,7 +8,7 @@
  * @returns A new object type with all keys prefixed with the given string.
  */
 type PrefixKeys<T extends Record<string, any>, P extends string> = {
-  [K in keyof T & string as `${P}${K & string}`]: T[K];
+  [K in keyof T & string as `${P}-${K & string}`]: T[K];
 };
 
 /**

@@ -1,4 +1,4 @@
-import { ThemableColors } from "../foundation";
+import { type ThemableColors } from "../foundation";
 
 export type ConfigTheme = {
   /**
@@ -29,6 +29,7 @@ export type ConfigTheme = {
 };
 
 export type BaseThemes = "light" | "dark";
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type DefaultThemeType = BaseThemes | (string & {});
 export type ConfigThemes = { [key in BaseThemes]?: ConfigTheme } & Record<string, ConfigTheme>;
 

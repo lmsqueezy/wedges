@@ -2,7 +2,7 @@ import React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
 
-import { cn, isReactElement } from "../../helpers/utils";
+import { cn, isElementWithChildren, isReactElement } from "../../helpers/utils";
 import { Tooltip } from "../Tooltip";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -42,7 +42,7 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
       React.cloneElement(children, {
         children: (
           <>
-            {children.props.children}
+            {isElementWithChildren(children) && children.props.children}
             {required && <span className="text-destructive">*</span>}
           </>
         ),
@@ -64,13 +64,13 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
     }
 
     return (
-      <div className="wg-antialiased wg-label inline-flex items-center gap-1">
+      <div className="wg-label inline-flex items-center gap-1 wg-antialiased">
         <LabelPrimitive.Root
           ref={ref}
           asChild={useAsChild}
           className={cn(
             "wg-label inline-flex cursor-pointer items-center gap-1 text-sm leading-6",
-            disabled && "text-surface-300 pointer-events-none",
+            disabled && "pointer-events-none text-surface-300",
             className
           )}
           {...otherProps}
@@ -95,7 +95,7 @@ const HelperText = React.forwardRef<
     <HelperTextComponent
       ref={ref}
       className={cn(
-        "wg-antialiased wg-label__helper text-surface-500 text-sm leading-6",
+        "wg-label__helper text-sm leading-6 text-surface-500 wg-antialiased",
         ariaInvalid && "text-destructive",
         disabled && "text-surface-300",
         className
