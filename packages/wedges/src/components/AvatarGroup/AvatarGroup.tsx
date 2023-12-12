@@ -1,8 +1,8 @@
 import * as React from "react";
-import { cva, VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import Avatar, { AvatarElement, AvatarProps } from "../Avatar/Avatar";
+import Avatar, { type AvatarElement, type AvatarProps } from "../Avatar/Avatar";
 
 /* -------------------------------- Variants -------------------------------- */
 const defaultAvatarGroupClasses = "wg-antialiased flex flex-wrap items-center gap-y-1 -space-x-3";
@@ -74,7 +74,7 @@ const AvatarMoreLabel = React.forwardRef<AvatarElement, AvatarMoreLabelProps>(
         ref={ref}
         asChild={isReactElement(children)}
         className={cn(
-          "ring-background bg-surface-200 aspect-auto h-full px-2 font-medium text-white ring-2 dark:text-white",
+          "aspect-auto h-full bg-surface-200 px-2 font-medium text-white ring-2 ring-background dark:text-white",
           className
         )}
         size={size}
@@ -94,7 +94,7 @@ const AvatarGroupItem = React.forwardRef<
   return (
     <Avatar
       ref={ref}
-      className={cn("ring-background ring-2 backdrop-blur-3xl", className)}
+      className={cn("ring-2 ring-background backdrop-blur-3xl", className)}
       initials={initials}
       {...otherProps}
     >

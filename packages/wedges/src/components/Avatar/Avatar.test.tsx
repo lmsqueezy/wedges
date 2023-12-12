@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React from "react";
-import { render, RenderResult } from "@testing-library/react";
+import { render, type RenderResult } from "@testing-library/react";
 
 import Avatar from "./Avatar";
 
@@ -27,7 +28,7 @@ describe("Given an Avatar with a working image", () => {
   beforeAll(() => {
     (window.Image as any) = class MockImage {
       onload: () => void = () => {};
-      src: string = "";
+      src = "";
       constructor() {
         setTimeout(() => {
           this.onload();
@@ -74,7 +75,7 @@ describe("Given an Avatar with a working image, alt and initials", () => {
   beforeAll(() => {
     (window.Image as any) = class MockImage {
       onload: () => void = () => {};
-      src: string = "";
+      src = "";
       constructor() {
         setTimeout(() => {
           this.onload();
@@ -114,8 +115,9 @@ describe("Given an Avatar with a working image and children", () => {
   // Mock the Image constructor to return a mock image that will call the onload
   beforeAll(() => {
     (window.Image as any) = class MockImage {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       onload: () => void = () => {};
-      src: string = "";
+      src = "";
       constructor() {
         setTimeout(() => {
           this.onload();

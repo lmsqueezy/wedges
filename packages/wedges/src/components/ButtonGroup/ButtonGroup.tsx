@@ -2,7 +2,7 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import { Button, ButtonElement } from "../Button/";
+import { Button, type ButtonElement } from "../Button/";
 
 /* ---------------------------------- Types --------------------------------- */
 export type ButtonGroupProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -72,7 +72,7 @@ const ButtonGroupWedges = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
         <div
           ref={ref}
           className={cn(
-            "border-surface-200 dark:border-surface-100 shadow-wg-xs dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border",
+            "dark:shadow:none inline-flex flex-wrap items-stretch rounded-[9px] border border-surface-200 shadow-wg-xs dark:border-surface-100",
             orientation === "vertical" && "flex-col",
             className
           )}
@@ -105,7 +105,7 @@ const ButtonGroupItem = React.forwardRef<ButtonElement, ButtonGroupItemProps>(
               : "first-of-type:rounded-t-lg last-of-type:rounded-b-lg",
             className
           )}
-          disabled={ctxDisabled || disabled}
+          disabled={ctxDisabled ?? disabled}
           size={size}
           variant="transparent"
           {...otherProps}
@@ -115,7 +115,7 @@ const ButtonGroupItem = React.forwardRef<ButtonElement, ButtonGroupItemProps>(
 
         <span
           aria-hidden
-          className={cn("bg-surface-100 flex w-px", orientation === "vertical" && "h-px w-full")}
+          className={cn("flex w-px bg-surface-100", orientation === "vertical" && "h-px w-full")}
         />
       </>
     );

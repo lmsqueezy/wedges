@@ -12,7 +12,9 @@ type SidebarProps = {
 const SidebarContext = createContext<SidebarProps>({
   isSidebarOpen: false,
   isSearchOpen: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   toggleSidebar: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   toggleSearch: () => {},
 });
 

@@ -35,22 +35,22 @@ export const themableColorsLight: ThemableColors = {
   foreground: palette.gray[900],
 
   primary: {
-    ...palette["purple"],
-    DEFAULT: palette["purple"][500],
+    ...palette.purple,
+    DEFAULT: palette.purple[500],
   },
 
   secondary: {
-    ...palette["gray"],
-    DEFAULT: palette["gray"][900],
+    ...palette.gray,
+    DEFAULT: palette.gray[900],
   },
 
   surface: {
-    ...palette["gray"],
-    DEFAULT: palette["gray"][50],
+    ...palette.gray,
+    DEFAULT: palette.gray[50],
   },
 
   destructive: {
-    ...palette["red"],
+    ...palette.red,
   },
 };
 
@@ -59,15 +59,15 @@ export const themableColorsDark: ThemableColors = {
   foreground: "#FFFFFF",
 
   primary: {
-    ...palette["purple"],
-    DEFAULT: palette["purple"][400],
-    600: palette["purple"][500],
+    ...palette.purple,
+    DEFAULT: palette.purple[400],
+    600: palette.purple[500],
   },
 
   secondary: {
-    ...palette["white"],
-    900: palette["gray"][900],
-    DEFAULT: palette["white"][900],
+    ...palette.white,
+    900: palette.gray[900],
+    DEFAULT: palette.white[900],
   },
 
   surface: {
@@ -85,7 +85,7 @@ export const themableColorsDark: ThemableColors = {
   },
 
   destructive: {
-    ...palette["red"],
+    ...palette.red,
   },
 };
 

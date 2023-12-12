@@ -1,7 +1,7 @@
 import { forwardRef, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Demos } from "@/examples";
 import { CodeIcon, EyeIcon, MoonIcon, SunIcon } from "@iconicicons/react";
-import { Button, Tabs, TabsElement, TabsProps } from "@lmsqueezy/wedges";
+import { Button, Tabs, type TabsElement, type TabsProps } from "@lmsqueezy/wedges";
 
 import { cn } from "@/lib/utils";
 

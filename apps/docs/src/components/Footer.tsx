@@ -1,7 +1,7 @@
-import { forwardRef, HTMLAttributes, useId } from "react";
+import { forwardRef, useId, type HTMLAttributes } from "react";
 import Link from "next/link";
 
-import type { FooterNav, FooterNavItem } from "@/types/nav";
+import type { FooterNavItem } from "@/types/nav";
 import { footerNavigation } from "@/config/footerNav";
 import { siteConfig } from "@/config/siteConfig";
 import { focusClasses } from "@/lib/a11y";
@@ -12,7 +12,7 @@ import { ArrowRightIcon } from "./Navigation";
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-purple-600 text-white dark:bg-transparent [&_a]:transition-colors [&_a]:duration-180">
+    <footer className="[&_a]:duration-180 mt-24 bg-purple-600 text-white dark:bg-transparent [&_a]:transition-colors">
       <div className="container py-16">
         <div className="grid gap-10 sm:grid-cols-5 sm:gap-6">
           <div>
@@ -63,7 +63,7 @@ const FooterNav = forwardRef<
       ) : null}
 
       <ul>
-        {Object.values(navigationItems as FooterNavItem[]).map(({ label, href }, index) => (
+        {Object.values(navigationItems).map(({ label, href }, index) => (
           <li key={`${generatedId}-${index}`}>
             <Link
               aria-label={label}

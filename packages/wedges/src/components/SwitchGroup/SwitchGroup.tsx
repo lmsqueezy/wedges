@@ -1,9 +1,9 @@
 import * as React from "react";
 
 import { cn } from "../../helpers/utils";
-import { Label, LabelProps } from "../Label";
-import { Switch, SwitchElement, SwitchProps } from "../Switch";
-import { LabelHelperProps } from "../types";
+import { Label, type LabelProps } from "../Label";
+import { Switch, type SwitchElement, type SwitchProps } from "../Switch";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type SwitchGroupElement = HTMLDivElement;
@@ -62,11 +62,11 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
     ref
   ) => {
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
 
     const renderLabel =
-      label || description || tooltip || helperText ? (
+      label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
             className="font-normal"
@@ -97,7 +97,7 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
           {...otherProps}
         >
           {/* label */}
-          {label || helperText || description || tooltip ? (
+          {label ?? helperText ?? description ?? tooltip ? (
             <div className="flex flex-col">{renderLabel}</div>
           ) : null}
 
@@ -111,7 +111,7 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
 const SwitchGroupItem = React.forwardRef<SwitchGroupItemElement, SwitchGroupItemProps>(
   ({ label, className, disabled, ...otherProps }, ref) => {
     const context = useSwitchGroupContext();
-    const { disabled: ctxDisabled, alignLabels } = context || {};
+    const { disabled: ctxDisabled, alignLabels } = context ?? {};
 
     return (
       <Switch
@@ -121,7 +121,7 @@ const SwitchGroupItem = React.forwardRef<SwitchGroupItemElement, SwitchGroupItem
           (cn("wg-switch-group__item", alignLabels === "start" && "flex w-full justify-between"),
           className)
         }
-        disabled={ctxDisabled || disabled}
+        disabled={ctxDisabled ?? disabled}
         label={label}
         {...otherProps}
       />

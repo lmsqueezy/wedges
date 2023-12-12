@@ -2,7 +2,7 @@ import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 
 import { cn } from "../../helpers/utils";
-import { Kbd, KbdElement, KbdProps } from "../Kbd";
+import { Kbd, type KbdElement, type KbdProps } from "../Kbd";
 
 /* ---------------------------------- Types --------------------------------- */
 export type DropdownMenuElement = React.ElementRef<typeof DropdownMenuPrimitive.Root>;
@@ -37,10 +37,10 @@ const DropdownMenuContent = React.forwardRef<
         align={align}
         className={cn(
           // state animations
-          "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right",
+          "data-[side=bottom]:animate-fade-in-down data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[side=top]:animate-fade-in-up",
 
           // base styles
-          "wg-antialiased text-surface-900 dark:text-surface-700 shadow-wg-overlay dark:border-surface flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 text-sm leading-6 dark:border dark:bg-neutral-800 dark:shadow-none",
+          "flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 text-sm leading-6 text-surface-900 shadow-wg-overlay wg-antialiased dark:border dark:border-surface dark:bg-neutral-800 dark:text-surface-700 dark:shadow-none",
 
           // has checkbox or radio item - offset start padding
           inset && "[--wg-offset-padding-left:32px]",
@@ -64,7 +64,7 @@ const DropdownMenuLabel = React.forwardRef<
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
-      "text-xxs flex select-none items-center gap-1 px-4 py-1 font-medium uppercase tracking-wider opacity-50",
+      "flex select-none items-center gap-1 px-4 py-1 text-xxs font-medium uppercase tracking-wider opacity-50",
       "pl-[var(--wg-offset-padding-left,1rem)]",
       className
     )}
@@ -82,7 +82,7 @@ const DropdownMenuItem = React.forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "focus:bg-surface relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
+      "relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 outline-none focus:bg-surface data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
       !destructive &&
         "text-surface-900 dark:text-surface-700 [&_svg]:text-surface-900 [&_svg]:opacity-40",
       destructive && "text-destructive",
@@ -102,7 +102,7 @@ const DropdownMenuShortcut = React.forwardRef<KbdElement, KbdProps>(
       <Kbd
         ref={ref}
         className={cn(
-          "text-surface-500 dark:text-surface-500 shadow-0 ms-auto border-0 bg-transparent p-0 ps-4 text-xs dark:bg-transparent",
+          "shadow-0 ms-auto border-0 bg-transparent p-0 ps-4 text-xs text-surface-500 dark:bg-transparent dark:text-surface-500",
           className
         )}
         {...otherProps}
@@ -120,7 +120,7 @@ const DropdownMenuSeparator = React.forwardRef<
 >(({ className, ...otherProps }, ref) => (
   <DropdownMenuPrimitive.Separator
     ref={ref}
-    className={cn("bg-surface-100 h-px dark:bg-white/5", className)}
+    className={cn("h-px bg-surface-100 dark:bg-white/5", className)}
     {...otherProps}
   />
 ));
@@ -158,7 +158,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     ref={ref}
     checked={checked}
     className={cn(
-      "wg-dropdown-menu__checkbox-item focus:bg-surface relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
+      "wg-dropdown-menu__checkbox-item relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none focus:bg-surface data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
       !destructive &&
         "text-surface-900 dark:text-surface-700 [&_svg]:text-surface-900 [&_svg]:opacity-40",
       destructive && "text-destructive",
@@ -202,7 +202,7 @@ const DropdownMenuRadioItem = React.forwardRef<
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "wg-dropdown-menu__checkbox-item focus:bg-surface relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
+      "wg-dropdown-menu__checkbox-item relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none focus:bg-surface data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
       !destructive &&
         "text-surface-900 dark:text-surface-700 [&_svg]:text-surface-900 [&_svg]:opacity-40",
       destructive && "text-destructive",
@@ -243,10 +243,10 @@ const DropdownMenuSubContent = React.forwardRef<
       alignOffset={alignOffset}
       className={cn(
         // state animations
-        "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[state=closed]:animate-fade-out",
+        "data-[side=bottom]:animate-fade-in-down data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[side=top]:animate-fade-in-up data-[state=closed]:animate-fade-out",
 
         // base styles
-        "shadow-wg-overlay dark:border-surface z-50 flex min-w-[9rem] origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 dark:border dark:bg-neutral-800 dark:shadow-none",
+        "z-50 flex min-w-[9rem] origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 shadow-wg-overlay dark:border dark:border-surface dark:bg-neutral-800 dark:shadow-none",
 
         // has checkbox or radio item - offset start padding
         inset && "[--wg-offset-padding-left:34px]",
@@ -268,7 +268,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "focus:bg-surface text-surface-900 dark:text-surface-700 data-[state=open]:bg-surface relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 leading-6 outline-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:focus:bg-white/5 dark:data-[state=open]:bg-white/5",
+      "relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 leading-6 text-surface-900 outline-none focus:bg-surface data-[disabled]:pointer-events-none data-[state=open]:bg-surface data-[disabled]:opacity-50 dark:text-surface-700 dark:focus:bg-white/5 dark:data-[state=open]:bg-white/5",
       "[&_svg]:text-surface-900 [&_svg]:opacity-40",
       className
     )}
@@ -277,7 +277,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     {children}
 
     <svg
-      className="text-surface-500 ms-auto h-6 w-6"
+      className="ms-auto h-6 w-6 text-surface-500"
       fill="none"
       height="24"
       viewBox="0 0 24 24"

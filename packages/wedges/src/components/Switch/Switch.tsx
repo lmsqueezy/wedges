@@ -2,9 +2,9 @@ import * as React from "react";
 import * as SwitchPrimitive from "@radix-ui/react-switch";
 
 import { cn } from "../../helpers/utils";
-import { Label, LabelProps } from "../Label";
+import { Label, type LabelProps } from "../Label";
 import { useSwitchGroupContext } from "../SwitchGroup/SwitchGroup";
-import { LabelHelperProps } from "../types";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 type HasLabel = {
@@ -53,21 +53,21 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
     },
     ref
   ) => {
-    const LabelWrapComponent = label || helperText ? "div" : React.Fragment;
+    const LabelWrapComponent = label ?? helperText ? "div" : React.Fragment;
     const isInGroup = useSwitchGroupContext(true) ? true : false;
 
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
 
     const renderSwitch = (
-      <div className="wg-switch min-h-6 inline-flex shrink-0 items-center">
+      <div className="wg-switch inline-flex min-h-6 shrink-0 items-center">
         <SwitchPrimitive.Root
           ref={ref}
           aria-describedby={helperText ? `${elId}__describer` : undefined}
           aria-labelledby={label ? `${elId}__label` : undefined}
           className={cn(
-            "wg-antialiased data-[state=checked]:bg-primary bg-surface-200 hover:bg-surface-300 outline-primary peer inline-flex h-4 w-7 items-center rounded-full transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
+            "peer inline-flex h-4 w-7 items-center rounded-full bg-surface-200 outline-primary transition-colors duration-100 wg-antialiased hover:bg-surface-300 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none data-[state=checked]:bg-primary",
             disabled && "bg-surface-100 data-[state=checked]:bg-surface-100",
             className
           )}
@@ -97,7 +97,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
           required={required}
           tooltip={tooltip}
         >
-          {label || children}
+          {label ?? children}
         </Label>
 
         {helperText ? (

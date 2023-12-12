@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { VariantProps } from "class-variance-authority";
+import { type VariantProps } from "class-variance-authority";
 
-import { cn, isReactElement } from "../../helpers/utils";
+import { cn, isElementWithChildren, isReactElement } from "../../helpers/utils";
 import { buttonVariants, iconVariants } from "./variants";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -68,9 +68,9 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
     // Determine if the button is icon-only.
     const isIcon = React.useMemo(() => {
       return (
-        (before && !after && !children && size) ||
-        (after && !before && !children && size) ||
-        isIconOnly === true ||
+        (before && !after && !children && size) ??
+        (after && !before && !children && size) ??
+        isIconOnly === true ??
         false
       );
     }, [before, after, children, size, isIconOnly]);
@@ -103,8 +103,10 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
         children: (
           <>
             {before ? renderIcon(before) : null}
-            {children.props.children && isIconOnly && renderIcon(children.props.children)}
-            {children.props.children && !isIconOnly && <>{children.props.children}</>}
+            {isElementWithChildren(children) &&
+              isIconOnly &&
+              renderIcon(children.props.children as React.ReactElement<HTMLElement>)}
+            {isElementWithChildren(children) && !isIconOnly && <>{children.props.children}</>}
             {after ? renderIcon(after) : null}
           </>
         ),
@@ -112,7 +114,9 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
     ) : (
       <>
         {before ? renderIcon(before) : null}
-        {React.isValidElement(children) && isIconOnly && renderIcon(children as React.ReactElement)}
+        {React.isValidElement(children) &&
+          isIconOnly &&
+          renderIcon(children as React.ReactElement<HTMLElement>)}
         {children && !isIconOnly && <span className="px-1">{children}</span>}
         {after ? renderIcon(after) : null}
       </>

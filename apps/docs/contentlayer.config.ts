@@ -1,12 +1,12 @@
 import {
-  ComputedFields,
   defineDocumentType,
   defineNestedType,
   makeSource,
+  type ComputedFields,
 } from "contentlayer/source-files";
 import { fromHtmlIsomorphic } from "hast-util-from-html-isomorphic";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrettyCode, { Options } from "rehype-pretty-code";
+import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
@@ -103,6 +103,7 @@ export default makeSource({
         },
       ],
       addCode,
+      // @ts-expect-error rehype-pretty-code types are wrong
       [rehypePrettyCode, prettyCodeOptions],
       postProcess,
     ],

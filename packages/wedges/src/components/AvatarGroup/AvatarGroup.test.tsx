@@ -43,7 +43,7 @@ describe("Given an AvatarGroup with 'items' prop", () => {
     expect(root.querySelector("span")?.classList.contains("min-w-16")).toBe(true);
   });
 
-  it("should apply the correct z-index on children items based on 'previousOnTop' prop", async () => {
+  it("should apply the correct z-index on children items based on 'previousOnTop' prop", () => {
     const { container } = render(
       <AvatarGroup
         items={[{ className: "item-1" }, { className: "item-2" }]}
@@ -51,8 +51,8 @@ describe("Given an AvatarGroup with 'items' prop", () => {
       />
     );
 
-    const item1 = container.querySelector(".item-1") as HTMLElement;
-    const item2 = container.querySelector(".item-2") as HTMLElement;
+    const item1 = container.querySelector<HTMLElement>(".item-1");
+    const item2 = container.querySelector<HTMLElement>(".item-2");
 
     expect(item1?.style.zIndex).toBe("2");
     expect(item2?.style.zIndex).toBe("1");

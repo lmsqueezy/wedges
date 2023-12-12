@@ -7,18 +7,16 @@ import { toc } from "mdast-util-toc";
 import { remark } from "remark";
 import { visit } from "unist-util-visit";
 
-const textTypes = ["text", "emphasis", "strong", "inlineCode"];
+type VFile = {
+  data: TOCItems;
+};
 
-function flattenNode(node) {
-  const p = [];
-
-  visit(node, (node) => {
-    if (!textTypes.includes(node.type)) return;
-    p.push(node.value);
-  });
-
-  return p.join(``);
-}
+type Node = {
+  type: string;
+  children?: Node[];
+  value?: string;
+  url?: string;
+};
 
 type Item = {
   title: string;
@@ -26,11 +24,27 @@ type Item = {
   items?: Item[];
 };
 
-export type Items = {
+export type TOCItems = {
   items?: Item[];
 };
 
-function getItems(node, current): Items {
+const textTypes = ["text", "emphasis", "strong", "inlineCode"];
+
+function flattenNode(node: Node) {
+  const p = [];
+
+  visit(node, (node) => {
+    if (!textTypes.includes(node.type)) {
+      return;
+    }
+
+    p.push(node.value);
+  });
+
+  return p.join(``);
+}
+
+function getItems(node: Node, current: Item): TOCItems {
   if (!node) {
     return {};
   }
@@ -67,17 +81,17 @@ function getItems(node, current): Items {
   return {};
 }
 
-const getToc = () => (node, file) => {
+const getToc = () => (node: Node, file: VFile) => {
   const table = toc(node);
   const items = getItems(table.map, {});
 
   file.data = items;
 };
 
-export type TableOfContents = Items;
+export type TableOfContents = TOCItems;
 
 export async function getTableOfContents(content: string): Promise<TableOfContents> {
   const result = await remark().use(getToc).process(content);
 
-  return result.data;
+  return result.data as TableOfContents;
 }

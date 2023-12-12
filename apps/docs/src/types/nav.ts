@@ -8,4 +8,4 @@ export type NavItem = {
 };
 
 export type FooterNavItem = Pick<NavItem, "label" | "href">;
-export type FooterNav = Record<string, FooterNavItem[]>;
+export type FooterNavType = Record<string, FooterNavItem[]>;

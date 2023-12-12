@@ -1,31 +1,31 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "wg-antialiased group inline-flex shrink-0 select-none items-center justify-center text-sm font-medium leading-6 transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
+  "group inline-flex shrink-0 select-none items-center justify-center text-sm font-medium leading-6 transition-colors duration-100 wg-antialiased focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:pointer-events-none",
   {
     variants: {
       size: {
-        "xs-icon": "px-8px gap-0 py-1",
-        sm: "px-8px gap-0 py-1",
-        md: "px-12px gap-1 py-2",
+        "xs-icon": "gap-0 px-8px py-1",
+        sm: "gap-0 px-8px py-1",
+        md: "gap-1 px-12px py-2",
       },
       shape: {
         rounded: "rounded-lg",
         pill: "rounded-full",
       },
       variant: {
-        primary: "bg-primary outline-primary hover:bg-primary-600 text-white disabled:opacity-50",
+        primary: "bg-primary text-white outline-primary hover:bg-primary-600 disabled:opacity-50",
 
         secondary:
-          "bg-secondary dark:text-secondary-900 hover:bg-secondary-700 dark:disabled:text-wg-white-500 dark:hover:bg-secondary-800 outline-secondary disabled:bg-secondary-200 text-white",
+          "bg-secondary text-white outline-secondary hover:bg-secondary-700 disabled:bg-secondary-200 dark:text-secondary-900 dark:hover:bg-secondary-800 dark:disabled:text-wg-white-500",
 
         tertiary: "bg-surface hover:bg-surface-100",
 
         outline:
-          "hover:bg-surface disabled:border-surface-50 border-surface-200 dark:border-surface-100 shadow-wg-xs dark:shadow:none border [--wg-border-width:1px]",
+          "dark:shadow:none border border-surface-200 shadow-wg-xs [--wg-border-width:1px] hover:bg-surface disabled:border-surface-50 dark:border-surface-100",
 
-        transparent: "hover:bg-surface bg-transparent",
-        link: "underline-offset-3 p-0 underline",
+        transparent: "bg-transparent hover:bg-surface",
+        link: "p-0 underline underline-offset-3",
       },
 
       destructive: {
@@ -48,7 +48,7 @@ export const buttonVariants = cva(
         variant: ["primary", "secondary"],
         destructive: true,
         class:
-          "bg-destructive hover:bg-destructive-600 dark:hover:bg-destructive-600 outline-destructive disabled:bg-destructive text-white disabled:opacity-50 dark:text-white dark:disabled:text-white",
+          "bg-destructive text-white outline-destructive hover:bg-destructive-600 disabled:bg-destructive disabled:opacity-50 dark:text-white dark:hover:bg-destructive-600 dark:disabled:text-white",
       },
       {
         variant: "tertiary",
@@ -65,13 +65,13 @@ export const buttonVariants = cva(
         variant: "outline",
         destructive: true,
         class:
-          "border-destructive dark:border-destructive disabled:border-destructive-100 dark:disabled:border-destructive-900 hover:bg-destructive-50 dark:hover:bg-surface",
+          "border-destructive hover:bg-destructive-50 disabled:border-destructive-100 dark:border-destructive dark:hover:bg-surface dark:disabled:border-destructive-900",
       },
       {
         variant: "link",
         destructive: true,
         class:
-          "focus-visible:text-destructive-800 hover:text-destructive-800 dark:hover:text-destructive-400 dark:focus-visible:text-destructive-400",
+          "hover:text-destructive-800 focus-visible:text-destructive-800 dark:hover:text-destructive-400 dark:focus-visible:text-destructive-400",
       },
 
       {
@@ -82,7 +82,7 @@ export const buttonVariants = cva(
         variant: ["outline", "tertiary", "transparent", "link"],
         destructive: true,
         class:
-          "text-destructive-700 dark:text-destructive-500 outline-destructive disabled:text-destructive-300 dark:disabled:text-destructive/50",
+          "text-destructive-700 outline-destructive disabled:text-destructive-300 dark:text-destructive-500 dark:disabled:text-destructive/50",
       },
     ],
     defaultVariants: {

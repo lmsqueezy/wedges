@@ -15,7 +15,8 @@
     ],
     "noEmit": true,
     "incremental": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "allowJs": true
   },
   "include": [
     "next-env.d.ts",
@@ -23,5 +24,6 @@
     "**/*.tsx",
     ".contentlayer/generated",
     ".next/types/**/*.ts"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }

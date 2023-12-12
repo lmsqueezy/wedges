@@ -1,8 +1,7 @@
-import type { Config } from "tailwindcss";
+import { wedgesTW } from "./packages/wedges/src/tw-plugin/plugin.ts";
 
-import { wedgesTW } from "./src";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   tailwindFunctions: ["clsx", "cn", "cva"],
   darkMode: "class",

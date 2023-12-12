@@ -4,15 +4,15 @@ export const alertVariants = cva("", {
   variants: {
     variant: {
       inline: "rounded-lg sm:items-center",
-      expanded: "pl-14px items-start rounded-r-lg border-l-2 p-4",
+      expanded: "items-start rounded-r-lg border-l-2 p-4 pl-14px",
     },
     color: {
-      gray: "text-surface-500 border-surface-200",
-      primary: "text-surface-500 border-primary",
-      info: "bg-wg-blue-50 text-wg-blue-700 border-wg-blue",
-      success: "bg-wg-green-50 text-wg-green-700 border-wg-green",
-      error: "bg-wg-red-50 text-wg-red-700 border-wg-red",
-      warning: "bg-wg-yellow-50 text-wg-yellow-700 border-wg-yellow",
+      gray: "border-surface-200 text-surface-500",
+      primary: "border-primary text-surface-500",
+      info: "border-wg-blue bg-wg-blue-50 text-wg-blue-700",
+      success: "border-wg-green bg-wg-green-50 text-wg-green-700",
+      error: "border-wg-red bg-wg-red-50 text-wg-red-700",
+      warning: "border-wg-yellow bg-wg-yellow-50 text-wg-yellow-700",
     },
   },
   defaultVariants: {

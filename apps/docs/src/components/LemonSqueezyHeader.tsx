@@ -338,7 +338,7 @@ function PlatformDropdown() {
         <Navigation.DropdownColumn>
           <Navigation.DropdownTitle label="eCommerce" id="dropdown-menu__ecommerce" />
 
-          {links["ecommerce"]?.map(({ label, description, href }, index) => (
+          {links.ecommerce?.map(({ label, description, href }, index) => (
             <Navigation.DropdownLink
               key={`${label}-${index}`}
               href={href}
@@ -353,7 +353,7 @@ function PlatformDropdown() {
         <Navigation.DropdownColumn>
           <Navigation.DropdownTitle label="Features" id="dropdown-menu__features" />
 
-          {links["features"]?.map(({ label, description, href, badge }, index) => (
+          {links.features?.map(({ label, description, href, badge }, index) => (
             <Navigation.DropdownLink
               key={`${label}-${index}`}
               href={href}
@@ -369,7 +369,7 @@ function PlatformDropdown() {
         <Navigation.DropdownColumn>
           <Navigation.DropdownTitle label="Reporting" id="dropdown-menu__reporting" />
 
-          {links["reporting"]?.map(({ label, description, href }, index) => (
+          {links.reporting?.map(({ label, description, href }, index) => (
             <Navigation.DropdownLink
               key={`${label}-${index}`}
               href={href}

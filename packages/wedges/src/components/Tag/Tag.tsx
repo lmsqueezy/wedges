@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { cn, isReactElement } from "../../helpers/utils";
-import { Avatar, AvatarProps } from "../Avatar";
-import { Badge, BadgeElement } from "../Badge";
+import { type Avatar, type AvatarProps } from "../Avatar";
+import { Badge, type BadgeElement } from "../Badge";
 import { Button } from "../Button";
 import { CloseIcon } from "../icons";
 

@@ -1,10 +1,16 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 /* -------------------------------------------------------------------------- */
 /*                    GENERATED FILE, DO NOT EDIT MANUALLY!                   */
 /* -------------------------------------------------------------------------- */
-import { lazy } from "react";
+import { lazy, type LazyExoticComponent } from "react";
 
-export const Demos: Record<string, any> = {
+type Demo = {
+  component: LazyExoticComponent<() => JSX.Element>;
+  code: string;
+}
+
+export const Demos: Record<string, Demo> = {
   "colors/themableColors": {
     component: lazy(() => import("@/examples/colors/themableColors.tsx")),
     code: `export function ColorsExample() {

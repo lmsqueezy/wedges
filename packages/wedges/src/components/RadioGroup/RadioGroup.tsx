@@ -2,8 +2,8 @@ import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 
 import { cn } from "../../helpers/utils";
-import { Label, LabelProps } from "../Label";
-import { LabelHelperProps } from "../types";
+import { Label, type LabelProps } from "../Label";
+import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type RadioGroupElement = React.ElementRef<typeof RadioGroupPrimitive.Root>;
@@ -70,11 +70,11 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
     ref
   ) => {
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
     const ariaInvalid = otherProps["aria-invalid"];
 
     const renderLabel =
-      label || description || tooltip || helperText ? (
+      label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
             className="font-normal"
@@ -119,13 +119,13 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
 const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemProps>(
   ({ label, helperText, disabled, required, tooltip, id, ...otherProps }, ref) => {
     const context = useSwitchGroupContext();
-    const { disabled: ctxDisabled } = context || {};
+    const { disabled: ctxDisabled } = context ?? {};
 
-    const isDisabled = ctxDisabled || disabled;
+    const isDisabled = ctxDisabled ?? disabled;
     const ariaInvalid = otherProps["aria-invalid"];
 
     const generatedId = React.useId();
-    const elId = id || generatedId;
+    const elId = id ?? generatedId;
 
     const renderLabel = (
       <div className="inline-flex flex-col">
@@ -156,8 +156,8 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
           ref={ref}
           aria-labelledby={label ? `${elId}__label` : undefined}
           className={cn(
-            "outline-primary text-surface-200 group relative flex h-6 w-6 items-center justify-center rounded-full transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
-            isDisabled && "text-surface-200 dark:text-surface-100 pointer-events-none",
+            "group relative flex h-6 w-6 items-center justify-center rounded-full text-surface-200 outline-primary transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
+            isDisabled && "pointer-events-none text-surface-200 dark:text-surface-100",
             !isDisabled && "hover:text-surface-300 data-[state=checked]:text-primary"
           )}
           disabled={isDisabled}
@@ -181,7 +181,7 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
           <RadioGroupPrimitive.Indicator asChild>
             <svg
               className={cn(
-                "text-primary absolute aspect-square w-full scale-100",
+                "absolute aspect-square w-full scale-100 text-primary",
                 isDisabled && "text-surface-200 dark:text-surface-100"
               )}
               fill="none"

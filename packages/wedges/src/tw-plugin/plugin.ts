@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /**
  * This Tailwind plugin is based and inspired on "tw-colors" and "NextUI".
  *
@@ -35,7 +38,7 @@ const resolveConfig = (
 ) => {
   const resolved: {
     variants: { name: string; definition: string[] }[];
-    utilities: { [selector: string]: Record<string, string> };
+    utilities: Record<string, Record<string, string>>;
     colors: Record<
       string,
       ({
@@ -106,9 +109,14 @@ const resolveConfig = (
         // Set the dynamic color in tailwind config theme.colors
         resolved.colors[colorName] = ({ opacityVariable, opacityValue }) =>
           getColorString(wedgesColorVar, wedgesOpacityVar, opacityValue, opacityVariable);
-      } catch (error: any) {
-        // eslint-disable-next-line no-console
-        console.warn("wedges-tw-plugin-error", error?.message);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          // eslint-disable-next-line no-console
+          console.warn("wedges-tw-plugin-error", error.message);
+        } else {
+          // eslint-disable-next-line no-console
+          console.warn("wedges-tw-plugin-error", error);
+        }
       }
     });
   });
@@ -159,7 +167,7 @@ const corePlugin = (
       // Add 'wg-bg' utility
       matchUtilities(
         {
-          "wg-bg": (value: string | any) => {
+          "wg-bg": (value: any) => {
             if (typeof value === "function") {
               const res = value({ opacityValue: "1", opacityVariable: "1" });
               const match = res.match(/var\(([^)]+)\)/);
@@ -313,12 +321,12 @@ export const wedgesTW = (config: WedgesOptions = {}): ReturnType<typeof plugin> 
     themes: themeObject = {},
   } = config;
 
-  const userLightColors = themeObject["light"]?.colors || {};
-  const userDarkColors = themeObject["dark"]?.colors || {};
+  const userLightColors = themeObject.light?.colors ?? {};
+  const userDarkColors = themeObject.dark?.colors ?? {};
   const otherUserThemes = omit(themeObject, ["light", "dark"]);
 
   Object.keys(otherUserThemes).forEach((themeName) => {
-    const { colors, extend }: ConfigTheme = otherUserThemes[themeName] || {};
+    const { colors, extend }: ConfigTheme = otherUserThemes[themeName] ?? {};
     const baseTheme = extend && isBaseTheme(extend) ? extend : defaultExtendTheme;
 
     if (colors && typeof colors === "object") {

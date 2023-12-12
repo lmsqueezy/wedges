@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { IconProps } from "./types";
+import { type IconProps } from "./types";
 
 const LemonSqueezyIcon = React.forwardRef<SVGSVGElement, IconProps>((props, ref) => {
   const { size, title, ...rest } = props;
