@@ -28,14 +28,14 @@ const components = {
   Logomark,
   Steps: ({ ...props }) => (
     <div
-      className="[&>h3]:step [&>h4]:step steps border-surface-100 mb-16 ml-4 border-l pl-8 [counter-reset:step] [&>h3::before]:top-0 [&>h3]:relative [&>h4::before]:-top-1 [&>h4]:relative"
+      className="[&>h3]:step [&>h4]:step steps mb-16 ml-4 border-l border-surface-100 pl-8 [counter-reset:step] [&>h3::before]:top-0 [&>h3]:relative [&>h4::before]:-top-1 [&>h4]:relative"
       {...props}
     />
   ),
   LinkCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(
-        "border-surface-100 not-prose hover:bg-surface-50/50 outline-primary hover:border-surface-200/70 shadow-wg-xs text-surface-400 hover:text-surface-900 flex w-full flex-col items-center gap-4 rounded-xl border bg-white p-6 transition-colors sm:p-10",
+        "not-prose flex min-h-[140px] w-full flex-col items-center justify-center gap-4 rounded-xl border border-surface-100 bg-white p-6 text-surface-400 shadow-wg-xs outline-primary transition-colors hover:border-surface-200/70 hover:bg-surface-50/50 hover:text-surface-900 sm:p-10 [&>p]:text-center",
         className
       )}
       {...props}
@@ -64,7 +64,7 @@ const components = {
   code: ({ className, ...otherProps }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "not-prose bg-surface-100 text-surface-900 relative rounded px-[0.3rem] py-[0.2rem] font-mono text-[13px]",
+        "not-prose relative rounded bg-surface-100 px-[0.3rem] py-[0.2rem] font-mono text-[13px] text-surface-900",
         className
       )}
       {...otherProps}

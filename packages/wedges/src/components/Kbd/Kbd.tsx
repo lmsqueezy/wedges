@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "../../helpers/utils";
-import { type KbdKey, kbdKeysLabelMap, kbdKeysMap } from "./types";
+import { kbdKeysLabelMap, kbdKeysMap, type KbdKey } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
 export const kbdVariants = cva(

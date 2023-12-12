@@ -141,7 +141,7 @@ export default function LemonSqueezyHeader({
 
           <Button
             asChild
-            className="!text-wg-gray-900 group gap-[6px] !bg-white px-5 py-2 text-[15px] tracking-[-0.01em] !outline-white hover:[&_svg]:hidden"
+            className="group gap-[6px] !bg-white px-5 py-2 text-[15px] tracking-[-0.01em] !text-wg-gray-900 !outline-white hover:[&_svg]:hidden"
             shape="pill"
           >
             <a href="https://app.lemonsqueezy.com/register">
