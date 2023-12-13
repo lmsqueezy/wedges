@@ -215,26 +215,24 @@ export function Example() {
   },
   "avatar/example-3": {
     component: lazy(() => import("@/examples/avatar/example-3.tsx")),
-    code: `import { Avatar } from "@lmsqueezy/wedges";
+    code: `import { Avatar, Tooltip } from "@lmsqueezy/wedges";
 
 export function Example() {
   return (
-    <div className="flex items-center gap-6">
-      <Avatar.Root className="h-16 w-16 justify-center">
-        <Avatar.Image
-          className="rounded-md"
-          src="https://images.unsplash.com/photo-1560800452-f2d475982b96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=250&h=250&q=80"
-        />
-
-        <Avatar.Fallback className="rounded-2xl" />
-
-        <span className="absolute flex h-10 w-10 items-center justify-center rounded-lg bg-neutral-700/60 text-white backdrop-blur-sm">
-          WG
-        </span>
-
-        <Avatar.Status className="-bottom-1 -left-1 bg-wg-red" />
-        <Avatar.Notification className="-right-0.5 -top-1 bg-purple-400" />
-      </Avatar.Root>
+    <div className="flex items-center justify-center gap-6">
+      <Tooltip content="Customized Avatar component" sideOffset={8}>
+        <Avatar.Root className="h-16 w-16 justify-center rounded-full outline outline-offset-2 outline-wg-red">
+          <Avatar.Image
+            className="rounded-full"
+            src="https://images.unsplash.com/photo-1560800452-f2d475982b96?auto=format&fit=crop&w=250&h=250"
+          />
+          <Avatar.Fallback className="rounded-full" />
+          <span className="absolute flex h-10 w-10 items-center justify-center rounded-full bg-neutral-700/50 text-white backdrop-blur-sm">
+            WG
+          </span>
+          <Avatar.Status className="left-1 bg-wg-red" />
+        </Avatar.Root>
+      </Tooltip>
     </div>
   );
 }
@@ -249,8 +247,289 @@ export function Example() {
     <Avatar
       alt="Max Quest"
       size="xl"
-      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face"
+      src="https://images.unsplash.com/photo-1560800452-f2d475982b96?w=250&h=250&auto=format&fit=crop"
     />
+  );
+}
+`,
+  },
+  "avatar-group/example-1": {
+    component: lazy(() => import("@/examples/avatar-group/example-1.tsx")),
+    code: `import { AvatarGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="flex flex-col gap-12">
+      <div className="flex items-center justify-center gap-6">
+        <AvatarGroup
+          size="sm"
+          items={[
+            {
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 1",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+          ]}
+          moreLabel="+3"
+        />
+
+        <AvatarGroup
+          size="sm"
+          previousOnTop={true}
+          items={[
+            {
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 1",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+          ]}
+          moreLabel="+3"
+        />
+      </div>
+
+      <div className="flex items-center justify-center gap-6">
+        <AvatarGroup
+          size="md"
+          items={[
+            {
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 1",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+          ]}
+          moreLabel="+3"
+        />
+
+        <AvatarGroup
+          size="md"
+          previousOnTop={true}
+          items={[
+            {
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 1",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+          ]}
+          moreLabel="+3"
+        />
+      </div>
+
+      <div className="flex items-center justify-center gap-6">
+        <AvatarGroup
+          size="lg"
+          items={[
+            {
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 1",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+          ]}
+          moreLabel="+3"
+        />
+
+        <AvatarGroup
+          size="lg"
+          previousOnTop={true}
+          items={[
+            {
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 1",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+          ]}
+          moreLabel="+3"
+        />
+      </div>
+
+      <div className="flex items-center justify-center gap-6">
+        <AvatarGroup
+          size="xl"
+          items={[
+            {
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 1",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+          ]}
+          moreLabel="+3"
+        />
+
+        <AvatarGroup
+          size="xl"
+          previousOnTop={true}
+          items={[
+            {
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 1",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              alt: "Avatar 2",
+            },
+          ]}
+          moreLabel="+3"
+        />
+      </div>
+    </div>
+  );
+}
+`,
+  },
+  "avatar-group/example-2": {
+    component: lazy(() => import("@/examples/avatar-group/example-2.tsx")),
+    code: `import { AvatarGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="flex justify-center">
+      <AvatarGroup.Root>
+        <AvatarGroup.Item
+          size="md"
+          src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=250"
+        />
+
+        <AvatarGroup.Item
+          size="md"
+          src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=250&h=250"
+        />
+
+        <AvatarGroup.Item
+          size="md"
+          src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=250"
+        />
+
+        <AvatarGroup.Label className="z-40 bg-primary px-3 text-sm text-white dark:bg-primary">
+          42k likes
+        </AvatarGroup.Label>
+
+        <AvatarGroup.Item
+          className="z-30"
+          size="md"
+          src="https://images.unsplash.com/photo-1589571894960-20bbe2828d0a?auto=format&fit=crop&w=250&q=60"
+        />
+        <AvatarGroup.Item
+          className="z-20"
+          size="md"
+          src="https://images.unsplash.com/photo-1560800452-f2d475982b96?fit=crop&w=250&h=250&q=80"
+        />
+        <AvatarGroup.Item
+          className="z-10"
+          size="md"
+          src="https://images.unsplash.com/photo-1549068106-b024baf5062d?fit=crop&w=250&q=60"
+        />
+      </AvatarGroup.Root>
+    </div>
+  );
+}
+`,
+  },
+  "avatar-group/example-3": {
+    component: lazy(() => import("@/examples/avatar-group/example-3.tsx")),
+    code: `import { AvatarGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="flex items-center justify-center">
+      <AvatarGroup
+        items={[
+          {
+            src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop",
+            alt: "Avatar 1",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?w=250&h=250&auto=format&fit=crop",
+            alt: "Avatar 2",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=250&h=250&auto=format&fit=crop",
+            alt: "Avatar 2",
+          },
+        ]}
+        moreLabel="+3"
+      />
+    </div>
+  );
+}
+`,
+  },
+  "avatar-group/preview": {
+    component: lazy(() => import("@/examples/avatar-group/preview.tsx")),
+    code: `import { AvatarGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="flex items-center justify-center">
+      <AvatarGroup
+        items={[
+          {
+            src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop",
+            alt: "Avatar 1",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?w=250&h=250&auto=format&fit=crop",
+            alt: "Avatar 2",
+          },
+          {
+            src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=250&h=250&auto=format&fit=crop",
+            alt: "Avatar 2",
+          },
+        ]}
+        moreLabel="+3"
+      />
+    </div>
   );
 }
 `,

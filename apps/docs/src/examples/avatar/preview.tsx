@@ -5,7 +5,7 @@ export default function Example() {
     <Avatar
       alt="Max Quest"
       size="xl"
-      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face"
+      src="https://images.unsplash.com/photo-1560800452-f2d475982b96?w=250&h=250&auto=format&fit=crop"
     />
   );
 }

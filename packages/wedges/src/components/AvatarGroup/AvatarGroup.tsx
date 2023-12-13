@@ -23,10 +23,7 @@ const avatarGroupVariants = cva(defaultAvatarGroupClasses, {
 });
 
 /* ---------------------------------- Types --------------------------------- */
-type AvatarGroupAvatarProps = Omit<
-  AvatarProps,
-  "size" | "notification" | "status" | "initial" | "asChild"
->;
+type AvatarGroupAvatarProps = Omit<AvatarProps, "size" | "notification" | "status" | "asChild">;
 
 type BaseAvatarGroupProps = {
   /**

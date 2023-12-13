@@ -17,7 +17,7 @@ import { Avatar } from "@lmsqueezy/wedges";
 ```
     
 ```tsx showLineNumbers
-<Avatar alt='Image alt text' src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop" />
+<Avatar alt='Image alt text' src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop" />
 ```
 
 For more advanced usage, you can use the `Avatar.Root` component to compose your own avatar.
@@ -25,10 +25,10 @@ For more advanced usage, you can use the `Avatar.Root` component to compose your
 ```tsx
 <Avatar.Root>
     <Avatar.Image
-        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face"
-        alt="Max Quest"
+        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
+        alt="Image alt text"
     />
-    <Avatar.Fallback>MQ</Avatar.Fallback>
+    <Avatar.Fallback>W</Avatar.Fallback>
     <Avatar.Notification />
     <Avatar.Status />
 </Avatar.Root>
@@ -37,6 +37,8 @@ For more advanced usage, you can use the `Avatar.Root` component to compose your
 ### API Reference
 
 #### Avatar
+
+Includes all the props of the `AvatarImage` <a href="https://www.radix-ui.com/primitives/docs/components/avatar#image" rel="nofollow noreferrer" target="_blank">Radix</a> primitive and:
 
 <PropsTable
   content={[
@@ -65,15 +67,15 @@ For more advanced usage, you can use the `Avatar.Root` component to compose your
 
 #### Avatar.Root
 
-Extends <a href="https://www.radix-ui.com/primitives/docs/components/avatar#root" target="_blank" rel="nofollow noreferrer">Radix</a> `AvatarRoot` primitive.
+See `AvatarRoot` <a href="https://www.radix-ui.com/primitives/docs/components/avatar#root" target="_blank" rel="nofollow noreferrer">Radix</a> primitive.
 
 #### Avatar.Image
 
-Extends <a href="https://www.radix-ui.com/primitives/docs/components/avatar#image" target="_blank" rel="nofollow noreferrer">Radix</a> `AvatarImage` primitive.
+See `AvatarImage` <a href="https://www.radix-ui.com/primitives/docs/components/avatar#image" target="_blank" rel="nofollow noreferrer">Radix</a> primitive.
 
 #### Avatar.Fallback
 
-Extends <a href="https://www.radix-ui.com/primitives/docs/components/avatar#fallback" target="_blank" rel="nofollow noreferrer">Radix</a> `AvatarFallback` primitive.
+See `AvatarFallback` <a href="https://www.radix-ui.com/primitives/docs/components/avatar#fallback" target="_blank" rel="nofollow noreferrer">Radix</a> primitive.
 
 ### Examples
 
