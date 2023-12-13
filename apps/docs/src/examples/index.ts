@@ -265,15 +265,15 @@ export function Example() {
           size="sm"
           items={[
             {
-              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop&crop=face",
               alt: "Avatar 1",
             },
             {
-              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?w=250&h=250&auto=format&fit=crop&crop=face",
               alt: "Avatar 2",
             },
             {
-              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=250&h=250&auto=format&fit=crop&crop=face",
               alt: "Avatar 2",
             },
           ]}
@@ -285,15 +285,15 @@ export function Example() {
           previousOnTop={true}
           items={[
             {
-              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop&crop=face",
               alt: "Avatar 1",
             },
             {
-              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?w=250&h=250&auto=format&fit=crop&crop=face",
               alt: "Avatar 2",
             },
             {
-              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop&crop=face",
+              src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=250&h=250&auto=format&fit=crop&crop=face",
               alt: "Avatar 2",
             },
           ]}
@@ -482,8 +482,9 @@ export function Example() {
 
 export function Example() {
   return (
-    <div className="flex items-center justify-center">
+    <div className="mx-auto max-w-fit rounded-lg p-12 wg-bg-orange-100 dark:wg-bg-yellow-950">
       <AvatarGroup
+        size="xl"
         items={[
           {
             src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop",
@@ -498,7 +499,6 @@ export function Example() {
             alt: "Avatar 2",
           },
         ]}
-        moreLabel="+3"
       />
     </div>
   );
@@ -530,6 +530,106 @@ export function Example() {
         moreLabel="+3"
       />
     </div>
+  );
+}
+`,
+  },
+  "badge/example-1": {
+    component: lazy(() => import("@/examples/badge/example-1.tsx")),
+    code: `import {
+  CheckIcon,
+  CloseIcon,
+  FlagIcon,
+  PinTackIcon,
+  PlayIcon,
+  PlusIcon,
+  SpinnerIcon,
+} from "@iconicicons/react";
+import { Badge } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="flex flex-wrap items-start gap-2">
+      <Badge before={<CheckIcon />} color="green" shape="pill">
+        Paid
+      </Badge>
+
+      <Badge before={<CheckIcon />} color="green" stroke={true}>
+        Active
+      </Badge>
+
+      <Badge before={<CheckIcon />} color="green">
+        Subscribed
+      </Badge>
+
+      <Badge before={<CheckIcon />} color="green" shape="pill" stroke={true}>
+        200
+      </Badge>
+
+      <Badge before={<CloseIcon />} color="red" shape="pill">
+        Rejected
+      </Badge>
+
+      <Badge before={<CloseIcon />} color="primary" stroke={true}>
+        Chargeback
+      </Badge>
+
+      <Badge before={<CloseIcon />} color="red" shape="pill" stroke={true}>
+        Chargeback
+      </Badge>
+
+      <Badge before={<CloseIcon />}>Void</Badge>
+      <Badge before={<CloseIcon />}>Expired</Badge>
+      <Badge before={<CloseIcon />}>Draft</Badge>
+
+      <Badge
+        before={
+          <span className="flex h-4 w-4 items-center justify-center rounded-full before:flex before:aspect-square before:w-[6px] before:rounded-full before:bg-wg-green before:content-['']" />
+        }
+      >
+        Online
+      </Badge>
+
+      <Badge before={<SpinnerIcon />} color="blue" shape="pill">
+        Processing
+      </Badge>
+
+      <Badge before={<FlagIcon />} color="blue" stroke={true}>
+        Flagged
+      </Badge>
+
+      <Badge color="blue" shape="pill" stroke={true}>
+        Washington D.C.
+      </Badge>
+
+      <Badge color="red" shape="pill">
+        4
+      </Badge>
+
+      <Badge before={<PinTackIcon />} color="yellow" stroke={true}>
+        Pinned
+      </Badge>
+
+      <Badge before={<PlayIcon />} color="pink" shape="pill">
+        1m 30s
+      </Badge>
+
+      <Badge before={<CloseIcon />} color="pink" shape="pill" stroke={true} />
+    </div>
+  );
+}
+`,
+  },
+  "badge/preview": {
+    component: lazy(() => import("@/examples/badge/preview.tsx")),
+    code: `import { PlusIcon } from "@iconicicons/react";
+import { Badge } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <Badge before={<PlusIcon />} after={<PlusIcon />}>
+      Label
+    </Badge>
   );
 }
 `,
