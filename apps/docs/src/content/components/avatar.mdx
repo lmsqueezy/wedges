@@ -1,0 +1,90 @@
+---
+title: Avatar
+description: An image element with a fallback for representing the user.
+breadcrumbs:
+  - Components
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Avatar/Avatar.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/avatar
+---
+
+<PreviewComponent name="avatar/preview" />
+
+### Usage
+
+```tsx
+import { Avatar } from "@lmsqueezy/wedges";
+```
+    
+```tsx showLineNumbers
+<Avatar alt='Image alt text' src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop" />
+```
+
+For more advanced usage, you can use the `Avatar.Root` component to compose your own avatar.
+
+```tsx
+<Avatar.Root>
+    <Avatar.Image
+        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face"
+        alt="Max Quest"
+    />
+    <Avatar.Fallback>MQ</Avatar.Fallback>
+    <Avatar.Notification />
+    <Avatar.Status />
+</Avatar.Root>
+```
+
+### API Reference
+
+#### Avatar
+
+<PropsTable
+  content={[
+    [
+      { value: "initials" },
+      { value: 'string' },
+      {},
+    ],
+    [
+      { value: "size" },
+      { value: '"xxs" | "xs" | "sm" | "md" | "md" | "lg" | "xl"' },
+      { value: '"md"' },
+    ],
+    [
+        { value: "status" },
+        { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+        { value: '"gray"' },
+    ],
+    [
+        { value: "notification" },
+        { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+        { value: '"gray"' },
+    ]
+  ]}
+/>
+
+#### Avatar.Root
+
+Extends <a href="https://www.radix-ui.com/primitives/docs/components/avatar#root" target="_blank" rel="nofollow noreferrer">Radix</a> `AvatarRoot` primitive.
+
+#### Avatar.Image
+
+Extends <a href="https://www.radix-ui.com/primitives/docs/components/avatar#image" target="_blank" rel="nofollow noreferrer">Radix</a> `AvatarImage` primitive.
+
+#### Avatar.Fallback
+
+Extends <a href="https://www.radix-ui.com/primitives/docs/components/avatar#fallback" target="_blank" rel="nofollow noreferrer">Radix</a> `AvatarFallback` primitive.
+
+### Examples
+
+The following example shows an `Avatar` component with an image, `size` set to `lg`, using `initials` "MQ" as a fallback, and `status` and `notification` set to different colors.
+
+<PreviewComponent name="avatar/example-1" />
+
+The following examples show different variants of the `Avatar` component.
+
+<PreviewComponent name="avatar/example-2" />
+
+The following example shows more advanced usage of the `Avatar` component and how you can customize it with Tailwind CSS classes.
+
+<PreviewComponent name="avatar/example-3" />
