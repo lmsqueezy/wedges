@@ -48,7 +48,9 @@ export const addCode = () => (tree: UnistTree) => {
   visit<UnistNode, "element">(tree, (node: UnistNode) => {
     if (node.name === "PreviewComponent") {
       const nameAttribute = getNodeAttributeByName(node, "name");
-      const code = nameAttribute ? Demos[nameAttribute.name]?.code ?? "" : "";
+      const code = nameAttribute
+        ? Demos[nameAttribute?.value as keyof typeof Demos]?.code ?? ""
+        : "";
 
       node.children?.push(
         u("element", {

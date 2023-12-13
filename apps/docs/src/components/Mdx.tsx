@@ -11,6 +11,7 @@ import { Colors } from "./Colors";
 import { CopyButton } from "./CopyButton";
 import { Logomark } from "./Logo";
 import { PreviewComponent } from "./PreviewComponent";
+import { PropsTable } from "./PropsTable";
 
 type MdxProps = {
   code: string;
@@ -22,6 +23,7 @@ const components = {
   Button,
   Image,
   PreviewComponent,
+  PropsTable,
   Tabs,
   Tooltip,
   Colors,

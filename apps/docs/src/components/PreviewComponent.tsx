@@ -47,7 +47,13 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
     }, [theme]); // This effect runs when `theme` changes
 
     return (
-      <Tabs defaultValue="preview" variant="underlined" {...otherProps} ref={ref}>
+      <Tabs
+        defaultValue="preview"
+        className="mb-[2em] mt-[1em]"
+        variant="underlined"
+        {...otherProps}
+        ref={ref}
+      >
         <Tabs.List>
           <Tabs.Trigger before={<EyeIcon />} value="preview">
             Preview
@@ -70,9 +76,11 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
               }
             )}
           >
-            <Suspense fallback={<SuspenseFallback />}>
-              <Preview />
-            </Suspense>
+            <div className="block w-full text-center">
+              <Suspense fallback={<SuspenseFallback />}>
+                <Preview />
+              </Suspense>
+            </div>
 
             <Button
               isIconOnly

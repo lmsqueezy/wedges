@@ -38,10 +38,16 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
           "prose-a:no-underline",
 
           // hr
-          "prose-hr:my-12 dark:prose-hr:border-slate-800",
+          "prose-hr:my-12 prose-hr:border-surface-100",
 
           // th
-          "prose-th:font-sans prose-th:font-medium",
+          "prose-th:font-sans prose-th:font-medium prose-th:p-3",
+
+          // thead
+          "prose-thead:border-surface-100 prose-thead:bg-surface-50/60",
+
+          // td
+          "prose-td:p-3 prose-td:border-surface",
 
           // p
           "prose-p:[text-wrap:pretty]",
