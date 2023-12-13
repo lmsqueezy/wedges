@@ -25,7 +25,7 @@ export const buttonVariants = cva(
           "dark:shadow:none border border-surface-200 shadow-wg-xs [--wg-border-width:1px] hover:bg-surface disabled:border-surface-50 dark:border-surface-100",
 
         transparent: "bg-transparent hover:bg-surface",
-        link: "p-0 underline underline-offset-3",
+        link: "p-0 underline underline-offset-3 focus-visible:text-primary",
       },
 
       destructive: {

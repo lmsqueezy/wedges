@@ -9,7 +9,8 @@ import { buttonVariants, iconVariants } from "./variants";
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
     /**
-     * If set to true, the button will be rendered as a child of the component.
+     * If set to true, the button will be rendered as a child within the component.
+     * This child component must be a valid React component.
      */
     asChild?: boolean;
 

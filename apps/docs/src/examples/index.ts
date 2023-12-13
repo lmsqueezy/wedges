@@ -542,80 +542,91 @@ export function Example() {
   FlagIcon,
   PinTackIcon,
   PlayIcon,
-  PlusIcon,
   SpinnerIcon,
 } from "@iconicicons/react";
 import { Badge } from "@lmsqueezy/wedges";
 
 export function Example() {
   return (
-    <div className="flex flex-wrap items-start gap-2">
-      <Badge before={<CheckIcon />} color="green" shape="pill">
-        Paid
-      </Badge>
+    <>
+      <div className="flex flex-wrap items-start justify-center gap-2">
+        <Badge before={<CheckIcon />} color="green" shape="pill">
+          Paid
+        </Badge>
 
-      <Badge before={<CheckIcon />} color="green" stroke={true}>
-        Active
-      </Badge>
+        <Badge before={<CheckIcon />} color="green" stroke={true}>
+          Active
+        </Badge>
 
-      <Badge before={<CheckIcon />} color="green">
-        Subscribed
-      </Badge>
+        <Badge before={<CheckIcon />} color="green" shape="pill" stroke={true}>
+          200
+        </Badge>
 
-      <Badge before={<CheckIcon />} color="green" shape="pill" stroke={true}>
-        200
-      </Badge>
+        <Badge before={<CloseIcon />} color="red" shape="pill">
+          Rejected
+        </Badge>
 
-      <Badge before={<CloseIcon />} color="red" shape="pill">
-        Rejected
-      </Badge>
+        <Badge before={<CloseIcon />} color="primary" stroke={true}>
+          Chargeback
+        </Badge>
 
-      <Badge before={<CloseIcon />} color="primary" stroke={true}>
-        Chargeback
-      </Badge>
+        <Badge before={<CloseIcon />} color="red" shape="pill" stroke={true}>
+          Chargeback
+        </Badge>
 
-      <Badge before={<CloseIcon />} color="red" shape="pill" stroke={true}>
-        Chargeback
-      </Badge>
+        <Badge before={<CloseIcon />}>Expired</Badge>
 
-      <Badge before={<CloseIcon />}>Void</Badge>
-      <Badge before={<CloseIcon />}>Expired</Badge>
-      <Badge before={<CloseIcon />}>Draft</Badge>
+        <Badge
+          before={
+            <span className="flex h-4 w-4 items-center justify-center rounded-full before:flex before:aspect-square before:w-[6px] before:rounded-full before:bg-wg-green before:content-['']" />
+          }
+        >
+          Online
+        </Badge>
 
-      <Badge
-        before={
-          <span className="flex h-4 w-4 items-center justify-center rounded-full before:flex before:aspect-square before:w-[6px] before:rounded-full before:bg-wg-green before:content-['']" />
-        }
-      >
-        Online
-      </Badge>
+        <Badge before={<SpinnerIcon />} color="blue" shape="pill">
+          Processing
+        </Badge>
 
-      <Badge before={<SpinnerIcon />} color="blue" shape="pill">
-        Processing
-      </Badge>
+        <Badge before={<FlagIcon />} color="blue" stroke={true}>
+          Flagged
+        </Badge>
 
-      <Badge before={<FlagIcon />} color="blue" stroke={true}>
-        Flagged
-      </Badge>
+        <Badge color="blue" shape="pill" stroke={true}>
+          Washington D.C.
+        </Badge>
 
-      <Badge color="blue" shape="pill" stroke={true}>
-        Washington D.C.
-      </Badge>
+        <Badge color="red" shape="pill">
+          4
+        </Badge>
 
-      <Badge color="red" shape="pill">
-        4
-      </Badge>
+        <Badge before={<PinTackIcon />} color="yellow" stroke={true}>
+          Pinned
+        </Badge>
 
-      <Badge before={<PinTackIcon />} color="yellow" stroke={true}>
-        Pinned
-      </Badge>
+        <Badge before={<PlayIcon />} color="pink" shape="pill">
+          1m 30s
+        </Badge>
+      </div>
 
-      <Badge before={<PlayIcon />} color="pink" shape="pill">
-        1m 30s
-      </Badge>
+      <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
+        <Badge color="green" size="sm" shape="pill" stroke={true}>
+          New York City
+        </Badge>
 
-      <Badge before={<CloseIcon />} color="pink" shape="pill" stroke={true} />
-    </div>
+        <Badge color="orange" size="sm" shape="pill">
+          1
+        </Badge>
+
+        <Badge before={<PinTackIcon />} size="sm" color="yellow" stroke={true}>
+          Pinned
+        </Badge>
+
+        <Badge before={<PlayIcon />} size="sm" color="pink" shape="pill">
+          1m 30s
+        </Badge>
+      </div>
+    </>
   );
 }
 `,
@@ -630,6 +641,36 @@ export function Example() {
     <Badge before={<PlusIcon />} after={<PlusIcon />}>
       Label
     </Badge>
+  );
+}
+`,
+  },
+  "button/example-1": {
+    component: lazy(() => import("@/examples/button/example-1.tsx")),
+    code: `import { PlusIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-2">
+      <Button after={<PlusIcon />} before={<PlusIcon />}>
+        Button
+      </Button>
+    </div>
+  );
+}
+`,
+  },
+  "button/preview": {
+    component: lazy(() => import("@/examples/button/preview.tsx")),
+    code: `import { PlusIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <Button after={<PlusIcon />} before={<PlusIcon />}>
+      Button
+    </Button>
   );
 }
 `,
