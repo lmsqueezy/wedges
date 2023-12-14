@@ -67,7 +67,7 @@ const components = {
   code: ({ className, ...otherProps }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "not-prose relative rounded bg-surface-100 px-[0.3rem] py-[0.2rem] font-mono text-[13px] text-surface-900",
+        "not-prose relative rounded bg-surface-100/70 px-[0.3rem] py-[0.15rem] font-mono text-[13px] text-surface-800",
         className
       )}
       {...otherProps}

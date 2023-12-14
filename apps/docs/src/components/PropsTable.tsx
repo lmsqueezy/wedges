@@ -45,7 +45,7 @@ export const PropsTable = React.forwardRef<
                   <td key={`${rowIndex}--${index}`}>
                     <div className="flex items-center gap-0.5">
                       {rowItem?.value ? (
-                        <code className="not-prose relative break-words rounded bg-surface px-[0.3rem] py-[0.2rem] font-mono text-[13px] text-xs text-surface-900">
+                        <code className="not-prose relative break-words rounded bg-surface-100/70 px-[0.3rem] py-[0.15rem] font-mono text-[13px] text-xs text-surface-800">
                           {rowItem?.value}
                         </code>
                       ) : (
