@@ -1,11 +1,17 @@
+"use client";
+
 import * as React from "react";
+import { usePathname } from "next/navigation";
 
 import { siteConfig } from "@/config/siteConfig";
 
 import { BreadcrumbsItem } from "./BreadcrumbsItem";
 
 export function Breadcrumbs({ path }: { path: string[] }) {
-  if (path?.length) {
+  const pathname = usePathname();
+  const pathnamePath = pathname.split("/").filter(Boolean).slice(0, -1);
+
+  if (!path?.length && !pathnamePath?.length) {
     return null;
   }
 
@@ -20,9 +26,17 @@ export function Breadcrumbs({ path }: { path: string[] }) {
 
         <BreadcrumbsItem href="/" isLast={false} label="Docs" />
 
-        {path.map((label, index) => (
-          <BreadcrumbsItem key={index} isLast={index === path.length - 1} label={label} />
-        ))}
+        {path.length
+          ? path.map((label, index) => (
+              <BreadcrumbsItem key={index} isLast={index === path.length - 1} label={label} />
+            ))
+          : pathnamePath.map((label, index) => (
+              <BreadcrumbsItem
+                key={index}
+                isLast={index === pathnamePath.length - 1}
+                label={label.charAt(0).toUpperCase() + label.slice(1)}
+              />
+            ))}
       </ol>
     </nav>
   );

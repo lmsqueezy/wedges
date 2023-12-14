@@ -1,8 +1,6 @@
 ---
 title: Avatar
 description: An image element with a fallback for representing the user.
-breadcrumbs:
-  - Components
 links:
   source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Avatar/Avatar.tsx
   radix: https://www.radix-ui.com/primitives/docs/components/avatar
@@ -15,22 +13,25 @@ links:
 ```tsx
 import { Avatar } from "@lmsqueezy/wedges";
 ```
-    
+
 ```tsx showLineNumbers
-<Avatar alt='Image alt text' src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop" />
+<Avatar
+  alt="Image alt text"
+  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
+/>
 ```
 
 For more advanced usage, you can use the `Avatar.Root` component to compose your own avatar.
 
 ```tsx
 <Avatar.Root>
-    <Avatar.Image
-        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
-        alt="Image alt text"
-    />
-    <Avatar.Fallback>W</Avatar.Fallback>
-    <Avatar.Notification />
-    <Avatar.Status />
+  <Avatar.Image
+    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
+    alt="Image alt text"
+  />
+  <Avatar.Fallback>W</Avatar.Fallback>
+  <Avatar.Notification />
+  <Avatar.Status />
 </Avatar.Root>
 ```
 
@@ -42,26 +43,22 @@ Includes all the props of the `AvatarImage` <a href="https://www.radix-ui.com/pr
 
 <PropsTable
   content={[
-    [
-      { value: "initials" },
-      { value: 'string' },
-      {},
-    ],
+    [{ value: "initials" }, { value: "string" }, {}],
     [
       { value: "size" },
       { value: '"xxs" | "xs" | "sm" | "md" | "md" | "lg" | "xl"' },
       { value: '"md"' },
     ],
     [
-        { value: "status" },
-        { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
-        { value: '"gray"' },
+      { value: "status" },
+      { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+      { value: '"gray"' },
     ],
     [
-        { value: "notification" },
-        { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
-        { value: '"gray"' },
-    ]
+      { value: "notification" },
+      { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+      { value: '"gray"' },
+    ],
   ]}
 />
 

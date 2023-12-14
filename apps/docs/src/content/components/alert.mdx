@@ -1,8 +1,6 @@
 ---
 title: Alert
 description: An alert box that displays a notification message to the user.
-breadcrumbs:
-  - Components
 links:
   source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Alert/Alert.tsx
 ---
@@ -14,56 +12,42 @@ links:
 ```tsx
 import { Alert } from "@lmsqueezy/wedges";
 ```
-    
+
 ```tsx showLineNumbers
-<Alert title="Alert title">
-    Alert content
-</Alert>
+<Alert title="Alert title">Alert content</Alert>
 ```
 
 ### API Reference
 
 <PropsTable
   content={[
-    [
-      { value: "variant" },
-      { value: '"inline" | "expanded"' },
-      { value: '"inline"' },
-    ],
-    [
-      { value: "title" },
-      { value: 'ReactNode' },
-      {  },
-    ],
-    [
-      { value: "children", description: "Used as a secondary text." },
-      { value: 'ReactNode' },
-      {  },
-    ],
-    [
-      { value: "after" },
-      { value: 'ReactNode' },
-      {  },
-    ],
-    [
-      { value: "before" },
-      { value: 'ReactNode' },
-      {  },
-    ],
+    [{ value: "variant" }, { value: '"inline" | "expanded"' }, { value: '"inline"' }],
+    [{ value: "title" }, { value: "ReactNode" }, {}],
+    [{ value: "children", description: "Used as a secondary text." }, { value: "ReactNode" }, {}],
+    [{ value: "after" }, { value: "ReactNode" }, {}],
+    [{ value: "before" }, { value: "ReactNode" }, {}],
     [
       { value: "color" },
       { value: '"gray" | "primary" | "info" | "success" | "error" | "warning"' },
-      {  },
+      {},
     ],
     [
-      { value: "closable", description: "Is the alert closable? If true, a close button will be displayed and when clicked on it will hide the alert element." },
-      { value: 'boolean' },
-      { value: 'false' },
+      {
+        value: "closable",
+        description:
+          "Is the alert closable? If true, a close button will be displayed and when clicked on it will hide the alert element.",
+      },
+      { value: "boolean" },
+      { value: "false" },
     ],
     [
-      { value: "onClose", description: "An optional callback function to be called when the close button is clicked. Requires the `closable` prop to be set to `true`." },
-      { value: 'MouseEventHandler<HTMLButtonElement> | never' },
-      { },
+      {
+        value: "onClose",
+        description:
+          "An optional callback function to be called when the close button is clicked. Requires the `closable` prop to be set to `true`.",
+      },
+      { value: "MouseEventHandler<HTMLButtonElement> | never" },
+      {},
     ],
   ]}
 />
