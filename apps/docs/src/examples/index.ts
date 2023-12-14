@@ -739,44 +739,55 @@ export function Example() {
     component: lazy(() => import("@/examples/button-group/example-1.tsx")),
     code: `import {
   ChevronDownIcon,
-  CloudIcon,
-  CopyIcon,
   DotsVerticalIcon,
-  DownloadIcon,
-  EditIcon,
+  Monitor2Icon,
   MoonIcon,
-  SendIcon,
-  StarIcon,
+  PlusIcon,
   SunIcon,
 } from "@iconicicons/react";
-import { ButtonGroup, Tooltip } from "@lmsqueezy/wedges";
+import { ButtonGroup } from "@lmsqueezy/wedges";
 
 export function Example() {
   return (
-    <div className="flex flex-col items-center gap-12">
+    <div className="flex flex-col items-center gap-6">
       {/* Example 1 */}
-      <ButtonGroup.Root>
-        <ButtonGroup.Item after={<CopyIcon />} before={<SunIcon />}>
-          Button
+      <ButtonGroup.Root orientation="vertical">
+        <ButtonGroup.Item className="justify-start" before={<SunIcon />}>
+          Light
         </ButtonGroup.Item>
 
-        <ButtonGroup.Item after={<StarIcon />} before={<CloudIcon />}>
-          Button
+        <ButtonGroup.Item className="justify-start" before={<MoonIcon />}>
+          Dark
         </ButtonGroup.Item>
 
-        <ButtonGroup.Item after={<SendIcon />} before={<MoonIcon />}>
-          Button
+        <ButtonGroup.Item className="justify-start" before={<Monitor2Icon />}>
+          System
         </ButtonGroup.Item>
       </ButtonGroup.Root>
 
       {/* Example 2 */}
-      <ButtonGroup.Root>
-        <ButtonGroup.Item before={<DownloadIcon />}>Download</ButtonGroup.Item>
+      <ButtonGroup>
+        <ButtonGroup.Item disabled>Publish</ButtonGroup.Item>
+        <ButtonGroup.Item>Draft</ButtonGroup.Item>
+        <ButtonGroup.Item before={<ChevronDownIcon />} />
+      </ButtonGroup>
 
-        <ButtonGroup.Item isIconOnly>
-          <DotsVerticalIcon />
+      {/* Example 3 */}
+      <ButtonGroup size="sm">
+        <ButtonGroup.Item destructive before={<PlusIcon />} after={<PlusIcon />}>
+          Destructive
         </ButtonGroup.Item>
-      </ButtonGroup.Root>
+
+        <ButtonGroup.Item before={<PlusIcon />} after={<PlusIcon />}>
+          Button
+        </ButtonGroup.Item>
+
+        <ButtonGroup.Item before={<PlusIcon />} after={<PlusIcon />}>
+          Button
+        </ButtonGroup.Item>
+
+        <ButtonGroup.Item before={<DotsVerticalIcon />} />
+      </ButtonGroup>
     </div>
   );
 }
@@ -792,23 +803,29 @@ export function Example() {
     <ButtonGroup.Root size="sm">
       <ButtonGroup.Item>Raw</ButtonGroup.Item>
 
-      <ButtonGroup.Item isIconOnly>
-        <CopyIcon />
-      </ButtonGroup.Item>
+      <Tooltip align="center" animation={false} content="Copy" delayDuration={0} side="top">
+        <ButtonGroup.Item isIconOnly>
+          <CopyIcon />
+        </ButtonGroup.Item>
+      </Tooltip>
 
-      <ButtonGroup.Item isIconOnly>
-        <DownloadIcon />
-      </ButtonGroup.Item>
+      <Tooltip align="center" animation={false} content="Download" delayDuration={0} side="top">
+        <ButtonGroup.Item isIconOnly>
+          <DownloadIcon />
+        </ButtonGroup.Item>
+      </Tooltip>
 
-      <Tooltip align="center" animation={true} content="Edit page" delayDuration={0} side="top">
+      <Tooltip align="center" animation={false} content="Edit" delayDuration={0} side="top">
         <ButtonGroup.Item isIconOnly>
           <EditIcon />
         </ButtonGroup.Item>
       </Tooltip>
 
-      <ButtonGroup.Item isIconOnly>
-        <ChevronDownIcon />
-      </ButtonGroup.Item>
+      <Tooltip align="center" animation={false} content="More" delayDuration={0} side="top">
+        <ButtonGroup.Item isIconOnly>
+          <ChevronDownIcon />
+        </ButtonGroup.Item>
+      </Tooltip>
     </ButtonGroup.Root>
   );
 }
@@ -821,7 +838,7 @@ import { ButtonGroup } from "@lmsqueezy/wedges";
 
 export function Example() {
   return (
-    <ButtonGroup.Root>
+    <ButtonGroup>
       <ButtonGroup.Item after={<CopyIcon />} before={<SunIcon />}>
         Button
       </ButtonGroup.Item>
@@ -833,7 +850,43 @@ export function Example() {
       <ButtonGroup.Item after={<SendIcon />} before={<MoonIcon />}>
         Button
       </ButtonGroup.Item>
-    </ButtonGroup.Root>
+    </ButtonGroup>
+  );
+}
+`,
+  },
+  "checkbox/example-1": {
+    component: lazy(() => import("@/examples/checkbox/example-1.tsx")),
+    code: `import { Checkbox } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto w-fit text-left">
+      <Checkbox
+        description="(optional)"
+        helperText="Helper text"
+        label="Label"
+        tooltip="Tooltip example"
+      />
+    </div>
+  );
+}
+`,
+  },
+  "checkbox/preview": {
+    component: lazy(() => import("@/examples/checkbox/preview.tsx")),
+    code: `import { Checkbox } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto w-fit text-left">
+      <Checkbox
+        description="(optional)"
+        helperText="Helper text"
+        label="Label"
+        tooltip="Tooltip example"
+      />
+    </div>
   );
 }
 `,
