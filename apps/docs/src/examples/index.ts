@@ -861,13 +861,63 @@ export function Example() {
 
 export function Example() {
   return (
-    <div className="m-auto w-fit text-left">
+    <div className="m-auto flex w-fit flex-col gap-6 text-left">
+      <Checkbox label="Required" required />
+
       <Checkbox
         description="(optional)"
         helperText="Helper text"
         label="Label"
         tooltip="Tooltip example"
       />
+
+      <Checkbox
+        helperText="Indeterminate"
+        label="Label"
+        tooltip="Tooltip example"
+        checked="indeterminate"
+      />
+
+      <Checkbox defaultChecked disabled description="Disabled" tooltip="Tooltip example" />
+    </div>
+  );
+}
+`,
+  },
+  "checkbox/example-2": {
+    component: lazy(() => import("@/examples/checkbox/example-2.tsx")),
+    code: `import { AvatarGroup, Checkbox } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto flex w-fit flex-col gap-6 text-left">
+      <Checkbox.Root
+        asChild
+        className="flex w-80 cursor-pointer items-center justify-between rounded-lg border border-surface-100 px-4 py-3 shadow-wg-xs outline-2 -outline-offset-1 outline-primary wg-bg-white dark:wg-bg-neutral-900 [&:has([data-state=checked])]:outline"
+      >
+        <label>
+          <Checkbox.Item />
+
+          <div className="flex grow items-center justify-between text-sm">
+            <span className="select-none">Share to 3 users</span>
+
+            <AvatarGroup
+              items={[
+                {
+                  initials: "W",
+                },
+                {
+                  initials: "D",
+                },
+                {
+                  initials: "G",
+                },
+              ]}
+              size="xs"
+            />
+          </div>
+        </label>
+      </Checkbox.Root>
     </div>
   );
 }
@@ -881,11 +931,73 @@ export function Example() {
   return (
     <div className="m-auto w-fit text-left">
       <Checkbox
-        description="(optional)"
+        required
+        description="description"
         helperText="Helper text"
         label="Label"
         tooltip="Tooltip example"
       />
+    </div>
+  );
+}
+`,
+  },
+  "checkbox-group/example-1": {
+    component: lazy(() => import("@/examples/checkbox-group/example-1.tsx")),
+    code: `import { CheckboxGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto flex w-fit flex-col gap-6 text-left">
+      <CheckboxGroup
+        required
+        helperText="Helper text"
+        label="Horizontal Checkbox Group"
+        orientation="vertical"
+        tooltip="Tooltip example"
+      >
+        <CheckboxGroup.Item label="Option 1" />
+        <CheckboxGroup.Item defaultChecked label="Option 2" />
+        <CheckboxGroup.Item disabled label="Option 3" />
+        <CheckboxGroup.Item label="Option 4" />
+      </CheckboxGroup>
+
+      <CheckboxGroup
+        required
+        helperText="Helper text"
+        label="Horizontal Checkbox Group"
+        orientation="horizontal"
+        tooltip="Tooltip example"
+      >
+        <CheckboxGroup.Item label="Option 1" />
+        <CheckboxGroup.Item defaultChecked label="Option 2" />
+        <CheckboxGroup.Item disabled label="Option 3" />
+        <CheckboxGroup.Item label="Option 4" />
+      </CheckboxGroup>
+    </div>
+  );
+}
+`,
+  },
+  "checkbox-group/preview": {
+    component: lazy(() => import("@/examples/checkbox-group/preview.tsx")),
+    code: `import { CheckboxGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto w-fit text-left">
+      <CheckboxGroup
+        required
+        description="(optional)"
+        helperText="Helper text"
+        label="Group Label"
+        tooltip="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+      >
+        <CheckboxGroup.Item label="Option 1" />
+        <CheckboxGroup.Item label="Option 2" />
+        <CheckboxGroup.Item label="Option 3" />
+        <CheckboxGroup.Item label="Option 4" />
+      </CheckboxGroup>
     </div>
   );
 }

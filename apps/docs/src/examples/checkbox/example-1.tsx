@@ -3,6 +3,8 @@ import { Checkbox } from "@lmsqueezy/wedges";
 export default function Example() {
   return (
     <div className="m-auto flex w-fit flex-col gap-6 text-left">
+      <Checkbox label="Required" required />
+
       <Checkbox
         description="(optional)"
         helperText="Helper text"

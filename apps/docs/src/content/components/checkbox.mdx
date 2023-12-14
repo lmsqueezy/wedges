@@ -14,13 +14,15 @@ links:
 import { Checkbox } from "@lmsqueezy/wedges";
 ```
 
+For more advanced usage you can use `Checkbox.Root` component to customize the appearance of the checkbox.
+
 ```tsx showLineNumbers
 <Checkbox label="Label" />
 ```
 
-### API Reference
-
 `Checkbox` component extends <a href="https://www.radix-ui.com/docs/primitives/components/checkbox" target="_blank" rel='nofollow noreferrer'>Radix Checkbox</a> component and supports all of its props.
+
+### API Reference
 
 <PropsTable
   content={[
@@ -63,12 +65,16 @@ import { Checkbox } from "@lmsqueezy/wedges";
       {
         value: "disabled",
       },
-      { value: "boolean" },
+      {
+        value: "boolean",
+      },
       { value: "false" },
     ],
     [
       {
         value: "required",
+        description:
+          "If set to true, the label will be styled to indicate that the field is required.",
       },
       { value: "boolean" },
       { value: "false" },
@@ -117,3 +123,7 @@ The `Checkbox` component supports all accessibility features of <a href="https:/
 ### Examples
 
 <PreviewComponent name="checkbox/example-1" />
+
+The following example shows a customized `Checkbox` component:
+
+<PreviewComponent name="checkbox/example-2" />
