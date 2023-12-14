@@ -1,0 +1,46 @@
+---
+title: Label
+description: An accessible label linked to form controls for better clarity and usability.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Label/Label.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/label
+---
+
+<PreviewComponent name="label/preview" />
+
+### Usage
+
+```tsx
+import { Label } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Label htmlFor="username">Username</Label>
+```
+
+### API Reference
+
+In addition to all the props of the `HTMLAttributes<HTMLSpanElement>`, `Badge` component also includes the following props:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      { value: "htmlFor", description: "The id of the element the label is associated with." },
+      { value: "string" },
+      {},
+    ],
+  ]}
+/>
+
+### Accessibility
+
+The `Label` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/label#accessibility" target="_blank" rel="nofollow noreferrer">Radix Label</a> primitive.

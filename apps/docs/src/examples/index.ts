@@ -948,11 +948,11 @@ export function Example() {
 
 export function Example() {
   return (
-    <div className="m-auto flex w-fit flex-col gap-6 text-left">
+    <div className="m-auto flex w-fit flex-col gap-8 text-left">
       <CheckboxGroup
         required
         helperText="Helper text"
-        label="Horizontal Checkbox Group"
+        label="Vertical Checkbox Group"
         orientation="vertical"
         tooltip="Tooltip example"
       >
@@ -960,6 +960,7 @@ export function Example() {
         <CheckboxGroup.Item defaultChecked label="Option 2" />
         <CheckboxGroup.Item disabled label="Option 3" />
         <CheckboxGroup.Item label="Option 4" />
+        <CheckboxGroup.Item label="Option 5" />
       </CheckboxGroup>
 
       <CheckboxGroup
@@ -972,7 +973,6 @@ export function Example() {
         <CheckboxGroup.Item label="Option 1" />
         <CheckboxGroup.Item defaultChecked label="Option 2" />
         <CheckboxGroup.Item disabled label="Option 3" />
-        <CheckboxGroup.Item label="Option 4" />
       </CheckboxGroup>
     </div>
   );
@@ -1012,6 +1012,15 @@ export function Example() {
       <span className="font-medium text-surface-900">Lemon Squeezy</span>
     </div>
   );
+}
+`,
+  },
+  "label/preview": {
+    component: lazy(() => import("@/examples/label/preview.tsx")),
+    code: `import { Label } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return <Label>Label</Label>;
 }
 `,
   },
