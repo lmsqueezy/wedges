@@ -14,6 +14,7 @@ export default function Example() {
         <CheckboxGroup.Item defaultChecked label="Option 2" />
         <CheckboxGroup.Item disabled label="Option 3" />
         <CheckboxGroup.Item label="Option 4" />
+        <CheckboxGroup.Item label="Option 5" />
       </CheckboxGroup>
 
       <CheckboxGroup
