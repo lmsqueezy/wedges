@@ -25,6 +25,7 @@ const components = {
   PreviewComponent,
   PropsTable,
   Tabs,
+  Link,
   Tooltip,
   Colors,
   Logomark,
