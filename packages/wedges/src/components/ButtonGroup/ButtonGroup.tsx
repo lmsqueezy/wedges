@@ -105,7 +105,7 @@ const ButtonGroupItem = React.forwardRef<ButtonElement, ButtonGroupItemProps>(
               : "first-of-type:rounded-t-lg last-of-type:rounded-b-lg",
             className
           )}
-          disabled={ctxDisabled ?? disabled}
+          disabled={disabled ? disabled : ctxDisabled}
           size={size}
           variant="transparent"
           {...otherProps}
