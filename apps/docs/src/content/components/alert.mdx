@@ -44,12 +44,13 @@ import { Alert } from "@lmsqueezy/wedges";
       {
         value: "onClose",
         description:
-          "An optional callback function to be called when the close button is clicked. Requires the `closable` prop to be set to `true`.",
+        "Event handler called when the close button is clicked. It can be prevented by calling `event.preventDefault`."
       },
       { value: "MouseEventHandler<HTMLButtonElement> | never" },
       {},
     ],
-  ]}
+
+]}
 />
 
 ### Examples
