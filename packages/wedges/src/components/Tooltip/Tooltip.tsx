@@ -30,7 +30,7 @@ const tooltipVariant = cva(["z-50 rounded-md text-white wg-antialiased"], {
   variants: {
     size: {
       sm: "max-w-xs px-3 py-2 text-xs",
-      md: "max-w-xs px-4 py-3 text-sm",
+      md: "max-w-[350px] p-4 text-sm",
     },
     color: {
       primary: "text-white wg-bg-primary",
