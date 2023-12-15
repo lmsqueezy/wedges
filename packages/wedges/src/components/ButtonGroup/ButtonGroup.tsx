@@ -36,13 +36,6 @@ export type ButtonGroupItemProps = Omit<
   "variant" | "shape" | "size"
 >;
 
-/* -------------------------------- Variants -------------------------------- */
-const buttonVariants = cva("", {
-  variants: {
-    size: {},
-  },
-});
-
 /* --------------------------------- Context -------------------------------- */
 const ButtonGroupContext = React.createContext<ButtonGroupContextProps | null>(null);
 
