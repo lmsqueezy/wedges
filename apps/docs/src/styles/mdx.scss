@@ -16,7 +16,7 @@
   }
 
   [data-line] {
-    @apply inline-flex min-h-[24px] w-full items-center border-l-[3px] border-transparent px-4 py-0;
+    @apply inline min-h-[24px] w-full border-l-[3px] border-transparent px-4 py-0;
   }
 
   [data-line-numbers] [data-line] {
