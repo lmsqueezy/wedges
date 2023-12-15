@@ -78,7 +78,7 @@ const prettyCodeOptions: Options = {
   defaultLang: {
     block: "tsx",
   },
-  grid: false,
+  grid: true,
 };
 
 export default makeSource({
