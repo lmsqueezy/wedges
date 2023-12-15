@@ -740,10 +740,14 @@ export function Example() {
     code: `import {
   ChevronDownIcon,
   DotsVerticalIcon,
+  GridIcon,
+  GridMasonryIcon,
   Monitor2Icon,
   MoonIcon,
   PlusIcon,
   SunIcon,
+  TableColumnsIcon,
+  TableRowsIcon,
 } from "@iconicicons/react";
 import { ButtonGroup } from "@lmsqueezy/wedges";
 
@@ -751,7 +755,7 @@ export function Example() {
   return (
     <div className="flex flex-col items-center gap-6">
       {/* Example 1 */}
-      <ButtonGroup.Root orientation="vertical">
+      <ButtonGroup orientation="vertical">
         <ButtonGroup.Item className="justify-start" before={<SunIcon />}>
           Light
         </ButtonGroup.Item>
@@ -763,30 +767,32 @@ export function Example() {
         <ButtonGroup.Item className="justify-start" before={<Monitor2Icon />}>
           System
         </ButtonGroup.Item>
-      </ButtonGroup.Root>
+      </ButtonGroup>
 
       {/* Example 2 */}
       <ButtonGroup>
-        <ButtonGroup.Item disabled>Publish</ButtonGroup.Item>
-        <ButtonGroup.Item>Draft</ButtonGroup.Item>
-        <ButtonGroup.Item before={<ChevronDownIcon />} />
+        <ButtonGroup.Item after={<GridIcon />} />
+        <ButtonGroup.Item after={<GridMasonryIcon />} />
+        <ButtonGroup.Item after={<TableColumnsIcon />} />
+        <ButtonGroup.Item after={<TableRowsIcon />} />
       </ButtonGroup>
 
       {/* Example 3 */}
+      <ButtonGroup>
+        <ButtonGroup.Item disabled>Publish Post</ButtonGroup.Item>
+        <ButtonGroup.Item>Draft</ButtonGroup.Item>
+        <ButtonGroup.Item before={<DotsVerticalIcon />} />
+      </ButtonGroup>
+
+      {/* Example 4 */}
       <ButtonGroup size="sm">
-        <ButtonGroup.Item destructive before={<PlusIcon />} after={<PlusIcon />}>
+        <ButtonGroup.Item destructive before={<PlusIcon />}>
           Destructive
         </ButtonGroup.Item>
 
-        <ButtonGroup.Item before={<PlusIcon />} after={<PlusIcon />}>
-          Button
-        </ButtonGroup.Item>
+        <ButtonGroup.Item before={<PlusIcon />}>Button</ButtonGroup.Item>
 
-        <ButtonGroup.Item before={<PlusIcon />} after={<PlusIcon />}>
-          Button
-        </ButtonGroup.Item>
-
-        <ButtonGroup.Item before={<DotsVerticalIcon />} />
+        <ButtonGroup.Item before={<ChevronDownIcon />} />
       </ButtonGroup>
     </div>
   );
@@ -800,8 +806,16 @@ import { ButtonGroup, Tooltip } from "@lmsqueezy/wedges";
 
 export function Example() {
   return (
-    <ButtonGroup.Root size="sm">
-      <ButtonGroup.Item>Raw</ButtonGroup.Item>
+    <ButtonGroup size="sm">
+      <Tooltip
+        align="center"
+        animation={false}
+        content="View raw code"
+        delayDuration={0}
+        side="top"
+      >
+        <ButtonGroup.Item>Raw</ButtonGroup.Item>
+      </Tooltip>
 
       <Tooltip align="center" animation={false} content="Copy" delayDuration={0} side="top">
         <ButtonGroup.Item isIconOnly>
@@ -826,28 +840,28 @@ export function Example() {
           <ChevronDownIcon />
         </ButtonGroup.Item>
       </Tooltip>
-    </ButtonGroup.Root>
+    </ButtonGroup>
   );
 }
 `,
   },
   "button-group/preview": {
     component: lazy(() => import("@/examples/button-group/preview.tsx")),
-    code: `import { CloudIcon, CopyIcon, MoonIcon, SendIcon, StarIcon, SunIcon } from "@iconicicons/react";
+    code: `import { PlusIcon } from "@iconicicons/react";
 import { ButtonGroup } from "@lmsqueezy/wedges";
 
 export function Example() {
   return (
     <ButtonGroup>
-      <ButtonGroup.Item after={<CopyIcon />} before={<SunIcon />}>
+      <ButtonGroup.Item after={<PlusIcon />} before={<PlusIcon />}>
         Button
       </ButtonGroup.Item>
 
-      <ButtonGroup.Item after={<StarIcon />} before={<CloudIcon />}>
+      <ButtonGroup.Item after={<PlusIcon />} before={<PlusIcon />}>
         Button
       </ButtonGroup.Item>
 
-      <ButtonGroup.Item after={<SendIcon />} before={<MoonIcon />}>
+      <ButtonGroup.Item after={<PlusIcon />} before={<PlusIcon />}>
         Button
       </ButtonGroup.Item>
     </ButtonGroup>
@@ -1020,7 +1034,60 @@ export function Example() {
     code: `import { Label } from "@lmsqueezy/wedges";
 
 export function Example() {
-  return <Label>Label</Label>;
+  return (
+    <Label description="description" required tooltip="Tooltip example">
+      Label
+    </Label>
+  );
+}
+`,
+  },
+  "popover/example-1": {
+    component: lazy(() => import("@/examples/popover/example-1.tsx")),
+    code: `import { CheckboxGroup, Popover } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <Popover>
+      <Popover.Trigger>Open</Popover.Trigger>
+
+      <Popover.Content className="min-w-[150px]">
+        <CheckboxGroup label="Group Label">
+          <CheckboxGroup.Item label="Option 1" />
+          <CheckboxGroup.Item label="Option 2" />
+          <CheckboxGroup.Item label="Option 3" />
+          <CheckboxGroup.Item label="Option 4" />
+        </CheckboxGroup>
+      </Popover.Content>
+    </Popover>
+  );
+}
+`,
+  },
+  "popover/preview": {
+    component: lazy(() => import("@/examples/popover/preview.tsx")),
+    code: `import { ChevronDownIcon } from "@iconicicons/react";
+import { Button, CheckboxGroup, Popover } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <Popover>
+      <Popover.Trigger asChild>
+        <Button variant="tertiary" size="sm" after={<ChevronDownIcon />} shape="pill">
+          Show Popover
+        </Button>
+      </Popover.Trigger>
+
+      <Popover.Content className="min-w-[150px]">
+        <CheckboxGroup label="Group Label">
+          <CheckboxGroup.Item label="Option 1" />
+          <CheckboxGroup.Item label="Option 2" />
+          <CheckboxGroup.Item label="Option 3" />
+          <CheckboxGroup.Item label="Option 4" />
+        </CheckboxGroup>
+      </Popover.Content>
+    </Popover>
+  );
 }
 `,
   },
