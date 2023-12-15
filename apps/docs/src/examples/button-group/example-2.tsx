@@ -3,8 +3,16 @@ import { ButtonGroup, Tooltip } from "@lmsqueezy/wedges";
 
 export default function Example() {
   return (
-    <ButtonGroup.Root size="sm">
-      <ButtonGroup.Item>Raw</ButtonGroup.Item>
+    <ButtonGroup size="sm">
+      <Tooltip
+        align="center"
+        animation={false}
+        content="View raw code"
+        delayDuration={0}
+        side="top"
+      >
+        <ButtonGroup.Item>Raw</ButtonGroup.Item>
+      </Tooltip>
 
       <Tooltip align="center" animation={false} content="Copy" delayDuration={0} side="top">
         <ButtonGroup.Item isIconOnly>
@@ -29,6 +37,6 @@ export default function Example() {
           <ChevronDownIcon />
         </ButtonGroup.Item>
       </Tooltip>
-    </ButtonGroup.Root>
+    </ButtonGroup>
   );
 }

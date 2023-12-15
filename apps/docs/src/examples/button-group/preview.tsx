@@ -1,18 +1,18 @@
-import { CloudIcon, CopyIcon, MoonIcon, SendIcon, StarIcon, SunIcon } from "@iconicicons/react";
+import { PlusIcon } from "@iconicicons/react";
 import { ButtonGroup } from "@lmsqueezy/wedges";
 
 export default function Example() {
   return (
     <ButtonGroup>
-      <ButtonGroup.Item after={<CopyIcon />} before={<SunIcon />}>
+      <ButtonGroup.Item after={<PlusIcon />} before={<PlusIcon />}>
         Button
       </ButtonGroup.Item>
 
-      <ButtonGroup.Item after={<StarIcon />} before={<CloudIcon />}>
+      <ButtonGroup.Item after={<PlusIcon />} before={<PlusIcon />}>
         Button
       </ButtonGroup.Item>
 
-      <ButtonGroup.Item after={<SendIcon />} before={<MoonIcon />}>
+      <ButtonGroup.Item after={<PlusIcon />} before={<PlusIcon />}>
         Button
       </ButtonGroup.Item>
     </ButtonGroup>

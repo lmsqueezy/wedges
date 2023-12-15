@@ -1,10 +1,14 @@
 import {
   ChevronDownIcon,
   DotsVerticalIcon,
+  GridIcon,
+  GridMasonryIcon,
   Monitor2Icon,
   MoonIcon,
   PlusIcon,
   SunIcon,
+  TableColumnsIcon,
+  TableRowsIcon,
 } from "@iconicicons/react";
 import { ButtonGroup } from "@lmsqueezy/wedges";
 
@@ -12,7 +16,7 @@ export default function Example() {
   return (
     <div className="flex flex-col items-center gap-6">
       {/* Example 1 */}
-      <ButtonGroup.Root orientation="vertical">
+      <ButtonGroup orientation="vertical">
         <ButtonGroup.Item className="justify-start" before={<SunIcon />}>
           Light
         </ButtonGroup.Item>
@@ -24,30 +28,32 @@ export default function Example() {
         <ButtonGroup.Item className="justify-start" before={<Monitor2Icon />}>
           System
         </ButtonGroup.Item>
-      </ButtonGroup.Root>
+      </ButtonGroup>
 
       {/* Example 2 */}
       <ButtonGroup>
-        <ButtonGroup.Item disabled>Publish</ButtonGroup.Item>
-        <ButtonGroup.Item>Draft</ButtonGroup.Item>
-        <ButtonGroup.Item before={<ChevronDownIcon />} />
+        <ButtonGroup.Item after={<GridIcon />} />
+        <ButtonGroup.Item after={<GridMasonryIcon />} />
+        <ButtonGroup.Item after={<TableColumnsIcon />} />
+        <ButtonGroup.Item after={<TableRowsIcon />} />
       </ButtonGroup>
 
       {/* Example 3 */}
+      <ButtonGroup>
+        <ButtonGroup.Item disabled>Publish Post</ButtonGroup.Item>
+        <ButtonGroup.Item>Draft</ButtonGroup.Item>
+        <ButtonGroup.Item before={<DotsVerticalIcon />} />
+      </ButtonGroup>
+
+      {/* Example 4 */}
       <ButtonGroup size="sm">
-        <ButtonGroup.Item destructive before={<PlusIcon />} after={<PlusIcon />}>
+        <ButtonGroup.Item destructive before={<PlusIcon />}>
           Destructive
         </ButtonGroup.Item>
 
-        <ButtonGroup.Item before={<PlusIcon />} after={<PlusIcon />}>
-          Button
-        </ButtonGroup.Item>
+        <ButtonGroup.Item before={<PlusIcon />}>Button</ButtonGroup.Item>
 
-        <ButtonGroup.Item before={<PlusIcon />} after={<PlusIcon />}>
-          Button
-        </ButtonGroup.Item>
-
-        <ButtonGroup.Item before={<DotsVerticalIcon />} />
+        <ButtonGroup.Item before={<ChevronDownIcon />} />
       </ButtonGroup>
     </div>
   );
