@@ -26,7 +26,7 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
           "prose-h3:text-[26px] prose-h3:leading-[40px] prose-h3:tracking-[-.02em]",
           "prose-h4:text-[20px] prose-h4:mt-[2.5rem] prose-h4:tracking-[-.02em]",
           "prose-p:my-6",
-          "[&_[data-link]:hover>a]:duration-180 [&_[data-link]:hover>a]:opacity-100 [&_[data-link]:hover>a]:transition-opacity [&_[data-link]>a:hover]:text-primary [&_[data-link]>a>svg]:h-[1em] [&_[data-link]>a>svg]:w-[1em] [&_[data-link]>a]:border-none [&_[data-link]>a]:text-surface-400 [&_[data-link]>a]:opacity-0 [&_[data-link]]:flex [&_[data-link]]:items-center [&_[data-link]]:gap-2",
+          "[&_[data-link]:hover>a]:duration-180 [&_[data-link]:hover>a]:opacity-100 [&_[data-link]:hover>a]:transition-opacity [&_[data-link]>a:hover]:text-primary [&_[data-link]>a>svg]:h-5 [&_[data-link]>a>svg]:w-5 [&_[data-link]>a]:translate-y-[2px] [&_[data-link]>a]:border-none [&_[data-link]>a]:text-surface-400 [&_[data-link]>a]:opacity-0 [&_[data-link]]:flex [&_[data-link]]:items-center [&_[data-link]]:gap-2",
 
           // lead
           "prose-lead:text-surface-500 dark:prose-lead:text-surface-400",

@@ -74,7 +74,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
       <svg
         className={cn(
           "wg-unchecked aspect-square w-full scale-100",
-          isDisabled && "text-surface-200 dark:text-surface-100"
+          isDisabled && "text-surface-100 dark:text-surface-50"
         )}
         fill="none"
         height="24"

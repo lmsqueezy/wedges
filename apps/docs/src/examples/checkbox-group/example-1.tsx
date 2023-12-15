@@ -5,22 +5,23 @@ export default function Example() {
     <div className="m-auto flex w-fit flex-col gap-8 text-left">
       <CheckboxGroup
         required
+        description="(description)"
         helperText="Helper text"
-        label="Vertical Checkbox Group"
-        orientation="vertical"
+        label="Vertical"
         tooltip="Tooltip example"
       >
         <CheckboxGroup.Item label="Option 1" />
         <CheckboxGroup.Item defaultChecked label="Option 2" />
         <CheckboxGroup.Item disabled label="Option 3" />
         <CheckboxGroup.Item label="Option 4" />
-        <CheckboxGroup.Item label="Option 5" />
+        <CheckboxGroup.Item label="Option 5" tooltip="Optional tooltip content" />
       </CheckboxGroup>
 
       <CheckboxGroup
-        required
+        disabled
+        description="(disabled)"
         helperText="Helper text"
-        label="Horizontal Checkbox Group"
+        label="Horizontal"
         orientation="horizontal"
         tooltip="Tooltip example"
       >

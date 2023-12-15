@@ -60,8 +60,8 @@ export type WedgesOptions = {
   /**
    * Specifies whether or not to apply font anti-aliasing to Wedges components.
    *
-   * If set to "antialiased" (default), Wedges components will have anti-aliasing applied to them.
-   * If set to "inherit", no specific styles will be set for text anti-aliasing.
+   * If set to `antialiased` (default), Wedges components will have anti-aliasing applied to them.
+   * If set to `inherit`, no specific styles will be set for text anti-aliasing.
    *
    * * @default "antialiased"
    */

@@ -39,14 +39,14 @@ For more advanced usage, you can use the `Avatar.Root` component to compose your
 
 #### Avatar
 
-Includes all the props of the `AvatarImage` <a href="https://www.radix-ui.com/primitives/docs/components/avatar#image" rel="nofollow noreferrer" target="_blank">Radix</a> primitive and:
+Represents an avatar image. Extends the <a href="https://www.radix-ui.com/primitives/docs/components/avatar#image" rel="nofollow noreferrer" target="_blank">Radix Avatar Image</a> primitive and includes all of its props.
 
 <PropsTable
   content={[
     [{ value: "initials" }, { value: "string" }, {}],
     [
       { value: "size" },
-      { value: '"xxs" | "xs" | "sm" | "md" | "md" | "lg" | "xl"' },
+      { value: '"xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"' },
       { value: '"md"' },
     ],
     [
@@ -59,20 +59,96 @@ Includes all the props of the `AvatarImage` <a href="https://www.radix-ui.com/pr
       { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
       { value: '"gray"' },
     ],
-  ]}
+
+    // Radix props
+    [
+      { value: "asChild", description: "Change the default rendered element for the one passed as a child, merging their props and behavior." },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+
+]}
 />
 
 #### Avatar.Root
 
-See `AvatarRoot` <a href="https://www.radix-ui.com/primitives/docs/components/avatar#root" target="_blank" rel="nofollow noreferrer">Radix</a> primitive.
+When using inner components, you must render the `Avatar.Root` component as a wrapper to enclose inner `Avatar` components.
+
+<PropsTable
+  content={[
+    // Radix props
+    [
+      { value: "asChild", description: "Change the default rendered element for the one passed as a child, merging their props and behavior." },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+
+]}
+/>
 
 #### Avatar.Image
 
-See `AvatarImage` <a href="https://www.radix-ui.com/primitives/docs/components/avatar#image" target="_blank" rel="nofollow noreferrer">Radix</a> primitive.
+The image to render. By default it will only render when it has loaded. You can use the `onLoadingStatusChange` handler if you need more control.
+
+<PropsTable
+  content={[
+    // Radix props
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "onLoadingStatusChange",
+        description:
+          "A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading.",
+      },
+      {
+        value: "function",
+        description: '(status: "idle" | "loading" | "loaded" | "error") => void',
+      },
+      {},
+    ],
+  ]}
+/>
 
 #### Avatar.Fallback
 
-See `AvatarFallback` <a href="https://www.radix-ui.com/primitives/docs/components/avatar#fallback" target="_blank" rel="nofollow noreferrer">Radix</a> primitive.
+An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error. If you notice a flash during loading, you can provide a `delayMs` prop to delay its rendering so it only renders for those with slower connections.
+
+For more control, use the `onLoadingStatusChange` handler on `Avatar.Image`.
+
+<PropsTable
+  content={[
+    // Radix props
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "delayMs",
+        description:
+          "Useful for delaying rendering so it only appears for those with slower connections.",
+      },
+      {
+        value: "number",
+      },
+      {},
+    ],
+
+]}
+/>
 
 ### Examples
 

@@ -32,7 +32,7 @@ export const PropsTable = React.forwardRef<
         <thead>
           <tr>
             <th>{isData ? "Data attribute" : "Prop"}</th>
-            <th>Type</th>
+            <th>Value</th>
             {!isData ? <th>Default</th> : null}
           </tr>
         </thead>
@@ -44,11 +44,16 @@ export const PropsTable = React.forwardRef<
                 isData && rowIndex === 2 ? null : (
                   <td key={`${rowIndex}--${index}`}>
                     <div className="flex items-center gap-0.5">
-                      {rowItem?.value ? (
+                      {rowItem?.value?.includes("Present") ? (
+                        // Render a span element if 'Present' is found
+                        <span className="text-sm">{rowItem.value}</span>
+                      ) : rowItem?.value ? (
+                        // Existing code for other cases
                         <code className="not-prose relative break-words rounded bg-surface-100/70 px-[0.3rem] py-[0.15rem] font-mono text-[13px] text-xs text-surface-800">
-                          {rowItem?.value}
+                          {rowItem.value}
                         </code>
                       ) : (
+                        // Fallback if there's no value
                         <span className="select-none text-surface-200">/</span>
                       )}
 

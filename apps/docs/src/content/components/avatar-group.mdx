@@ -32,7 +32,7 @@ import { AvatarGroup } from "@lmsqueezy/wedges";
 />
 ```
 
-For more advanced usage, you can use the `AvatarGroup.Root` component to compose your own group of `AvatarGroup.Item`.
+For more advanced usage, `AvatarGroup.Root` component can be used to compose your own group of `AvatarGroup.Item`.
 
 ```tsx
 <AvatarGroup.Root>
@@ -66,7 +66,7 @@ For more advanced usage, you can use the `AvatarGroup.Root` component to compose
       },
       {},
     ],
-    [{ value: "size" }, { value: '"xs" | "sm" | "md" | "md" | "lg" | "xl"' }, { value: '"md"' }],
+    [{ value: "size" }, { value: '"xs" | "sm" | "md" | | "lg" | "xl" | "2xl"' }, { value: '"md"' }],
     [{ value: "moreLabel" }, { value: "ReactNode" }, {}],
     [{ value: "previousOnTop" }, { value: "boolean" }, { value: "false" }],
   ]}
@@ -74,19 +74,62 @@ For more advanced usage, you can use the `AvatarGroup.Root` component to compose
 
 #### AvatarGroup.Root
 
-Includes all the props of `HTMLAttributes<HTMLDivElement>`.
+Includes all the props of the `HTMLAttributes<HTMLDivElement>`.
 
 #### AvatarGroup.Item
 
 Includes all the props of the `Avatar` component.
 
+<PropsTable
+  content={[
+    [{ value: "initials" }, { value: "string" }, {}],
+    [
+      { value: "size" },
+      { value: '"xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl' },
+      { value: '"md"' },
+    ],
+    [
+      { value: "status" },
+      { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+      { value: '"gray"' },
+    ],
+    [
+      { value: "notification" },
+      { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+      { value: '"gray"' },
+    ],
+
+    // Radix props
+    [
+      { value: "asChild", description: "Change the default rendered element for the one passed as a child, merging their props and behavior." },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+
+]}
+/>
+
 #### AvatarGroup.Label
 
-Includes `label` prop and all the props of the `Avatar` component, except for `notification`, `status` and `initial`. The props type is defined as follows:
+Represents label in the avatar group. In addition to all the props of the `HTMLAttributes<HTMLDivElement>`, `AvatarGroup.Label` component also includes the following props:
+
+<PropsTable
+  content={[
+    [{ value: "label" }, { value: "ReactNode" }, {}],
+    [
+      { value: "size" },
+      { value: '"xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"' },
+      { value: '"md"' },
+    ],
+  ]}
+/>
+
+The props type is defined as follows:
 
 ```tsx showLineNumbers
-type AvatarMoreLabelProps = Omit<AvatarProps, "notification" | "status" | "initial"> & {
+type AvatarMoreLabelProps = React.HTMLAttributes<HTMLDivElement> & {
   label?: React.ReactNode;
+  size?: AvatarProps["size"];
 };
 ```
 

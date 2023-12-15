@@ -220,7 +220,7 @@ export function Example() {
 export function Example() {
   return (
     <div className="flex items-center justify-center gap-6">
-      <Tooltip content="Customized Avatar component" sideOffset={8}>
+      <Tooltip content="Max Quest" sideOffset={8}>
         <Avatar.Root className="h-16 w-16 justify-center rounded-full outline outline-offset-2 outline-wg-red">
           <Avatar.Image
             className="rounded-full"
@@ -228,7 +228,7 @@ export function Example() {
           />
           <Avatar.Fallback className="rounded-full" />
           <span className="absolute flex h-10 w-10 items-center justify-center rounded-full bg-neutral-700/50 text-white backdrop-blur-sm">
-            WG
+            MQ
           </span>
           <Avatar.Status className="left-1 bg-wg-red" />
         </Avatar.Root>
@@ -945,10 +945,10 @@ export function Example() {
   return (
     <div className="m-auto w-fit text-left">
       <Checkbox
-        required
         description="description"
         helperText="Helper text"
         label="Label"
+        required
         tooltip="Tooltip example"
       />
     </div>
@@ -965,22 +965,23 @@ export function Example() {
     <div className="m-auto flex w-fit flex-col gap-8 text-left">
       <CheckboxGroup
         required
+        description="(description)"
         helperText="Helper text"
-        label="Vertical Checkbox Group"
-        orientation="vertical"
+        label="Vertical"
         tooltip="Tooltip example"
       >
         <CheckboxGroup.Item label="Option 1" />
         <CheckboxGroup.Item defaultChecked label="Option 2" />
         <CheckboxGroup.Item disabled label="Option 3" />
         <CheckboxGroup.Item label="Option 4" />
-        <CheckboxGroup.Item label="Option 5" />
+        <CheckboxGroup.Item label="Option 5" tooltip="Optional tooltip content" />
       </CheckboxGroup>
 
       <CheckboxGroup
-        required
+        disabled
+        description="(disabled)"
         helperText="Helper text"
-        label="Horizontal Checkbox Group"
+        label="Horizontal"
         orientation="horizontal"
         tooltip="Tooltip example"
       >
@@ -1001,11 +1002,11 @@ export function Example() {
   return (
     <div className="m-auto w-fit text-left">
       <CheckboxGroup
-        required
-        description="(optional)"
+        description="description"
         helperText="Helper text"
-        label="Group Label"
-        tooltip="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+        label="Label"
+        required
+        tooltip="Tooltip example"
       >
         <CheckboxGroup.Item label="Option 1" />
         <CheckboxGroup.Item label="Option 2" />
@@ -1044,22 +1045,37 @@ export function Example() {
   },
   "popover/example-1": {
     component: lazy(() => import("@/examples/popover/example-1.tsx")),
-    code: `import { CheckboxGroup, Popover } from "@lmsqueezy/wedges";
+    code: `import { ChevronDownIcon, CopyIcon, DownloadIcon } from "@iconicicons/react";
+import { ButtonGroup, CheckboxGroup, Popover } from "@lmsqueezy/wedges";
 
 export function Example() {
   return (
-    <Popover>
-      <Popover.Trigger>Open</Popover.Trigger>
+    <ButtonGroup>
+      <ButtonGroup.Item isIconOnly>
+        <CopyIcon />
+      </ButtonGroup.Item>
 
-      <Popover.Content className="min-w-[150px]">
-        <CheckboxGroup label="Group Label">
-          <CheckboxGroup.Item label="Option 1" />
-          <CheckboxGroup.Item label="Option 2" />
-          <CheckboxGroup.Item label="Option 3" />
-          <CheckboxGroup.Item label="Option 4" />
-        </CheckboxGroup>
-      </Popover.Content>
-    </Popover>
+      <ButtonGroup.Item isIconOnly>
+        <DownloadIcon />
+      </ButtonGroup.Item>
+
+      <Popover>
+        <Popover.Trigger asChild>
+          <ButtonGroup.Item isIconOnly>
+            <ChevronDownIcon />
+          </ButtonGroup.Item>
+        </Popover.Trigger>
+
+        <Popover.Content align="end" className="min-w-[130px]">
+          <CheckboxGroup label="Group Label">
+            <CheckboxGroup.Item label="Option 1" />
+            <CheckboxGroup.Item label="Option 2" />
+            <CheckboxGroup.Item label="Option 3" />
+            <CheckboxGroup.Item label="Option 4" />
+          </CheckboxGroup>
+        </Popover.Content>
+      </Popover>
+    </ButtonGroup>
   );
 }
 `,
@@ -1078,7 +1094,7 @@ export function Example() {
         </Button>
       </Popover.Trigger>
 
-      <Popover.Content className="min-w-[150px]">
+      <Popover.Content className="min-w-[140px]">
         <CheckboxGroup label="Group Label">
           <CheckboxGroup.Item label="Option 1" />
           <CheckboxGroup.Item label="Option 2" />
@@ -1087,6 +1103,78 @@ export function Example() {
         </CheckboxGroup>
       </Popover.Content>
     </Popover>
+  );
+}
+`,
+  },
+  "radio-group/example-1": {
+    component: lazy(() => import("@/examples/radio-group/example-1.tsx")),
+    code: `import { RadioGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto flex w-fit flex-col gap-8 text-left">
+      {/* Example 1 */}
+      <RadioGroup
+        required
+        description="(description)"
+        helperText="Helper text"
+        label="Vertical"
+        tooltip="Tooltip example"
+      >
+        <RadioGroup.Item value="option-1" label="Option 1" />
+        <RadioGroup.Item value="option-2" label="Option 2" />
+        <RadioGroup.Item value="option-3" label="Option 3" />
+        <RadioGroup.Item
+          value="option-4"
+          description="(description)"
+          helperText="Helper text"
+          label="Option 4"
+          tooltip="Tooltip example"
+        >
+          children?
+        </RadioGroup.Item>
+      </RadioGroup>
+
+      {/* Example 2 */}
+      <RadioGroup
+        disabled
+        description="(disabled)"
+        helperText="Helper text"
+        label="Horizontal"
+        orientation="horizontal"
+        tooltip="Tooltip example"
+      >
+        <RadioGroup.Item value="option-1" label="Option 1" />
+        <RadioGroup.Item value="option-2" label="Option 2" />
+        <RadioGroup.Item value="option-3" label="Option 3" />
+      </RadioGroup>
+    </div>
+  );
+}
+`,
+  },
+  "radio-group/preview": {
+    component: lazy(() => import("@/examples/radio-group/preview.tsx")),
+    code: `import { RadioGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto w-fit text-left">
+      <RadioGroup
+        defaultValue="value-1"
+        description="description"
+        helperText="Helper text"
+        label="Label"
+        required
+        tooltip="Tooltip example"
+      >
+        <RadioGroup.Item label="Value 1" value="value-1" />
+        <RadioGroup.Item label="Value 2" value="value-2" />
+        <RadioGroup.Item label="Value 3" value="value-3" />
+        <RadioGroup.Item label="Value 4" value="value-4" />
+      </RadioGroup>
+    </div>
   );
 }
 `,

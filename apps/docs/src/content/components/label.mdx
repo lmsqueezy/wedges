@@ -20,7 +20,7 @@ import { Label } from "@lmsqueezy/wedges";
 
 ### API Reference
 
-In addition to all the props of the `HTMLAttributes<HTMLSpanElement>`, `Badge` component also includes the following props:
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/label" rel="nofollow noreferrer" target="_blank">Radix Label</a> primitive and includes all of its props.
 
 <PropsTable
   content={[
@@ -37,6 +37,37 @@ In addition to all the props of the `HTMLAttributes<HTMLSpanElement>`, `Badge` c
       { value: "htmlFor", description: "The id of the element the label is associated with." },
       { value: "string" },
       {},
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field associated with the label is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field associated with the label is disabled.",
+      },
+      { value: "boolean" },
+      { value: "false" },
     ],
   ]}
 />

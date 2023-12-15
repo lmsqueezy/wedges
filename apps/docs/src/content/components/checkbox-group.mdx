@@ -2,8 +2,7 @@
 title: Checkbox Group
 description: A collection of Checkbox controls grouped together, allowing for the selection of multiple options within a set.
 links:
-  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Checkbox/Checkbox.tsx
-  radix: https://www.radix-ui.com/docs/primitives/components/checkbox
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/CheckboxGroup/CheckboxGroup.tsx
 ---
 
 <PreviewComponent name="checkbox-group/preview" />
@@ -31,25 +30,6 @@ Alternatively, `CheckboxGroup.Root` can be used in place of this component. Besi
   content={[
     [
       {
-        value: "tooltip",
-        description:
-          "Provides additional information or context when hovered over or focused on an element.",
-      },
-      { value: "ReactNode" },
-      {},
-    ],
-    [
-      { value: "label", description: "Main element label." },
-      { value: "ReactNode" },
-      {},
-    ],
-    [
-      { value: "description", description: "Additional information displayed next to the label." },
-      { value: "ReactNode" },
-      {},
-    ],
-    [
-      {
         value: "disabled",
       },
       {
@@ -60,18 +40,42 @@ Alternatively, `CheckboxGroup.Root` can be used in place of this component. Besi
     [
       {
         value: "required",
-        description: "If set to true, the label will be styled to indicate that the field is required.",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field is required.",
       },
       { value: "boolean" },
       { value: "false" },
     ],
-
-]}
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the group label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "description",
+        description: "Additional information displayed next to the group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Main group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+  ]}
 />
 
 #### CheckboxGroup.Item
 
-This component shares all the properties of the `Checkbox`. Details can be found <Link href="/components/checkbox#api-reference">here</Link>.
+Shares all the properties of the `Checkbox` component. Details can be found <Link href="/components/checkbox#api-reference">here</Link>.
 
 ### Examples
 

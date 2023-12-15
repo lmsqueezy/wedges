@@ -33,7 +33,7 @@ export function useCheckboxGroupContext(skipCheck = false) {
   const context = React.useContext(CheckboxGroupContext);
 
   if (!context && !skipCheck) {
-    throw new Error("SwitchGroup.Item must be used within a SwitchGroup or SwitchGroup.Root");
+    throw new Error("Checkbox.Item must be used within a CheckboxGroup or CheckboxGroup.Root");
   }
 
   return context;

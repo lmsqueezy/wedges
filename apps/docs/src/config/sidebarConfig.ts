@@ -129,8 +129,8 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/popover",
         },
         {
-          label: "Radio",
-          href: "/components/radio",
+          label: "Radio Group",
+          href: "/components/radio-group",
         },
         {
           label: "Select",

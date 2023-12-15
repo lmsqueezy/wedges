@@ -20,9 +20,9 @@ For more advanced usage you can use `Checkbox.Root` component to customize the a
 <Checkbox label="Label" />
 ```
 
-`Checkbox` component extends <a href="https://www.radix-ui.com/docs/primitives/components/checkbox" target="_blank" rel='nofollow noreferrer'>Radix Checkbox</a> component and supports all of its props.
-
 ### API Reference
+
+`Checkbox` component extends <a href="https://www.radix-ui.com/docs/primitives/components/checkbox" target="_blank" rel='nofollow noreferrer'>Radix Checkbox</a> primitive and supports all of its props.
 
 <PropsTable
   content={[
@@ -64,6 +64,8 @@ For more advanced usage you can use `Checkbox.Root` component to customize the a
     [
       {
         value: "disabled",
+        description:
+          "If set to `true`, additional styles will be applied to the field to indicate that it is disabled.",
       },
       {
         value: "boolean",
@@ -74,7 +76,7 @@ For more advanced usage you can use `Checkbox.Root` component to customize the a
       {
         value: "required",
         description:
-          "If set to true, the label will be styled to indicate that the field is required.",
+          "If set to `true`, additional styles will be applied to the label to indicate that the field is required.",
       },
       { value: "boolean" },
       { value: "false" },
@@ -92,6 +94,27 @@ For more advanced usage you can use `Checkbox.Root` component to customize the a
       },
       { value: "string" },
       { value: '"on"' },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Label of the checkbox.",
+      },
+      { value: "ReactNode" },
+      {},
     ],
   ]}
 />
@@ -118,7 +141,7 @@ For more advanced usage you can use `Checkbox.Root` component to customize the a
 
 ### Accessibility
 
-The `Checkbox` component supports all accessibility features of <a href="https://www.radix-ui.com/primitives/docs/components/checkbox#accessibility" target="_blank" rel='nofollow noreferrer'>Radix Checkbox</a> component.
+The `Checkbox` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/checkbox#accessibility" target="_blank" rel='nofollow noreferrer'>Radix Checkbox</a> primitive.
 
 ### Examples
 
