@@ -1030,6 +1030,23 @@ export function Example() {
 }
 `,
   },
+  "label/example-1": {
+    component: lazy(() => import("@/examples/label/example-1.tsx")),
+    code: `import { Label } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="mx-auto flex max-w-fit flex-col items-start text-start">
+      <Label description="description" required tooltip="Tooltip example">
+        Label
+      </Label>
+
+      <Label.Helper error>There are errors in your form.</Label.Helper>
+    </div>
+  );
+}
+`,
+  },
   "label/preview": {
     component: lazy(() => import("@/examples/label/preview.tsx")),
     code: `import { Label } from "@lmsqueezy/wedges";
@@ -1175,6 +1192,34 @@ export function Example() {
         <RadioGroup.Item label="Value 4" value="value-4" />
       </RadioGroup>
     </div>
+  );
+}
+`,
+  },
+  "switch/example-1": {
+    component: lazy(() => import("@/examples/switch/example-1.tsx")),
+    code: `import { Switch } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return <Switch label="Airplane mode" />;
+}
+`,
+  },
+  "switch/preview": {
+    component: lazy(() => import("@/examples/switch/preview.tsx")),
+    code: `import { Switch } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <Switch
+      required
+      alignLabel="end"
+      description="(description)"
+      disabled={false}
+      helperText="Helper Text"
+      label="Label"
+      tooltip="Tooltip example"
+    />
   );
 }
 `,

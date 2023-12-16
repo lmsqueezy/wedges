@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Tooltip } from "@lmsqueezy/wedges";
 
+import { cn } from "@/lib/utils";
+
 type ContentItem = {
   value: string;
   description?: string;
@@ -32,7 +34,7 @@ export const PropsTable = React.forwardRef<
         <thead>
           <tr>
             <th>{isData ? "Data attribute" : "Prop"}</th>
-            <th>Value</th>
+            <th>Values</th>
             {!isData ? <th>Default</th> : null}
           </tr>
         </thead>
@@ -42,7 +44,10 @@ export const PropsTable = React.forwardRef<
             <tr key={index}>
               {row.map((rowItem, rowIndex) =>
                 isData && rowIndex === 2 ? null : (
-                  <td key={`${rowIndex}--${index}`}>
+                  <td
+                    className={cn(rowIndex === 0 && "sm:min-w-[160px]", "min-w-0")}
+                    key={`${rowIndex}--${index}`}
+                  >
                     <div className="flex items-center gap-0.5">
                       {rowItem?.value?.includes("Present") ? (
                         // Render a span element if 'Present' is found

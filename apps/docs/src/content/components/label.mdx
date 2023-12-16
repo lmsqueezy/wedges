@@ -22,6 +22,8 @@ import { Label } from "@lmsqueezy/wedges";
 
 Extends the <a href="https://www.radix-ui.com/primitives/docs/components/label" rel="nofollow noreferrer" target="_blank">Radix Label</a> primitive and includes all of its props.
 
+#### Label
+
 <PropsTable
   content={[
     [
@@ -72,6 +74,39 @@ Extends the <a href="https://www.radix-ui.com/primitives/docs/components/label" 
   ]}
 />
 
+#### Label.Helper
+
+Renders supplementary information, typically displayed below the label. In addition to the `React.HTMLAttributes<HTMLSpanElement>` props, it also accepts the following:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "error",
+        description:
+          "If set to `true`, the helper label will be styled to indicate that the field associated with the label has errors. Alternatively, you can set `aria-invalid` to `true`.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field associated with the label is disabled.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
 ### Accessibility
 
 The `Label` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/label#accessibility" target="_blank" rel="nofollow noreferrer">Radix Label</a> primitive.
+
+### Examples
+
+The following example demonstrates using the `Label` component alongside a `Label.Helper` component with the `error` prop.
+
+<PreviewComponent name="label/example-1" />

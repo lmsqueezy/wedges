@@ -89,7 +89,7 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
 const HelperText = React.forwardRef<
   HTMLSpanElement,
   React.HTMLAttributes<HTMLSpanElement> & { error?: boolean; disabled?: boolean }
->(({ children, disabled, className, ...otherProps }, ref) => {
+>(({ children, error, disabled, className, ...otherProps }, ref) => {
   const HelperTextComponent = children && isReactElement(children) ? Slot : "span";
   const ariaInvalid = otherProps["aria-invalid"];
 
@@ -97,8 +97,8 @@ const HelperText = React.forwardRef<
     <HelperTextComponent
       ref={ref}
       className={cn(
-        "wg-label__helper text-sm leading-6 text-surface-500 wg-antialiased",
-        ariaInvalid && "text-destructive",
+        "wg-label__helper text-start text-sm leading-6 text-surface-500 wg-antialiased",
+        (ariaInvalid ?? error) && "text-destructive",
         disabled && "text-surface-300",
         className
       )}
