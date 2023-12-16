@@ -86,12 +86,34 @@ const ButtonGroupWedges = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
 );
 
 const ButtonGroupItem = React.forwardRef<ButtonElement, ButtonGroupItemProps>(
-  ({ asChild = false, children, disabled = false, className, ...otherProps }, ref) => {
+  (
+    {
+      after,
+      asChild = false,
+      before,
+      children,
+      className,
+      disabled = false,
+      isIconOnly,
+      ...otherProps
+    },
+    ref
+  ) => {
     const context = useButtonGroupContext();
-    const { disabled: ctxDisabled, orientation, size } = context || {};
+    const { disabled: ctxDisabled, orientation = "horizontal", size = "md" } = context || {};
 
     const useAsChild = asChild && isReactElement(children);
     const Component = useAsChild ? Slot : Button;
+
+    // Determine if the button is icon-only.
+    const isIcon = React.useMemo(() => {
+      return (
+        (before && !after && !children && size) ??
+        (after && !before && !children && size) ??
+        isIconOnly === true ??
+        false
+      );
+    }, [before, after, children, size, isIconOnly]);
 
     return (
       <>
@@ -103,9 +125,18 @@ const ButtonGroupItem = React.forwardRef<ButtonElement, ButtonGroupItemProps>(
             orientation === "horizontal"
               ? "first-of-type:rounded-s-lg last-of-type:rounded-e-lg"
               : "first-of-type:rounded-t-lg last-of-type:rounded-b-lg",
+
+            size === "sm" && "max-h-[30px]",
+
+            // Custom button paddings if isIcon
+            isIcon && size === "sm" && "px-2 py-6px [--wg-border-width:1px]",
+            isIcon && size === "md" && "px-3 py-8px [--wg-border-width:1px]",
             className
           )}
-          disabled={ctxDisabled ?? disabled}
+          after={after}
+          before={before}
+          disabled={disabled ? disabled : ctxDisabled}
+          isIconOnly={isIconOnly}
           size={size}
           variant="transparent"
           {...otherProps}

@@ -1,0 +1,439 @@
+---
+title: Popover
+description: A floating panel displaying rich content, triggered by a button.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Popover/Popover.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/popover
+---
+
+<PreviewComponent name="popover/preview" />
+
+### Usage
+
+```tsx
+import { Popover } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Popover>
+  <Popover.Trigger>Trigger</Popover.Trigger>
+  <Popover.Content>Content</Popover.Content>
+</Popover>
+```
+
+You can use `Popover.Portal` to render the content in a different location in the DOM. See <a href="#api-reference">API Reference</a> for details.
+
+```tsx showLineNumbers
+<Popover>
+  <Popover.Portal>
+    <Popover.Trigger>Trigger</Popover.Trigger>
+    <Popover.Content>Content</Popover.Content>
+  </Popover.Portal>
+</Popover>
+```
+
+### API Reference
+
+`Popover` component extends <a href="https://www.radix-ui.com/docs/primitives/components/popover" target="_blank" rel='nofollow noreferrer'>Radix Popover</a> component and supports all of its props.
+
+#### Popover
+
+Contains all parts of a popover.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "defaultOpen",
+        description:
+          "The open state of the popover when it is initially rendered. Use when you do not need to control its open state.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "open",
+        description:
+          "The controlled open state of the popover. Must be used in conjunction with 'onOpenChange'.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "onOpenChange",
+        description: "Event handler called when the open state of the popover changes.",
+      },
+      { value: "function", description: "(open: boolean) => void" },
+      {},
+    ],
+    [
+      {
+        value: "modal",
+        description:
+          "The modality of the popover. When set to 'true', interaction with outside elements will be disabled and only popover content will be visible to screen readers.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+#### Popover.Trigger
+
+The button that toggles the popover. By default, the `Popover.Content` will position itself against the trigger.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-state]",
+      },
+      { value: '"open" | "closed"' },
+    ],
+
+]}
+/>
+
+#### Popover.Content
+
+The content of the popover
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "onOpenAutoFocus",
+        description:
+          "Event handler called when focus moves into the component after opening. It can be prevented by calling `event.preventDefault`.",
+      },
+      { value: "function", description: "(event: Event) => void" },
+      {},
+    ],
+    [
+      {
+        value: "onCloseAutoFocus",
+        description:
+          "Event handler called when focus moves to the trigger after closing. It can be prevented by calling `event.preventDefault`.",
+      },
+      { value: "function", description: "(event: Event) => void" },
+      {},
+    ],
+    [
+      {
+        value: "onEscapeKeyDown",
+        description:
+          "Event handler called when the escape key is down. It can be prevented by calling `event.preventDefault`.",
+      },
+      { value: "function", description: "(event: KeyboardEvent) => void" },
+      {},
+    ],
+    [
+      {
+        value: "onPointerDownOutside",
+        description:
+          "Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling `event.preventDefault`.",
+      },
+      { value: "function", description: "(event: PointerDownOutsideEvent) => void" },
+      {},
+    ],
+    [
+      {
+        value: "onFocusOutside",
+        description:
+          "Event handler called when focus moves outside the bounds of the component. It can be prevented by calling `event.preventDefault`.",
+      },
+      { value: "function", description: "(event: FocusOutsideEvent) => void" },
+      {},
+    ],
+    [
+      {
+        value: "onInteractOutside",
+        description:
+          "Event handler called when an interaction (pointer or focus event) happens outside the bounds of the component. It can be prevented by calling `event.preventDefault`.",
+      },
+      {
+        value: "function",
+        description: "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void",
+      },
+      {},
+    ],
+    [
+      {
+        value: "forceMount",
+        description:
+          "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. It inherits from `Popover.Portal`.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "side",
+        description:
+          "The preferred side of the anchor to render against when open. Will be reversed when collisions occur and `avoidCollisions` is enabled.",
+      },
+      {
+        value: '"top" | "right" | "bottom" | "left"',
+      },
+      { value: '"bottom"' },
+    ],
+    [
+      {
+        value: "sideOffset",
+        description: "The offset of the content from the anchor in pixels.",
+      },
+      {
+        value: "number",
+      },
+      { value: "8" },
+    ],
+    [
+      {
+        value: "align",
+        description:
+          "The preferred alignment against the anchor. May change when collisions occur.",
+      },
+      {
+        value: '"start" | "center" | "end"',
+      },
+      { value: '"center"' },
+    ],
+    [
+      {
+        value: "alignOffset",
+        description: "An offset in pixels from the 'start' or 'end' alignment options.",
+      },
+      {
+        value: "number",
+      },
+      { value: "0" },
+    ],
+    [
+      {
+        value: "avoidCollisions",
+        description:
+          "When 'true', overrides the 'side' and 'align' preferences to prevent collisions with boundary edges.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "true" },
+    ],
+    [
+      {
+        value: "collisionBoundary",
+        description:
+          "The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.",
+      },
+      {
+        value: "Boundary",
+        description: "Element | null | Array<Element | null>",
+      },
+      { value: "[]" },
+    ],
+    [
+      {
+        value: "collisionPadding",
+        description:
+          "The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: '{ top: 20, left: 20 }'.",
+      },
+      {
+        value: "number | Padding",
+        description: "number | Partial<Record<Side, number>>",
+      },
+      { value: "8" },
+    ],
+    [
+      {
+        value: "arrowPadding",
+        description:
+          "The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners.",
+      },
+      {
+        value: "number",
+        description: "number | Partial<Record<Side, number>>",
+      },
+      { value: "0" },
+    ],
+    [
+      {
+        value: "sticky",
+        description:
+          "The sticky behavior on the align axis. 'partial' will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst 'always' will keep the content in the boundary regardless.",
+      },
+      {
+        value: '"partial" | "always"',
+        description: "number | Partial<Record<Side, number>>",
+      },
+      { value: "partial" },
+    ],
+    [
+      {
+        value: "hideWhenDetached",
+        description: "Whether to hide the content when the trigger becomes fully occluded.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-state]",
+      },
+      { value: '"open" | "closed"' },
+    ],
+    [
+      {
+        value: "[data-side]",
+      },
+      { value: '"left" | "right" | "bottom" | "top"' },
+    ],
+    [
+      {
+        value: "[data-align]",
+      },
+      { value: '"start" | "end" | "center"' },
+    ],
+  ]}
+/>
+
+#### Popover.Anchor
+
+An optional element to position the `Popover.Content` against. If this part is not used, the content will position alongside the `Popover.Trigger`.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+#### Popover.Arrow
+
+An optional arrow element to render alongside the popover. This can be used to help visually link the anchor with the `Popover.Content`. Must be rendered inside `Popover.Content`.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "width",
+        description: "The width of the arrow in pixels.",
+      },
+      { value: "number" },
+      { value: "10" },
+    ],
+    [
+      {
+        value: "height",
+        description: "The height of the arrow in pixels.",
+      },
+      { value: "number" },
+      { value: "5" },
+    ],
+  ]}
+/>
+
+#### Popover.Close
+
+The button that closes the popover.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+#### Popover.Portal
+
+The portal that renders the popover content in a different location in the DOM.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "forceMount",
+        description:
+          "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. If used on this part, it will be inherited by Popover.Content.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "container",
+        description: "Specify a container element to portal the content into.",
+      },
+      { value: "HTMLElement" },
+      { value: "document.body" },
+    ],
+  ]}
+/>
+
+### Accessibility
+
+The `Popover` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/popover#accessibility" target="_blank" rel="nofollow noreferrer">Radix Popover</a> primitive.
+
+### Examples
+
+The following example shows a combination of the `Popover` and `ButtonGroup` components.
+
+<PreviewComponent name="popover/example-1" />

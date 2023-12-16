@@ -1,5 +1,5 @@
 export const boxShadows = {
-  xs: "0 1px 2px 0 rgba(18, 18, 23, 0.065)",
+  xs: "0 1px 2px 0 rgba(18, 18, 23, 0.05)",
   sm: "0 1px 3px 0 rgba(18, 18, 23, 0.1), 0 1px 2px 0 rgba(18, 18, 23, 0.06)",
   md: "0px 2px 4px -1px rgba(18, 18, 23, 0.06), 0px 4px 6px -1px rgba(18, 18, 23, 0.08)",
   lg: "0px 4px 6px -2px rgba(18, 18, 23, 0.05), 0px 10px 15px -3px rgba(18, 18, 23, 0.08)",

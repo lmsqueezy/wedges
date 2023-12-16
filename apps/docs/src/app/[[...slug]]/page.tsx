@@ -49,7 +49,7 @@ export default async function DocPage({ params }: DocPageProps) {
           <h2 className="font-display text-4xl tracking-tight text-surface-900">{title}</h2>
 
           {description ? (
-            <p className="max-w-md text-base leading-normal text-surface-600 [text-wrap:balance] lg:text-lg lg:leading-normal">
+            <p className="max-w-prose text-base leading-normal text-surface-600 [text-wrap:balance] lg:text-lg lg:leading-normal">
               {description}
             </p>
           ) : null}
@@ -107,7 +107,7 @@ function Links({ links }: { links?: LinkProperties }) {
         <Button
           asChild
           before={<RadixIcon aria-hidden />}
-          className="gap-0.5 px-3"
+          className="gap-1 px-3"
           size="sm"
           variant="tertiary"
         >
@@ -121,7 +121,7 @@ function Links({ links }: { links?: LinkProperties }) {
         <Button
           asChild
           before={<GithubIcon aria-hidden />}
-          className="gap-0.5 px-3"
+          className="gap-1 px-3"
           size="sm"
           variant="tertiary"
         >
@@ -135,7 +135,7 @@ function Links({ links }: { links?: LinkProperties }) {
         <Button
           asChild
           before={<StackBlitzIcon aria-hidden />}
-          className="gap-0.5 px-3"
+          className="gap-1 px-3"
           size="sm"
           variant="tertiary"
         >

@@ -1,0 +1,152 @@
+---
+title: Checkbox
+description: A user interface control enabling toggling between checked and unchecked states.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Checkbox/Checkbox.tsx
+  radix: https://www.radix-ui.com/docs/primitives/components/checkbox
+---
+
+<PreviewComponent name="checkbox/preview" />
+
+### Usage
+
+```tsx
+import { Checkbox } from "@lmsqueezy/wedges";
+```
+
+For more advanced usage you can use `Checkbox.Root` component to customize the appearance of the checkbox.
+
+```tsx showLineNumbers
+<Checkbox label="Label" />
+```
+
+### API Reference
+
+`Checkbox` component extends <a href="https://www.radix-ui.com/docs/primitives/components/checkbox" target="_blank" rel='nofollow noreferrer'>Radix Checkbox</a> primitive and supports all of its props.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "defaultChecked",
+        description:
+          "The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "checked",
+        description:
+          "The controlled checked state of the checkbox. Must be used in conjunction with 'onCheckedChange'.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "onCheckedChange",
+        description: "Event handler called when the checked state of the checkbox changes.",
+      },
+      { value: "function", description: "(checked: boolean | 'indeterminate') => void" },
+      {},
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the checkbox is disabled.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the checkbox is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "name",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "value",
+      },
+      { value: "string" },
+      { value: '"on"' },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Label of the checkbox.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-state]",
+      },
+      { value: '"checked" | "unchecked" | "indeterminate"' },
+      {},
+    ],
+    [
+      {
+        value: "[data-disabled]",
+      },
+      { value: "Present when disabled" },
+      {},
+    ],
+  ]}
+/>
+
+### Accessibility
+
+The `Checkbox` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/checkbox#accessibility" target="_blank" rel='nofollow noreferrer'>Radix Checkbox</a> primitive.
+
+### Examples
+
+<PreviewComponent name="checkbox/example-1" />
+
+The following example shows a customized `Checkbox` component:
+
+<PreviewComponent name="checkbox/example-2" />

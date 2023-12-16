@@ -10,7 +10,7 @@ export default function NotFound() {
     <div className="pb-24">
       <Logomark className="mt-[7px]" />
 
-      <h2 className="mb-6 mt-10 font-display text-4xl tracking-tight text-wg-gray-900 [text-wrap:balance]">
+      <h2 className="font-display mb-6 mt-10 text-4xl tracking-tight text-wg-gray-900 [text-wrap:balance]">
         Sorry, page not found
       </h2>
 

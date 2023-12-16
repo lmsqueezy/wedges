@@ -1,0 +1,105 @@
+---
+title: Button Group
+description: A collection of buttons grouped together for related actions enhancing UI organization.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/ButtonGroup/ButtonGroup.tsx
+---
+
+<PreviewComponent name="button-group/preview" />
+
+### Usage
+
+```tsx
+import { ButtonGroup } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<ButtonGroup>
+  <ButtonGroup.Item>Button</ButtonGroup.Item>
+  <ButtonGroup.Item>Button</ButtonGroup.Item>
+</ButtonGroup>
+```
+
+### API Reference
+
+#### ButtonGroup
+
+Alternatively, `ButtonGroup.Root` can be used in place of this component. Besides all props from `HTMLAttributes<HTMLDivElement>`, `ButtonGroup` also includes these additional props:
+
+<PropsTable
+  content={[
+    [{ value: "size" }, { value: '"sm" | "md"' }, { value: '"md"' }],
+    [
+      { value: "disabled", description: "Disable all actions on buttons within this group." },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      { value: "orientation", description: "The orientation of the button group." },
+      { value: '"horizontal" | "vertical"' },
+      { value: '"horizontal"' },
+    ],
+  ]}
+/>
+
+#### ButtonGroup.Item
+
+Includes all props from the `Button` component, with the exception of `variant`, `shape`, and `size` props.
+
+The type `ButtonGroupItemProps` is defined as follows:
+
+```tsx
+type ButtonGroupItemProps = Omit<
+  React.ComponentPropsWithoutRef<typeof Button>,
+  "variant" | "shape" | "size"
+>;
+```
+
+Available component props:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "If set to `true`, the button will be rendered as a child within the component. This child component must be a valid React component.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [{ value: "after" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [{ value: "before" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [{ value: "disabled" }, { value: "boolean" }, { value: "false" }],
+    [
+      {
+        value: "isIconOnly",
+        description:
+          "If set to `true`, styles will be adjusted for an improved appearance when only an icon is present.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "destructive",
+        description:
+          "Specifies whether this button has a destructive action. If set to `true`, the button will be styled differently to indicate that it will perform a destructive action.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+### Examples
+
+The following examples shows different variants of the `ButtonGroup` component.
+
+<PreviewComponent name="button-group/example-1" />
+
+The following examples shows a combination of the `ButtonGroup` and `Tooltip` components.
+
+<PreviewComponent name="button-group/example-2" />

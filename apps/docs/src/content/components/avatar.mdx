@@ -1,0 +1,165 @@
+---
+title: Avatar
+description: An image element with a fallback for representing the user.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Avatar/Avatar.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/avatar
+---
+
+<PreviewComponent name="avatar/preview" />
+
+### Usage
+
+```tsx
+import { Avatar } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Avatar
+  alt="Image alt text"
+  src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
+/>
+```
+
+For more advanced usage, you can use the `Avatar.Root` component to compose your own avatar.
+
+```tsx
+<Avatar.Root>
+  <Avatar.Image
+    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
+    alt="Image alt text"
+  />
+  <Avatar.Fallback>W</Avatar.Fallback>
+  <Avatar.Notification />
+  <Avatar.Status />
+</Avatar.Root>
+```
+
+### API Reference
+
+#### Avatar
+
+Represents an avatar image. Extends the <a href="https://www.radix-ui.com/primitives/docs/components/avatar#image" rel="nofollow noreferrer" target="_blank">Radix Avatar Image</a> primitive and includes all of its props.
+
+<PropsTable
+  content={[
+    [{ value: "initials" }, { value: "string" }, {}],
+    [
+      { value: "size" },
+      { value: '"xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"' },
+      { value: '"md"' },
+    ],
+    [
+      { value: "status" },
+      { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+      { value: '"gray"' },
+    ],
+    [
+      { value: "notification" },
+      { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+      { value: '"gray"' },
+    ],
+
+    // Radix props
+    [
+      { value: "asChild", description: "Change the default rendered element for the one passed as a child, merging their props and behavior." },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+
+]}
+/>
+
+#### Avatar.Root
+
+When using inner components, you must render the `Avatar.Root` component as a wrapper to enclose inner `Avatar` components.
+
+<PropsTable
+  content={[
+    // Radix props
+    [
+      { value: "asChild", description: "Change the default rendered element for the one passed as a child, merging their props and behavior." },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+
+]}
+/>
+
+#### Avatar.Image
+
+The image to render. By default it will only render when it has loaded. You can use the `onLoadingStatusChange` handler if you need more control.
+
+<PropsTable
+  content={[
+    // Radix props
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "onLoadingStatusChange",
+        description:
+          "A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading.",
+      },
+      {
+        value: "function",
+        description: '(status: "idle" | "loading" | "loaded" | "error") => void',
+      },
+      {},
+    ],
+  ]}
+/>
+
+#### Avatar.Fallback
+
+An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error. If you notice a flash during loading, you can provide a `delayMs` prop to delay its rendering so it only renders for those with slower connections.
+
+For more control, use the `onLoadingStatusChange` handler on `Avatar.Image`.
+
+<PropsTable
+  content={[
+    // Radix props
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "delayMs",
+        description:
+          "Useful for delaying rendering so it only appears for those with slower connections.",
+      },
+      {
+        value: "number",
+      },
+      {},
+    ],
+
+]}
+/>
+
+### Examples
+
+The following example shows an `Avatar` component with an image, `size` set to `lg`, using `initials` "MQ" as a fallback, and `status` and `notification` set to different colors.
+
+<PreviewComponent name="avatar/example-1" />
+
+The following examples show different variants of the `Avatar` component.
+
+<PreviewComponent name="avatar/example-2" />
+
+The following example shows more advanced usage of the `Avatar` component and how you can customize it with Tailwind CSS classes.
+
+<PreviewComponent name="avatar/example-3" />

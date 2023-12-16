@@ -3,6 +3,7 @@ import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Slot } from "@radix-ui/react-slot";
 
 import { cn, isReactElement } from "../../helpers/utils";
+import { useCheckboxGroupContext } from "../CheckboxGroup/CheckboxGroup";
 import { Label, type LabelProps } from "../Label";
 import { type LabelHelperProps } from "../types";
 
@@ -54,6 +55,8 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     const generatedId = React.useId();
     const elId = id ?? generatedId;
 
+    const isInGroup = useCheckboxGroupContext(true) ? true : false;
+
     const indeterminateIcon = (
       <svg className="scale-100" fill="none" height="24" viewBox="0 0 24 24" width="24">
         <path
@@ -71,7 +74,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
       <svg
         className={cn(
           "wg-unchecked aspect-square w-full scale-100",
-          isDisabled && "text-surface-200 dark:text-surface-100"
+          isDisabled && "text-surface-100 dark:text-surface-50"
         )}
         fill="none"
         height="24"
@@ -119,7 +122,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
       label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
-            className="font-normal"
+            className={cn(isInGroup && "font-normal")}
             description={description}
             disabled={isDisabled}
             htmlFor={elId}

@@ -14,24 +14,22 @@ type PopoverContentProps = React.ComponentProps<typeof PopoverPrimitive.Content>
 const PopoverContent = React.forwardRef<PopoverContentElement, PopoverContentProps>(
   ({ align = "center", className, sideOffset = 8, collisionPadding = 8, ...otherProps }, ref) => {
     return (
-      <PopoverPrimitive.Portal>
-        <PopoverPrimitive.Content
-          ref={ref}
-          align={align}
-          className={cn(
-            // state animations
-            "data-[side=bottom]:animate-fade-in-down data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[side=top]:animate-fade-in-up",
+      <PopoverPrimitive.Content
+        ref={ref}
+        align={align}
+        className={cn(
+          // state animations
+          "data-[side=bottom]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[side=top]:animate-fade-in-down",
 
-            // base styles
-            "flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white p-4 text-sm leading-6 text-surface-900 shadow-wg-overlay wg-antialiased dark:border dark:border-surface dark:bg-neutral-800 dark:text-surface-700 dark:shadow-none",
+          // base styles
+          "flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white p-4 text-sm leading-6 text-surface-900 shadow-wg-overlay wg-antialiased dark:border dark:border-surface dark:bg-neutral-800 dark:text-surface-700 dark:shadow-none",
 
-            className
-          )}
-          collisionPadding={collisionPadding}
-          sideOffset={sideOffset}
-          {...otherProps}
-        />
-      </PopoverPrimitive.Portal>
+          className
+        )}
+        collisionPadding={collisionPadding}
+        sideOffset={sideOffset}
+        {...otherProps}
+      />
     );
   }
 );
@@ -41,6 +39,10 @@ PopoverContent.displayName = "PopoverContent";
 const Popover = Object.assign(PopoverPrimitive.Root, {
   Trigger: PopoverPrimitive.Trigger,
   Content: PopoverContent,
+  Portal: PopoverPrimitive.Portal,
+  Anchor: PopoverPrimitive.Anchor,
+  Arrow: PopoverPrimitive.Arrow,
+  Close: PopoverPrimitive.Close,
 });
 
 export default Popover;

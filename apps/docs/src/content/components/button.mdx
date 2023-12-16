@@ -1,0 +1,72 @@
+---
+title: Button
+description: A clickable element styled as a button, suitable for various actions and interfaces.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Button/Button.tsx
+---
+
+<PreviewComponent name="button/preview" />
+
+### Usage
+
+```tsx
+import { Button } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Button>Button</Button>
+```
+
+### API Reference
+
+In addition to all the props of the `ButtonHTMLAttributes<HTMLButtonElement>`, `Button` component also includes the following props:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "If set to `true`, the button will be rendered as a child within the component. This child component must be a valid React component.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [{ value: "after" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [{ value: "before" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [{ value: "disabled" }, { value: "boolean" }, { value: "false" }],
+    [
+      {
+        value: "isIconOnly",
+        description:
+          "If set to `true`, styles will be adjusted for an improved appearance when only an icon is present.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "destructive",
+        description:
+          "Specifies whether this button has a destructive action. If set to `true`, the button will be styled differently to indicate that it will perform a destructive action.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [{ value: "shape" }, { value: '"rounded" | "pill"' }, { value: '"rounded"' }],
+    [{ value: "size" }, { value: '"xs-icon" | "sm" | "md"' }, { value: '"md"' }],
+    [
+      { value: "variant" },
+      { value: '"primary" | "secondary" | "tertiary" | "outline" | "transparent" | "link"' },
+      { value: '"primary"' },
+    ],
+  ]}
+/>
+
+### Examples
+
+The following example shows different variants of the `Button` component.
+
+<PreviewComponent name="button/example-1" />

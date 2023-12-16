@@ -16,7 +16,7 @@
   }
 
   [data-line] {
-    @apply inline-flex min-h-[24px] w-full items-center border-l-[3px] border-transparent px-4 py-0;
+    @apply inline min-h-[24px] w-full border-l-[3px] border-transparent px-4 py-0;
   }
 
   [data-line-numbers] [data-line] {
@@ -53,11 +53,11 @@
 }
 
 [data-rehype-pretty-code-caption] {
-  @apply text-surface-500 mt-2 text-center text-[13px];
+  @apply mt-2 text-center text-[13px] text-surface-500;
 }
 
 [data-rehype-pretty-code-title] {
-  @apply text-surface-900 mt-6 px-5 text-[13px] font-medium;
+  @apply mt-6 px-5 text-[13px] font-medium text-surface-900;
 
   & + pre {
     @apply mt-1.5;

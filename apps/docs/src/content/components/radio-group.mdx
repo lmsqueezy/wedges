@@ -1,0 +1,251 @@
+---
+title: Radio Group
+description: A group of radio buttons, ensuring a single choice among multiple options.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/RadioGroup/RadioGroup.tsx
+  radix: https://www.radix-ui.com/docs/primitives/components/radio-group
+---
+
+<PreviewComponent name="radio-group/preview" />
+
+### Usage
+
+```tsx
+import { RadioGroup } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<RadioGroup defaultValue="value-1" label="Label">
+  <RadioGroup.Item label="Value 1" value="value-1" />
+  <RadioGroup.Item label="Value 2" value="value-2" />
+</RadioGroup>
+```
+
+### API Reference
+
+`RadioGroup` component extends <a href="https://www.radix-ui.com/docs/primitives/components/radio-group" target="_blank" rel='nofollow noreferrer'>Radix Radio Group</a> primitive and supports all of its props.
+
+#### RadioGroup
+
+Contains all parts of a radio group.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "defaultValue",
+        description:
+          "The value of the radio item that should be checked when initially rendered. Use when you do not need to control the state of the radio items.",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "value",
+        description:
+          "The controlled value of the radio item to check. Should be used in conjunction with `onValueChange`.",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "onValueChange",
+        description: "Event handler called when the value changes.",
+      },
+      { value: "function", description: "(value: string) => void" },
+      {},
+    ],
+    [
+      {
+        value: "name",
+        description:
+          "The name of the group. Submitted with its owning form as part of a name/value pair.",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "orientation",
+        description: "The orientation of the component.",
+      },
+      { value: '"horizontal" | "vertical"' },
+      { value: '"vertical"' },
+    ],
+    [
+      {
+        value: "dir",
+        description: "The reading direction of the radio group.",
+      },
+      { value: '"ltr" | "rtl"' },
+      { value: '"ltr"' },
+    ],
+    [
+      {
+        value: "loop",
+        description: "The reading direction of the radio group.",
+      },
+      { value: 'boolean' },
+      { value: 'true' },
+    ],
+
+    [
+      {
+        value: "required",
+        description:
+          "When `true`, indicates that the user must check a radio item before the owning form can be submitted and styles the group label accordingly.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "When `true`, prevents the user from interacting with the radio items and styles the group label accordingly.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "tooltip",
+        description:
+          "This prop adds an optional description. When used, a trigger element is positioned adjacent to the label. Hovering over this trigger displays a tooltip with the description.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Shows additional description next to the `label`." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+
+]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-disabled]",
+      },
+      { value: "Present when disabled" },
+      {},
+    ],
+  ]}
+/>
+
+#### RadioGroup.Item
+
+An item in the group that can be checked. An `input` element will also be rendered when used within a form to ensure events propagate correctly.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "value",
+        description: "The value given as data when submitted with a `name`.",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "When `true`, prevents user from interacting with the radio item and the item label is styled accordingly.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "When `true`, indicates that the user must check the radio item before the owning form can be submitted. The item label is styled accordingly.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Label of the item.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-state]",
+      },
+      { value: '"checked" | "unchecked"' },
+      {},
+    ],
+    [
+      {
+        value: "[data-disabled]",
+      },
+      { value: "Present when disabled" },
+      {},
+    ],
+  ]}
+/>
+
+### Accessibility
+
+The `RadioGroup` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/radio-group#accessibility" target="_blank" rel='nofollow noreferrer'>Radix Radio Group</a> primitive.
+
+### Examples
+
+<PreviewComponent name="radio-group/example-1" />
