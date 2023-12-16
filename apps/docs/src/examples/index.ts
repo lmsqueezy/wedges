@@ -1201,7 +1201,38 @@ export function Example() {
     code: `import { Switch } from "@lmsqueezy/wedges";
 
 export function Example() {
-  return <Switch label="Airplane mode" />;
+  return (
+    <div className="flex flex-col gap-12">
+      <div className="mx-auto flex max-w-fit flex-col items-start gap-6 text-start">
+        {/* Example 1 */}
+        <Switch label="Label" tooltip="Tooltip example" />
+
+        {/* Example 2s */}
+        <Switch
+          description="(disabled)"
+          helperText="Helper text"
+          label="Label"
+          tooltip="Tooltip example"
+          disabled
+        />
+      </div>
+
+      <div className="mx-auto flex max-w-fit flex-col items-start gap-6 text-start">
+        {/* Example 3s */}
+        <Switch alignLabel="start" label="Label" tooltip="Tooltip example" />
+
+        {/* Example 4 */}
+        <Switch
+          alignLabel="start"
+          description="(disabled)"
+          helperText="Helper text"
+          label="Label"
+          tooltip="Tooltip example"
+          disabled
+        />
+      </div>
+    </div>
+  );
 }
 `,
   },
@@ -1220,6 +1251,31 @@ export function Example() {
       label="Label"
       tooltip="Tooltip example"
     />
+  );
+}
+`,
+  },
+  "switch-group/preview": {
+    component: lazy(() => import("@/examples/switch-group/preview.tsx")),
+    code: `import { SwitchGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto w-fit text-left">
+      <SwitchGroup
+        required
+        alignLabels="end"
+        aria-invalid="true"
+        description="(optional)"
+        helperText="This field is required"
+        label="Hello Label"
+        tooltip="This is a custom tooltip message"
+      >
+        <SwitchGroup.Item disabled helperText="Disabled item with helper text" label="Item 1" />
+        <SwitchGroup.Item required label="Item 2 with a Tooltip" tooltip="test" />
+        <SwitchGroup.Item label="With Label" />
+      </SwitchGroup>
+    </div>
   );
 }
 `,
