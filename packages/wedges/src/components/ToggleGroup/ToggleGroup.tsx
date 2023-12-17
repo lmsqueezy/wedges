@@ -64,7 +64,6 @@ const ToggleGroupItem = React.forwardRef<
 >(({ className, children, asChild, isIconOnly = false, before, after, ...otherProps }, ref) => {
   const context = React.useContext(ToggleGroupContext);
   const { size, disabled, orientation } = context ?? {};
-
   const useAsChild = asChild && isReactElement(children);
 
   return (
