@@ -103,13 +103,13 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
      */
     const handleClose = React.useCallback(
       (event: React.MouseEvent<HTMLButtonElement>) => {
-        if (onClose) {
-          onClose(event);
-        }
-
         // Do not close if the event is prevented by the onClose callback
         if (!event.defaultPrevented) {
           setVisible(false);
+        }
+
+        if (onClose) {
+          onClose(event);
         }
       },
       [onClose]

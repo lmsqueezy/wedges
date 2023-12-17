@@ -37,7 +37,7 @@ type NotClosableProps = {
   onClose?: never;
 };
 
-export type TagProps = Omit<React.ComponentPropsWithoutRef<typeof Badge>, "before"> & {
+export type TagProps = React.ComponentPropsWithoutRef<typeof Badge> & {
   /**
    * An optional avatar to display within the tag.
    * Expects Avatar component.
@@ -52,7 +52,7 @@ export type TagProps = Omit<React.ComponentPropsWithoutRef<typeof Badge>, "befor
    * An optional element to display before the tag content.
    * This can be used to display an icon or other element.
    */
-  before?: React.ReactElement<HTMLElement>;
+  //   before?: React.ReactElement<HTMLElement>;
 
   /**
    * Specify alternative close icon to display within the tag
@@ -75,10 +75,12 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
    */
   const handleClose = React.useCallback(
     (event: React.MouseEvent<HTMLButtonElement>) => {
-      setVisible(false);
-
       if (onClose) {
         onClose(event);
+      }
+
+      if (!event.defaultPrevented) {
+        setVisible(false);
       }
     },
     [onClose]
@@ -110,7 +112,7 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
   const renderCloseButton: React.ReactElement<HTMLButtonElement> | undefined = closable ? (
     <Button
       before={renderDeleteIcon}
-      className="h-auto w-auto p-0 focus:outline-1"
+      className="duration-180 h-auto w-auto p-0 text-wg-gray-400 transition-colors hover:text-wg-gray-600 focus:outline-1 dark:text-wg-white-500 dark:hover:text-wg-white-700 [&>svg]:!opacity-100"
       shape="pill"
       size="xs-icon"
       variant="link"
