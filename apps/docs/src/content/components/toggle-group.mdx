@@ -1,0 +1,126 @@
+---
+title: Toggle Group
+description: A set of two-state buttons that can be toggled on or off.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/ToggleGroup/ToggleGroup.tsx
+  radix: https://radix-ui.com/primitives/docs/components/toggle-group
+---
+
+<PreviewComponent name="toggle-group/preview" />
+
+### Usage
+
+```tsx
+import { ToggleGroup } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<ToggleGroup defaultValue="value-1">
+  <ToggleGroup.Item value='value-1'>Value 1</ButtonGroup.Item>
+  <ToggleGroup.Item value='value-2'>Value 2</ButtonGroup.Item>
+</ButtonGroup>
+```
+
+### API Reference
+
+#### ToggleGroup
+
+Contains a set of `ToggleGroup.Item` components. Extends the <a href="https://www.radix-ui.com/primitives/docs/components/toggle-group" rel="nofollow noreferrer" target="_blank">Radix Toggle Group</a> primitive and includes all of its props. Alternatively, `ToggleGroup.Root` can be used in place of this component.
+
+<PropsTable
+  content={[
+    [{ value: "size" }, { value: '"sm" | "md"' }, { value: '"md"' }],
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "defaultValue",
+        description:
+          "The value of the radio item that should be checked when initially rendered. Use when you do not need to control the state of the radio items.",
+      },
+      { value: "string | string[]" },
+      {},
+    ],
+    [
+      {
+        value: "type",
+        description: "Determines whether a single or multiple items can be pressed at a time.",
+      },
+      { value: '"single" | "multiple"' },
+      { value: "single" },
+    ],
+    [
+      {
+        value: "rovingFocus",
+        description: "When false, navigating through the items using arrow keys will be disabled.",
+      },
+      { value: "boolean" },
+      { value: "true" },
+    ],
+    [
+      {
+        value: "value",
+        description:
+          "The controlled value of the pressed item or items if type is `multiple`. When type is `multiple` it must be used in conjunction with `onValueChange`.",
+      },
+      { value: "string" },
+      { value: "[]" },
+    ],
+    [
+      {
+        value: "onValueChange",
+        description: "Event handler called when the value changes.",
+      },
+      { value: "function", description: "(value: string[]) => void" },
+      {},
+    ],
+    [
+      {
+        value: "orientation",
+        description: "The orientation of the component.",
+      },
+      { value: '"horizontal" | "vertical"' },
+      { value: '"vertical"' },
+    ],
+    [
+      {
+        value: "dir",
+        description: "The reading direction of the radio group.",
+      },
+      { value: '"ltr" | "rtl"' },
+      { value: '"ltr"' },
+    ],
+    [
+      {
+        value: "loop",
+        description: "The reading direction of the radio group.",
+      },
+      { value: "boolean" },
+      { value: "true" },
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "When `true`, prevents the user from interacting with the radio items and styles the group label accordingly.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+#### ToggleGroup.Item
+
+Includes all props from the `Toggle` component.
+
+### Examples
+
+<PreviewComponent name="toggle-group/example-1" />
