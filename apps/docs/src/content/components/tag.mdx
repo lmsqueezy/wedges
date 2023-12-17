@@ -1,0 +1,68 @@
+---
+title: Tag
+description: A versatile tag component for categorizing or labeling content.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Tag/Tag.tsx
+---
+
+<PreviewComponent name="tag/preview" />
+
+### Usage
+
+```tsx
+import { Tag } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Tag>Tag</Tag>
+```
+
+### API Reference
+
+`Tag` component supports all props of the `Badge` component. In addition to that, it also supports the following props.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "closable",
+        description:
+          "Is the alert closable? If true, a close button will be displayed and when clicked on it will hide the alert element.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "avatar",
+        description: "An optional avatar to display within the tag.",
+      },
+      { value: "ReactElement<typeof Avatar>", description: "Expects Avatar component." },
+      {},
+    ],
+    [{ value: "before" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [
+      {
+        value: "closeIcon",
+        description: "Specify alternative close icon to display within the tag.",
+      },
+      { value: "ReactElement<HTMLElement>" },
+      {},
+    ],
+    [
+      {
+        value: "onClose",
+        description:
+          "Event handler called when the close button is clicked. It can be prevented by calling `event.preventDefault`.",
+      },
+      { value: "MouseEventHandler<HTMLButtonElement> | never" },
+      {},
+    ],
+  ]}
+/>
+
+### Examples
+
+The following example shows different variations of the `Tag` component.
+
+<PreviewComponent name="tag/example-1" />
