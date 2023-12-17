@@ -7,7 +7,7 @@ import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type CheckboxGroupElement = HTMLDivElement;
-export type CheckboxGroupProps = Omit<React.HTMLAttributes<HTMLDivElement>, "asChild"> &
+export type CheckboxGroupProps = React.HTMLAttributes<HTMLDivElement> &
   LabelProps &
   LabelHelperProps & {
     orientation?: "horizontal" | "vertical";

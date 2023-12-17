@@ -1255,6 +1255,45 @@ export function Example() {
 }
 `,
   },
+  "switch-group/example-1": {
+    component: lazy(() => import("@/examples/switch-group/example-1.tsx")),
+    code: `import { SwitchGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="flex w-fit flex-col gap-12 text-left">
+      {/* Example 1 */}
+      <SwitchGroup
+        alignLabels="end"
+        description="(description)"
+        helperText="Helper text"
+        label="Group Label"
+        tooltip="Tooltip example"
+      >
+        <SwitchGroup.Item defaultChecked label="Option 1" />
+        <SwitchGroup.Item label="Option 2" />
+        <SwitchGroup.Item label="Option 3" />
+        <SwitchGroup.Item label="Option 4" />
+      </SwitchGroup>
+
+      {/* Example 2 */}
+      <SwitchGroup
+        alignLabels="start"
+        description="(description)"
+        helperText="Helper text"
+        label="Group Label"
+        tooltip="Tooltip example"
+      >
+        <SwitchGroup.Item defaultChecked label="Option 1" />
+        <SwitchGroup.Item label="Option 2" />
+        <SwitchGroup.Item label="Option 3" />
+        <SwitchGroup.Item label="Option 4" />
+      </SwitchGroup>
+    </div>
+  );
+}
+`,
+  },
   "switch-group/preview": {
     component: lazy(() => import("@/examples/switch-group/preview.tsx")),
     code: `import { SwitchGroup } from "@lmsqueezy/wedges";
@@ -1263,17 +1302,16 @@ export function Example() {
   return (
     <div className="m-auto w-fit text-left">
       <SwitchGroup
-        required
         alignLabels="end"
-        aria-invalid="true"
-        description="(optional)"
-        helperText="This field is required"
-        label="Hello Label"
-        tooltip="This is a custom tooltip message"
+        description="(description)"
+        helperText="Helper text"
+        label="Group Label"
+        tooltip="Tooltip example"
       >
-        <SwitchGroup.Item disabled helperText="Disabled item with helper text" label="Item 1" />
-        <SwitchGroup.Item required label="Item 2 with a Tooltip" tooltip="test" />
-        <SwitchGroup.Item label="With Label" />
+        <SwitchGroup.Item label="Option 1" />
+        <SwitchGroup.Item label="Option 2" />
+        <SwitchGroup.Item label="Option 3" />
+        <SwitchGroup.Item label="Option 4" />
       </SwitchGroup>
     </div>
   );

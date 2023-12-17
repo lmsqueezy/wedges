@@ -22,6 +22,69 @@ import { SwitchGroup } from "@lmsqueezy/wedges";
 
 ### API Reference
 
+#### SwitchGroup
+
+Wraps a group of `SwitchGroup.Item` components. In addition to all the props defined as `HTMLAttributes<HTMLDivElement>`, it also accepts the following props:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "alignLabels",
+        description: "Alignment of the SwitchGroup.Item labels.",
+      },
+      { value: '"start" | "end"' },
+      { value: "end" },
+    ],
+    [
+      {
+        value: "disabled",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the group label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "description",
+        description: "Additional information displayed next to the group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Main group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+  ]}
+/>
+
+#### SwitchGroup.Item
+
+Represents a single option in the group. It includes all of the props of the `Switch` component, except for `alignLabel` which is inherited from the parent `SwitchGroup` component. The props type is defined as `Omit<SwitchProps, "alignLabel">`.
+
 <PropsTable
   content={[
     [
@@ -84,13 +147,6 @@ import { SwitchGroup } from "@lmsqueezy/wedges";
     ],
     [
       {
-        value: "alignLabel",
-      },
-      { value: '"start" | "end"' },
-      { value: '"end"' },
-    ],
-    [
-      {
         value: "onCheckedChange",
         description: "Event handler called when the state of the switch changes.",
       },
@@ -149,8 +205,8 @@ import { SwitchGroup } from "@lmsqueezy/wedges";
 
 ### Accessibility
 
-The `Switch` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/switch#accessibility" target="_blank" rel="nofollow noreferrer">Radix Switch</a> primitive.
+The `SwitchGroup.Item` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/switch#accessibility" target="_blank" rel="nofollow noreferrer">Radix Switch</a> primitive.
 
 ### Examples
 
-<PreviewComponent name="switch/example-1" />
+<PreviewComponent name="switch-group/example-1" />

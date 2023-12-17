@@ -7,7 +7,7 @@ import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type SwitchGroupElement = HTMLDivElement;
-export type SwitchGroupProps = Omit<React.HTMLAttributes<HTMLDivElement>, "asChild"> &
+export type SwitchGroupProps = React.HTMLAttributes<HTMLDivElement> &
   LabelProps &
   LabelHelperProps & {
     /**
@@ -18,7 +18,7 @@ export type SwitchGroupProps = Omit<React.HTMLAttributes<HTMLDivElement>, "asChi
   };
 
 type SwitchGroupItemElement = SwitchElement;
-type SwitchGroupItemProps = SwitchProps;
+type SwitchGroupItemProps = Omit<SwitchProps, "alignLabel">;
 
 type SwitchGroupContextProps = {
   alignLabels?: SwitchGroupProps["alignLabels"];

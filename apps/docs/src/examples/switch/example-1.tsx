@@ -7,7 +7,7 @@ export default function Example() {
         {/* Example 1 */}
         <Switch label="Label" tooltip="Tooltip example" />
 
-        {/* Example 2s */}
+        {/* Example 2 */}
         <Switch
           description="(disabled)"
           helperText="Helper text"
@@ -18,7 +18,7 @@ export default function Example() {
       </div>
 
       <div className="mx-auto flex max-w-fit flex-col items-start gap-6 text-start">
-        {/* Example 3s */}
+        {/* Example 3 */}
         <Switch alignLabel="start" label="Label" tooltip="Tooltip example" />
 
         {/* Example 4 */}
