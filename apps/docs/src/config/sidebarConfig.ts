@@ -157,6 +157,10 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/textarea",
         },
         {
+          label: "Toggle",
+          href: "/components/toggle",
+        },
+        {
           label: "Toggle Group",
           href: "/components/toggle-group",
         },

@@ -1,0 +1,113 @@
+---
+title: Toggle
+description: A two-state button that can be either on or off.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Toggle/Toggle.tsx
+  radix: https://radix-ui.com/primitives/docs/components/toggle
+---
+
+<PreviewComponent name="toggle/preview" />
+
+### Usage
+
+```tsx
+import { Toggle } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Toggle>Toggle</Toggle>
+```
+
+### API Reference
+
+Along with inheriting all props from the <a href="https://www.radix-ui.com/primitives/docs/components/toggle" target="_blank" rel="noreferrer nofollow">Radix Toggle</a> primitive, this component also supports all `Button` component props, except for the `variant` prop, which is limited to `outline` and `transparent` options.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "defaultPressed",
+        description:
+          "The pressed state of the toggle when it is initially rendered. Use when you do not need to control its pressed state.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "pressed",
+        description:
+          "The controlled pressed state of the toggle. Must be used in conjunction with `onPressedChange`.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "onPressedChange",
+        description: "Event handler called when the pressed state of the toggle changes.",
+      },
+      { value: "function", description: "(pressed: boolean) => void" },
+      {},
+    ],
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior. This child component must be a valid React component.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [{ value: "after" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [{ value: "before" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [{ value: "disabled" }, { value: "boolean" }, { value: "false" }],
+    [
+      {
+        value: "isIconOnly",
+        description:
+          "If set to `true`, styles will be adjusted for an improved appearance when only an icon is present.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "destructive",
+        description:
+          "Specifies whether this button has a destructive action. If set to `true`, the button will be styled differently to indicate that it will perform a destructive action.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [{ value: "shape" }, { value: '"rounded" | "pill"' }, { value: '"rounded"' }],
+    [{ value: "size" }, { value: '"xs-icon" | "sm" | "md"' }, { value: '"md"' }],
+    [{ value: "variant" }, { value: '"outline" | "transparent"' }, { value: '"primary"' }],
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-state]",
+      },
+      { value: '"on" | "off"' },
+      {},
+    ],
+    [
+      {
+        value: "[data-disabled]",
+      },
+      { value: "Present when disabled" },
+      {},
+    ],
+  ]}
+/>
+
+### Accessibility
+
+The `Toggle` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/toggle#accessibility" target="_blank" rel="nofollow noreferrer">Radix Toggle</a> primitive.
