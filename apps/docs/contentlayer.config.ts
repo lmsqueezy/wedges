@@ -94,7 +94,9 @@ export default makeSource({
         {
           behavior: "append",
           properties: {
-            className: ["bg-surface w-6 h-6 rounded-lg flex items-center justify-center"],
+            className: [
+              "bg-surface outline-primary outline-offset-2 w-6 h-6 rounded-lg flex items-center justify-center",
+            ],
           },
           headingProperties: {
             "data-link": "",
