@@ -26,7 +26,7 @@ const DEFAULT_PREFIX = "wg";
 export const twMerge = extendTailwindMerge({
   extend: {
     theme: {
-      padding: ["2px", "4px", "6px", "8px", "12px", "14px"],
+      padding: ["2px", "4px", "6px", "8px", "12px", "14px", "16px"],
     },
   },
 });
@@ -237,6 +237,7 @@ const corePlugin = (
             "8px": "calc(8px - var(--wg-border-width, 0px))",
             "12px": "calc(12px - var(--wg-border-width, 0px))",
             "14px": "14px",
+            "16px": "calc(16px - var(--wg-border-width, 0px))",
           },
           outlineOffset: {
             3: "3px",
