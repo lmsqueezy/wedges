@@ -1,0 +1,46 @@
+---
+title: Tabs
+description: A component that organizes content into multiple sections, with a tabbed interface for navigation between these sections.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Tabs/Tabs.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/tabs
+---
+
+<PreviewComponent name="tabs/preview" />
+
+### Usage
+
+```tsx
+import { Tabs } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Tabs defaultValue="tab-1">
+  <Tabs.List>
+    <Tabs.Trigger value="tab-1">Tab 1</Tabs.Trigger>
+    <Tabs.Trigger value="tab-2">Tab 2</Tabs.Trigger>
+  </Tabs.List>
+  <Tabs.Content value="tab-1">Tab 1 content</Tabs.Content>
+  <Tabs.Content value="tab-2">Tab 2 content</Tabs.Content>
+</Tabs>
+```
+
+### API Reference
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/switch" rel="nofollow noreferrer" target="_blank">Radix Switch</a> primitive and includes all of its props.
+
+### Accessibility
+
+The `Tabs` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/tabs#accessibility" target="_blank" rel="nofollow noreferrer">Radix Tabs</a> primitive.
+
+### Examples
+
+<PreviewComponent name="tabs/example-1" />
+
+The following example shows a disabled `Tabs.Trigger` component.
+
+<PreviewComponent name="tabs/example-2" />
+
+The following examples shows stretched `Tabs.Trigger` components with custom `before` and `after` elements.
+
+<PreviewComponent name="tabs/example-3" />
