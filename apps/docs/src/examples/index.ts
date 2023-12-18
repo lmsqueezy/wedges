@@ -1166,33 +1166,25 @@ export function Example() {
         <ButtonGroup.Item>Raw</ButtonGroup.Item>
       </Tooltip>
 
-      <Tooltip align="center" animation={false} content="Copy" delayDuration={0} side="top">
+      <Tooltip align="center" animation={false} content="Copy" delayDuration={0}>
         <ButtonGroup.Item isIconOnly>
           <CopyIcon />
         </ButtonGroup.Item>
       </Tooltip>
 
-      <Tooltip.Provider>
-        <Tooltip.Root>
-          <Tooltip.Trigger>
-            <ButtonGroup.Item isIconOnly>
-              <DownloadIcon />
-            </ButtonGroup.Item>
-          </Tooltip.Trigger>
+      <Tooltip content="Download" delayDuration={0}>
+        <ButtonGroup.Item isIconOnly>
+          <DownloadIcon />
+        </ButtonGroup.Item>
+      </Tooltip>
 
-          <Tooltip.Portal>
-            <Tooltip.Content content="Download">Download</Tooltip.Content>
-          </Tooltip.Portal>
-        </Tooltip.Root>
-      </Tooltip.Provider>
-
-      <Tooltip align="center" animation={false} content="Edit" delayDuration={0} side="top">
+      <Tooltip align="center" animation={false} content="Edit" delayDuration={0}>
         <ButtonGroup.Item isIconOnly>
           <EditIcon />
         </ButtonGroup.Item>
       </Tooltip>
 
-      <Tooltip align="center" animation={false} content="More" delayDuration={0} side="top">
+      <Tooltip align="center" animation={false} content="More" delayDuration={0}>
         <ButtonGroup.Item isIconOnly>
           <ChevronDownIcon />
         </ButtonGroup.Item>
@@ -1384,6 +1376,15 @@ export function Example() {
       <span className="font-medium text-surface-900">Lemon Squeezy</span>
     </div>
   );
+}
+`,
+  },
+  "input/preview": {
+    component: lazy(() => import("@/examples/input/preview.tsx")),
+    code: `import { Input } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return <Input placeholder="Type here..." />;
 }
 `,
   },
