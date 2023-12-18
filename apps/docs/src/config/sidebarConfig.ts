@@ -168,6 +168,31 @@ export const sidebarConfig: DocsConfig = {
           label: "Tooltip",
           href: "/components/tooltip",
         },
+        {
+          label: "Loading",
+          href: "/components/loading",
+          disabled: true,
+        },
+        {
+          label: "Number Input",
+          href: "/components/number-input",
+          disabled: true,
+        },
+        {
+          label: "Progress Bar",
+          href: "/components/progress-bar",
+          disabled: true,
+        },
+        {
+          label: "Progress Circle",
+          href: "/components/progress-circle",
+          disabled: true,
+        },
+        {
+          label: "Slider",
+          href: "/components/slider",
+          disabled: true,
+        },
       ],
     },
   ],

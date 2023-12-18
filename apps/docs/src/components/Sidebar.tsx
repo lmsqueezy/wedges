@@ -4,7 +4,7 @@ import { useId, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDownIcon, CloseIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
+import { Badge, Button, Tooltip } from "@lmsqueezy/wedges";
 
 import { type NavItem } from "@/types/nav";
 import { sidebarConfig } from "@/config/sidebarConfig";
@@ -145,15 +145,14 @@ function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname
           <span
             key={`${id}-${index}`}
             className={cn(
-              "text-muted-foreground flex w-full cursor-not-allowed items-center rounded-md p-2 hover:underline",
-              item.disabled && "cursor-not-allowed opacity-60"
+              "flex w-full items-center justify-between rounded-md px-3 py-1 text-surface-500 !outline-0 transition-colors",
+              item.disabled && "opacity-60"
             )}
           >
-            {item.label && (
-              <span className="bg-muted text-muted-foreground ml-2 rounded-md px-1.5 py-0.5 text-xs leading-none no-underline group-hover:no-underline">
-                {item.label}
-              </span>
-            )}
+            <span>{item.label}</span>
+            <Badge color="gray" size="sm">
+              In progress
+            </Badge>
           </span>
         )
       )}
