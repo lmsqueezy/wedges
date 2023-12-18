@@ -10,6 +10,8 @@ links:
 
 ### Usage
 
+For a quick usage, use the `Tooltip` component directly.
+
 ```tsx
 import { Tooltip } from "@lmsqueezy/wedges";
 ```
@@ -18,12 +20,73 @@ import { Tooltip } from "@lmsqueezy/wedges";
 <Tooltip content="Tooltip Content" />
 ```
 
+For more advanced usage, inner components are expored from the `Tooltip` component.
+
+```tsx showLineNumbers
+<Tooltip.Provider>
+  <Tooltip.Root>
+    <Tooltip.Trigger />
+    <Tooltip.Portal>
+      <Tooltip.Content>
+        <Tooltip.Arrow />
+      </Tooltip.Content>
+    </Tooltip.Portal>
+  </Tooltip.Root>
+</Tooltip.Provider>
+```
+
 ### API Reference
 
-Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip#content" rel="nofollow noreferrer" target="_blank">Radix Tooltip Content</a> primitive and includes all of its props.
+#### Tooltip
+
+Use this component for a quick usage.
 
 <PropsTable
   content={[
+    [
+      {
+        value: "defaultOpen",
+        description:
+          "The open state of the tooltip when it is initially rendered. Use when you do not need to control its open state.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "open",
+        description:
+          "The controlled open state of the tooltip. Must be used in conjunction with `onOpenChange`.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "onOpenChange",
+        description: "Event handler called when the open state of the tooltip changes.",
+      },
+      { value: "function", description: "(open: boolean) => void" },
+      {},
+    ],
+    [
+      {
+        value: "delayDuration",
+        description:
+          "Override the duration given to the `Provider` to customise the open delay for a specific tooltip.",
+      },
+      { value: "number" },
+      { value: "200" },
+    ],
+    [
+      {
+        value: "disableHoverableContent",
+        description:
+          "Prevents `Tooltip.Content` from remaining open when hovering. Disabling this has accessibility consequences.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
     [
       {
         value: "animation",
@@ -50,7 +113,7 @@ Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip
       { value: "ReactNode" },
       {},
     ],
-    [{ value: "color" }, { value: '"primary" | "secondary"' }, { value: '"primary"' }],
+    [{ value: "color" }, { value: '"primary" | "secondary" | "soft"' }, { value: '"primary"' }],
     [
       {
         value: "content",
@@ -85,24 +148,17 @@ Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip
       {
         value: "asChild",
         description:
-          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+          "Change the default rendered element for the one passed as a child, merging their props and behavior. This is passed to `Tooltip.Trigger`.",
       },
       { value: "boolean" },
       { value: "false" },
     ],
     [
       {
-        value: "aria-label",
-      },
-      { value: "string" },
-      {},
-    ],
-    [
-      {
         value: "onEscapeKeyDown",
         description: "Event handler called when the escape key is down.",
       },
-      { value: "function" },
+      { value: "function", description: "(event: KeyboardEvent) => void" },
       {},
     ],
     [
@@ -111,7 +167,7 @@ Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip
         description:
           "Event handler called when a pointer event occurs outside the bounds of the component.",
       },
-      { value: "function" },
+      { value: "function", description: "(event: PointerDownOutsideEvent) => void" },
       {},
     ],
     [
@@ -209,6 +265,30 @@ Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip
   ]}
 />
 
+#### Tooltip.Provider
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip#provider" target="_blank" rel='nofollow noreferrer'>Radix Tooltip Provider</a> primitive with custom configuration.
+
+#### Tooltip.Root
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip#root" target="_blank" rel='nofollow noreferrer'>Radix Tooltip Root</a> primitive with custom configuration.
+
+#### Tooltip.Trigger
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip#trigger" target="_blank" rel='nofollow noreferrer'>Radix Tooltip Trigger</a> primitive with custom styling.
+
+#### Tooltip.Arrow
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip#arrow" target="_blank" rel='nofollow noreferrer'>Radix Tooltip Arrow</a> primitive with custom styling.
+
+#### Tooltip.Content
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip#content" target="_blank" rel='nofollow noreferrer'>Radix Tooltip Content</a> primitive with custom styling.
+
+#### Tooltip.Portal
+
+Exports the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip#portal" target="_blank" rel='nofollow noreferrer'>Radix Tooltip Portal</a> primitive.
+
 ### Examples
 
 The examples below display all possible combinations of positions and alignments available for the `Tooltip` component.
@@ -218,3 +298,4 @@ The examples below display all possible combinations of positions and alignments
 The example below demonstrates advanced usage of a controlled `Tooltip` component and illustrates how to customize the Tooltip Trigger and its initial open state.
 
 <PreviewComponent name="tooltip/example-2" />
+```
