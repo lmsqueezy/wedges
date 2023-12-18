@@ -19,6 +19,7 @@ export default function Example() {
           },
         ]}
         moreLabel="+3"
+        size="lg"
       />
     </div>
   );
