@@ -1371,7 +1371,7 @@ export function Example() {
     component: lazy(() => import("@/examples/colors/themableColors.tsx")),
     code: `export function ColorsExample() {
   return (
-    <div className="flex flex-col items-center rounded border border-surface-100 bg-surface p-20 leading-6">
+    <div className="mx-auto flex max-w-xs flex-col items-center rounded border border-surface-100 bg-surface p-20 leading-6">
       <span className="text-surface-500">Easy Peasy</span>
       <span className="font-medium text-surface-900">Lemon Squeezy</span>
     </div>
@@ -2689,53 +2689,48 @@ export function Example() {
   "tooltip/example-2": {
     component: lazy(() => import("@/examples/tooltip/example-2.tsx")),
     code: `import * as React from "react";
-import { HelpIcon } from "@iconicicons/react";
-import { Button, Tooltip } from "@lmsqueezy/wedges";
+import { Tooltip } from "@lmsqueezy/wedges";
 
 export function Example() {
-  const [open, setOpen] = React.useState<boolean>(false);
   return (
-    <section className="mx-auto flex items-center justify-center gap-4">
-      <Tooltip
-        align="start"
-        color="secondary"
-        content="Hello world"
-        delayDuration={0}
-        open={true}
-        sideOffset={4}
-        size="sm"
-      >
-        <Button after={<HelpIcon />} size="md" variant="outline" />
-      </Tooltip>
+    <div className="mx-auto flex flex-col items-center justify-center gap-6">
+      <div className="flex items-center gap-4">
+        <Tooltip content="A tooltip is a compact, informational box that becomes visible upon hovering the trigger element." />
 
-      <Tooltip
-        align="start"
-        animation={true}
-        content="A tooltip is a small box that appears when the trigger is clicked."
-        delayDuration={0}
-        open={open}
-        side="right"
-        onClick={() => setOpen((prev) => !prev)}
-        onPointerDownOutside={(e) => {
-          e.preventDefault();
-          const targetElement = e.target as HTMLElement;
+        <Tooltip
+          color="secondary"
+          content="A tooltip is a compact, informational box that becomes visible upon hovering the trigger element."
+        />
 
-          if (!targetElement.closest("svg") && !(e.target instanceof SVGElement) && open) {
-            setOpen(false);
-          }
-        }}
-      />
+        <Tooltip
+          color="soft"
+          content="A tooltip is a compact, informational box that becomes visible upon hovering the trigger element."
+          arrow={false}
+          sideOffset={10}
+        />
+      </div>
 
-      <Tooltip
-        arrow={false}
-        color="soft"
-        content="The example below demonstrates advanced usage of a controlled Tooltip component and illustrates how to customize the Tooltip Trigger and its initial open state."
-        size="md"
-        sideOffset={16}
-      >
-        Hover me!
-      </Tooltip>
-    </section>
+      <div className="flex items-center gap-4">
+        <Tooltip
+          content="A tooltip is a compact, informational box that becomes visible upon hovering the trigger element. It typically contains brief, helpful text or instructions relevant to the trigger's context."
+          size="md"
+        />
+
+        <Tooltip
+          color="secondary"
+          content="A tooltip is a compact, informational box that becomes visible upon hovering the trigger element. It typically contains brief, helpful text or instructions relevant to the trigger's context."
+          size="md"
+        />
+
+        <Tooltip
+          color="soft"
+          content="A tooltip is a compact, informational box that becomes visible upon hovering the trigger element. It typically contains brief, helpful text or instructions relevant to the trigger's context."
+          arrow={false}
+          sideOffset={10}
+          size="md"
+        />
+      </div>
+    </div>
   );
 }
 `,

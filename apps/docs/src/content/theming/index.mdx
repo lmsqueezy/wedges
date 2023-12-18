@@ -1,0 +1,120 @@
+---
+title: Tailwind CSS Plugin
+description: Wedges design system plugin for Tailwind CSS.
+breadcrumbs:
+  - Theming
+---
+
+Wedges provides a Tailwind CSS plugin enabling the use of Wedges design tokens creation of custom themes in your projects. This plugin is based on the awesome <a href="https://github.com/L-Blondy/tw-colors" target="_blank" rel="nofollow noreferrer">tw-colors</a> plugin.
+
+Tailwind CSS supports dark mode, but with Wedges, you can create an unlimited number of custom themes. There's no cap on the themes and colors you can use, and it even supports nested themes for more complex use cases.
+
+## Installation
+
+If you haven't installed Tailwind CSS already, follow the instructions in the <a href="https://tailwindcss.com/docs/installation/" target="_blank" rel='nofollow noreferrer'>official Tailwind CSS installation guide</a>.
+
+Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
+
+```tsx {2,7,10,11} title="tailwind.config.ts" showLineNumbers
+import type { Config } from "tailwindcss";
+import { wedgesTW } from "@lmsqueezy/wedges";
+
+const config: Config = {
+  content: [
+    // ...
+    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {},
+  darkMode: "class",
+  plugins: [wedgesTW()],
+};
+
+export default config;
+```
+
+## Plugin Options
+
+The `wedgesTW` plugin accepts a configuration object allowing you to customize the plugin's behavior. This is the default structure of the configuration object:
+
+```tsx {12-24} title="tailwind.config.ts" showLineNumbers
+import type { Config } from "tailwindcss";
+import { wedgesTW } from "@lmsqueezy/wedges";
+
+const config: Config = {
+  content: [
+    // ...
+    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {},
+  darkMode: "class",
+  plugins: [wedgesTW({
+    prefix: 'wg', // prefix used for CSS variables
+    defaultTheme: 'light', // default theme
+    defaultExtendTheme: 'light', // default theme to extend when creating custom themes
+    fontSmooth: "antialiased", // specify font smoothing
+    themes: {
+        light: {
+            colors: {} // light themable colors
+        },
+        dark: {
+            colors: {} // dark themable colors
+        },
+        // ... custom themes
+    }
+  })],
+};
+```
+
+#### Type
+
+The configuration object type is defined as follows:
+
+```tsx showLineNumbers
+type WedgesOptions = {
+  /**
+   * The prefix for CSS variables.
+   * @default "wg"
+   */
+  prefix?: string;
+
+  /**
+   * The theme definitions.
+   */
+  themes?: ConfigThemes;
+
+  /**
+   * The default theme to use.
+   * @default "light"
+   */
+  defaultTheme?: DefaultThemeType;
+
+  /**
+   * The default theme to extend. Available values are "light" and "dark".
+   * @default "light"
+   */
+  defaultExtendTheme?: "light" | "dark";
+
+  /**
+   * Specifies whether or not to apply font anti-aliasing to Wedges components.
+   *
+   * If set to `antialiased` (default), Wedges components will have anti-aliasing applied to them.
+   * If set to `inherit`, no specific styles will be set for text anti-aliasing.
+   *
+   * * @default "antialiased"
+   */
+  fontSmooth?: "antialiased" | "inherit";
+};
+```
+
+#### API Reference
+
+<PropsTable
+isOptions
+  content={[
+    [{ value: "fontSmooth" }, { value: '"antialiased" | "inherit"' }, { value: '"antialiased"' }],
+    [{ value: "prefix" }, { value: "string" }, { value: '"wg"' }],
+    [{ value: "themes" }, { value: "ConfigThemes" }, { value: "{}" }],
+    [{ value: "defaultTheme", description:"The default theme to use." }, { value: "DefaultThemeType" }, { value: '"light"' }],
+    [{ value: "defaultExtendTheme", description: "The default theme to extend when creating a new theme." }, { value: '"light" | "dark"' }, { value: '"light"' }],
+]}
+/>
