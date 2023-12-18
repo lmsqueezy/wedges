@@ -60,12 +60,16 @@ export const sidebarConfig: DocsConfig = {
       label: "Theming",
       items: [
         {
-          label: "Tailwind CSS Plugin",
-          href: "/theming/tailwind-plugin",
+          label: "Tailwind Plugin",
+          href: "/theming/",
         },
         {
           label: "Colors",
           href: "/theming/colors",
+        },
+        {
+          label: "Typography",
+          href: "/theming/typography",
         },
         {
           label: "Dark Mode",
@@ -191,6 +195,11 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Slider",
           href: "/components/slider",
+          disabled: true,
+        },
+        {
+          label: "Select",
+          href: "/components/select",
           disabled: true,
         },
       ],

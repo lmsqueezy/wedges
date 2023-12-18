@@ -1,0 +1,27 @@
+---
+title: Colors
+description: Versatile color palette and themable colors ready for your next project.
+breadcrumbs:
+  - Theming
+---
+
+```tsx
+<body className="dark">
+  <Button>Simple dark mode</Button>
+</body>
+```
+
+or set dark mode for a specific section:
+
+```tsx
+import { Alert } from "@lmsqueezy/wedges";
+
+export default function DarkModeExample() {
+  return (
+    /* Add "dark" class or alternatively data-theme="dark" */
+    <div className="dark">
+      <Alert title="Alert title">Alert content</Alert>
+    </div>
+  );
+}
+```

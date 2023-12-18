@@ -13,8 +13,9 @@ export const PropsTable = React.forwardRef<
   React.HTMLAttributes<HTMLTableElement> & {
     content: [ContentItem, ContentItem, ContentItem][];
     isData?: boolean;
+    isOptions?: boolean;
   }
->(({ content, isData = false, ...otherProps }, ref) => {
+>(({ content, isData = false, isOptions = false, ...otherProps }, ref) => {
   // Sort the content array
   const sortedContent = React.useMemo(() => {
     return [...content].sort((a, b) => {
@@ -33,7 +34,7 @@ export const PropsTable = React.forwardRef<
       <table className="m-0 text-sm" {...otherProps}>
         <thead>
           <tr>
-            <th>{isData ? "Data attribute" : "Prop"}</th>
+            <th>{isData ? "Data attribute" : isOptions ? "Option" : "Prop"}</th>
             <th>Values</th>
             {!isData ? <th>Default</th> : null}
           </tr>
