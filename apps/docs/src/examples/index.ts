@@ -528,6 +528,7 @@ export function Example() {
           },
         ]}
         moreLabel="+3"
+        size="lg"
       />
     </div>
   );
@@ -1180,7 +1181,7 @@ export function Example() {
           </Tooltip.Trigger>
 
           <Tooltip.Portal>
-            <Tooltip.Content>Download</Tooltip.Content>
+            <Tooltip.Content content="Download">Download</Tooltip.Content>
           </Tooltip.Portal>
         </Tooltip.Root>
       </Tooltip.Provider>
@@ -2705,6 +2706,7 @@ export function Example() {
       >
         <Button after={<HelpIcon />} size="md" variant="outline" />
       </Tooltip>
+
       <Tooltip
         align="start"
         animation={true}
@@ -2722,6 +2724,16 @@ export function Example() {
           }
         }}
       />
+
+      <Tooltip
+        arrow={false}
+        color="soft"
+        content="The example below demonstrates advanced usage of a controlled Tooltip component and illustrates how to customize the Tooltip Trigger and its initial open state."
+        size="md"
+        sideOffset={16}
+      >
+        Hover me!
+      </Tooltip>
     </section>
   );
 }
