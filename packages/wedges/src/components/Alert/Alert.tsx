@@ -243,21 +243,12 @@ const AlertCloseButton = React.forwardRef<
   );
 });
 
-const Alert = Object.assign(AlertWedges, {
-  Root: AlertRoot,
-  Before: AlertBefore,
-  After: AlertAfter,
-  Title: AlertTitle,
-  Description: AlertDescription,
-  CloseButton: AlertCloseButton,
-});
-
 AlertWedges.displayName = "Alert";
 AlertRoot.displayName = "AlertRoot";
-AlertTitle.displayName = "AlertTitle";
 AlertAfter.displayName = "AlertAfter";
 AlertBefore.displayName = "AlertBefore";
 AlertCloseButton.displayName = "AlertCloseButton";
 AlertDescription.displayName = "AlertDescription";
+AlertTitle.displayName = "AlertTitle";
 
-export default Alert;
+export default AlertWedges;

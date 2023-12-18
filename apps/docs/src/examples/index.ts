@@ -783,74 +783,286 @@ export function Example() {
   },
   "button/example-1": {
     component: lazy(() => import("@/examples/button/example-1.tsx")),
-    code: `import {
-  ArrowUpRightIcon,
-  BellIcon,
-  CheckIcon,
-  PlusIcon,
-  TrashIcon,
-  WarningTriangleIcon,
-} from "@iconicicons/react";
+    code: `import { PlusIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 
 export function Example() {
   return (
-    <div className="flex flex-col gap-12">
-      <div className="flex flex-wrap items-center justify-start gap-3">
+    <div className="mx-auto flex max-w-fit items-start gap-10">
+      <div className="flex flex-col gap-4">
+        <Button before={<PlusIcon />} variant="primary" />
+        <Button before={<PlusIcon />} variant="secondary" />
+        <Button before={<PlusIcon />} variant="tertiary" />
+        <Button before={<PlusIcon />} variant="outline" />
+        <Button before={<PlusIcon />} variant="transparent" />
+        <Button before={<PlusIcon />} variant="link" />
+      </div>
+
+      <div className="flex flex-col gap-4">
         <Button after={<PlusIcon />} before={<PlusIcon />}>
           Button
         </Button>
 
-        <Button variant="secondary" shape="pill" after={<PlusIcon />} before={<PlusIcon />}>
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary">
           Button
         </Button>
 
-        <Button variant="tertiary" shape="pill" before={<PlusIcon />} />
-
-        <Button variant="outline" after={<PlusIcon />} before={<PlusIcon />}>
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary">
           Button
         </Button>
 
-        <Button variant="transparent" after={<PlusIcon />} before={<PlusIcon />}>
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline">
           Button
         </Button>
 
-        <Button variant="link" after={<PlusIcon />} before={<PlusIcon />}>
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent">
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="link">
           Button
         </Button>
       </div>
 
-      <div className="flex flex-wrap items-center justify-start gap-3">
-        <Button size="sm" before={<PlusIcon />}>
-          Get Started
+      <div className="flex flex-col gap-4">
+        <Button before={<PlusIcon />} variant="primary" shape="pill" />
+        <Button before={<PlusIcon />} variant="secondary" shape="pill" />
+        <Button before={<PlusIcon />} variant="tertiary" shape="pill" />
+        <Button before={<PlusIcon />} variant="outline" shape="pill" />
+        <Button before={<PlusIcon />} variant="transparent" shape="pill" />
+        <Button before={<PlusIcon />} variant="link" shape="pill" />
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <Button after={<PlusIcon />} before={<PlusIcon />} shape="pill">
+          Button
         </Button>
 
-        <Button size="sm" variant="secondary" shape="pill">
-          About
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary" shape="pill">
+          Button
         </Button>
 
-        <Button variant="tertiary" destructive size="sm" shape="pill" before={<TrashIcon />} />
-
-        <Button size="sm" variant="outline" destructive before={<WarningTriangleIcon />}>
-          Delete
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary" shape="pill">
+          Button
         </Button>
 
-        <Button size="sm" variant="transparent" after={<ArrowUpRightIcon />}>
-          Read docs
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" shape="pill">
+          Button
         </Button>
 
-        <Button size="sm" variant="link">
-          More
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent" shape="pill">
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" shape="pill">
+          Button
+        </Button>
+      </div>
+    </div>
+  );
+}
+`,
+  },
+  "button/example-2": {
+    component: lazy(() => import("@/examples/button/example-2.tsx")),
+    code: `import { PlusIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="mx-auto flex max-w-fit items-start gap-10">
+      <div className="flex flex-col gap-4">
+        <Button before={<PlusIcon />} variant="primary" size="sm" />
+        <Button before={<PlusIcon />} variant="secondary" size="sm" />
+        <Button before={<PlusIcon />} variant="tertiary" size="sm" />
+        <Button before={<PlusIcon />} variant="outline" size="sm" />
+        <Button before={<PlusIcon />} variant="transparent" size="sm" />
+        <Button before={<PlusIcon />} variant="link" size="sm" />
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <Button after={<PlusIcon />} before={<PlusIcon />} size="sm">
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary" size="sm">
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary" size="sm">
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" size="sm">
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent" size="sm">
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" size="sm">
+          Button
         </Button>
       </div>
 
-      <div className="flex flex-wrap items-center justify-start gap-3">
-        <Button size="xs-icon" before={<PlusIcon />} />
-        <Button size="xs-icon" destructive before={<CheckIcon />} />
-        <Button size="xs-icon" variant="secondary" before={<BellIcon />} />
-        <Button size="xs-icon" variant="tertiary" before={<CheckIcon />} />
-        <Button size="xs-icon" variant="transparent" before={<PlusIcon />} />
-        <Button size="xs-icon" variant="outline" before={<BellIcon />} />
+      <div className="flex flex-col gap-4">
+        <Button before={<PlusIcon />} variant="primary" shape="pill" size="sm" />
+        <Button before={<PlusIcon />} variant="secondary" shape="pill" size="sm" />
+        <Button before={<PlusIcon />} variant="tertiary" shape="pill" size="sm" />
+        <Button before={<PlusIcon />} variant="outline" shape="pill" size="sm" />
+        <Button before={<PlusIcon />} variant="transparent" shape="pill" size="sm" />
+        <Button before={<PlusIcon />} variant="link" shape="pill" size="sm" />
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <Button after={<PlusIcon />} before={<PlusIcon />} shape="pill" size="sm">
+          Button
+        </Button>
+
+        <Button
+          after={<PlusIcon />}
+          before={<PlusIcon />}
+          variant="secondary"
+          shape="pill"
+          size="sm"
+        >
+          Button
+        </Button>
+
+        <Button
+          after={<PlusIcon />}
+          before={<PlusIcon />}
+          variant="tertiary"
+          shape="pill"
+          size="sm"
+        >
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" shape="pill" size="sm">
+          Button
+        </Button>
+
+        <Button
+          after={<PlusIcon />}
+          before={<PlusIcon />}
+          variant="transparent"
+          shape="pill"
+          size="sm"
+        >
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" shape="pill" size="sm">
+          Button
+        </Button>
+      </div>
+    </div>
+  );
+}
+`,
+  },
+  "button/example-3": {
+    component: lazy(() => import("@/examples/button/example-3.tsx")),
+    code: `import { PlusIcon } from "@iconicicons/react";
+import { Button } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="mx-auto flex max-w-fit items-start gap-10">
+      <div className="flex flex-col gap-4">
+        <Button before={<PlusIcon />} variant="primary" destructive />
+        <Button before={<PlusIcon />} variant="secondary" destructive />
+        <Button before={<PlusIcon />} variant="tertiary" destructive />
+        <Button before={<PlusIcon />} variant="outline" destructive />
+        <Button before={<PlusIcon />} variant="transparent" destructive />
+        <Button before={<PlusIcon />} variant="link" destructive />
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="primary" destructive>
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="secondary" destructive>
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="tertiary" destructive>
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="outline" destructive>
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="transparent" destructive>
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" destructive>
+          Button
+        </Button>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <Button before={<PlusIcon />} variant="primary" shape="pill" destructive />
+        <Button before={<PlusIcon />} variant="secondary" shape="pill" destructive />
+        <Button before={<PlusIcon />} variant="tertiary" shape="pill" destructive />
+        <Button before={<PlusIcon />} variant="outline" shape="pill" destructive />
+        <Button before={<PlusIcon />} variant="transparent" shape="pill" destructive />
+        <Button before={<PlusIcon />} variant="link" shape="pill" destructive />
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <Button after={<PlusIcon />} before={<PlusIcon />} shape="pill" destructive>
+          Button
+        </Button>
+
+        <Button
+          after={<PlusIcon />}
+          before={<PlusIcon />}
+          variant="secondary"
+          shape="pill"
+          destructive
+        >
+          Button
+        </Button>
+
+        <Button
+          after={<PlusIcon />}
+          before={<PlusIcon />}
+          variant="tertiary"
+          shape="pill"
+          destructive
+        >
+          Button
+        </Button>
+
+        <Button
+          after={<PlusIcon />}
+          before={<PlusIcon />}
+          variant="outline"
+          shape="pill"
+          destructive
+        >
+          Button
+        </Button>
+
+        <Button
+          after={<PlusIcon />}
+          before={<PlusIcon />}
+          variant="transparent"
+          shape="pill"
+          destructive
+        >
+          Button
+        </Button>
+
+        <Button after={<PlusIcon />} before={<PlusIcon />} variant="link" shape="pill" destructive>
+          Button
+        </Button>
       </div>
     </div>
   );
@@ -959,11 +1171,19 @@ export function Example() {
         </ButtonGroup.Item>
       </Tooltip>
 
-      <Tooltip align="center" animation={false} content="Download" delayDuration={0} side="top">
-        <ButtonGroup.Item isIconOnly>
-          <DownloadIcon />
-        </ButtonGroup.Item>
-      </Tooltip>
+      <Tooltip.Provider>
+        <Tooltip.Root>
+          <Tooltip.Trigger>
+            <ButtonGroup.Item isIconOnly>
+              <DownloadIcon />
+            </ButtonGroup.Item>
+          </Tooltip.Trigger>
+
+          <Tooltip.Portal>
+            <Tooltip.Content>Download</Tooltip.Content>
+          </Tooltip.Portal>
+        </Tooltip.Root>
+      </Tooltip.Provider>
 
       <Tooltip align="center" animation={false} content="Edit" delayDuration={0} side="top">
         <ButtonGroup.Item isIconOnly>
@@ -1198,37 +1418,51 @@ export function Example() {
   },
   "popover/example-1": {
     component: lazy(() => import("@/examples/popover/example-1.tsx")),
-    code: `import { ChevronDownIcon, CopyIcon, DownloadIcon } from "@iconicicons/react";
+    code: `import * as React from "react";
+import { ChevronDownIcon, CopyIcon, DownloadIcon } from "@iconicicons/react";
 import { ButtonGroup, CheckboxGroup, Popover } from "@lmsqueezy/wedges";
 
 export function Example() {
+  const wrapper = React.useRef(null);
+  const [container, setContainer] = React.useState<HTMLElement | null>(null);
+
+  React.useEffect(() => {
+    setContainer(wrapper.current);
+  }, []);
+
   return (
-    <ButtonGroup>
-      <ButtonGroup.Item isIconOnly>
-        <CopyIcon />
-      </ButtonGroup.Item>
+    <div id="popover-example-1" ref={wrapper}>
+      <ButtonGroup>
+        <ButtonGroup.Item isIconOnly>
+          <CopyIcon />
+        </ButtonGroup.Item>
 
-      <ButtonGroup.Item isIconOnly>
-        <DownloadIcon />
-      </ButtonGroup.Item>
+        <ButtonGroup.Item isIconOnly>
+          <DownloadIcon />
+        </ButtonGroup.Item>
 
-      <Popover>
-        <Popover.Trigger asChild>
-          <ButtonGroup.Item isIconOnly>
-            <ChevronDownIcon />
-          </ButtonGroup.Item>
-        </Popover.Trigger>
+        <Popover>
+          <Popover.Trigger asChild>
+            <ButtonGroup.Item isIconOnly>
+              <ChevronDownIcon />
+            </ButtonGroup.Item>
+          </Popover.Trigger>
 
-        <Popover.Content align="end" className="min-w-[130px]">
-          <CheckboxGroup label="Group Label">
-            <CheckboxGroup.Item label="Option 1" />
-            <CheckboxGroup.Item label="Option 2" />
-            <CheckboxGroup.Item label="Option 3" />
-            <CheckboxGroup.Item label="Option 4" />
-          </CheckboxGroup>
-        </Popover.Content>
-      </Popover>
-    </ButtonGroup>
+          {container ? (
+            <Popover.Portal container={container}>
+              <Popover.Content align="end" className="min-w-[130px]">
+                <CheckboxGroup label="Group Label">
+                  <CheckboxGroup.Item label="Option 1" />
+                  <CheckboxGroup.Item label="Option 2" />
+                  <CheckboxGroup.Item label="Option 3" />
+                  <CheckboxGroup.Item label="Option 4" />
+                </CheckboxGroup>
+              </Popover.Content>
+            </Popover.Portal>
+          ) : null}
+        </Popover>
+      </ButtonGroup>
+    </div>
   );
 }
 `,
@@ -2230,10 +2464,91 @@ export function Example() {
   },
   "toggle/preview": {
     component: lazy(() => import("@/examples/toggle/preview.tsx")),
-    code: `import { Toggle } from "@lmsqueezy/wedges";
+    code: `import { CropIcon } from "@iconicicons/react";
+import { Toggle } from "@lmsqueezy/wedges";
 
 export function Example() {
-  return <Toggle>Hello</Toggle>;
+  return <Toggle before={<CropIcon />} />;
+}
+`,
+  },
+  "toggle-group/example-1": {
+    component: lazy(() => import("@/examples/toggle-group/example-1.tsx")),
+    code: `import {
+  ColumnsHorizontalIcon,
+  GridIcon,
+  GridMasonryIcon,
+  RowsIcon,
+  TableColumnsIcon,
+  TableRowsIcon,
+} from "@iconicicons/react";
+import { ToggleGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="mx-auto flex max-w-fit flex-col items-center gap-6">
+      <ToggleGroup type="single" defaultValue="days">
+        <ToggleGroup.Item value="days">Days</ToggleGroup.Item>
+        <ToggleGroup.Item value="months">Months</ToggleGroup.Item>
+        <ToggleGroup.Item value="years">Years</ToggleGroup.Item>
+      </ToggleGroup>
+
+      <ToggleGroup type="single" size="sm" defaultValue="grid">
+        <ToggleGroup.Item before={<GridIcon />} value="grid">
+          Grid
+        </ToggleGroup.Item>
+
+        <ToggleGroup.Item before={<ColumnsHorizontalIcon />} value="column">
+          Column
+        </ToggleGroup.Item>
+
+        <ToggleGroup.Item before={<RowsIcon />} value="row">
+          Row
+        </ToggleGroup.Item>
+      </ToggleGroup>
+
+      <div className="flex items-center gap-6">
+        <ToggleGroup orientation="vertical" size="md" defaultValue="grid" type="single">
+          <ToggleGroup.Item value="grid" before={<GridIcon />} />
+          <ToggleGroup.Item value="masonry" before={<GridMasonryIcon />} />
+          <ToggleGroup.Item value="column" before={<TableColumnsIcon />} />
+          <ToggleGroup.Item value="row" before={<TableRowsIcon />} />
+        </ToggleGroup>
+
+        <ToggleGroup orientation="vertical" size="sm" defaultValue="grid" type="single">
+          <ToggleGroup.Item value="grid" before={<GridIcon />} />
+          <ToggleGroup.Item value="masonry" before={<GridMasonryIcon />} />
+          <ToggleGroup.Item value="column" before={<TableColumnsIcon />} />
+          <ToggleGroup.Item value="row" before={<TableRowsIcon />} />
+        </ToggleGroup>
+      </div>
+    </div>
+  );
+}
+`,
+  },
+  "toggle-group/example-2": {
+    component: lazy(() => import("@/examples/toggle-group/example-2.tsx")),
+    code: `import { ToggleGroup } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <ToggleGroup type="multiple" size="sm" defaultValue={["mon", "wed"]}>
+      <ToggleGroup.Item value="mon">Mon</ToggleGroup.Item>
+      <ToggleGroup.Item value="tue">Tue</ToggleGroup.Item>
+      <ToggleGroup.Item value="wed">Wed</ToggleGroup.Item>
+      <ToggleGroup.Item value="thu">Thu</ToggleGroup.Item>
+      <ToggleGroup.Item value="fri">Fri</ToggleGroup.Item>
+
+      <ToggleGroup.Item value="sat" disabled>
+        Sat
+      </ToggleGroup.Item>
+
+      <ToggleGroup.Item value="sun" disabled>
+        Sun
+      </ToggleGroup.Item>
+    </ToggleGroup>
+  );
 }
 `,
   },
@@ -2250,6 +2565,179 @@ export function Example() {
       <ToggleGroup.Item value="column" before={<TableColumnsIcon />} />
       <ToggleGroup.Item value="row" before={<TableRowsIcon />} />
     </ToggleGroup.Root>
+  );
+}
+`,
+  },
+  "tooltip/example-1": {
+    component: lazy(() => import("@/examples/tooltip/example-1.tsx")),
+    code: `import { Tooltip } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <section className="mx-auto flex flex-col items-center gap-4">
+      <div className="flex items-center gap-4">
+        <Tooltip
+          align="start"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="top"
+        />
+
+        <Tooltip
+          align="center"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="top"
+        />
+
+        <Tooltip
+          align="end"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="top"
+        />
+      </div>
+
+      <div className="flex items-center gap-4">
+        <Tooltip
+          align="start"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="bottom"
+        />
+
+        <Tooltip
+          align="center"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="bottom"
+        />
+
+        <Tooltip
+          align="end"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="bottom"
+        />
+      </div>
+
+      <div className="flex items-center gap-4">
+        <Tooltip
+          align="start"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="left"
+        />
+
+        <Tooltip
+          align="center"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="left"
+        />
+
+        <Tooltip
+          align="end"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="left"
+        />
+      </div>
+
+      <div className="flex items-center gap-4">
+        <Tooltip
+          align="start"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="right"
+        />
+
+        <Tooltip
+          align="center"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="right"
+        />
+
+        <Tooltip
+          align="end"
+          animation={true}
+          content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+          delayDuration={0}
+          side="right"
+        />
+      </div>
+    </section>
+  );
+}
+`,
+  },
+  "tooltip/example-2": {
+    component: lazy(() => import("@/examples/tooltip/example-2.tsx")),
+    code: `import * as React from "react";
+import { HelpIcon } from "@iconicicons/react";
+import { Button, Tooltip } from "@lmsqueezy/wedges";
+
+export function Example() {
+  const [open, setOpen] = React.useState<boolean>(false);
+  return (
+    <section className="mx-auto flex items-center justify-center gap-4">
+      <Tooltip
+        align="start"
+        color="secondary"
+        content="Hello world"
+        delayDuration={0}
+        open={true}
+        sideOffset={4}
+        size="sm"
+      >
+        <Button after={<HelpIcon />} size="md" variant="outline" />
+      </Tooltip>
+      <Tooltip
+        align="start"
+        animation={true}
+        content="A tooltip is a small box that appears when the trigger is clicked."
+        delayDuration={0}
+        open={open}
+        side="right"
+        onClick={() => setOpen((prev) => !prev)}
+        onPointerDownOutside={(e) => {
+          e.preventDefault();
+          const targetElement = e.target as HTMLElement;
+
+          if (!targetElement.closest("svg") && !(e.target instanceof SVGElement) && open) {
+            setOpen(false);
+          }
+        }}
+      />
+    </section>
+  );
+}
+`,
+  },
+  "tooltip/preview": {
+    component: lazy(() => import("@/examples/tooltip/preview.tsx")),
+    code: `import { Tooltip } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <Tooltip
+      animation={true}
+      content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+      delayDuration={0}
+    />
   );
 }
 `,

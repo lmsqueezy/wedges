@@ -50,18 +50,18 @@ export type AvatarProps = React.ComponentPropsWithoutRef<typeof Primitive.Image>
 const AvatarRoot = React.forwardRef<
   React.ElementRef<typeof Primitive.Root>,
   React.ComponentPropsWithoutRef<typeof Primitive.Root>
->(({ className, ...props }, ref) => (
-  <Primitive.Root ref={ref} className={cn(rootClasses, className)} {...props} />
+>(({ className, ...otherProps }, ref) => (
+  <Primitive.Root ref={ref} className={cn(rootClasses, className)} {...otherProps} />
 ));
 
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof Primitive.Image>,
   React.ComponentPropsWithoutRef<typeof Primitive.Image>
->(({ className, ...props }, ref) => (
+>(({ className, ...otherProps }, ref) => (
   <Primitive.Image
     ref={ref}
     className={cn("aspect-square w-full grow rounded-full object-cover object-center", className)}
-    {...props}
+    {...otherProps}
   />
 ));
 
@@ -70,11 +70,15 @@ const AvatarStatus = React.forwardRef<
   React.ComponentPropsWithoutRef<"span"> & {
     ring?: 1 | 2;
   }
->(({ className, ring, ...props }, ref) => {
+>(({ className, ring, ...otherProps }, ref) => {
   const ringSize = ring === 1 ? "ring-1" : "ring-2";
 
   return (
-    <span ref={ref} className={cn(statusClasses, "bg-wg-gray", ringSize, className)} {...props} />
+    <span
+      ref={ref}
+      className={cn(statusClasses, "bg-wg-gray", ringSize, className)}
+      {...otherProps}
+    />
   );
 });
 
@@ -98,14 +102,14 @@ const AvatarNotification = React.forwardRef<
 const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof Primitive.Fallback>,
   React.ComponentPropsWithoutRef<typeof Primitive.Fallback>
->(({ className, ...props }, ref) => (
+>(({ className, ...otherProps }, ref) => (
   <Primitive.Fallback
     ref={ref}
     className={cn(
       "flex aspect-square grow items-center justify-center rounded-full bg-surface-100 text-surface-400 dark:bg-neutral-800",
       className
     )}
-    {...props}
+    {...otherProps}
   />
 ));
 

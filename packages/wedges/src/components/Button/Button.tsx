@@ -49,7 +49,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
   (
     {
       after,
-      asChild,
+      asChild = false,
       before,
       children,
       className,

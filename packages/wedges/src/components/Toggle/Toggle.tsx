@@ -1,8 +1,6 @@
 import * as React from "react";
 import * as TogglePrimitive from "@radix-ui/react-toggle";
 
-import "@radix-ui/react-toggle-group";
-
 import { cn } from "../../helpers/utils";
 import { Button, type ButtonProps } from "../Button";
 
@@ -17,6 +15,7 @@ export type ToggleProps = React.ComponentPropsWithoutRef<typeof TogglePrimitive.
 const Toggle = React.forwardRef<ToggleElement, ToggleProps>(
   (
     {
+      asChild = false,
       after,
       before,
       children,
@@ -24,7 +23,7 @@ const Toggle = React.forwardRef<ToggleElement, ToggleProps>(
       disabled,
       isIconOnly = false,
       shape = "rounded",
-      size,
+      size = "md",
       variant = "outline",
       ...otherProps
     },
@@ -34,6 +33,7 @@ const Toggle = React.forwardRef<ToggleElement, ToggleProps>(
       <TogglePrimitive.Root asChild {...otherProps}>
         <Button
           after={after}
+          asChild={asChild}
           before={before}
           className={cn("data-[state=on]:bg-surface-50", className)}
           disabled={disabled}

@@ -28,7 +28,7 @@ export const PropsTable = React.forwardRef<
   return (
     <div
       ref={ref}
-      className="my-[2em] overflow-scroll rounded-lg border border-surface-100 shadow-wg-xs"
+      className="my-[2em] overflow-x-auto rounded-lg border border-surface-100 shadow-wg-xs"
     >
       <table className="m-0 text-sm" {...otherProps}>
         <thead>
@@ -45,7 +45,7 @@ export const PropsTable = React.forwardRef<
               {row.map((rowItem, rowIndex) =>
                 isData && rowIndex === 2 ? null : (
                   <td
-                    className={cn(rowIndex === 0 && "sm:min-w-[160px]", "min-w-0")}
+                    className={cn(rowIndex === 0 && "sm:w-48", "min-w-0")}
                     key={`${rowIndex}--${index}`}
                   >
                     <div className="flex items-center gap-0.5">
@@ -62,7 +62,7 @@ export const PropsTable = React.forwardRef<
                         <span className="select-none text-surface-200">/</span>
                       )}
 
-                      {rowItem.description ? <Tooltip content={rowItem?.description} /> : null}
+                      <Description>{rowItem.description}</Description>
                     </div>
                   </td>
                 )
@@ -76,3 +76,9 @@ export const PropsTable = React.forwardRef<
 });
 
 PropsTable.displayName = "PropsTable";
+
+const Description = ({ children }: { children: React.ReactNode }) => {
+  return children ? (
+    <Tooltip content={children} className="[text-wrap:pretty]" delayDuration={150} />
+  ) : null;
+};

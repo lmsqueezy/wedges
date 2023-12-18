@@ -20,11 +20,19 @@ export default function Example() {
         </ButtonGroup.Item>
       </Tooltip>
 
-      <Tooltip align="center" animation={false} content="Download" delayDuration={0} side="top">
-        <ButtonGroup.Item isIconOnly>
-          <DownloadIcon />
-        </ButtonGroup.Item>
-      </Tooltip>
+      <Tooltip.Provider>
+        <Tooltip.Root>
+          <Tooltip.Trigger>
+            <ButtonGroup.Item isIconOnly>
+              <DownloadIcon />
+            </ButtonGroup.Item>
+          </Tooltip.Trigger>
+
+          <Tooltip.Portal>
+            <Tooltip.Content>Download</Tooltip.Content>
+          </Tooltip.Portal>
+        </Tooltip.Root>
+      </Tooltip.Provider>
 
       <Tooltip align="center" animation={false} content="Edit" delayDuration={0} side="top">
         <ButtonGroup.Item isIconOnly>
