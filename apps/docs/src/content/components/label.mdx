@@ -1,0 +1,112 @@
+---
+title: Label
+description: An accessible label linked to form controls for better clarity and usability.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Label/Label.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/label
+---
+
+<PreviewComponent name="label/preview" />
+
+### Usage
+
+```tsx
+import { Label } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Label htmlFor="username">Username</Label>
+```
+
+### API Reference
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/label" rel="nofollow noreferrer" target="_blank">Radix Label</a> primitive and includes all of its props.
+
+#### Label
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      { value: "htmlFor", description: "The id of the element the label is associated with." },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field associated with the label is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field associated with the label is disabled.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+#### Label.Helper
+
+Renders supplementary information, typically displayed below the label. In addition to all the props defined as `HTMLAttributes<HTMLSpanElement>` props, it also accepts the following:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "error",
+        description:
+          "If set to `true`, the helper label will be styled to indicate that the field associated with the label has errors. Alternatively, you can set `aria-invalid` to `true`.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field associated with the label is disabled.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+### Accessibility
+
+The `Label` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/label#accessibility" target="_blank" rel="nofollow noreferrer">Radix Label</a> primitive.
+
+### Examples
+
+The following example demonstrates using the `Label` component alongside a `Label.Helper` component with the `error` prop.
+
+<PreviewComponent name="label/example-1" />

@@ -28,12 +28,12 @@ type WithoutChildren = {
 
 type RadioGroupItemProps = RadioGroupItemPropsBase & (WithChildren | WithoutChildren);
 
-type SwitchGroupContextProps = {
+type RadioGroupContextProps = {
   disabled?: RadioGroupProps["disabled"];
 };
 
 /* --------------------------------- Context -------------------------------- */
-const RadioGroupContext = React.createContext<SwitchGroupContextProps | null>(null);
+const RadioGroupContext = React.createContext<RadioGroupContextProps | null>(null);
 
 /**
  * Hook to get the current context value for ButtonGroup.
@@ -41,11 +41,11 @@ const RadioGroupContext = React.createContext<SwitchGroupContextProps | null>(nu
  * @returns The current context value for ButtonGroup.
  * @throws If the context is undefined.
  */
-export function useSwitchGroupContext() {
+export function useRadioGroupContext() {
   const context = React.useContext(RadioGroupContext);
 
   if (!context) {
-    throw new Error("RadioGroup.Item must be used within a RadioGrou or RadioGroup.Root");
+    throw new Error("RadioGroup.Item must be used within a RadioGroup or RadioGroup.Root");
   }
 
   return context;
@@ -62,7 +62,7 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
       helperText,
       id,
       label,
-      orientation,
+      orientation = "vertical",
       required,
       tooltip,
       ...otherProps
@@ -77,7 +77,7 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
       label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
-            className="font-normal"
+            className="cursor-auto"
             description={description}
             disabled={disabled}
             htmlFor={elId}
@@ -106,7 +106,12 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
           {renderLabel}
 
           {children ? (
-            <div className={cn("flex flex-col gap-2", orientation && "flex-row gap-6")}>
+            <div
+              className={cn(
+                "flex flex-col gap-2",
+                orientation === "horizontal" && "flex-row gap-6"
+              )}
+            >
               {children}
             </div>
           ) : null}
@@ -118,7 +123,7 @@ const RadioGroupWedges = React.forwardRef<RadioGroupElement, RadioGroupProps>(
 
 const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemProps>(
   ({ label, helperText, disabled, required, tooltip, id, ...otherProps }, ref) => {
-    const context = useSwitchGroupContext();
+    const context = useRadioGroupContext();
     const { disabled: ctxDisabled } = context ?? {};
 
     const isDisabled = ctxDisabled ?? disabled;
@@ -137,6 +142,7 @@ const RadioGroupItem = React.forwardRef<RadioGroupItemElement, RadioGroupItemPro
             id={`${elId}__label`}
             required={required}
             tooltip={tooltip}
+            {...otherProps}
           >
             {label}
           </Label>

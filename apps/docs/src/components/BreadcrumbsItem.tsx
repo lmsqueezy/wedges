@@ -21,7 +21,7 @@ export function BreadcrumbsItem({
 
   let wrappedLabel = <span>{label}</span>;
 
-  if (href && pathname !== href) {
+  if (!isLast && href && href !== pathname) {
     wrappedLabel = (
       <Link className="hover:underline" href={href}>
         {wrappedLabel}

@@ -23,10 +23,7 @@ const avatarGroupVariants = cva(defaultAvatarGroupClasses, {
 });
 
 /* ---------------------------------- Types --------------------------------- */
-type AvatarGroupAvatarProps = Omit<
-  AvatarProps,
-  "size" | "notification" | "status" | "initial" | "asChild"
->;
+type AvatarGroupAvatarProps = Omit<AvatarProps, "size" | "notification" | "status" | "asChild">;
 
 type BaseAvatarGroupProps = {
   /**
@@ -51,11 +48,16 @@ export type AvatarGroupProps = Omit<React.ComponentPropsWithoutRef<"div">, "size
   BaseAvatarGroupProps &
   VariantProps<typeof avatarGroupVariants>;
 
-type AvatarMoreLabelProps = Omit<AvatarProps, "notification" | "status" | "initial"> & {
+type AvatarMoreLabelProps = React.HTMLAttributes<HTMLDivElement> & {
   /**
    * The label to display.
    */
   label?: React.ReactNode;
+
+  /**
+   * The size of the element.
+   */
+  size?: AvatarProps["size"];
 };
 
 /* ------------------------------- Components ------------------------------- */

@@ -1,0 +1,220 @@
+---
+title: Tooltip
+description: A small box that appears when hovering over a UI element, providing additional information.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Tooltip/Tooltip.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/tooltip
+---
+
+<PreviewComponent name="tooltip/preview" />
+
+### Usage
+
+```tsx
+import { Tooltip } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Tooltip content="Tooltip Content" />
+```
+
+### API Reference
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/tooltip#content" rel="nofollow noreferrer" target="_blank">Radix Tooltip Content</a> primitive and includes all of its props.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "animation",
+        description:
+          "If set to `true`, the tooltip displays with animation effects during its opening and closing actions.",
+      },
+      { value: "boolean" },
+      { value: "true" },
+    ],
+    [
+      {
+        value: "arrow",
+        description:
+          "Whether to show an arrow pointing towards the element the tooltip is associated with.",
+      },
+      { value: "boolean" },
+      { value: "true" },
+    ],
+    [
+      {
+        value: "children",
+        description: "Specify a custom trigger element to replace the default information icon.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [{ value: "color" }, { value: '"primary" | "secondary"' }, { value: '"primary"' }],
+    [
+      {
+        value: "content",
+        description: "The content to display inside the tooltip.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "delayDuration",
+        description: "The duration (in milliseconds) to delay before showing/hiding the tooltip.",
+      },
+      { value: "number" },
+      { default: "200" },
+    ],
+    [
+      { value: "open", description: "If set to `true`, the tooltip will be open on load." },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "onOpenChange",
+        description: "Event handler called when the open state of the tooltip changes.",
+      },
+      { value: "function", description: "(open: boolean) => void" },
+      {},
+    ],
+    [{ value: "size" }, { value: '"sm" | "md"' }, { value: '"sm"' }],
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "aria-label",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "onEscapeKeyDown",
+        description: "Event handler called when the escape key is down.",
+      },
+      { value: "function" },
+      {},
+    ],
+    [
+      {
+        value: "onPointerDownOutside",
+        description:
+          "Event handler called when a pointer event occurs outside the bounds of the component.",
+      },
+      { value: "function" },
+      {},
+    ],
+    [
+      {
+        value: "forceMount",
+        description:
+          "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "side",
+      },
+      { value: '"top" | "right" | "bottom" | "left"' },
+      { value: '"top"' },
+    ],
+    [
+      {
+        value: "sideOffset",
+        description: "The distance in pixels from the trigger.",
+      },
+      { value: "number" },
+      { value: "2" },
+    ],
+    [
+      {
+        value: "align",
+      },
+      { value: '"start" | "center" | "end"' },
+      { value: '"center"' },
+    ],
+    [
+      {
+        value: "alignOffset",
+        description: 'An offset in pixels from the "start" or "end" alignment options.',
+      },
+      { value: "number" },
+      { value: "-12" },
+    ],
+    [
+      {
+        value: "avoidCollisions",
+        description:
+          "When set to `true`, this option overrides `side` and `align` preferences to avoid collisions with boundary edges.",
+      },
+      { value: "boolean" },
+      { value: "true" },
+    ],
+    [
+      {
+        value: "collisionBoundary",
+        description:
+          "Specify the element that acts as the collision boundary. Viewport is the default setting, but you can use other elements for collision detection.",
+      },
+      { value: '"Element" | "null" | "Array<Element | null>"' },
+      { value: "[]" },
+    ],
+    [
+      {
+        value: "collisionPadding",
+        description:
+          "The pixel distance for collision detection from boundary edges. Accepts a single number for uniform padding, or an object like `{ top: 20, left: 20 }` for specific sides.",
+      },
+      { value: '"number" | "Partial<Record<Side, number>>"' },
+      { value: "0" },
+    ],
+    [
+      {
+        value: "arrowPadding",
+        description:
+          "The padding between the arrow and the content edges, preventing content with border-radius from overflowing the corners.",
+      },
+      { value: '"number"' },
+      { value: "0" },
+    ],
+    [
+      {
+        value: "sticky",
+        description:
+          'The align axis sticky behavior. "partial" ensures content stays within the boundary if the trigger is even partially within, while "always" maintains content inside the boundary under all circumstances.',
+      },
+      { value: '"partial" | "always"' },
+      { value: '"partial"' },
+    ],
+    [
+      {
+        value: "hideWhenDetached",
+        description: "Whether to conceal the content once the trigger is completely obscured.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+### Examples
+
+The examples below display all possible combinations of positions and alignments available for the `Tooltip` component.
+
+<PreviewComponent name="tooltip/example-1" />
+
+The example below demonstrates advanced usage of a controlled `Tooltip` component and illustrates how to customize the Tooltip Trigger and its initial open state.
+
+<PreviewComponent name="tooltip/example-2" />

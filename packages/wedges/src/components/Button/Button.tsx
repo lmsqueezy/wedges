@@ -9,13 +9,14 @@ import { buttonVariants, iconVariants } from "./variants";
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> & {
     /**
-     * If set to true, the button will be rendered as a child of the component.
+     * If set to `true`, the button will be rendered as a child within the component.
+     * This child component must be a valid React component.
      */
     asChild?: boolean;
 
     /**
      * Does the button only contains an icon?
-     * If true, the button will be rendered with matching padding.
+     * If `true`, the button will be rendered with matching padding.
      */
     isIconOnly?: boolean;
 
@@ -31,7 +32,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
 
     /**
      * Specifies whether this button has a destructive action.
-     * If true, the button should be styled differently to indicate that it will perform a destructive action.
+     * If `true`, the button should be styled differently to indicate that it will perform a destructive action.
      */
     destructive?: boolean;
   };
@@ -48,7 +49,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
   (
     {
       after,
-      asChild,
+      asChild = false,
       before,
       children,
       className,

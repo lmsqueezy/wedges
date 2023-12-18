@@ -1,0 +1,212 @@
+---
+title: Switch Group
+description: A visual group of Switch controls that allow the user to toggle between checked unchecked states.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/SwitchGroup/SwitchGroup.tsx
+---
+
+<PreviewComponent name="switch-group/preview" />
+
+### Usage
+
+```tsx
+import { SwitchGroup } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<SwitchGroup label="Label">
+  <SwitchGroup.Item label="Option 1" />
+  <SwitchGroup.Item label="Option 2" />
+</SwitchGroup>
+```
+
+### API Reference
+
+#### SwitchGroup
+
+Wraps a group of `SwitchGroup.Item` components. In addition to all the props defined as `HTMLAttributes<HTMLDivElement>`, it also accepts the following props:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "alignLabels",
+        description: "Alignment of the SwitchGroup.Item labels.",
+      },
+      { value: '"start" | "end"' },
+      { value: "end" },
+    ],
+    [
+      {
+        value: "disabled",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the group label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "description",
+        description: "Additional information displayed next to the group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Main group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+  ]}
+/>
+
+#### SwitchGroup.Item
+
+Represents a single option in the group. It includes all of the props of the `Switch` component, except for `alignLabel` which is inherited from the parent `SwitchGroup` component. The props type is defined as `Omit<SwitchProps, "alignLabel">`.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "disabled",
+        description:
+          "When `true`, additional styles will be applied to indicate that the switch is disabled.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the switch is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "name",
+        description:
+          "The name of the switch. Submitted with its owning form as part of a name/value pair.",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "value",
+        description: "The value given as data when submitted with a `name`.",
+      },
+      { value: "string" },
+      { value: '"on"' },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Label of the checkbox.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "onCheckedChange",
+        description: "Event handler called when the state of the switch changes.",
+      },
+      { value: "function", description: "(checked: boolean) => void" },
+      {},
+    ],
+    [
+      {
+        value: "checked",
+        description:
+          "The controlled state of the switch. Must be used in conjunction with `onCheckedChange`.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "defaultChecked",
+        description:
+          "The state of the switch when it is initially rendered. Use when you do not need to control its state.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-state]",
+      },
+      { value: '"checked" | "unchecked"' },
+      {},
+    ],
+    [
+      {
+        value: "[data-disabled]",
+      },
+      { value: "Present when disabled" },
+      {},
+    ],
+  ]}
+/>
+
+### Accessibility
+
+The `SwitchGroup.Item` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/switch#accessibility" target="_blank" rel="nofollow noreferrer">Radix Switch</a> primitive.
+
+### Examples
+
+<PreviewComponent name="switch-group/example-1" />

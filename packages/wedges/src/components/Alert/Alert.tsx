@@ -28,15 +28,15 @@ type ClosableProps = {
 
 type NotClosableProps = {
   /**
-   * Is the alert closable? If true, a close icon will be displayed.
+   * Is the alert closable? If true, a close button will be displayed and
+   * when clicked on it will hide the alert element
    * @default true
    */
   closable?: false;
 
   /**
-   * An optional callback function to be called when the close icon is clicked.
-   * This can be used to handle the removal of the tag.
-   * If provided, the close icon will be displayed.
+   * An optional callback function to be called when the close button is clicked.
+   * Requires the `closable` prop to be set to `true`.
    */
   onClose?: never;
 };
@@ -80,7 +80,18 @@ export type AlertProps = Omit<React.HTMLAttributes<HTMLDivElement>, "title"> &
 /* ------------------------------- Components ------------------------------- */
 const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
   (
-    { after, before, className, closable, color, variant, children, title, onClose, ...otherProps },
+    {
+      after,
+      before,
+      className,
+      closable,
+      color,
+      variant = "inline",
+      children,
+      title,
+      onClose,
+      ...otherProps
+    },
     ref
   ) => {
     const [visible, setVisible] = React.useState(true);
@@ -92,7 +103,10 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
      */
     const handleClose = React.useCallback(
       (event: React.MouseEvent<HTMLButtonElement>) => {
-        setVisible(false);
+        // Do not close if the event is prevented by the onClose callback
+        if (!event.defaultPrevented) {
+          setVisible(false);
+        }
 
         if (onClose) {
           onClose(event);
@@ -202,7 +216,7 @@ const AlertDescription = React.forwardRef<
   const Component = isReactElement(children) ? Slot : "p";
 
   return (
-    <Component ref={ref} className={className} {...props}>
+    <Component ref={ref} className={cn("text-start", className)} {...props}>
       {children}
     </Component>
   );
@@ -229,21 +243,12 @@ const AlertCloseButton = React.forwardRef<
   );
 });
 
-const Alert = Object.assign(AlertWedges, {
-  Root: AlertRoot,
-  Before: AlertBefore,
-  After: AlertAfter,
-  Title: AlertTitle,
-  Description: AlertDescription,
-  CloseButton: AlertCloseButton,
-});
-
 AlertWedges.displayName = "Alert";
 AlertRoot.displayName = "AlertRoot";
-AlertTitle.displayName = "AlertTitle";
 AlertAfter.displayName = "AlertAfter";
 AlertBefore.displayName = "AlertBefore";
 AlertCloseButton.displayName = "AlertCloseButton";
 AlertDescription.displayName = "AlertDescription";
+AlertTitle.displayName = "AlertTitle";
 
-export default Alert;
+export default AlertWedges;

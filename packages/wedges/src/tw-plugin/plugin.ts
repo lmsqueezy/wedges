@@ -26,7 +26,7 @@ const DEFAULT_PREFIX = "wg";
 export const twMerge = extendTailwindMerge({
   extend: {
     theme: {
-      padding: ["2px", "4px", "6px", "8px", "12px", "14px"],
+      padding: ["2px", "4px", "6px", "8px", "12px", "14px", "16px"],
     },
   },
 });
@@ -237,6 +237,7 @@ const corePlugin = (
             "8px": "calc(8px - var(--wg-border-width, 0px))",
             "12px": "calc(12px - var(--wg-border-width, 0px))",
             "14px": "14px",
+            "16px": "calc(16px - var(--wg-border-width, 0px))",
           },
           outlineOffset: {
             3: "3px",
@@ -245,11 +246,11 @@ const corePlugin = (
             3: "3px",
           },
           animation: {
-            "fade-in-up": `fadeInUp 0.32s ${animationEasing}`,
-            "fade-in-down": `fadeInDown 0.28s ${animationEasing}`,
-            "fade-in-left": `fadeInLeft 0.28s ${animationEasing}`,
-            "fade-in-right": `fadeInRight 0.28s ${animationEasing}`,
-            "fade-out": `fadeOut 0.15s ${animationEasing}`,
+            "wg-fade-in-up": `fadeInUp 0.3s ${animationEasing}`,
+            "wg-fade-in-down": `fadeInDown 0.3s ${animationEasing}`,
+            "wg-fade-in-left": `fadeInLeft 0.3s ${animationEasing}`,
+            "wg-fade-in-right": `fadeInRight 0.3s ${animationEasing}`,
+            "wg-fade-out": `fadeOut 0.15s ${animationEasing}`,
           },
           keyframes: {
             fadeInUp: {

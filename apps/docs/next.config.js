@@ -12,6 +12,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "uploads-ssl.webflow.com",
+      },
+      {
+        protocol: "https",
         hostname: "**.unsplash.com",
       },
       {

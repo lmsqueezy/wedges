@@ -50,7 +50,7 @@ export const tabVariants = cva("leading-6", {
     {
       variant: ["contained-top", "contained-bottom"],
       class: [
-        "border-r border-r-surface-100 bg-transparent bg-clip-padding px-4 py-3 [--wg-border-width:1px] last:border-r-0 hover:bg-surface hover:text-surface-900 focus-visible:-outline-offset-2 first:focus-visible:rounded-s-[7px] last:focus-visible:rounded-r-[7px]",
+        "border-r border-r-surface-100 bg-transparent bg-clip-padding px-4 py-14px [--wg-border-width:1px] last:border-r-0 focus-visible:-outline-offset-2 first:focus-visible:rounded-s-[7px] last:focus-visible:rounded-r-[7px] hover:[&:not(:disabled)]:bg-surface hover:[&:not(:disabled)]:text-surface-900",
 
         // active
         "data-[state=active]:text-primary",

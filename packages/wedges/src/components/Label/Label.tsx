@@ -49,13 +49,15 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
       })
     ) : (
       <>
-        {children ? <span className="font-medium">{children}</span> : null}
+        {children ? <span>{children}</span> : null}
 
         {description ? (
-          <span className={cn("text-surface-500", disabled && "text-current")}>{description}</span>
+          <span className={cn("font-normal text-surface-500", disabled && "text-current")}>
+            {description}
+          </span>
         ) : null}
 
-        {required ? <span className="text-destructive">*</span> : null}
+        {required ? <span className="font-normal text-destructive">*</span> : null}
       </>
     );
 
@@ -69,7 +71,7 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
           ref={ref}
           asChild={useAsChild}
           className={cn(
-            "wg-label inline-flex cursor-pointer items-center gap-1 text-sm leading-6",
+            "wg-label inline-flex cursor-pointer items-center gap-1 text-sm font-medium leading-6",
             disabled && "pointer-events-none text-surface-300",
             className
           )}
@@ -87,7 +89,7 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
 const HelperText = React.forwardRef<
   HTMLSpanElement,
   React.HTMLAttributes<HTMLSpanElement> & { error?: boolean; disabled?: boolean }
->(({ children, disabled, className, ...otherProps }, ref) => {
+>(({ children, error, disabled, className, ...otherProps }, ref) => {
   const HelperTextComponent = children && isReactElement(children) ? Slot : "span";
   const ariaInvalid = otherProps["aria-invalid"];
 
@@ -95,8 +97,8 @@ const HelperText = React.forwardRef<
     <HelperTextComponent
       ref={ref}
       className={cn(
-        "wg-label__helper text-sm leading-6 text-surface-500 wg-antialiased",
-        ariaInvalid && "text-destructive",
+        "wg-label__helper text-start text-sm leading-6 text-surface-500 wg-antialiased",
+        (ariaInvalid ?? error) && "text-destructive",
         disabled && "text-surface-300",
         className
       )}

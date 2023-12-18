@@ -1,0 +1,148 @@
+---
+title: Avatar Group
+description: A collection of Avatar elements.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/AvatarGroup/AvatarGroup.tsx
+---
+
+<PreviewComponent name="avatar-group/preview" />
+
+### Usage
+
+```tsx
+import { AvatarGroup } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<AvatarGroup
+  items={[
+    {
+      src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop",
+      alt: "Avatar 1",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1579613832107-64359da23b0c?q=80&w=250&h=250&auto=format&fit=crop",
+      alt: "Avatar 2",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop",
+      alt: "Avatar 2",
+    },
+  ]}
+/>
+```
+
+For more advanced usage, `AvatarGroup.Root` component can be used to compose your own group of `AvatarGroup.Item`.
+
+```tsx
+<AvatarGroup.Root>
+  <AvatarGroup.Item
+    alt="Avatar 1"
+    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
+  />
+  <AvatarGroup.Item
+    alt="Avatar 2"
+    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
+  />
+  <AvatarGroup.Item
+    alt="Avatar 3"
+    src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=250&h=250&auto=format&fit=crop"
+  />
+  <AvatarGroup.Label>3,000 followers</AvatarGroup.Label>
+</AvatarGroup.Root>
+```
+
+### API Reference
+
+#### AvatarGroup
+
+<PropsTable
+  content={[
+    [
+      { value: "items" },
+      {
+        value: "AvatarGroupAvatarProps[]",
+        description: 'Omit<AvatarProps, "size" | "notification" | "status" | "asChild">',
+      },
+      {},
+    ],
+    [{ value: "size" }, { value: '"xs" | "sm" | "md" | | "lg" | "xl" | "2xl"' }, { value: '"md"' }],
+    [{ value: "moreLabel" }, { value: "ReactNode" }, {}],
+    [{ value: "previousOnTop" }, { value: "boolean" }, { value: "false" }],
+  ]}
+/>
+
+#### AvatarGroup.Root
+
+Includes all the props of the `HTMLAttributes<HTMLDivElement>`.
+
+#### AvatarGroup.Item
+
+Includes all the props of the `Avatar` component.
+
+<PropsTable
+  content={[
+    [{ value: "initials" }, { value: "string" }, {}],
+    [
+      { value: "size" },
+      { value: '"xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl' },
+      { value: '"md"' },
+    ],
+    [
+      { value: "status" },
+      { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+      { value: '"gray"' },
+    ],
+    [
+      { value: "notification" },
+      { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
+      { value: '"gray"' },
+    ],
+
+    // Radix props
+    [
+      { value: "asChild", description: "Change the default rendered element for the one passed as a child, merging their props and behavior." },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+
+]}
+/>
+
+#### AvatarGroup.Label
+
+Represents label in the avatar group. In addition to all the props defined as `HTMLAttributes<HTMLDivElement>`, `AvatarGroup.Label` component also includes the following props:
+
+<PropsTable
+  content={[
+    [{ value: "label" }, { value: "ReactNode" }, {}],
+    [
+      { value: "size" },
+      { value: '"xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl"' },
+      { value: '"md"' },
+    ],
+  ]}
+/>
+
+The props type is defined as follows:
+
+```tsx showLineNumbers
+type AvatarMoreLabelProps = React.HTMLAttributes<HTMLDivElement> & {
+  label?: React.ReactNode;
+  size?: AvatarProps["size"];
+};
+```
+
+### Examples
+
+The following examples show the `AvatarGroup` component with different props.
+
+<PreviewComponent name="avatar-group/example-1" />
+
+The following example shows more advanced usage of the `AvatarGroup` component and how you can customize it with Tailwind CSS classes.
+
+<PreviewComponent name="avatar-group/example-2" />
+
+For automatic inheritance of background color for borders in `AvatarGroup`, use the `wg-bg-{color}` utility class on parent element instead of `bg-{color}`. For example:
+
+<PreviewComponent name="avatar-group/example-3" />

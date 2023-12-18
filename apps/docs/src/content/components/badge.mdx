@@ -1,0 +1,47 @@
+---
+title: Badge
+description: A compact element displaying labels, numbers, or indicators, often used for status, notifications, or categorization.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Badge/Badge.tsx
+---
+
+<PreviewComponent name="badge/preview" />
+
+### Usage
+
+```tsx
+import { Badge } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Badge>Label</Badge>
+```
+
+### API Reference
+
+In addition to all the props defined as `HTMLAttributes<HTMLSpanElement>`, `Badge` component also includes the following props:
+
+<PropsTable
+  content={[
+    [{ value: "stroke" }, { value: "boolean" }, { value: "false" }],
+    [{ value: "after" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [{ value: "before" }, { value: "ReactElement<HTMLElement>" }, {}],
+    [
+      { value: "color" },
+      {
+        value: "BadgeColors",
+        description:
+          '"primary" | "gray" | "green" | "purple" | "orange" | "yellow" | "red" | "pink" | "blue"',
+      },
+      { value: '"gray"' },
+    ],
+    [{ value: "shape" }, { value: '"rounded" | "pill"' }, { value: '"rounded"' }],
+    [{ value: "size" }, { value: '"sm" | "md"' }, { value: '"md"' }],
+  ]}
+/>
+
+### Examples
+
+The following example shows different variants of the `Badge` component.
+
+<PreviewComponent name="badge/example-1" />

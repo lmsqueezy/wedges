@@ -24,31 +24,35 @@ export const sidebarConfig: DocsConfig = {
       ],
     },
     {
-      label: "Frameworks",
+      label: "Installation",
       items: [
         {
           label: "Next.js",
-          href: "/frameworks/nextjs",
+          href: "/installation/nextjs",
         },
         {
           label: "Vite",
-          href: "/frameworks/vite",
+          href: "/installation/vite",
         },
         {
           label: "Remix",
-          href: "/frameworks/remix",
+          href: "/installation/remix",
         },
         {
           label: "Gatsby",
-          href: "/frameworks/gatsby",
+          href: "/installation/gatsby",
         },
         {
           label: "Astro",
-          href: "/frameworks/astro",
+          href: "/installation/astro",
         },
         {
           label: "Laravel",
-          href: "/frameworks/laravel",
+          href: "/installation/laravel",
+        },
+        {
+          label: "Manual",
+          href: "/installation/manual",
         },
       ],
     },
@@ -125,8 +129,8 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/popover",
         },
         {
-          label: "Radio",
-          href: "/components/radio",
+          label: "Radio Group",
+          href: "/components/radio-group",
         },
         {
           label: "Select",
@@ -153,12 +157,41 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/textarea",
         },
         {
+          label: "Toggle",
+          href: "/components/toggle",
+        },
+        {
           label: "Toggle Group",
           href: "/components/toggle-group",
         },
         {
           label: "Tooltip",
           href: "/components/tooltip",
+        },
+        {
+          label: "Loading",
+          href: "/components/loading",
+          disabled: true,
+        },
+        {
+          label: "Number Input",
+          href: "/components/number-input",
+          disabled: true,
+        },
+        {
+          label: "Progress Bar",
+          href: "/components/progress-bar",
+          disabled: true,
+        },
+        {
+          label: "Progress Circle",
+          href: "/components/progress-circle",
+          disabled: true,
+        },
+        {
+          label: "Slider",
+          href: "/components/slider",
+          disabled: true,
         },
       ],
     },

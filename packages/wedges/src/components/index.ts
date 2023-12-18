@@ -18,6 +18,7 @@ export * from "./SwitchGroup";
 export * from "./Tabs";
 export * from "./Tag";
 export * from "./Textarea";
+export * from "./Toggle";
 export * from "./ToggleGroup";
 export * from "./Tooltip";
 

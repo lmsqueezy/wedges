@@ -7,7 +7,7 @@ import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type SwitchGroupElement = HTMLDivElement;
-export type SwitchGroupProps = Omit<React.HTMLAttributes<HTMLDivElement>, "asChild"> &
+export type SwitchGroupProps = React.HTMLAttributes<HTMLDivElement> &
   LabelProps &
   LabelHelperProps & {
     /**
@@ -18,7 +18,7 @@ export type SwitchGroupProps = Omit<React.HTMLAttributes<HTMLDivElement>, "asChi
   };
 
 type SwitchGroupItemElement = SwitchElement;
-type SwitchGroupItemProps = SwitchProps;
+type SwitchGroupItemProps = Omit<SwitchProps, "alignLabel">;
 
 type SwitchGroupContextProps = {
   alignLabels?: SwitchGroupProps["alignLabels"];
@@ -51,7 +51,7 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
       alignLabels = "end",
       children,
       description,
-      disabled = false,
+      disabled,
       helperText,
       id,
       label,
@@ -69,7 +69,7 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
       label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
-            className="font-normal"
+            className="cursor-default"
             description={description}
             disabled={disabled}
             htmlFor={elId}
@@ -111,7 +111,9 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
 const SwitchGroupItem = React.forwardRef<SwitchGroupItemElement, SwitchGroupItemProps>(
   ({ label, className, disabled, ...otherProps }, ref) => {
     const context = useSwitchGroupContext();
-    const { disabled: ctxDisabled, alignLabels } = context ?? {};
+    const { disabled: ctxDisabled = null, alignLabels } = context ?? {};
+
+    const isDisabled = ctxDisabled ?? disabled;
 
     return (
       <Switch
@@ -121,7 +123,7 @@ const SwitchGroupItem = React.forwardRef<SwitchGroupItemElement, SwitchGroupItem
           (cn("wg-switch-group__item", alignLabels === "start" && "flex w-full justify-between"),
           className)
         }
-        disabled={ctxDisabled ?? disabled}
+        disabled={isDisabled}
         label={label}
         {...otherProps}
       />

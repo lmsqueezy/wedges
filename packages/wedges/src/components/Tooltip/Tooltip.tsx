@@ -11,30 +11,23 @@ const TOOLTIP_ANIMATION_CLASSES = [
   "origin-[var(--radix-popper-transform-origin)]",
 
   // state animations
-  "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-fade-in-up data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[state=closed]:animate-fade-out",
+  "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-wg-fade-in-up data-[side=left]:animate-wg-fade-in-left data-[side=right]:animate-wg-fade-in-right data-[state=closed]:animate-wg-fade-out",
 
   // instant-open
   "data-[state=instant-open]:!animate-none",
 ];
 
-const {
-  Content: TooltipContent,
-  Portal: TooltipPortal,
-  Root: TooltipRoot,
-  TooltipProvider,
-} = TooltipPrimitive;
-
 /* -------------------------------- Variants -------------------------------- */
-
-const tooltipVariant = cva(["z-50 rounded-md text-white wg-antialiased"], {
+const tooltipVariant = cva(["z-50 rounded-md text-start text-white wg-antialiased"], {
   variants: {
     size: {
       sm: "max-w-xs px-3 py-2 text-xs",
-      md: "max-w-xs px-4 py-3 text-sm",
+      md: "max-w-[350px] p-4 text-sm",
     },
     color: {
       primary: "text-white wg-bg-primary",
       secondary: "text-white wg-bg-secondary dark:text-secondary-900 ",
+      soft: "border border-transparent text-wg-gray-700 shadow-wg-overlay wg-bg-white dark:border-surface dark:bg-neutral-800 dark:text-surface-700 dark:shadow-none",
     },
   },
   defaultVariants: {
@@ -43,98 +36,151 @@ const tooltipVariant = cva(["z-50 rounded-md text-white wg-antialiased"], {
   },
 });
 
-/* ---------------------------------- Types --------------------------------- */
-export type TooltipProps = Omit<React.ComponentPropsWithoutRef<typeof TooltipContent>, "content"> &
-  VariantProps<typeof tooltipVariant> & {
-    /**
-     * Whether to animate the tooltip when it opens/closes
-     */
-    animation?: boolean;
+/* ---------------------------- Tooltip Provider ---------------------------- */
+type TooltipProviderElement = React.ElementRef<typeof TooltipPrimitive.Provider>;
+type TooltipProviderProps = React.ComponentPropsWithRef<typeof TooltipPrimitive.Provider>;
 
-    /**
-     * Whether to show an arrow pointing to the target element
-     */
-    arrow?: boolean;
+const TooltipProvider = React.forwardRef<TooltipProviderElement, TooltipProviderProps>(
+  // This component does not expect ref.
+  (props, _ref) => {
+    const { delayDuration = 200, skipDelayDuration = 0, ...otherProps } = props;
 
-    /**
-     * The content to display inside the tooltip
-     */
-    content: React.ReactNode;
+    return (
+      <TooltipPrimitive.Provider
+        delayDuration={delayDuration}
+        skipDelayDuration={skipDelayDuration}
+        {...otherProps}
+      />
+    );
+  }
+);
 
-    /**
-     * The duration (in milliseconds) to delay before showing/hiding the tooltip
-     */
-    delayDuration?: number;
+/* ------------------------------ Tooltip Root ------------------------------ */
+type TooltipRootElement = React.ElementRef<typeof TooltipPrimitive.Root>;
+type TooltipRootProps = React.ComponentPropsWithRef<typeof TooltipPrimitive.Root>;
 
-    /**
-     * Whether the tooltip is open
-     */
-    open?: boolean;
+const TooltipRoot = React.forwardRef<TooltipRootElement, TooltipRootProps>(
+  // This component does not expect ref.
+  (props, _ref) => {
+    const { delayDuration = 200, ...otherProps } = props;
 
-    /**
-     * Callback function that is called when the tooltip's open state changes
-     */
-    onOpenChange?: (open: boolean) => void;
-  };
+    return <TooltipPrimitive.Root delayDuration={delayDuration} {...otherProps} />;
+  }
+);
 
-/* ------------------------------- Components ------------------------------- */
-const TooltipWedges = React.forwardRef<React.ElementRef<typeof TooltipContent>, TooltipProps>(
-  (
-    {
+/* ----------------------------- Tooltip Content ---------------------------- */
+type TooltipContentElement = React.ElementRef<typeof TooltipPrimitive.Content>;
+type TooltipContentProps = Omit<
+  React.ComponentPropsWithRef<typeof TooltipPrimitive.Content>,
+  "content"
+> & {
+  /**
+   * Whether to animate the tooltip when it opens/closes
+   */
+  animation?: boolean;
+
+  /**
+   * Whether to show an arrow pointing to the target element
+   */
+  arrow?: boolean;
+
+  /**
+   * The content to display inside the tooltip
+   */
+  content: React.ReactNode;
+} & VariantProps<typeof tooltipVariant>;
+
+const TooltipContent = React.forwardRef<TooltipContentElement, TooltipContentProps>(
+  (props, ref) => {
+    const {
       alignOffset = -12,
       animation = true,
       arrow = true,
       arrowPadding = 12,
       children,
+      content,
       className,
       collisionPadding = 12,
-      color,
-      content,
-      delayDuration = 200,
-      onOpenChange,
-      onClick,
-      open,
       sideOffset = 2,
-      size,
-      sticky = "partial",
-      ...otherProps
-    },
-    ref
-  ) => {
-    return (
-      <TooltipProvider delayDuration={delayDuration} skipDelayDuration={0}>
-        <TooltipRoot open={open} onOpenChange={onOpenChange}>
-          <TooltipContent
-            ref={ref}
-            alignOffset={alignOffset}
-            arrowPadding={arrowPadding}
-            className={cn(
-              tooltipVariant({ size, color }),
-              animation && TOOLTIP_ANIMATION_CLASSES,
-              className
-            )}
-            collisionPadding={collisionPadding}
-            sideOffset={sideOffset}
-            sticky={sticky}
-            {...otherProps}
-          >
-            {content}
-            {arrow && <TooltipArrow />}
-          </TooltipContent>
 
-          <TooltipTrigger onClick={onClick as React.MouseEventHandler}>{children}</TooltipTrigger>
-        </TooltipRoot>
-      </TooltipProvider>
+      // variants
+      size,
+      color,
+
+      ...otherProps
+    } = props;
+
+    return (
+      <TooltipPrimitive.Content
+        ref={ref}
+        alignOffset={alignOffset}
+        arrowPadding={arrowPadding}
+        className={cn(
+          tooltipVariant({ size, color }),
+          animation && TOOLTIP_ANIMATION_CLASSES,
+          className
+        )}
+        collisionPadding={collisionPadding}
+        sideOffset={sideOffset}
+        {...otherProps}
+      >
+        {children ?? content}
+        {arrow ? <TooltipArrow /> : null}
+      </TooltipPrimitive.Content>
     );
   }
 );
 
-TooltipWedges.displayName = "Tooltip";
+/* ----------------------------- Tooltip Wedges ----------------------------- */
+export type TooltipElement = TooltipContentElement;
+type TooltipProps = React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Root> &
+  TooltipContentProps;
 
+const TooltipWedges = React.forwardRef<TooltipElement, TooltipProps>((props, ref) => {
+  const {
+    // root props
+    defaultOpen,
+    delayDuration = 200,
+    disableHoverableContent,
+    onOpenChange,
+    open,
+
+    // trigger
+    asChild,
+    children,
+    onClick,
+
+    // content
+    ...otherProps
+  } = props;
+
+  return (
+    <TooltipProvider>
+      <TooltipRoot
+        defaultOpen={defaultOpen}
+        delayDuration={delayDuration}
+        disableHoverableContent={disableHoverableContent}
+        onOpenChange={onOpenChange}
+        open={open}
+      >
+        <TooltipContent ref={ref} {...otherProps} />
+
+        <TooltipTrigger
+          asChild={asChild}
+          onClick={onClick as React.MouseEventHandler<HTMLButtonElement> | undefined}
+        >
+          {children}
+        </TooltipTrigger>
+      </TooltipRoot>
+    </TooltipProvider>
+  );
+});
+
+/* --------------------------------- Exports -------------------------------- */
 const Tooltip = Object.assign(TooltipWedges, {
   Arrow: TooltipArrow,
   Content: TooltipContent,
-  Portal: TooltipPortal,
+  Portal: TooltipPrimitive.Portal,
   Provider: TooltipProvider,
   Root: TooltipRoot,
   Trigger: TooltipTrigger,

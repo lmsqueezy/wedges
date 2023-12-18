@@ -7,7 +7,7 @@ import { type LabelHelperProps } from "../types";
 
 /* ---------------------------------- Types --------------------------------- */
 export type CheckboxGroupElement = HTMLDivElement;
-export type CheckboxGroupProps = Omit<React.HTMLAttributes<HTMLDivElement>, "asChild"> &
+export type CheckboxGroupProps = React.HTMLAttributes<HTMLDivElement> &
   LabelProps &
   LabelHelperProps & {
     orientation?: "horizontal" | "vertical";
@@ -29,11 +29,11 @@ const CheckboxGroupContext = React.createContext<CheckboxGroupContextProps | nul
  * @returns The current context value for ButtonGroup.
  * @throws If the context is undefined.
  */
-export function useCheckboxGroupContext() {
+export function useCheckboxGroupContext(skipCheck = false) {
   const context = React.useContext(CheckboxGroupContext);
 
-  if (!context) {
-    throw new Error("CheckboxGroup.Item must be used within a CheckboxGroup or CheckboxGroup.Root");
+  if (!context && !skipCheck) {
+    throw new Error("Checkbox.Item must be used within a CheckboxGroup or CheckboxGroup.Root");
   }
 
   return context;
@@ -64,7 +64,7 @@ const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroup
       label ?? description ?? tooltip ?? helperText ? (
         <div className="inline-flex flex-col">
           <Label
-            className="font-normal"
+            className="cursor-default"
             description={description}
             disabled={disabled}
             htmlFor={elId}
@@ -97,7 +97,12 @@ const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroup
           ) : null}
 
           {children ? (
-            <div className={cn("flex flex-col gap-2", orientation && "flex-row gap-6")}>
+            <div
+              className={cn(
+                "flex flex-col gap-2",
+                orientation === "horizontal" && "flex-row gap-6"
+              )}
+            >
               {children}
             </div>
           ) : null}

@@ -37,7 +37,7 @@ const DropdownMenuContent = React.forwardRef<
         align={align}
         className={cn(
           // state animations
-          "data-[side=bottom]:animate-fade-in-down data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[side=top]:animate-fade-in-up",
+          "data-[side=top]:animate-wg-fade-in-up data-[side=bottom]:animate-wg-fade-in-down data-[side=left]:animate-wg-fade-in-left data-[side=right]:animate-wg-fade-in-right",
 
           // base styles
           "flex origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 text-sm leading-6 text-surface-900 shadow-wg-overlay wg-antialiased dark:border dark:border-surface dark:bg-neutral-800 dark:text-surface-700 dark:shadow-none",
@@ -243,7 +243,7 @@ const DropdownMenuSubContent = React.forwardRef<
       alignOffset={alignOffset}
       className={cn(
         // state animations
-        "data-[side=bottom]:animate-fade-in-down data-[side=left]:animate-fade-in-left data-[side=right]:animate-fade-in-right data-[side=top]:animate-fade-in-up data-[state=closed]:animate-fade-out",
+        "data-[side=bottom]:animate-wg-fade-in-down data-[side=left]:animate-wg-fade-in-left data-[side=right]:animate-wg-fade-in-right data-[side=top]:animate-wg-fade-in-up data-[state=closed]:animate-wg-fade-out",
 
         // base styles
         "z-50 flex min-w-[9rem] origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 shadow-wg-overlay dark:border dark:border-surface dark:bg-neutral-800 dark:shadow-none",

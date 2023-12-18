@@ -3,4 +3,4 @@
 .next/
 /coverage
 dist/
-**/*.mdx
+**/*/*.mdx

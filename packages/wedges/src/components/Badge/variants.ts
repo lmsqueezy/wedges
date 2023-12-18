@@ -1,12 +1,12 @@
 import { cva } from "class-variance-authority";
 
-const defaultDarkClasses = "dark:wg-bg-surface dark:outline-surface-50";
+const defaultDarkClasses = "dark:wg-bg-surface/5 dark:outline-surface-50";
 
 export const badgeVariants = cva("inline-flex items-center rounded-lg px-2 py-1 wg-antialiased", {
   variants: {
     size: {
       sm: "text-xs leading-4",
-      md: "text-sm leading-6",
+      md: "text-sm leading-5",
     },
     color: {
       gray: [
@@ -30,7 +30,7 @@ export const badgeVariants = cva("inline-flex items-center rounded-lg px-2 py-1 
         defaultDarkClasses,
       ],
       pink: [
-        "text-wg-pink-700 outline-wg-pink-200 wg-bg-wg-pink-50 dark:text-wg-pink",
+        "text-wg-pink-800 outline-wg-pink-200 wg-bg-wg-pink-50 dark:text-wg-pink",
         defaultDarkClasses,
       ],
       blue: [

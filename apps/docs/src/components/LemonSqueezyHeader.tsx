@@ -8,24 +8,20 @@ import { siteConfig } from "@/config/siteConfig";
 import { focusClasses } from "@/lib/a11y";
 import { cn } from "@/lib/utils";
 
+import { type WebflowData } from "./Header";
 import { Logo, Logomark } from "./Logo";
 import { ArrowRightIcon, Navigation } from "./Navigation";
-import { WedgesHeader } from "./WedgesHeader";
-
-export function SiteHeader() {
-  return (
-    <>
-      <LemonSqueezyHeader />
-      <WedgesHeader />
-    </>
-  );
-}
 
 /* ------------------------------- Components ------------------------------- */
-function LemonSqueezyHeader() {
+export default function LemonSqueezyHeader({
+  caseStudy,
+  blog,
+}: {
+  caseStudy: WebflowData;
+  blog: WebflowData;
+}) {
   const [platformDropdownOpen, setPlatformDropdown] = useState(false);
   const [resourcedDropdownOpen, setResourcesDropdownOpen] = useState(false);
-
   const [dropdownTimer, setDropdownTimer] = useState<NodeJS.Timeout | null>(null);
 
   // Reset timer on mouse enter
@@ -123,7 +119,7 @@ function LemonSqueezyHeader() {
                 show={resourcedDropdownOpen}
                 aria-labelledby="menu-item__resources"
               >
-                <ResourcesDropdown />
+                <ResourcesDropdown caseStudy={caseStudy} blog={blog} />
               </Navigation.Dropdown>
             </div>
           </Navigation.Item>
@@ -170,7 +166,7 @@ type LinksConfig = {
   label: string;
 };
 
-function ResourcesDropdown() {
+function ResourcesDropdown({ caseStudy, blog }: { caseStudy: WebflowData; blog: WebflowData }) {
   const links: LinksConfig[] = [
     {
       label: "Help Center",
@@ -221,11 +217,13 @@ function ResourcesDropdown() {
             label="Case studies"
           />
 
-          <Navigation.DropdownBlogLink
-            href="https://www.lemonsqueezy.com/case-study/uipress"
-            imgSrc="https://assets-global.website-files.com/6347244ba8d63461aa51c0af/652373a3059536649fe49bbb_UI-Press-Website-Mockup-p-2600.jpg"
-            label="How uiPress Boosted WordPress Plugin Sales by 600% Using Lemon Squeezy"
-          />
+          {caseStudy && !caseStudy.isArchived && !caseStudy.isDraft ? (
+            <Navigation.DropdownBlogLink
+              href={caseStudy.url}
+              imgSrc={caseStudy.image}
+              label={caseStudy.title}
+            />
+          ) : null}
         </Navigation.DropdownColumn>
 
         {/* ----------------------------- Blog Articles ---------------------------- */}
@@ -237,11 +235,9 @@ function ResourcesDropdown() {
             label="Blog"
           />
 
-          <Navigation.DropdownBlogLink
-            href="https://www.lemonsqueezy.com/blog/50m-valuation"
-            imgSrc="https://assets-global.website-files.com/6347244ba8d63461aa51c0af/655b80f26454aa9bd55bfa50_50m-min.jpg"
-            label="Turning down a Series A term sheet ($50m+ valuation)"
-          />
+          {blog && !blog.isArchived && !blog.isDraft ? (
+            <Navigation.DropdownBlogLink href={blog.url} imgSrc={blog.image} label={blog.title} />
+          ) : null}
         </Navigation.DropdownColumn>
       </div>
     </div>

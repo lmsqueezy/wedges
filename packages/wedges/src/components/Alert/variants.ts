@@ -12,7 +12,7 @@ export const alertVariants = cva("", {
       info: "border-wg-blue bg-wg-blue-50 text-wg-blue-700",
       success: "border-wg-green bg-wg-green-50 text-wg-green-700",
       error: "border-wg-red bg-wg-red-50 text-wg-red-700",
-      warning: "border-wg-yellow bg-wg-yellow-50 text-wg-yellow-700",
+      warning: "border-wg-yellow bg-wg-yellow-50 text-wg-yellow-800",
     },
   },
   defaultVariants: {
@@ -21,7 +21,7 @@ export const alertVariants = cva("", {
   },
 });
 
-export const alertTitleVariants = cva("font-medium", {
+export const alertTitleVariants = cva("text-start font-medium", {
   variants: {
     color: {
       gray: "text-surface-900",
@@ -43,7 +43,7 @@ export const alertIconVariants = cva("", {
       gray: "text-surface-200",
       primary: "text-primary",
       info: "text-wg-blue",
-      success: "text-wg-green",
+      success: "text-wg-green-600",
       error: "text-wg-red",
       warning: "text-wg-yellow",
     },
