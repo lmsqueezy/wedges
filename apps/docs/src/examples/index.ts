@@ -2738,6 +2738,66 @@ export function Example() {
 }
 `,
   },
+  "theming/custom-themes": {
+    component: lazy(() => import("@/examples/theming/custom-themes.tsx")),
+    code: `import { Button } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="dark-blue mx-auto flex max-w-xs justify-center rounded-lg bg-background p-10 text-foreground">
+      <Button variant="primary">Primary Button</Button>
+    </div>
+  );
+}
+`,
+  },
+  "theming/dark-mode": {
+    component: lazy(() => import("@/examples/theming/dark-mode.tsx")),
+    code: `import * as React from "react";
+import { MoonIcon, SunIcon } from "@iconicicons/react";
+import { Button, Switch, Toggle, ToggleGroup, Tooltip } from "@lmsqueezy/wedges";
+
+export function Example() {
+  /** In your app, you can use a hook, such as \`useTheme\` or a similar way to access
+   *  the current theme and a setter function to change the theme.
+   */
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
+
+  return (
+    <div className="m-auto flex w-fit flex-col items-center gap-8 text-left">
+      {/* Example 1 */}
+      <Tooltip
+        sideOffset={8}
+        content={\`Click to switch to the ${
+          typeof theme !== "undefined" && theme === "dark" ? "light" : "dark"
+        } theme\`}
+      >
+        <Button
+          variant="transparent"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          isIconOnly
+        >
+          {theme === "light" ? <SunIcon /> : <MoonIcon />}
+        </Button>
+      </Tooltip>
+
+      {/* Example 2 */}
+      <ToggleGroup size="sm" type="single" defaultValue="light">
+        <ToggleGroup.Item value="light">Light</ToggleGroup.Item>
+        <ToggleGroup.Item value="dark">Dark</ToggleGroup.Item>
+        <ToggleGroup.Item value="System">System</ToggleGroup.Item>
+      </ToggleGroup>
+
+      {/* Example 3 */}
+      <Toggle shape="pill">Dark theme</Toggle>
+
+      {/* Example 4 */}
+      <Switch label="Dark theme" />
+    </div>
+  );
+}
+`,
+  },
   "toggle/preview": {
     component: lazy(() => import("@/examples/toggle/preview.tsx")),
     code: `import { CropIcon } from "@iconicicons/react";

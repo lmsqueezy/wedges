@@ -1,0 +1,101 @@
+---
+title: Custom Themes
+description: How to create custom themes with Wedges.
+breadcrumbs:
+  - Theming
+---
+
+With Wedges you have the option to create a new theme using the default ones as a foundation. In the following example, we'll create a `dark-blue` theme, extending the standard `dark` theme.
+
+<Steps>
+
+### Define Colors
+
+For optimal results, creating a ten-step graded color scale for your custom themable colors is recommended. You may find these online tools helpful in generating custom color scales: <a href="https://palettte.app/" target="_blank" rel="noreferrer nofollow">Palettte</a> and <a href="https://colors.eva.design/" target="_blank" rel="noreferrer nofollow">Eva Design System</a>.
+
+Let's define `primaryBlue` color scale:
+
+```tsx showLineNumbers
+import type { ThemableColorScale } from "@lmsqueezy/wedges";
+
+const primaryBlue: ThemableColorScale = {
+  100: "#DAF0FF",
+  200: "#B5DEFF",
+  300: "#90C9FF",
+  400: "#75B6FF",
+  500: "#4796FF",
+  600: "#3374DB",
+  700: "#2356B7",
+  800: "#163C93",
+  900: "#0D297A",
+  DEFAULT: "#4796FF", // 500
+};
+```
+
+Alternatively, you can use professionally designed colors scales defined in the Wedges color palette. Import `wedgesPallette` to start using predefined colors:
+
+```tsx showLineNumbers /wedgesPalette.blue/ /wedgesPalette.orange[500]/
+import { wedgesPalette } from "@lmsqueezy/wedges";
+
+const primaryBlue = wedgesPalette.blue;
+const orange500 = wedgesPalette.orange[500];
+```
+
+### Update Tailwind Config
+
+To create a new theme, you need to provide a configuration object to the `wedgesTW` plugin in your `tailwind-config` file.
+
+```tsx {26-38} title="tailwind.config.ts" showLineNumbers
+import { wedgesTW } from "@lmsqueezy/wedges";
+import type { Config } from "tailwindcss";
+
+const primaryBlue: ThemableColorScale = {
+  100: "#DAF0FF",
+  200: "#B5DEFF",
+  300: "#90C9FF",
+  400: "#75B6FF",
+  500: "#4796FF",
+  600: "#3374DB",
+  700: "#2356B7",
+  800: "#163C93",
+  900: "#0D297A",
+  DEFAULT: "#4796FF", // 500
+};
+
+const config: Config = {
+  content: [
+    // ...
+    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {},
+  darkMode: "class",
+  plugins: [
+    wedgesTW({
+      themes: {
+        "dark-blue": {
+          extend: "dark",
+          colors: {
+            // Replace primary color
+            primary: primaryBlue,
+
+            // Partially replace secondary color
+            secondary: {
+              900: "#FF6838",
+            },
+          },
+        },
+      },
+    }),
+  ],
+};
+```
+
+In the example above, we've created a new theme called `dark-blue` that extends the `dark` theme. We've also replaced the `primary` color with our custom `primaryBlue` color scale and partially replaced the `secondary` color, specifically `secondary.900` with a custom color.
+
+### Use The New Theme
+
+Now that we've created a new theme, we can use it in our application. To do so, we need to add the `dark-blue` class to the `html` or any parent element of the component we want to use the theme on.
+
+<PreviewComponent name="theming/custom-themes" />
+
+</Steps>

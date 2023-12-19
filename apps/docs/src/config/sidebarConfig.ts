@@ -64,12 +64,12 @@ export const sidebarConfig: DocsConfig = {
           href: "/theming/tailwind-css-plugin",
         },
         {
-          label: "Colors",
-          href: "/theming/colors",
+          label: "Color System",
+          href: "/theming/color-system",
         },
         {
-          label: "Dark Mode",
-          href: "/theming/dark-mode",
+          label: "Default Themes",
+          href: "/theming/default-themes",
         },
         {
           label: "Custom Themes",

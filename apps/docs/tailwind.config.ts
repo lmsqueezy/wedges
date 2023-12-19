@@ -1,6 +1,20 @@
 import { wedgesTW } from "@lmsqueezy/wedges";
+import type { ThemableColorScale } from "@lmsqueezy/wedges/src/tw-plugin/foundation/colors/themableColors";
 import tailwindTypography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
+
+const primaryBlue: ThemableColorScale = {
+  100: "#DAF0FF",
+  200: "#B5DEFF",
+  300: "#90C9FF",
+  400: "#75B6FF",
+  500: "#4796FF",
+  600: "#3374DB",
+  700: "#2356B7",
+  800: "#163C93",
+  900: "#0D297A",
+  DEFAULT: "#4796FF", // 500
+};
 
 const config: Config = {
   content: [
@@ -94,6 +108,12 @@ const config: Config = {
   plugins: [
     wedgesTW({
       themes: {
+        "dark-blue": {
+          extend: "dark",
+          colors: {
+            primary: primaryBlue,
+          },
+        },
         light: {
           colors: {
             primary: {

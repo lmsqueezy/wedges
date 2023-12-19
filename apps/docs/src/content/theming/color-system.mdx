@@ -1,5 +1,5 @@
 ---
-title: Colors
+title: Color System
 description: Versatile color palette and themable colors ready for your next project.
 breadcrumbs:
   - Theming
@@ -294,8 +294,8 @@ For optimal results, we suggest creating a ten-step graded color scale for your 
 Themable colors can be customized by adding options to the `wedgesTW` plugin in your `tailwind.config.ts` file. For instance, to use yellow as the primary color for **dark theme only**, you can set it like this:"
 
 ```tsx {} title="tailwind.config.ts" showLineNumbers
-import type { Config } from "tailwindcss";
 import { wedgesTW } from "@lmsqueezy/wedges";
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   // Other Tailwind CSS options...
@@ -335,8 +335,8 @@ export default config;
 If you want to use one of the Wedges Color Palette colors, `wedgesPalette` can be imported from `@lmsqueezy/wedges`, for example:
 
 ```tsx {11} title="tailwind.config.ts" showLineNumbers /wedgesPalette/
+import { wedgesPalette, wedgesTW } from "@lmsqueezy/wedges";
 import type { Config } from "tailwindcss";
-import { wedgesTW, wedgesPalette } from "@lmsqueezy/wedges";
 
 const config: Config = {
   // Other Tailwind CSS options...
@@ -359,5 +359,6 @@ export default config;
 This will set all ten steps of the yellow color scale as the primary color for the dark theme.
 
 <Alert variant="expanded" className="not-prose">
-  Ensure that these changes are applied to the `wedgesTW` plugin options, rather than the `theme` section in your `tailwind.config.ts` file.
+  Ensure that these changes are applied to the `wedgesTW` plugin options, rather than the `theme`
+  section in your `tailwind.config.ts` file.
 </Alert>

@@ -16,8 +16,8 @@ If you haven't installed Tailwind CSS already, follow the instructions in the <a
 Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
 
 ```tsx {2,7,10,11} title="tailwind.config.ts" showLineNumbers
-import type { Config } from "tailwindcss";
 import { wedgesTW } from "@lmsqueezy/wedges";
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -32,13 +32,15 @@ const config: Config = {
 export default config;
 ```
 
+### Configuration
+
 #### Plugin Options
 
 The `wedgesTW` plugin accepts a configuration object allowing you to customize the plugin's behavior. This is the default structure of the configuration object:
 
 ```tsx {12-24} title="tailwind.config.ts" showLineNumbers
-import type { Config } from "tailwindcss";
 import { wedgesTW } from "@lmsqueezy/wedges";
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -47,21 +49,23 @@ const config: Config = {
   ],
   theme: {},
   darkMode: "class",
-  plugins: [wedgesTW({
-    prefix: 'wg', // prefix used for CSS variables
-    defaultTheme: 'light', // default theme
-    defaultExtendTheme: 'light', // default theme to extend when creating custom themes
-    fontSmooth: "antialiased", // specify font smoothing for Wedges components
-    themes: {
+  plugins: [
+    wedgesTW({
+      prefix: "wg", // prefix used for CSS variables
+      defaultTheme: "light", // default theme
+      defaultExtendTheme: "light", // default theme to extend when creating custom themes
+      fontSmooth: "antialiased", // specify font smoothing for Wedges components
+      themes: {
         light: {
-            colors: {} // light themable colors
+          colors: {}, // light themable colors
         },
         dark: {
-            colors: {} // dark themable colors
+          colors: {}, // dark themable colors
         },
         // ... custom themes
-    }
-  })],
+      },
+    }),
+  ],
 };
 ```
 
@@ -139,23 +143,51 @@ type ConfigTheme = {
 #### API Reference
 
 <PropsTable
-isOptions
+  isOptions
   content={[
-    [{ value: "fontSmooth", description: "Font smoothing of Wedges components." }, { value: '"antialiased" | "inherit"' }, { value: '"antialiased"' }],
-    [{ value: "prefix", description: "The prefix for Wedges CSS variables." }, { value: "string" }, { value: '"wg"' }],
-    [{ value: "themes", description: "Themes configuration" }, { value: "ConfigThemes" }, { value: "{}" }],
-    [{ value: "defaultTheme", description:"The default theme to use." }, { value: "DefaultThemeType" }, { value: '"light"' }],
-    [{ value: "defaultExtendTheme", description: "The default theme to extend when creating a new theme." }, { value: '"light" | "dark"' }, { value: '"light"' }],
-]}
+    [
+      { value: "fontSmooth", description: "Font smoothing of Wedges components." },
+      { value: '"antialiased" | "inherit"' },
+      { value: '"antialiased"' },
+    ],
+    [
+      { value: "prefix", description: "The prefix for Wedges CSS variables." },
+      { value: "string" },
+      { value: '"wg"' },
+    ],
+    [
+      { value: "themes", description: "Themes configuration" },
+      { value: "ConfigThemes" },
+      { value: "{}" },
+    ],
+    [
+      { value: "defaultTheme", description: "The default theme to use." },
+      {
+        value: "DefaultThemeType",
+        description: "Any key of a theme defined in the `wedgesTW` plugin or `light` or `dark`.",
+      },
+      { value: '"light"' },
+    ],
+    [
+      {
+        value: "defaultExtendTheme",
+        description: "The default theme to extend when creating a new theme.",
+      },
+      { value: '"light" | "dark"' },
+      { value: '"light"' },
+    ],
+  ]}
 />
 
 ### Nested Themes
 
 Wedges supports nested themes, enabling the use of multiple themes within individual sections for flexible styling.
+
 ```html showLineNumbers /light/ /dark/2-3/ /orange-blue/
 <html class="light">
-    ...
-    <div class="dark">...</div>
-    <div class="orange-blue">...</div><!-- custom theme -->
+  ...
+  <div class="dark">...</div>
+  <div class="orange-blue">...</div>
+  <!-- custom theme -->
 </html>
 ```
