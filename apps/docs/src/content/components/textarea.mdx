@@ -27,7 +27,7 @@ In addition to all the props defined as `TextareaHTMLAttributes<HTMLTextAreaElem
       {
         value: "disabled",
         description:
-          "If set to `true`, additional styles will be applied to indicate that the checkbox is disabled.",
+          "If set to `true`, additional styles will be applied to indicate that the textarea is disabled.",
       },
       {
         value: "boolean",
@@ -38,7 +38,7 @@ In addition to all the props defined as `TextareaHTMLAttributes<HTMLTextAreaElem
       {
         value: "required",
         description:
-          "If set to `true`, additional styles will be applied to indicate that the checkbox is required.",
+          "If set to `true`, additional styles will be applied to indicate that the textarea is required.",
       },
       { value: "boolean" },
       { value: "false" },
@@ -46,7 +46,7 @@ In addition to all the props defined as `TextareaHTMLAttributes<HTMLTextAreaElem
     [
       {
         value: "tooltip",
-        description: "Optional description of the label, shown on hover.",
+        description: "Optional description of the textarea, shown on hover.",
       },
       { value: "ReactNode" },
       {},
@@ -59,7 +59,7 @@ In addition to all the props defined as `TextareaHTMLAttributes<HTMLTextAreaElem
     [
       {
         value: "label",
-        description: "Label of the checkbox.",
+        description: "Label of the textarea.",
       },
       { value: "ReactNode" },
       {},
@@ -68,7 +68,7 @@ In addition to all the props defined as `TextareaHTMLAttributes<HTMLTextAreaElem
       {
         value: "destructive",
         description:
-          "Specifies whether this button has a destructive action. If set to `true`, the button will be styled differently to indicate that it will perform a destructive action.",
+          "Specifies whether this textarea has a destructive styling. If set to `true`, the textarea will be styled differently to indicate a destructive action.",
       },
       {
         value: "boolean",
@@ -79,7 +79,7 @@ In addition to all the props defined as `TextareaHTMLAttributes<HTMLTextAreaElem
       {
         value: "helperText",
         description:
-          "Additional text or information to guide the user. It's rendered below textarea.",
+          "Additional text or information to guide the user. It's rendered below the textarea.",
       },
       {
         value: "ReactNode",
@@ -88,9 +88,10 @@ In addition to all the props defined as `TextareaHTMLAttributes<HTMLTextAreaElem
     ],
   ]}
 />
+
 ### Examples
 
-The example below is a `Textarea` component with placeholder text and 'Please describe the issue' as `helperText`. It features a `label` and is marked as required. It includes a `tooltip` for guidance and is styled with a `destructive` theme.
+The textarea in the example below is marked as `required`. It also includes a `tooltip` and is styled with a `destructive` theme.
 
 <PreviewComponent name="textarea/example-1" />
 

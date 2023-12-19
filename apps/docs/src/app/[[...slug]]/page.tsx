@@ -49,7 +49,7 @@ export default async function DocPage({ params }: DocPageProps) {
           <h2 className="font-display text-4xl tracking-tight text-surface-900">{title}</h2>
 
           {description ? (
-            <p className="max-w-prose text-base leading-normal text-gray-500 [text-wrap:balance] lg:text-lg lg:leading-normal">
+            <p className="max-w-prose text-base text-gray-500 [text-wrap:balance] lg:text-lg">
               {description}
             </p>
           ) : null}

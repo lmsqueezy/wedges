@@ -2,13 +2,17 @@ import { Textarea } from "@lmsqueezy/wedges";
 
 export default function Example() {
   return (
-    <Textarea
-      placeholder="Your message"
-      helperText="Please describe the issue"
-      label="Hello world"
-      required
-      tooltip="Hello world"
-      destructive
-    />
+    <div className="m-auto max-w-sm text-left">
+      <Textarea
+        destructive
+        required
+        description="(description)"
+        helperText="Helper text"
+        label="Label"
+        placeholder="Placeholder"
+        tooltip="Tooltip example"
+        className="max-h-64"
+      />
+    </div>
   );
 }

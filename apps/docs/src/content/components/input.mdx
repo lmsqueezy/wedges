@@ -19,6 +19,73 @@ import { Input } from "@lmsqueezy/wedges";
 
 ### API Reference
 
-### Examples
+In addition to all the props defined as `React.InputHTMLAttributes<HTMLInputElement>`, `Input` component also includes the following props:
 
-<PreviewComponent name="input/example-1" />
+<PropsTable
+  content={[
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the input is disabled.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the input is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the input, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Label of the input.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "destructive",
+        description:
+          "Specifies whether this input has a destructive styling. If set to `true`, the input will be styled differently to indicate a destructive action.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "helperText",
+        description:
+          "Additional text or information to guide the user. It's rendered below the input.",
+      },
+      {
+        value: "ReactNode",
+      },
+      {},
+    ],
+  ]}
+/>
+

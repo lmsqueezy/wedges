@@ -2,22 +2,21 @@ import { Textarea } from "@lmsqueezy/wedges";
 
 export default function Example() {
   return (
-    <div className="flex flex-col gap-12">
+    <div className="m-auto flex max-w-sm flex-col gap-10 text-left">
       <Textarea
         className="resize-none"
-        placeholder="Your message"
-        label="Your Message"
-        required
+        placeholder="Placeholder"
+        label="Label"
         tooltip="Hello world"
-        value="Custom value in disabled state"
+        value="Value in disabled state"
         disabled
       />
 
       <Textarea
         className="resize-none"
-        description="(optional)"
-        helperText="Please describe the issue"
-        label="Message"
+        description="(description)"
+        helperText="Helper text"
+        label="Label"
       />
     </div>
   );

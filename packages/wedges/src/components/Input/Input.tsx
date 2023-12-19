@@ -1,5 +1,4 @@
 import * as React from "react";
-import { DollarIcon } from "@iconicicons/react";
 
 import { cn } from "../../helpers/utils";
 import { Label, type LabelProps } from "../Label";
@@ -69,7 +68,6 @@ const Input = React.forwardRef<InputElement, InputProps>(
             id={elId}
             {...otherProps}
           />
-          <DollarIcon className="absolute right-4 text-surface-900 opacity-40 dark:text-surface-900" />
         </div>
 
         <Label.Helper aria-invalid={ariaInvalid} disabled={disabled} id={`${elId}__describer`}>
