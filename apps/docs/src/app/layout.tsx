@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { siteConfig } from "@/config/siteConfig";
-import { displayFont, monoFont, sansFont } from "@/lib/fonts";
+import { displayFont, monoFont } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
@@ -22,7 +22,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={cn(
           "min-h-screen-dvh font-sans antialiased [font-feature-settings:'ss01']",
-          sansFont.variable,
           displayFont.variable,
           monoFont.variable
         )}

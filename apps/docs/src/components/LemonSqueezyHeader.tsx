@@ -58,6 +58,7 @@ export default function LemonSqueezyHeader({
         <Navigation aria-label="Main Nav" className="hidden self-stretch md:flex">
           {/* -------------------------------- Platform -------------------------------- */}
           <Navigation.Item
+            active={platformDropdownOpen}
             asChild
             tabIndex={0}
             onFocus={() => {
@@ -92,6 +93,7 @@ export default function LemonSqueezyHeader({
 
           {/* -------------------------------- Resources ------------------------------- */}
           <Navigation.Item
+            active={resourcedDropdownOpen}
             asChild
             tabIndex={0}
             onFocus={() => {
@@ -131,7 +133,10 @@ export default function LemonSqueezyHeader({
           <Navigation.Item href="https://www.lemonsqueezy.com/help">Help</Navigation.Item>
         </Navigation>
 
-        <Navigation aria-label="Login Nav" className="ml-auto justify-self-end">
+        <Navigation
+          aria-label="Login Nav"
+          className="ml-auto flex items-center justify-end gap-2 justify-self-end"
+        >
           <Navigation.Item
             className={cn("hover:text-white", focusClasses, "outline-white")}
             href="https://app.lemonsqueezy.com/login"
@@ -192,9 +197,9 @@ function ResourcesDropdown({ caseStudy, blog }: { caseStudy: WebflowData; blog: 
 
   return (
     <div className="container">
-      <div className="mr-6 grid grid-cols-3">
+      <div className="grid grid-cols-3">
         {/* ----------------------------- Helpful Links ----------------------------- */}
-        <Navigation.DropdownColumn>
+        <Navigation.DropdownColumn className="-ml-6 pl-0">
           <Navigation.DropdownTitle label="Helpful Links" id="dropdown-menu__helpful-links" />
 
           {links.map(({ label, description, href }, index) => (
@@ -333,9 +338,9 @@ function PlatformDropdown() {
 
   return (
     <div className="container">
-      <div className="mr-6 grid grid-cols-3">
+      <div className="grid grid-cols-3">
         {/* ----------------------------- Ecommerce ----------------------------- */}
-        <Navigation.DropdownColumn>
+        <Navigation.DropdownColumn className="-ml-6 pl-0">
           <Navigation.DropdownTitle label="eCommerce" id="dropdown-menu__ecommerce" />
 
           {links.ecommerce?.map(({ label, description, href }, index) => (

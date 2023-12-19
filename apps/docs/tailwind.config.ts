@@ -79,9 +79,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "-apple-system"],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system"],
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular"],
-        display: ["var(--font-display)", "var(--font-sans)", "ui-monospace", "SFMono-Regular"],
+        display: ["var(--font-display)", "Inter", "ui-monospace", "SFMono-Regular"],
       },
       minHeight: {
         "screen-dvh": "100dvh",

@@ -40,21 +40,24 @@ const NavItem = forwardRef<
     asChild?: boolean;
     active?: boolean;
   }
->(({ active, children, className, asChild, ...otherProps }, ref) => {
+>((props, ref) => {
+  const { active, children, onMouseEnter, className, asChild, ...otherProps } = props;
   const useAsChild = asChild && isValidElement(children);
   const Component = useAsChild ? Slot : "a";
 
   return (
     <Component
       ref={ref}
-      {...otherProps}
+      onMouseEnter={onMouseEnter}
       className={cn(
         focusClasses,
-        "duration-180 z-[51] -mb-px inline-flex shrink-0 items-center justify-center border-b-2 border-transparent px-[10px] outline-white transition-colors hover:text-white lg:px-4",
-        active && "border-yellow-500 text-white",
+        "duration-180 z-[51] -mb-px inline-flex shrink-0 items-center justify-center px-4 outline-white transition-colors hover:text-white",
+        active && "text-white shadow-[inset_0_-2px_0px_#FFC233]",
         !active && "hover:text-white",
+        onMouseEnter && "pr-2",
         className
       )}
+      {...otherProps}
     >
       {children}
     </Component>
@@ -73,10 +76,10 @@ const NavDropdown = forwardRef<
   return (
     <Transition
       as="div"
-      enter="transition-opacity duration-180"
+      enter="transition-opacity duration-200"
       enterFrom="opacity-0"
       enterTo="opacity-100"
-      leave="transition-opacity duration-180"
+      leave="transition-opacity duration-200"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
       show={show}
@@ -85,7 +88,7 @@ const NavDropdown = forwardRef<
         ref={ref}
         role="menu"
         className={cn(
-          "absolute inset-x-0 top-full z-[50] cursor-default border-t border-white/20 bg-purple-600 shadow-2xl",
+          "absolute inset-x-0 top-full z-[50] mt-px cursor-default bg-purple-600 shadow-2xl",
           className
         )}
         {...otherProps}

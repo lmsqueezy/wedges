@@ -17,7 +17,7 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
         ref={ref}
         className={cn(
           className,
-          "prose prose-neutral dark:prose-invert max-w-none leading-relaxed text-surface-600 dark:text-white/60 [&_h4+p]:!mt-0",
+          "prose prose-neutral dark:prose-invert max-w-none leading-7 text-gray-500 dark:text-white/60 [&_h4+p]:!mt-0",
 
           // headings
           "prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-normal prose-headings:text-gray-900 dark:prose-headings:text-white lg:prose-headings:scroll-mt-[8.5rem]",

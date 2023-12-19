@@ -14,7 +14,6 @@ import { cn } from "@/lib/utils";
 import { Logomark } from "./Logo";
 import { useSidebar } from "./Providers";
 import { ScrollArea } from "./ScrollArea";
-import { Search } from "./Search";
 
 export function Sidebar() {
   const sidebarNav = sidebarConfig.nav;
@@ -23,14 +22,14 @@ export function Sidebar() {
   return (
     <aside
       className={cn(
-        "fixed inset-y-0 left-0 m-0 bg-wg-gray-900/50 md:mt-14 md:bg-transparent md:pb-20",
+        "fixed inset-y-0 left-0 m-0 bg-wg-gray-900/50 md:mt-16 md:bg-transparent md:pb-20",
         isSidebarOpen ? "block" : "hidden",
-        "z-[60] w-full text-base leading-8 backdrop-blur md:sticky md:top-[104px] md:z-30 md:block md:h-[calc(100vh-119px)] md:shrink-0 md:text-sm md:leading-6 md:backdrop-blur-none"
+        "z-[60] w-full text-base leading-8 backdrop-blur md:sticky md:top-32 md:z-30 md:block md:h-[calc(100vh-119px)] md:shrink-0 md:text-sm md:leading-6 md:backdrop-blur-none"
       )}
       role={isSidebarOpen ? "dialog" : undefined}
       onClick={() => isSidebarOpen && toggleSidebar()}
     >
-      <Search className="hidden md:flex" />
+      {/* <Search className="hidden md:flex" /> */}
 
       <ScrollArea
         className="relative h-full w-80 bg-white px-4 py-6 md:-ms-3 md:w-[auto] md:bg-transparent md:py-0 md:pl-0 md:pr-2"
@@ -88,8 +87,8 @@ function SidebarDropdown({ item, pathname }: { item: NavItem; pathname?: string 
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <div>
-      <div className="sticky -top-2 flex items-center justify-between bg-background py-2 pl-3">
+    <div className="pl-3">
+      <div className="flex items-center justify-between">
         <h3 className="rounded-md font-medium text-surface-900">{item.label}</h3>
 
         <Button
@@ -121,36 +120,52 @@ function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname
   }
 
   return (
-    <div>
+    <div className="mt-[9px]">
       {items.map((item, index) =>
         item.href && !item.disabled ? (
-          <Link
+          <span
             key={`${id}-${index}`}
-            className={cn(
-              "flex w-full items-center rounded-md px-3 py-1 !outline-0 transition-colors hover:bg-surface",
-              pathname === item.href
-                ? "font-medium text-purple-600"
-                : "text-surface-500 hover:text-surface-700",
-              item.disabled && "cursor-not-allowed opacity-60",
-              "focus-visible:bg-surface-50 focus-visible:text-surface-700"
-            )}
-            href={item.href}
-            rel={item.external ? "noreferrer" : ""}
-            target={item.external ? "_blank" : ""}
-            onClick={toggleSidebar}
+            className="relative [&>a]:first:after:top-4 [&>a]:last:after:bottom-4"
           >
-            {item.label}
-          </Link>
+            <Link
+              className={cn(
+                "flex w-full items-center rounded-md py-1 pl-9 pr-3 !outline-0 hover:bg-surface",
+                pathname === item.href
+                  ? "font-medium text-purple-600"
+                  : "text-gray-500 hover:text-slate-600",
+                item.disabled && "cursor-not-allowed opacity-60",
+                "focus-visible:bg-surface-50 focus-visible:text-slate-600",
+
+                // the line
+                "before:pointer-events-none",
+                "before:absolute before:left-[9px] before:top-1/2 before:z-10 before:h-[5px] before:w-[5px] before:-translate-y-1/2 before:rounded-full",
+                "after:absolute after:bottom-0 after:left-[11px] after:top-0 after:w-[1px] after:bg-gray-100 dark:after:bg-gray-800",
+                "before:bg-slate-300",
+                pathname === item.href && "before:bg-primary"
+              )}
+              href={item.href}
+              rel={item.external ? "noreferrer" : ""}
+              target={item.external ? "_blank" : ""}
+              onClick={toggleSidebar}
+            >
+              {item.label}
+            </Link>
+          </span>
         ) : (
           <span
             key={`${id}-${index}`}
             className={cn(
-              "flex w-full items-center justify-between rounded-md px-3 py-1 text-surface-500 !outline-0 transition-colors",
-              item.disabled && "opacity-60"
+              "relative flex w-full items-center justify-between rounded-md py-1 pl-9 pr-3 text-surface-500 !outline-0 transition-colors last:after:bottom-4",
+              item.disabled && "text-gray-400",
+              // the line
+              "before:pointer-events-none",
+              "before:absolute before:left-[9px] before:top-1/2 before:z-10 before:h-[5px] before:w-[5px] before:-translate-y-1/2 before:rounded-full",
+              "after:absolute after:bottom-0 after:left-[11px] after:top-0 after:w-[1px] after:bg-gray-100 dark:after:bg-gray-800",
+              "before:bg-slate-300"
             )}
           >
             <span>{item.label}</span>
-            <Badge color="gray" size="sm">
+            <Badge className="text-gray-500" shape="pill" color="gray" size="sm">
               In progress
             </Badge>
           </span>

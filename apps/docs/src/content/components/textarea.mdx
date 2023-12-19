@@ -1,8 +1,99 @@
 ---
 title: Textarea
-description: A form element for user text input, resembling a standard textarea field.
+description: UI element for multi-line text input, enabling users to enter data or information.
 links:
   source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Textarea/Textarea.tsx
 ---
 
-Documentation coming soon.
+<PreviewComponent name="textarea/preview" />
+
+### Usage
+
+```tsx
+import { Textarea } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Textarea />
+```
+
+### API Reference
+
+In addition to all the props defined as `TextareaHTMLAttributes<HTMLTextAreaElement>`, `Textarea` component also includes the following props:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the checkbox is disabled.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the checkbox is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Label of the checkbox.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "destructive",
+        description:
+          "Specifies whether this button has a destructive action. If set to `true`, the button will be styled differently to indicate that it will perform a destructive action.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "helperText",
+        description:
+          "Additional text or information to guide the user. It's rendered below textarea.",
+      },
+      {
+        value: "ReactNode",
+      },
+      {},
+    ],
+  ]}
+/>
+### Examples
+
+The example below is a `Textarea` component with placeholder text and 'Please describe the issue' as `helperText`. It features a `label` and is marked as required. It includes a `tooltip` for guidance and is styled with a `destructive` theme.
+
+<PreviewComponent name="textarea/example-1" />
+
+More examples:
+
+<PreviewComponent name="textarea/example-2" />

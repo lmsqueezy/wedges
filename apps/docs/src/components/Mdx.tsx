@@ -38,7 +38,7 @@ const components = {
   LinkCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(
-        "not-prose flex min-h-[140px] w-full flex-col items-center justify-center gap-4 rounded-xl border border-surface-100 bg-white p-6 text-surface-400 shadow-wg-xs outline-primary transition-colors hover:border-surface-200/70 hover:bg-surface-50/50 hover:text-surface-900 sm:p-10 [&>p]:text-center",
+        "not-prose flex min-h-[140px] w-full flex-col items-center justify-center gap-4 rounded-xl border border-surface-100 bg-white p-6 text-surface-400 shadow-wg-xs outline-primary transition-colors duration-75 hover:border-surface-200/70 hover:bg-surface-50/50 hover:text-surface-900 sm:p-10 [&>p]:text-center",
         className
       )}
       {...props}

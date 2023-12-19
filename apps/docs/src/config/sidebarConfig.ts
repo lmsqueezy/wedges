@@ -61,7 +61,7 @@ export const sidebarConfig: DocsConfig = {
       items: [
         {
           label: "Tailwind Plugin",
-          href: "/theming/",
+          href: "/theming/tailwind-css-plugin",
         },
         {
           label: "Colors",
@@ -135,10 +135,6 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Radio Group",
           href: "/components/radio-group",
-        },
-        {
-          label: "Select",
-          href: "components/select",
         },
         {
           label: "Switch",

@@ -16,10 +16,10 @@ export function Breadcrumbs({ path }: { path: string[] }) {
   }
 
   return (
-    <nav aria-label="Breadcrumbs" className="mb-6 flex text-sm text-surface-500">
+    <nav aria-label="Breadcrumbs" className="mb-6 flex text-sm leading-6 text-gray-500">
       <ol className="flex items-center space-x-0.5">
         <li className="truncate">
-          <a className="hover:underline" href={siteConfig.wedgesURL}>
+          <a className="hover:text-primary hover:underline" href={siteConfig.wedgesURL}>
             Wedges
           </a>
         </li>

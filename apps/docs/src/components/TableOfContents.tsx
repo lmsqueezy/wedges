@@ -33,8 +33,8 @@ export function TableOfContents({ items }: TOCItems) {
   }
 
   return (
-    <div className="sticky top-28 hidden space-y-2 self-start border-l border-surface-100 text-sm leading-6 xl:block">
-      <p className="-mt-2 px-4 py-2 font-medium text-surface-900">On this page</p>
+    <div className="sticky top-32 hidden space-y-4 self-start text-sm leading-6 xl:block">
+      <p className="font-medium text-surface-900">On this page</p>
       <Tree activeItemId={activeItemId ?? undefined} items={items} />
     </div>
   );
@@ -50,23 +50,24 @@ function Tree({ items, activeItemId, className, sub }: TreeProps) {
   const id = React.useId();
 
   if (!items) {
-    return <div>a</div>;
+    return null;
   }
 
   return (
-    <ul className={cn("m-0 list-none space-y-1 text-surface-500", sub && "pt-1", className)}>
+    <ul className={cn("m-0 list-none space-y-3 text-gray-500", sub && "mt-2", className)}>
       {items.map((item, index) => {
         return (
-          <li key={`${id}-${index}`} className="[&:has(.active)&_>a]:text-surface-900">
+          <li key={`${id}-${index}`} className="[&:has(.active)&_>a]:text-primary">
             <a
               className={cn(
-                "-ml-px flex w-full items-center border-l border-transparent px-4 py-0 !outline-0 transition-colors",
+                "-ml-px flex max-w-fit items-center border-l border-transparent outline-primary transition-colors",
                 " hover:text-surface-900",
-                item.url === `#${activeItemId}` && "active border-purple-600",
-                sub && "pl-6"
+                item.url === `#${activeItemId}` && "active",
+                sub && "ml-2"
               )}
               href={item.url}
             >
+              {sub ? "→ " : null}
               {item.title}
             </a>
 

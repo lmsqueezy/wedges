@@ -9,6 +9,7 @@ tests/*
 node_modules
 coverage
 .next
+next.config.js
 !.storybook
 /**/.storybook/**
 !.commitlintrc.cjs

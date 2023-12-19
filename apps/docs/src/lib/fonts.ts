@@ -1,10 +1,5 @@
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
-
-export const sansFont = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export const monoFont = JetBrains_Mono({
   subsets: ["latin"],
