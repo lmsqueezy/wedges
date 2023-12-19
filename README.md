@@ -1,18 +1,16 @@
 <p align="center">
   <a href="https://lemonsqueezy.com/wedges">
-      <img width="616" src="https://github.com/lmsqueezy/wedges/blob/83f630ac7f1fe807fa317b2bd2904536f774395d/apps/docs/public/images/banner.jpg" alt="Wedges UI library" />
+      <img width="100%" src="https://github.com/lmsqueezy/wedges/blob/c47d43f8c76271381e812a357628fe3d3b076f25/apps/docs/public/images/banner.webp" alt="Wedges UI library" />
   </a>
 </p>
-
-<p align="center">
-   An ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.
-<p>
 
 <p align="center">
   <a href="https://lemonsqueezy.com/wedges/docs"><strong>Get Started with Wedges &rarr;</strong></a>
 </p>
 
 # Wedges
+
+Wedges is an ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.
 
 With Wedges, you get a range of pre-built, customizable components that are easy to use and integrate into your React projects. It also comes with full TypeScript support, ensuring type safety and developer-friendly experience.
 
