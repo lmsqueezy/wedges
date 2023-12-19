@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { siteConfig } from "@/config/siteConfig";
-import { displayFont, monoFont, sansFont } from "@/lib/fonts";
+import { displayFont, monoFont } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
@@ -12,6 +12,7 @@ import "@/styles/globals.css";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lemonsqueezy.com/wedges/docs"),
   title: "Wedges Docs",
   description: siteConfig.siteDescription,
 };
@@ -22,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={cn(
           "min-h-screen-dvh font-sans antialiased [font-feature-settings:'ss01']",
-          sansFont.variable,
           displayFont.variable,
           monoFont.variable
         )}

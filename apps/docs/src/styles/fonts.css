@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-display: block;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("/wedges/docs/fonts/Inter-roman.var.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-weight: 100 900;
+  font-display: block;
+  font-style: italic;
+  font-named-instance: "Italic";
+  src: url("/wedges/docs/fonts/Inter-italic.var.woff2") format("woff2");
+}

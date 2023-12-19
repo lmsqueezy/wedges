@@ -8,7 +8,7 @@ import { lazy, type LazyExoticComponent } from "react";
 type Demo = {
   component: LazyExoticComponent<() => JSX.Element>;
   code: string;
-};
+}
 
 export const Demos: Record<string, Demo> = {
   "alert/example-1": {
@@ -1379,12 +1379,241 @@ export function Example() {
 }
 `,
   },
+  "dropdown-menu/example-1": {
+    component: lazy(() => import("@/examples/dropdown-menu/example-1.tsx")),
+    code: `import { DotsHorizontalIcon } from "@iconicicons/react";
+import { Button, DropdownMenu } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <DropdownMenu>
+      <DropdownMenu.Trigger asChild>
+        <Button isIconOnly size="sm" variant="tertiary">
+          <DotsHorizontalIcon />
+        </Button>
+      </DropdownMenu.Trigger>
+
+      <DropdownMenu.Content align="end" side="top">
+        <DropdownMenu.Group>
+          <DropdownMenu.Item>
+            <span>Bold</span>
+            <DropdownMenu.Shortcut keys={["command"]}>B</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item>
+            <span>Italic</span>
+            <DropdownMenu.Shortcut keys={["command"]}>I</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item>
+            <span>Underline</span>
+            <DropdownMenu.Shortcut keys={["command"]}>U</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item>
+            <span>Strikethrough</span>
+            <DropdownMenu.Shortcut keys={["command", "option"]}>X</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item>
+            <span>Create link</span>
+            <DropdownMenu.Shortcut keys={["command"]}>K</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+        </DropdownMenu.Group>
+
+        <DropdownMenu.Separator />
+
+        <DropdownMenu.Group>
+          <DropdownMenu.Item>
+            <span>Bulleted list</span>
+            <DropdownMenu.Shortcut keys={["shift", "command"]}>8</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item>
+            <span>Numbered list</span>
+            <DropdownMenu.Shortcut keys={["command"]}>7</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+        </DropdownMenu.Group>
+      </DropdownMenu.Content>
+    </DropdownMenu>
+  );
+}
+`,
+  },
+  "dropdown-menu/example-2": {
+    component: lazy(() => import("@/examples/dropdown-menu/example-2.tsx")),
+    code: `import { useState } from "react";
+import {
+  BellIcon,
+  BookIcon,
+  ChevronDownIcon,
+  HelpCircleIcon,
+  LockIcon,
+  LogOutIcon,
+  MoonIcon,
+  SettingsIcon,
+  UserIcon,
+} from "@iconicicons/react";
+import { Avatar, DropdownMenu, Switch } from "@lmsqueezy/wedges";
+
+export function Example() {
+  const [darkMode, setDarkMode] = useState(false);
+  return (
+    <div className="flex items-center justify-center">
+      <DropdownMenu>
+        <DropdownMenu.Trigger asChild>
+          <span className="group flex shrink cursor-pointer select-none items-center justify-center gap-1 rounded-lg p-1.5 px-2 text-sm text-surface-600 transition-colors duration-100 wg-antialiased hover:bg-surface dark:hover:bg-white/5">
+            <Avatar
+              size="xs"
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop&crop=face"
+              status="green"
+            />
+
+            <span className=" ms-2 flex flex-col">
+              <span className="font-medium">John Doe</span>
+            </span>
+
+            <ChevronDownIcon className="trigger-icon h-5 w-5 text-surface-400" />
+          </span>
+        </DropdownMenu.Trigger>
+
+        <DropdownMenu.Content align="center" className="min-w-[140px]">
+          <DropdownMenu.Group>
+            <DropdownMenu.Item>
+              <UserIcon />
+              <span>Account</span>
+            </DropdownMenu.Item>
+
+            <DropdownMenu.Item>
+              <SettingsIcon />
+              <span>Settings</span>
+            </DropdownMenu.Item>
+
+            <DropdownMenu.Item>
+              <LockIcon />
+              <span>Privacy</span>
+            </DropdownMenu.Item>
+
+            <DropdownMenu.Item>
+              <BellIcon />
+              <span>Notifications</span>
+            </DropdownMenu.Item>
+          </DropdownMenu.Group>
+
+          <DropdownMenu.Separator />
+
+          <DropdownMenu.Group>
+            <DropdownMenu.Item>
+              <BookIcon />
+              <span>Help Guide</span>
+            </DropdownMenu.Item>
+
+            <DropdownMenu.Item>
+              <HelpCircleIcon />
+              <span>Help Center</span>
+            </DropdownMenu.Item>
+          </DropdownMenu.Group>
+
+          <DropdownMenu.Separator />
+
+          <DropdownMenu.Group>
+            <DropdownMenu.Item
+              onSelect={(e) => {
+                e.preventDefault();
+                setDarkMode(!darkMode);
+              }}
+            >
+              <MoonIcon />
+              <span>Dark Mode</span>
+              <Switch checked={darkMode} className="pointer-events-none ml-2" />
+            </DropdownMenu.Item>
+          </DropdownMenu.Group>
+
+          <DropdownMenu.Separator />
+
+          <DropdownMenu.Group>
+            <DropdownMenu.Item>
+              <LogOutIcon />
+              <span>Log Out</span>
+            </DropdownMenu.Item>
+          </DropdownMenu.Group>
+        </DropdownMenu.Content>
+      </DropdownMenu>
+    </div>
+  );
+}
+`,
+  },
+  "dropdown-menu/preview": {
+    component: lazy(() => import("@/examples/dropdown-menu/preview.tsx")),
+    code: `import { DownloadIcon, EyeOffIcon, MailIcon, PinIcon, RedoIcon } from "@iconicicons/react";
+import { Button, DropdownMenu } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <DropdownMenu>
+      <DropdownMenu.Trigger asChild>
+        <Button>Open Menu</Button>
+      </DropdownMenu.Trigger>
+
+      <DropdownMenu.Content>
+        <DropdownMenu.Group>
+          <DropdownMenu.Item disabled>
+            <RedoIcon />
+            <span>Reply</span>
+            <DropdownMenu.Shortcut keys={["option"]}>R</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item>
+            <PinIcon />
+            <span>Pin</span>
+            <DropdownMenu.Shortcut keys={["option"]}>P</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+        </DropdownMenu.Group>
+
+        <DropdownMenu.Separator />
+
+        <DropdownMenu.Group>
+          <DropdownMenu.Item>
+            <DownloadIcon />
+            <span>Save this message</span>
+            <DropdownMenu.Shortcut keys={["command"]}>S</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item>
+            <EyeOffIcon />
+            <span>Mark as unread</span>
+            <DropdownMenu.Shortcut keys={["command", "option"]}>U</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+
+          <DropdownMenu.Item>
+            <MailIcon />
+            <span>Share via email</span>
+            <DropdownMenu.Shortcut keys={["command"]}>U</DropdownMenu.Shortcut>
+          </DropdownMenu.Item>
+        </DropdownMenu.Group>
+      </DropdownMenu.Content>
+    </DropdownMenu>
+  );
+}
+`,
+  },
   "input/preview": {
     component: lazy(() => import("@/examples/input/preview.tsx")),
     code: `import { Input } from "@lmsqueezy/wedges";
 
 export function Example() {
-  return <Input placeholder="Type here..." />;
+  return (
+    <div className="m-auto max-w-sm text-left">
+      <Input
+        required
+        label="Label"
+        description="(description)"
+        placeholder="Placeholder"
+        helperText="Helper text"
+      />
+    </div>
+  );
 }
 `,
   },
@@ -2460,6 +2689,128 @@ export function Example() {
     >
       Tag
     </Tag>
+  );
+}
+`,
+  },
+  "textarea/example-1": {
+    component: lazy(() => import("@/examples/textarea/example-1.tsx")),
+    code: `import { Textarea } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto max-w-sm text-left">
+      <Textarea
+        destructive
+        required
+        description="(description)"
+        helperText="Helper text"
+        label="Label"
+        placeholder="Placeholder"
+        tooltip="Tooltip example"
+        className="max-h-64"
+      />
+    </div>
+  );
+}
+`,
+  },
+  "textarea/example-2": {
+    component: lazy(() => import("@/examples/textarea/example-2.tsx")),
+    code: `import { Textarea } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto flex max-w-sm flex-col gap-10 text-left">
+      <Textarea
+        className="resize-none"
+        placeholder="Placeholder"
+        label="Label"
+        tooltip="Hello world"
+        value="Value in disabled state"
+        disabled
+      />
+
+      <Textarea
+        className="resize-none"
+        description="(description)"
+        helperText="Helper text"
+        label="Label"
+      />
+    </div>
+  );
+}
+`,
+  },
+  "textarea/preview": {
+    component: lazy(() => import("@/examples/textarea/preview.tsx")),
+    code: `import { Textarea } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="m-auto max-w-sm text-left">
+      <Textarea label="Label" placeholder="Placeholder" />
+    </div>
+  );
+}
+`,
+  },
+  "theming/custom-themes": {
+    component: lazy(() => import("@/examples/theming/custom-themes.tsx")),
+    code: `import { Button } from "@lmsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="dark-blue mx-auto flex max-w-xs justify-center rounded-lg bg-background p-10 text-foreground">
+      <Button variant="primary">Primary Button</Button>
+    </div>
+  );
+}
+`,
+  },
+  "theming/dark-mode": {
+    component: lazy(() => import("@/examples/theming/dark-mode.tsx")),
+    code: `import * as React from "react";
+import { MoonIcon, SunIcon } from "@iconicicons/react";
+import { Button, Switch, Toggle, ToggleGroup, Tooltip } from "@lmsqueezy/wedges";
+
+export function Example() {
+  /** In your app, you can use a hook, such as \`useTheme\` or a similar way to access
+   *  the current theme and a setter function to change the theme.
+   */
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
+
+  return (
+    <div className="m-auto flex w-fit flex-col items-center gap-8 text-left">
+      {/* Example 1 */}
+      <Tooltip
+        sideOffset={8}
+        content={\`Click to switch to the ${
+          typeof theme !== "undefined" && theme === "dark" ? "light" : "dark"
+        } theme\`}
+      >
+        <Button
+          variant="transparent"
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          isIconOnly
+        >
+          {theme === "light" ? <SunIcon /> : <MoonIcon />}
+        </Button>
+      </Tooltip>
+
+      {/* Example 2 */}
+      <ToggleGroup size="sm" type="single" defaultValue="light">
+        <ToggleGroup.Item value="light">Light</ToggleGroup.Item>
+        <ToggleGroup.Item value="dark">Dark</ToggleGroup.Item>
+        <ToggleGroup.Item value="System">System</ToggleGroup.Item>
+      </ToggleGroup>
+
+      {/* Example 3 */}
+      <Toggle shape="pill">Dark theme</Toggle>
+
+      {/* Example 4 */}
+      <Switch label="Dark theme" />
+    </div>
   );
 }
 `,

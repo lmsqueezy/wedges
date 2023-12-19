@@ -1,8 +1,101 @@
 ---
 title: Dropdown Menu
-description: Provides a menu interface with a selection of actions or options, accessible through a trigger, usually a button.
+description: Displays a dropdown list of options or actions to the user, activated through a button.
 links:
-  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/DropdownMenu/DropdownMenu.tsx
+  source: https://github.com/lmsqueezy/wedges/tree/main/packages/wedges/src/components/DropdownMenu/DropdownMenu.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/dropdown-menu
 ---
 
-Documentation coming soon.
+<PreviewComponent name="dropdown-menu/preview" />
+
+### Usage
+
+```tsx
+import { DropdDown } from "@lmsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<DropdownMenu>
+	<DropdownMenu.Trigger asChild>
+		<Button>Open Menu</Button>
+	</DropdownMenu.Trigger>
+	<DropdownMenu.Content>
+		<DropdownMenu.Group>
+			<DropdownMenu.Item>MenuItem</DropdownMenu.Item>
+			<DropdownMenu.Item>MenuItem</DropdownMenu.Item>
+		</DropdownMenu.Group>
+		<DropdownMenu.Separator />
+		<DropdownMenu.Group>
+			<DropdownMenu.Item>MenuItem</DropdownMenu.Item>
+			<DropdownMenu.Item>MenuItem</DropdownMenu.Item>
+		</DropdownMenu.Group>
+	</DropdownMenu.Content>
+</DropdownMenu>
+```
+
+### API Reference
+
+#### DropdownMenu
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#root" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Root</a> primitive.
+
+#### DropdownMenu.Trigger
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#trigger" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Trigger</a> primitive.
+
+#### DropdownMenu.Portal
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#portal" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Portal</a> primitive.
+
+#### DropdownMenu.Content
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#content" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Content</a> primitive with custom configuration.
+
+#### DropdownMenu.Item
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#item" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Item</a> primitive with custom configuration.
+
+#### DropdownMenu.Group
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#group" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Group</a> primitive.
+
+#### DropdownMenu.Label
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#label" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Label</a> primitive with custom styling.
+
+#### DropdownMenu.CheckboxItem
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#checkboxitem" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Checkbox Item</a> primitive with custom configuration.
+
+#### DropdownMenu.RadioGroup
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#radiogroup" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Radio Group</a> primitive.
+
+#### DropdownMenu.RadioItem
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#radioitem" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Radio Item</a> primitive with custom configuration.
+
+#### DropdownMenu.Separator
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#separator" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Radio Separator</a> primitive with custom styling.
+
+#### DropdownMenu.Sub
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#sub" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu Sub</a> primitive with custom configuration.
+
+#### DropdownMenu.SubTrigger
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#subtrigger" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu SubTrigger</a> primitive with custom configuration.
+
+#### DropdownMenu.SubContent
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#subcontent" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu SubContent</a> primitive with custom configuration.
+
+### Accessibility
+
+The `DropdownMenu` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu#accessibility" target="_blank" rel='nofollow noreferrer'>Radix Dropdown Menu</a> primitive.
+
+### Examples
+
+<PreviewComponent name="dropdown-menu/example-1" />
+<PreviewComponent name="dropdown-menu/example-2" />

@@ -32,22 +32,13 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/components",
-        destination: "/components/alert",
+        source: "/installation",
+        destination: "/installation/nextjs",
         permanent: true,
       },
       {
-        source: "/docs/components",
-        destination: "/components/alert",
-        permanent: true,
-      },
-    ];
-  },
-  redirects() {
-    return [
-      {
-        source: "/getting-started",
-        destination: "/",
+        source: "/theming",
+        destination: "/theming/tailwind-css-plugin",
         permanent: true,
       },
       {

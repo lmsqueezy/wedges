@@ -35,7 +35,10 @@ const Toggle = React.forwardRef<ToggleElement, ToggleProps>(
           after={after}
           asChild={asChild}
           before={before}
-          className={cn("data-[state=on]:bg-surface-50", className)}
+          className={cn(
+            "font-normal data-[state=on]:bg-surface-50 data-[state=on]:font-medium",
+            className
+          )}
           disabled={disabled}
           isIconOnly={isIconOnly}
           ref={ref}

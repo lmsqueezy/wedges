@@ -23,7 +23,7 @@ export function BreadcrumbsItem({
 
   if (!isLast && href && href !== pathname) {
     wrappedLabel = (
-      <Link className="hover:underline" href={href}>
+      <Link className="hover:text-primary hover:underline" href={href}>
         {wrappedLabel}
       </Link>
     );
@@ -32,9 +32,9 @@ export function BreadcrumbsItem({
   return (
     <li
       aria-current={isLast ? "page" : undefined}
-      className="flex items-center space-x-0.5 last-of-type:font-medium last-of-type:text-surface-900"
+      className="flex items-center space-x-0.5 last-of-type:font-medium last-of-type:text-primary"
     >
-      <ChevronRightIcon aria-hidden={true} className="h-5 w-5 text-surface-500" />
+      <ChevronRightIcon aria-hidden={true} className="h-5 w-5 text-gray-400" />
       {wrappedLabel}
     </li>
   );

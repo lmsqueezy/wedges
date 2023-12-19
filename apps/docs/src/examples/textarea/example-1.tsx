@@ -1,14 +1,17 @@
-import { Input } from "@lmsqueezy/wedges";
+import { Textarea } from "@lmsqueezy/wedges";
 
 export default function Example() {
   return (
     <div className="m-auto max-w-sm text-left">
-      <Input
+      <Textarea
+        destructive
         required
-        label="Label"
         description="(description)"
-        placeholder="Placeholder"
         helperText="Helper text"
+        label="Label"
+        placeholder="Placeholder"
+        tooltip="Tooltip example"
+        className="max-h-64"
       />
     </div>
   );

@@ -61,23 +61,23 @@ export const sidebarConfig: DocsConfig = {
       items: [
         {
           label: "Tailwind Plugin",
-          href: "/theming/",
+          href: "/theming/tailwind-css-plugin",
         },
         {
-          label: "Colors",
-          href: "/theming/colors",
+          label: "Color System",
+          href: "/theming/color-system",
         },
         {
-          label: "Typography",
-          href: "/theming/typography",
-        },
-        {
-          label: "Dark Mode",
-          href: "/theming/dark-mode",
+          label: "Default Themes",
+          href: "/theming/default-themes",
         },
         {
           label: "Custom Themes",
           href: "/theming/custom-themes",
+        },
+        {
+          label: "Additional Utilities",
+          href: "/theming/additional-utilities",
         },
       ],
     },
@@ -135,10 +135,6 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Radio Group",
           href: "/components/radio-group",
-        },
-        {
-          label: "Select",
-          href: "components/select",
         },
         {
           label: "Switch",

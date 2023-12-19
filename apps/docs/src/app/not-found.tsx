@@ -3,18 +3,17 @@ import { HomeIcon } from "@iconicicons/react";
 import { Button } from "@lmsqueezy/wedges";
 
 import { Logomark } from "@/components/Logo";
-import { SearchButton } from "@/components/Search";
 
 export default function NotFound() {
   return (
-    <div className="pb-24">
+    <div className="mx-auto flex max-w-fit flex-col">
       <Logomark className="mt-[7px]" />
 
-      <h2 className="font-display mb-6 mt-10 text-4xl tracking-tight text-wg-gray-900 [text-wrap:balance]">
+      <h2 className="font-display mb-6 mt-16 text-4xl tracking-tight text-wg-gray-900 [text-wrap:balance]">
         Sorry, page not found
       </h2>
 
-      <p className="max-w-[400px] text-base text-surface-600 lg:text-lg">
+      <p className="max-w-[400px] text-base text-gray-500 lg:text-lg">
         The content you are looking for either does not exist or has been moved.
       </p>
 
@@ -31,7 +30,7 @@ export default function NotFound() {
           </Link>
         </Button>
 
-        <SearchButton />
+        {/* <SearchButton /> */}
       </div>
     </div>
   );
