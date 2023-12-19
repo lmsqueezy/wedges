@@ -22,7 +22,7 @@ export const tabListVariants = cva("", {
   },
 });
 
-export const tabVariants = cva("leading-6", {
+export const tabVariants = cva("leading-6 data-[state=active]:font-medium", {
   variants: {
     variant: {
       fill: [

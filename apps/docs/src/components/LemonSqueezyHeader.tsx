@@ -199,7 +199,7 @@ function ResourcesDropdown({ caseStudy, blog }: { caseStudy: WebflowData; blog: 
     <div className="container">
       <div className="grid grid-cols-3">
         {/* ----------------------------- Helpful Links ----------------------------- */}
-        <Navigation.DropdownColumn className="-ml-6 pl-0">
+        <Navigation.DropdownColumn className="-ml-4 pl-0">
           <Navigation.DropdownTitle label="Helpful Links" id="dropdown-menu__helpful-links" />
 
           {links.map(({ label, description, href }, index) => (
@@ -340,7 +340,7 @@ function PlatformDropdown() {
     <div className="container">
       <div className="grid grid-cols-3">
         {/* ----------------------------- Ecommerce ----------------------------- */}
-        <Navigation.DropdownColumn className="-ml-6 pl-0">
+        <Navigation.DropdownColumn className="-ml-4 pl-0">
           <Navigation.DropdownTitle label="eCommerce" id="dropdown-menu__ecommerce" />
 
           {links.ecommerce?.map(({ label, description, href }, index) => (

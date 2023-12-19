@@ -13,7 +13,7 @@ export default function NotFound() {
         Sorry, page not found
       </h2>
 
-      <p className="max-w-[400px] text-base text-surface-600 lg:text-lg">
+      <p className="max-w-[400px] text-base text-gray-500 lg:text-lg">
         The content you are looking for either does not exist or has been moved.
       </p>
 

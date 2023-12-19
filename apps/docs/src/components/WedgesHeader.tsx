@@ -46,6 +46,8 @@ export default function WedgesHeader() {
           >
             <Navigation.Item href={siteConfig.wedgesURL}>React</Navigation.Item>
 
+            <Navigation.Item href={siteConfig.wedgesURL + "/figma"}>Figma</Navigation.Item>
+
             <Navigation.Item asChild active={!pathname.includes("/components")}>
               <Link href="/">Docs</Link>
             </Navigation.Item>
@@ -57,8 +59,6 @@ export default function WedgesHeader() {
             >
               <Link href="/components">Components</Link>
             </Navigation.Item>
-
-            <Navigation.Item href={siteConfig.wedgesURL + "/figma"}>Figma</Navigation.Item>
           </Navigation>
 
           <Navigation aria-label="Social Links" className="hidden justify-self-end md:flex">
