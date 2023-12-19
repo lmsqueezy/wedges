@@ -12,7 +12,7 @@ import "@/styles/globals.css";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lemonsqueezy.com/wedges/docs"),
+  metadataBase: new URL("https://lemonsqueezy.com/"),
   title: "Wedges Docs",
   description: siteConfig.siteDescription,
 };
