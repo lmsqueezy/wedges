@@ -1,6 +1,18 @@
-# Wedges
+<p align="center">
+  <a href="https://lemonsqueezy.com/wedges">
+      <img width="616" src="https://github.com/lmsqueezy/wedges/blob/83f630ac7f1fe807fa317b2bd2904536f774395d/apps/docs/public/images/banner.jpg" alt="Wedges UI library" />
+  </a>
+</p>
 
-Wedges is a professionally designed <a href="https://lemonsqueezy.com/wedges/figma/" target="_blank">design system for Figma</a> and an ever-expanding, open-source React UI library that combines <a href="https://www.radix-ui.com/primitives" target="_blank" rel="noopener noreferrer">Radix UI primitives</a> and <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer">Tailwind CSS</a>. Its goal is to simplify the process of building beautiful, functional and accessible user interfaces.
+<p align="center">
+   An ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.
+<p>
+
+<p align="center">
+  <a href="https://lemonsqueezy.com/wedges/docs"><strong>Get Started with Wedges &rarr;</strong></a>
+</p>
+
+# Wedges
 
 With Wedges, you get a range of pre-built, customizable components that are easy to use and integrate into your React projects. It also comes with full TypeScript support, ensuring type safety and developer-friendly experience.
 
@@ -18,11 +30,13 @@ This repository is organized as a monorepo (Turborepo) and is managed with <a hr
 
 ## Packages
 
-- [@lmsqueezy/wedges/](./packages/wedges) - This is the heart of our project – the UI library itself. Here you'll find all the components, utilities, and core functionality of the Wedges UI library.
+- [packages/wedges](./packages/wedges) - This is the heart of our project – the UI library itself. Here you'll find all the components, utilities, and core functionality of the Wedges UI library.
+
+- [packages/eslint-config](./packages/eslint-config/) - This package contains the ESLint configuration used by packages and apps in this monorepo.
 
 ## Apps
 
-- [docs](./apps/docs) - Contains the NextJS documentation site for the Wedges UI library. This is where we maintain the documentation, examples, and guides for using the library.
+- [apps/docs](./apps/docs) - Contains the Next.js documentation site for the Wedges UI library. This is where we maintain the documentation, examples, and guides for using the library.
 
 ## Development
 
