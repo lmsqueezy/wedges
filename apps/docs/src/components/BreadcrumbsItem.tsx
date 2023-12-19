@@ -32,7 +32,7 @@ export function BreadcrumbsItem({
   return (
     <li
       aria-current={isLast ? "page" : undefined}
-      className="flex items-center space-x-0.5 last-of-type:text-gray-800"
+      className="flex items-center space-x-0.5 last-of-type:font-medium last-of-type:text-primary"
     >
       <ChevronRightIcon aria-hidden={true} className="h-5 w-5 text-gray-400" />
       {wrappedLabel}

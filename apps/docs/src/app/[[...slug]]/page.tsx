@@ -6,7 +6,6 @@ import { allDocs, type LinkProperties } from "contentlayer/generated";
 
 import { siteConfig } from "@/config/siteConfig";
 import { getTableOfContents } from "@/lib/toc";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EditPageLink } from "@/components/EditPageLink";
 import { GithubIcon, RadixIcon, StackBlitzIcon } from "@/components/Icons";
 import { Mdx } from "@/components/Mdx";
@@ -35,7 +34,7 @@ export default async function DocPage({ params }: DocPageProps) {
 
   const title = doc.title;
   const description = doc.description;
-  const breadcrumbs = doc.breadcrumbs ?? [];
+  //   const breadcrumbs = doc.breadcrumbs ?? [];
   const links = doc.links ?? undefined;
   const showTOC = doc.toc !== false && toc?.items?.length;
 
@@ -44,7 +43,8 @@ export default async function DocPage({ params }: DocPageProps) {
       <PreloadResources />
 
       <div className="mx-auto w-full min-w-0">
-        <Breadcrumbs path={breadcrumbs} />
+        {/* <Breadcrumbs path={breadcrumbs} /> */}
+
         <div className="mb-10 space-y-3">
           <h2 className="font-display text-4xl tracking-tight text-surface-900">{title}</h2>
 
