@@ -45,7 +45,7 @@ export default function LemonSqueezyHeader({
 
   return (
     <header className="[&_a]:duration-180 relative border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors">
-      <div className="container flex min-h-[88px] items-center justify-start gap-6 md:grid-cols-[1fr_auto_1fr] lg:grid">
+      <div className="container flex min-h-[89px] items-center justify-start gap-6 md:grid-cols-[1fr_auto_1fr] lg:grid">
         <a
           aria-label="Lemon Squeezy home page"
           className={cn(focusClasses, "outline-white")}
