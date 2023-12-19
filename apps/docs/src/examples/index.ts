@@ -1603,7 +1603,17 @@ export function Example() {
     code: `import { Input } from "@lmsqueezy/wedges";
 
 export function Example() {
-  return <Input placeholder="Type here..." />;
+  return (
+    <div className="m-auto max-w-sm text-left">
+      <Input
+        required
+        label="Label"
+        description="(description)"
+        placeholder="Placeholder"
+        helperText="Helper text"
+      />
+    </div>
+  );
 }
 `,
   },
@@ -2689,14 +2699,18 @@ export function Example() {
 
 export function Example() {
   return (
-    <Textarea
-      placeholder="Your message"
-      helperText="Please describe the issue"
-      label="Hello world"
-      required
-      tooltip="Hello world"
-      destructive
-    />
+    <div className="m-auto max-w-sm text-left">
+      <Textarea
+        destructive
+        required
+        description="(description)"
+        helperText="Helper text"
+        label="Label"
+        placeholder="Placeholder"
+        tooltip="Tooltip example"
+        className="max-h-64"
+      />
+    </div>
   );
 }
 `,
@@ -2707,22 +2721,21 @@ export function Example() {
 
 export function Example() {
   return (
-    <div className="flex flex-col gap-12">
+    <div className="m-auto flex max-w-sm flex-col gap-10 text-left">
       <Textarea
         className="resize-none"
-        placeholder="Your message"
-        label="Your Message"
-        required
+        placeholder="Placeholder"
+        label="Label"
         tooltip="Hello world"
-        value="Custom value in disabled state"
+        value="Value in disabled state"
         disabled
       />
 
       <Textarea
         className="resize-none"
-        description="(optional)"
-        helperText="Please describe the issue"
-        label="Message"
+        description="(description)"
+        helperText="Helper text"
+        label="Label"
       />
     </div>
   );
@@ -2734,7 +2747,11 @@ export function Example() {
     code: `import { Textarea } from "@lmsqueezy/wedges";
 
 export function Example() {
-  return <Textarea placeholder="Enter your text here..." />;
+  return (
+    <div className="m-auto max-w-sm text-left">
+      <Textarea label="Label" placeholder="Placeholder" />
+    </div>
+  );
 }
 `,
   },
