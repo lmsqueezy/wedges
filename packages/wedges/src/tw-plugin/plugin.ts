@@ -256,7 +256,7 @@ const corePlugin = (
             fadeInUp: {
               "0%": {
                 opacity: "0",
-                transform: "translateY(5px) scale(.98)",
+                transform: "translateY(5px) scale(.97)",
               },
               "100%": {
                 opacity: "1",
@@ -266,7 +266,7 @@ const corePlugin = (
             fadeInDown: {
               "0%": {
                 opacity: "0",
-                transform: "translateY(-5px) scale(.98)",
+                transform: "translateY(-5px) scale(.97)",
               },
               "100%": {
                 opacity: "1",
@@ -276,7 +276,7 @@ const corePlugin = (
             fadeInLeft: {
               "0%": {
                 opacity: "0",
-                transform: "translateX(5px) scale(.98)",
+                transform: "translateX(5px) scale(.97)",
               },
               "100%": {
                 opacity: "1",
@@ -286,7 +286,7 @@ const corePlugin = (
             fadeInRight: {
               "0%": {
                 opacity: "0",
-                transform: "translateX(-5px) scale(.98)",
+                transform: "translateX(-5px) scale(.97)",
               },
               "100%": {
                 opacity: "1",
@@ -300,7 +300,7 @@ const corePlugin = (
               },
               "100%": {
                 opacity: "0",
-                transform: "scale(.98)",
+                transform: "scale(.97)",
               },
             },
           },

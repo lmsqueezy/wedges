@@ -68,16 +68,16 @@ export const sidebarConfig: DocsConfig = {
           href: "/theming/colors",
         },
         {
-          label: "Typography",
-          href: "/theming/typography",
-        },
-        {
           label: "Dark Mode",
           href: "/theming/dark-mode",
         },
         {
           label: "Custom Themes",
           href: "/theming/custom-themes",
+        },
+        {
+          label: "Additional Utilities",
+          href: "/theming/additional-utilities",
         },
       ],
     },
