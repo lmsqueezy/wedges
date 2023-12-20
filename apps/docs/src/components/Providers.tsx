@@ -1,12 +1,12 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 type SidebarProps = {
   isSidebarOpen: boolean;
   isSearchOpen: boolean;
   toggleSidebar: () => void;
-  toggleSearch: () => void;
+  toggleSearch: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const SidebarContext = createContext<SidebarProps>({
