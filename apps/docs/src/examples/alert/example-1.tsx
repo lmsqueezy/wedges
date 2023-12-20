@@ -1,4 +1,4 @@
-import { Alert, Button } from "@lmsqueezy/wedges";
+import { Alert, Button } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

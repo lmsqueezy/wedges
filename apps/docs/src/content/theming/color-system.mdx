@@ -150,7 +150,7 @@ type ColorScale = {
 for example:
 
 ```tsx showLineNumbers
-import type { ColorScale } from "@lmsqueezy/wedges";
+import type { ColorScale } from "@lemonsqueezy/wedges";
 
 const wg_blue: ColorScale = {
   50: "#F0FAFF",
@@ -294,7 +294,7 @@ For optimal results, we suggest creating a ten-step graded color scale for your 
 Themable colors can be customized by adding options to the `wedgesTW` plugin in your `tailwind.config.ts` file. For instance, to use yellow as the primary color for **dark theme only**, you can set it like this:"
 
 ```tsx {} title="tailwind.config.ts" showLineNumbers
-import { wedgesTW } from "@lmsqueezy/wedges";
+import { wedgesTW } from "@lemonsqueezy/wedges";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -332,10 +332,10 @@ const config: Config = {
 export default config;
 ```
 
-If you want to use one of the Wedges Color Palette colors, `wedgesPalette` can be imported from `@lmsqueezy/wedges`, for example:
+If you want to use one of the Wedges Color Palette colors, `wedgesPalette` can be imported from `@lemonsqueezy/wedges`, for example:
 
 ```tsx {11} title="tailwind.config.ts" showLineNumbers /wedgesPalette/
-import { wedgesPalette, wedgesTW } from "@lmsqueezy/wedges";
+import { wedgesPalette, wedgesTW } from "@lemonsqueezy/wedges";
 import type { Config } from "tailwindcss";
 
 const config: Config = {

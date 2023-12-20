@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HomeIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
+import { Button } from "@lemonsqueezy/wedges";
 
 import { Logomark } from "@/components/Logo";
 

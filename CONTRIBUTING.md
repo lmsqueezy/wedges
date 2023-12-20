@@ -12,7 +12,7 @@ It is structured as a [Turborepo](https://turbo.build/repo) monorepo and it cont
    This is the heart of our project – the UI library itself. Here you'll find all the components, utilities, TailwindCSS plugin and core functionality of the Wedges UI library.
 
 2. **apps/docs**:
-   Contains the NextJS documentation site for the Wedges UI library. This is where we maintain the documentation, examples, and guides for using the library.
+   Contains the Next.js documentation site for the Wedges UI library. This is where we maintain the documentation, examples, and guides for using the library.
 
 ## Tooling and Technologies
 
@@ -56,7 +56,7 @@ Your commits should fall into one of the following categories:
 
 - `chore`: General maintenance and organizational tasks that don't fit other categories.
 
-For example, a commit message might look like: `feat(components): introduce new styles to Button`.
+For example, a commit message might look like: `feat(components): introduce new Button styles`.
 
 ## Pull Request Guidelines
 
@@ -68,9 +68,9 @@ For example, a commit message might look like: `feat(components): introduce new 
 
 ### Checks and Tests
 
-- Ensure GitHub Actions pass before submitting your PR.
+- Ensure GitHub Actions pass before submitting your PR. Run `pnpm lint` and `pnpm format` before pushing your branch.
 
-- Add tests for new features or bug fixes.
+- Ideally add tests for new features or bug fixes.
 
 ### Commits in PRs
 
@@ -110,7 +110,7 @@ Remember, clear and detailed PRs help us efficiently review and integrate your c
 
 2. **Branching**: Create a new branch off `main` using the format `[type/scope]`, like `feat/button-enhancement` or `docs/update-readme`. The `type` should align with conventional commit types.
 
-3. **Development**: Make your changes and commit them adhering to the [commit guidelines](#commit-convention). Use `pnpm build --filter=<module>` to test your changes.
+3. **Development**: Make your changes and commit them adhering to the [commit guidelines](#commit-convention). Use `pnpm build` to test your changes.
 
 4. **Document Changes**: Run `pnpm changeset` for a detailed change description. For minor updates (like CI changes), use `pnpm changeset add --empty`.
 
@@ -129,7 +129,7 @@ Remember, clear and detailed PRs help us efficiently review and integrate your c
 
 ### Available pnpm Commands
 
-- `pnpm dev`: Starts the NextJS development server for the documentation site and tsup in development mode for the library.
+- `pnpm dev`: Starts the Next.js development server for the documentation site and tsup in development mode for the library.
 
 - `pnpm build`: Creates production builds of the library and documentation site. It also runs linting checks.
 

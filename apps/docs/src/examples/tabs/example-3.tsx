@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ArrowDownRightIcon, ArrowUpRightIcon } from "@iconicicons/react";
-import { Badge, Tabs } from "@lmsqueezy/wedges";
+import { Badge, Tabs } from "@lemonsqueezy/wedges";
 
 function IconUS() {
   return (

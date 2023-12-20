@@ -1,5 +1,5 @@
-import { wedgesTW } from "@lmsqueezy/wedges";
-import type { ThemableColorScale } from "@lmsqueezy/wedges/src/tw-plugin/foundation/colors/themableColors";
+import { wedgesTW } from "@lemonsqueezy/wedges";
+import type { ThemableColorScale } from "@lemonsqueezy/wedges/src/tw-plugin/foundation/colors/themableColors";
 import tailwindTypography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 
@@ -25,7 +25,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
 
     // This is required in order to include Tailwind classes from Wedges.
-    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+    "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {

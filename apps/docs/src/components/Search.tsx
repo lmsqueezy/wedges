@@ -12,7 +12,7 @@ import Link from "next/link";
 import Router from "next/router";
 import { DocSearchModal, useDocSearchKeyboardEvents } from "@docsearch/react";
 import { SearchIcon } from "@iconicicons/react";
-import { Button, Kbd } from "@lmsqueezy/wedges";
+import { Button, Kbd } from "@lemonsqueezy/wedges";
 import { createPortal } from "react-dom";
 
 import { cn } from "@/lib/utils";

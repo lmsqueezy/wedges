@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDownIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
+import { Button } from "@lemonsqueezy/wedges";
 
 import { siteConfig } from "@/config/siteConfig";
 import { focusClasses } from "@/lib/a11y";
@@ -52,7 +52,7 @@ export default function LemonSqueezyHeader({
           href={siteConfig.lemonSqueezyURL}
         >
           <Logomark className="lg:hidden" />
-          <Logo className="hidden w-auto fill-slate-700 dark:fill-sky-100 lg:block" />
+          <Logo className="hidden w-auto fill-slate-700 lg:block dark:fill-sky-100" />
         </a>
 
         <Navigation aria-label="Main Nav" className="hidden self-stretch md:flex">

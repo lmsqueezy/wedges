@@ -1,4 +1,4 @@
-import { SwitchGroup } from "@lmsqueezy/wedges";
+import { SwitchGroup } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

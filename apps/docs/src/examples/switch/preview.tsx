@@ -1,4 +1,4 @@
-import { Switch } from "@lmsqueezy/wedges";
+import { Switch } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronUpIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
+import { Button } from "@lemonsqueezy/wedges";
 
 import { GithubIcon } from "./Icons";
 

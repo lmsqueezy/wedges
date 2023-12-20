@@ -32,7 +32,7 @@ More information can be found in the <a href="https://remix.run/docs/en/main/sta
     <Tabs.Content value="pnpm">
 
 ```bash
-pnpm add @lmsqueezy/wedges
+pnpm add @lemonsqueezy/wedges
 ```
 
     </Tabs.Content>
@@ -40,7 +40,7 @@ pnpm add @lmsqueezy/wedges
     <Tabs.Content value="npm">
 
 ```bash
-npm i @lmsqueezy/wedges
+npm i @lemonsqueezy/wedges
 ```
 
     </Tabs.Content>
@@ -48,7 +48,7 @@ npm i @lmsqueezy/wedges
     <Tabs.Content value="yarn">
 
 ```bash
-yarn add @lmsqueezy/wedges
+yarn add @lemonsqueezy/wedges
 ```
 
     </Tabs.Content>
@@ -123,12 +123,12 @@ Update your `tailwind.config.ts` file to add the necessary configuration for Wed
 
 ```tsx {2,7,12-13} title="tailwind.config.js" showLineNumbers
 import type { Config } from 'tailwindcss'
-import { wedgesTW } from '@lmsqueezy/wedges'
+import { wedgesTW } from '@lemonsqueezy/wedges'
 
 export default {
   content: [
     './app/**/*.{js,jsx,ts,tsx}'
-    'node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}'
+    'node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}'
 ],
   theme: {
     extend: {},
@@ -194,7 +194,7 @@ export const links: LinksFunction = () => [
 You can now start using the components in your application.
 
 ```tsx {1,4} showLineNumbers
-import { Alert } from "@lmsqueezy/wedges";
+import { Alert } from "@lemonsqueezy/wedges";
 
 export default function Index() {
   return <Alert>You're awesome!</Alert>;
