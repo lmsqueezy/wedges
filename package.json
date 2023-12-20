@@ -16,9 +16,15 @@
     "lint:fix": "turbo run lint:fix",
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest --passWithNoTests",
     "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage --passWithNoTests",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "version": "changeset version",
+    "version:dev": "changeset version --snapshop --no-git-tag --tag dev",
+    "release": "pnpm build && changeset publish",
+    "release:dev": "changeset publish --snapshot --no-git-tag --tag dev",
+    "turbo:graph": "pnpm build --graph=dependency-graph.png"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
