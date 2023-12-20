@@ -12,7 +12,7 @@ It is structured as a [Turborepo](https://turbo.build/repo) monorepo and it cont
    This is the heart of our project – the UI library itself. Here you'll find all the components, utilities, TailwindCSS plugin and core functionality of the Wedges UI library.
 
 2. **apps/docs**:
-   Contains the NextJS documentation site for the Wedges UI library. This is where we maintain the documentation, examples, and guides for using the library.
+   Contains the Next.js documentation site for the Wedges UI library. This is where we maintain the documentation, examples, and guides for using the library.
 
 ## Tooling and Technologies
 
@@ -129,7 +129,7 @@ Remember, clear and detailed PRs help us efficiently review and integrate your c
 
 ### Available pnpm Commands
 
-- `pnpm dev`: Starts the NextJS development server for the documentation site and tsup in development mode for the library.
+- `pnpm dev`: Starts the Next.js development server for the documentation site and tsup in development mode for the library.
 
 - `pnpm build`: Creates production builds of the library and documentation site. It also runs linting checks.
 
