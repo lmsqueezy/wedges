@@ -5,6 +5,7 @@
 .contentlayer
 dist
 tests/*
+public/
 .DS_Store
 node_modules
 coverage

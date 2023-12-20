@@ -9,9 +9,7 @@ function TrackPageView() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   useEffect(() => {
-    load("VDTVBMMX", {
-      includedDomains: ["lemonsqueezy.com"],
-    });
+    load("VDTVBMMX");
   }, []);
 
   useEffect(() => {

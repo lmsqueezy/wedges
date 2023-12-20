@@ -9,6 +9,8 @@ import { Sidebar } from "@/components/Sidebar";
 
 import "@/styles/globals.css";
 
+import Script from "next/script";
+
 import Fathom from "@/components/Fathom";
 import Header from "@/components/Header";
 
@@ -28,7 +30,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           monoFont.variable
         )}
       >
+        {/* Analytics */}
         <Fathom />
+        <Script src="/wedges/docs/twitter-conversion.js" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-10985746469" />
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'AW-10985746469');
+        `}
+        </Script>
 
         <div className="min-h-screen-dvh flex flex-col">
           <Providers>
