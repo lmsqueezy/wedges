@@ -94,7 +94,7 @@ const ButtonGroupItem = React.forwardRef<ButtonElement, ButtonGroupItemProps>((p
     isIconOnly,
     ...otherProps
   } = props;
-  
+
   const context = useButtonGroupContext();
   const { disabled: ctxDisabled, orientation = "horizontal", size = "md" } = context || {};
 
