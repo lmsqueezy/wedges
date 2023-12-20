@@ -9,14 +9,14 @@
   ],
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.4",
-    "@typescript-eslint/eslint-plugin": "^6.13.2",
-    "@typescript-eslint/parser": "^6.13.2",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
     "eslint": "^8",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-config-turbo": "^1.11.1",
+    "eslint-config-turbo": "^1.11.2",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-only-warn": "^1.1.0",
-    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-prettier": "^5.1.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "typescript": "^5.3.3"
