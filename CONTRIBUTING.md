@@ -112,7 +112,7 @@ Remember, clear and detailed PRs help us efficiently review and integrate your c
 
 3. **Development**: Make your changes and commit them adhering to the [commit guidelines](#commit-convention). Use `pnpm build` to test your changes.
 
-4. **Document Changes**: Run `pnpm version` for a detailed change description. For minor updates (like CI changes), use `pnpm version add --empty`.
+4. **Document Changes**: Run `pnpm changeset` for a detailed change description. For minor updates (like CI changes), use `pnpm changeset add --empty`.
 
 5. **Prepare for Submission**:
 
