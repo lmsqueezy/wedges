@@ -4,15 +4,16 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://lemonsqueezy.com/wedges/docs"><strong>Get Started with Wedges &rarr;</strong></a>
-</p>
-
 # Wedges
+
+[![](https://img.shields.io/npm/v/@lemonsqueezy/wedges?style=plastic)](https://www.npmjs.com/package/@lemonsqueezy/wedges)
+[![](https://img.shields.io/npm/dw/@lemonsqueezy/wedges?style=plastic)](https://www.npmjs.com/package/@lemonsqueezy/wedges)
 
 Wedges is an ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.
 
 With Wedges, you get a range of pre-built, customizable components that are easy to use and integrate into your React projects. It also comes with full TypeScript support, ensuring type safety and developer-friendly experience.
+
+<a href="https://lemonsqueezy.com/wedges/docs"><strong>Get Started with Wedges &rarr;</strong></a>
 
 ## License
 
