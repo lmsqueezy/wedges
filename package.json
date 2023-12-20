@@ -20,8 +20,7 @@
     "version": "changeset version",
     "version:dev": "changeset version --snapshop --no-git-tag --tag dev",
     "release": "pnpm build && changeset publish",
-    "release:dev": "changeset publish --snapshot --no-git-tag --tag dev",
-    "turbo:graph": "pnpm build --graph=dependency-graph.png"
+    "release:dev": "pnpm build && changeset publish --snapshot --no-git-tag --tag dev"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
