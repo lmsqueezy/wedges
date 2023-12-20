@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { Logomark } from "./Logo";
 import { useSidebar } from "./Providers";
 import { ScrollArea } from "./ScrollArea";
+import { Search } from "./Search";
 
 export function Sidebar() {
   const sidebarNav = sidebarConfig.nav;
@@ -29,7 +30,7 @@ export function Sidebar() {
       role={isSidebarOpen ? "dialog" : undefined}
       onClick={() => isSidebarOpen && toggleSidebar()}
     >
-      {/* <Search className="hidden md:flex" /> */}
+      <Search className="hidden md:flex" />
 
       <ScrollArea
         className="relative h-full w-80 bg-white px-4 py-6 md:-ms-3 md:w-[auto] md:bg-transparent md:py-0 md:pl-0 md:pr-2"

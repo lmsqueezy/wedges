@@ -3,6 +3,7 @@ import { HomeIcon } from "@iconicicons/react";
 import { Button } from "@lemonsqueezy/wedges";
 
 import { Logomark } from "@/components/Logo";
+import { SearchButton } from "@/components/Search";
 
 export default function NotFound() {
   return (
@@ -30,7 +31,7 @@ export default function NotFound() {
           </Link>
         </Button>
 
-        {/* <SearchButton /> */}
+        <SearchButton />
       </div>
     </div>
   );
