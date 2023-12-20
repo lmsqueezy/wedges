@@ -6,7 +6,7 @@
     "dev": "pnpm generate:examples && next dev -p 3000",
     "build": "pnpm generate:examples && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "pnpm generate:examples && next lint",
     "lint:fix": "next lint --fix",
     "preview": "pnpm generate:examples && next build && next start -p 3000",
     "clean": "rm -rf .turbo && rm -rf .contentlayer && rm -rf node_modules && rm -rf .next",
