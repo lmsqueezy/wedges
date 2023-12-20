@@ -67,19 +67,20 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
         <Tabs.Content className={cn("rounded-lg", theme)} value="preview">
           <div
             ref={previewRef}
-            className={cn(
-              "preview not-prose dark:bg-wg-gray-950 relative flex min-h-[300px] w-full items-center justify-center rounded-lg border border-surface-100 bg-background p-10 text-sm text-foreground shadow-wg-xs",
-              {
+            className="preview not-prose dark:bg-wg-gray-950 relative flex w-full items-center justify-center rounded-lg border border-surface-100 bg-background text-sm text-foreground shadow-wg-xs"
+          >
+            <div
+              className={cn("flex min-h-[300px] w-full items-center overflow-x-auto p-10", {
                 "items-center": align === "center",
                 "items-start": align === "start",
                 "items-end": align === "end",
-              }
-            )}
-          >
-            <div className="block w-full text-center">
-              <Suspense fallback={<SuspenseFallback />}>
-                <Preview />
-              </Suspense>
+              })}
+            >
+              <div className="mx-auto block w-full min-w-fit text-center">
+                <Suspense fallback={<SuspenseFallback />}>
+                  <Preview />
+                </Suspense>
+              </div>
             </div>
 
             <Button
