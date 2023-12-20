@@ -9,6 +9,7 @@ import { Sidebar } from "@/components/Sidebar";
 
 import "@/styles/globals.css";
 
+import Fathom from "@/components/Fathom";
 import Header from "@/components/Header";
 
 export const metadata: Metadata = {
@@ -27,6 +28,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           monoFont.variable
         )}
       >
+        <Fathom />
+
         <div className="min-h-screen-dvh flex flex-col">
           <Providers>
             <Header />
