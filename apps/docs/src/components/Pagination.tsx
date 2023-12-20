@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ChevronLeftIcon, ChevronRightIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
+import { Button } from "@lemonsqueezy/wedges";
 import { type Doc } from "contentlayer/generated";
 
 import { type NavItem } from "@/types/nav";

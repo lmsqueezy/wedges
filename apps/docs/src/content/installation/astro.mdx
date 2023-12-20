@@ -119,7 +119,7 @@ yarn astro add react tailwind --yes
     <Tabs.Content value="pnpm">
 
 ```bash
-pnpm add @lmsqueezy/wedges
+pnpm add @lemonsqueezy/wedges
 ```
 
     </Tabs.Content>
@@ -127,7 +127,7 @@ pnpm add @lmsqueezy/wedges
     <Tabs.Content value="npm">
 
 ```bash
-npm i @lmsqueezy/wedges
+npm i @lemonsqueezy/wedges
 ```
 
     </Tabs.Content>
@@ -135,7 +135,7 @@ npm i @lmsqueezy/wedges
     <Tabs.Content value="yarn">
 
 ```bash
-yarn add @lmsqueezy/wedges
+yarn add @lemonsqueezy/wedges
 ```
 
     </Tabs.Content>
@@ -147,13 +147,13 @@ yarn add @lmsqueezy/wedges
 Update your `tailwind.config.mjs` file to add the necessary configuration for Wedges:
 
 ```tsx {1,7,10,11} title="tailwind.config.mjs" showLineNumbers
-import { wedgesTW } from "@lmsqueezy/wedges";
+import { wedgesTW } from "@lemonsqueezy/wedges";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
   content: [
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
-    'node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}',
+    'node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {},
   darkMode: "class",
@@ -181,7 +181,7 @@ That's all. You can now start using the components in your application.
 
 ```tsx {2,10} showLineNumbers
 ---
-import { Alert } from "@lmsqueezy/wedges";
+import { Alert } from "@lemonsqueezy/wedges";
 ---
 
 <html lang="en">

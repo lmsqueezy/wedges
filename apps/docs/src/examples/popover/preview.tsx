@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from "@iconicicons/react";
-import { Button, CheckboxGroup, Popover } from "@lmsqueezy/wedges";
+import { Button, CheckboxGroup, Popover } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

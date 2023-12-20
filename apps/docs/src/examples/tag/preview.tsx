@@ -1,4 +1,4 @@
-import { Tag } from "@lmsqueezy/wedges";
+import { Tag } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

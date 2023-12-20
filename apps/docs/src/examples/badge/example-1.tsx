@@ -17,7 +17,7 @@ import {
   UndoIcon,
   WifiIcon,
 } from "@iconicicons/react";
-import { Avatar, Badge } from "@lmsqueezy/wedges";
+import { Avatar, Badge } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

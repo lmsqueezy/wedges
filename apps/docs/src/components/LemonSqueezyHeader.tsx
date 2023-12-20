@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDownIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
+import { Button } from "@lemonsqueezy/wedges";
 
 import { siteConfig } from "@/config/siteConfig";
 import { focusClasses } from "@/lib/a11y";

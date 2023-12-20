@@ -10,7 +10,7 @@ on:
 jobs:
   release:
     if: ${{ github.repository_owner == 'lmsqueezy' }}
-    name: Create a PR for release workflow
+    name: "Create Release Pull Request or Publish to npm"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo

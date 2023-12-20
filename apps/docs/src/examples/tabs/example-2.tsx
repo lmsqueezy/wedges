@@ -1,4 +1,4 @@
-import { Badge, Tabs, Tooltip } from "@lmsqueezy/wedges";
+import { Badge, Tabs, Tooltip } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

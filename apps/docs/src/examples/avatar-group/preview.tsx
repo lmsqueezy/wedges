@@ -1,4 +1,4 @@
-import { AvatarGroup } from "@lmsqueezy/wedges";
+import { AvatarGroup } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

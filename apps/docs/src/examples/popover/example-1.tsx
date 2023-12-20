@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ChevronDownIcon, CopyIcon, DownloadIcon } from "@iconicicons/react";
-import { ButtonGroup, CheckboxGroup, Popover } from "@lmsqueezy/wedges";
+import { ButtonGroup, CheckboxGroup, Popover } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   const wrapper = React.useRef(null);

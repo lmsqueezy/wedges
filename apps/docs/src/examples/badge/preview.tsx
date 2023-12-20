@@ -1,5 +1,5 @@
 import { PlusIcon } from "@iconicicons/react";
-import { Badge } from "@lmsqueezy/wedges";
+import { Badge } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

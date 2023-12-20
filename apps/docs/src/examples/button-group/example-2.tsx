@@ -1,5 +1,5 @@
 import { ChevronDownIcon, CopyIcon, DownloadIcon, EditIcon } from "@iconicicons/react";
-import { ButtonGroup, Tooltip } from "@lmsqueezy/wedges";
+import { ButtonGroup, Tooltip } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

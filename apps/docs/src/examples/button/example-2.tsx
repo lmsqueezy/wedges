@@ -1,5 +1,5 @@
 import { PlusIcon } from "@iconicicons/react";
-import { Button } from "@lmsqueezy/wedges";
+import { Button } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (
