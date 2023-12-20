@@ -53,7 +53,7 @@ const components = {
     return (
       <pre
         className={cn(
-          "not-prose my-6 max-h-[650px] overflow-x-auto rounded-lg py-4",
+          "not-prose my-6 max-h-[650px] overflow-x-auto rounded-lg py-4 leading-6",
           raw && "!bg-wg-gray-800",
           className
         )}
@@ -67,7 +67,7 @@ const components = {
   code: ({ className, ...otherProps }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "not-prose relative rounded bg-surface-100/70 px-[0.3rem] py-[0.15rem] font-mono text-[13px] text-surface-800",
+        "not-prose relative rounded bg-surface-100/70 px-[0.3rem] py-[0.15rem] font-mono text-[13px] leading-6 text-surface-800",
         className
       )}
       {...otherProps}
