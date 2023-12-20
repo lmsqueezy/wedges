@@ -4,6 +4,9 @@ on:
   pull_request:
     branches: ["*"]
 
+env:
+    STORE_PATH: ''
+    
 jobs:
   lint:
     runs-on: ubuntu-latest
