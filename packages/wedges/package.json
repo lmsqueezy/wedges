@@ -1,7 +1,7 @@
 {
   "name": "@lmsqueezy/wedges",
   "version": "0.0.0",
-  "description": "Beautiful UI components for React, crafted with the Wedges design system, Radix UI, and Tailwind CSS.",
+  "description": "An ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.",
   "keywords": [
     "accessible",
     "components",
@@ -10,12 +10,36 @@
     "design",
     "lemonsqueezy",
     "library",
-    "premiumpixels",
+    "WAI-ARIA",
+    "dark",
+    "themes",
     "radix",
     "react",
     "responsive",
     "tailwindcss",
     "ui"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Lemon Squeezy",
+    "email": "hello@lemonsqueezy.com",
+    "url": "https://lemonsqueezy.com/wedges"
+  },
+  "homepage": "https://lemonsqueezy.com/wedges",
+  "bugs": {
+    "url": "https://github.com/lmsqueezy/wedges/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lmsqeezy/wedges.git",
+    "directory": "packages/wedges"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md"
   ],
   "type": "module",
   "main": "./dist/cjs/index.js",
@@ -33,6 +57,7 @@
       }
     }
   },
+  "sideEffects": false,
   "scripts": {
     "build:cjs": "tsup --format cjs --external react",
     "build:esm": "tsup --format esm --external react",
@@ -45,29 +70,6 @@
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix"
   },
-  "author": {
-    "name": "Lemon Squeezy",
-    "email": "hello@lemonsqueezy.com",
-    "url": "https://lemonsqueezy.com/wedges"
-  },
-  "homepage": "https://lemonsqueezy.com/wedges",
-  "bugs": {
-    "url": "https://github.com/lmsqueezy/wedges/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lmsqeezy/wedges.git"
-  },
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist/**",
-    "README.md"
-  ],
-  "sideEffects": false,
-  "license": "MIT",
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@types/color": "^3.0.6",

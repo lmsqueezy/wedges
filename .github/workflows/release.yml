@@ -1,0 +1,57 @@
+# Adapted from create-t3-app.
+
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    if: ${{ github.repository_owner == 'lmsqueezy' }}
+    name: Create a PR for release workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use PNPM
+        uses: pnpm/action-setup@v2.4.0
+        with:
+          version: 8.11.0
+
+      - name: Cache PNPM modules # Caches the PNPM modules for faster builds
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Setup Node.js from .nvmrc # Dynamically sets up Node.js version
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
+
+      - name: Install NPM Dependencies
+        run: pnpm install
+
+      - name: Build the package
+        run: pnpm build
+
+      - name: Publish to NPM
+        id: changesets
+        uses: changesets/action@v1.4.5
+        with:
+          commit: "chore(release): version packages"
+          title: "chore(release): version packages"
+          version: node .github/changeset-version.js
+          publish: npx changeset publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_ENV: "production"
