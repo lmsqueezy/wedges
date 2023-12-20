@@ -1,5 +1,3 @@
-# Adapted from create-t3-app.
-
 name: Release
 
 on:
@@ -13,31 +11,38 @@ jobs:
     name: "Create Release Pull Request or Publish to npm"
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Use PNPM
-        uses: pnpm/action-setup@v2.4.0
-        with:
-          version: 8.11.0
-
-      - name: Cache PNPM modules # Caches the PNPM modules for faster builds
-        uses: actions/cache@v3
-        with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-
-      - name: Setup Node.js from .nvmrc # Dynamically sets up Node.js version
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: ".nvmrc"
           cache: "pnpm"
 
-      - name: Install NPM Dependencies
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
         run: pnpm install
 
       - name: Build the package
