@@ -1,5 +1,5 @@
 import { BookIcon, LockIcon, VideoIcon } from "@iconicicons/react";
-import { Tabs } from "@lmsqueezy/wedges";
+import { Tabs } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

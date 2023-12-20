@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Tooltip } from "@lmsqueezy/wedges";
+import { Tooltip } from "@lemonsqueezy/wedges";
 
 import { cn } from "@/lib/utils";
 

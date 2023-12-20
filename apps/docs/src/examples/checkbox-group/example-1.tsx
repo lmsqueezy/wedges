@@ -1,4 +1,4 @@
-import { CheckboxGroup } from "@lmsqueezy/wedges";
+import { CheckboxGroup } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

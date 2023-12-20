@@ -1,4 +1,4 @@
-import { Label } from "@lmsqueezy/wedges";
+import { Label } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

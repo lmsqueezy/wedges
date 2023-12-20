@@ -1,4 +1,4 @@
-import { Input } from "@lmsqueezy/wedges";
+import { Input } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

@@ -1,4 +1,4 @@
-import { Tooltip } from "@lmsqueezy/wedges";
+import { Tooltip } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

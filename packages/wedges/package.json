@@ -1,5 +1,5 @@
 {
-  "name": "@lmsqueezy/wedges",
+  "name": "@lemonsqueezy/wedges",
   "version": "0.0.0",
   "description": "An ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.",
   "keywords": [
@@ -74,6 +74,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@types/color": "^3.0.6",
     "@types/lodash.omit": "^4.5.9",
+    "@wedges/eslint-config": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "concurrently": "^8.2.2",
@@ -95,7 +96,6 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toggle-group": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.7",
-    "@wedges/eslint-config": "workspace:*",
     "color": "^4.2.3",
     "color2k": "^2.0.3",
     "deepmerge": "^4.3.1",

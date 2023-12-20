@@ -1,4 +1,4 @@
-import { Checkbox } from "@lmsqueezy/wedges";
+import { Checkbox } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

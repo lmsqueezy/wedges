@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Alert, Button, Tabs, Tooltip } from "@lmsqueezy/wedges";
+import { Alert, Button, Tabs, Tooltip } from "@lemonsqueezy/wedges";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 import { cn } from "@/lib/utils";

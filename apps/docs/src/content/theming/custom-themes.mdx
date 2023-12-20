@@ -16,7 +16,7 @@ For optimal results, creating a ten-step graded color scale for your custom them
 Let's define `primaryBlue` color scale:
 
 ```tsx showLineNumbers
-import type { ThemableColorScale } from "@lmsqueezy/wedges";
+import type { ThemableColorScale } from "@lemonsqueezy/wedges";
 
 const primaryBlue: ThemableColorScale = {
   100: "#DAF0FF",
@@ -35,7 +35,7 @@ const primaryBlue: ThemableColorScale = {
 Alternatively, you can use professionally designed colors scales defined in the Wedges color palette. Import `wedgesPallette` to start using predefined colors:
 
 ```tsx showLineNumbers /wedgesPalette.blue/ /wedgesPalette.orange[500]/
-import { wedgesPalette } from "@lmsqueezy/wedges";
+import { wedgesPalette } from "@lemonsqueezy/wedges";
 
 const primaryBlue = wedgesPalette.blue;
 const orange500 = wedgesPalette.orange[500];
@@ -46,7 +46,7 @@ const orange500 = wedgesPalette.orange[500];
 To create a new theme, you need to provide a configuration object to the `wedgesTW` plugin in your `tailwind-config` file.
 
 ```tsx {26-38} title="tailwind.config.ts" showLineNumbers
-import { wedgesTW } from "@lmsqueezy/wedges";
+import { wedgesTW } from "@lemonsqueezy/wedges";
 import type { Config } from "tailwindcss";
 
 const primaryBlue: ThemableColorScale = {
@@ -65,7 +65,7 @@ const primaryBlue: ThemableColorScale = {
 const config: Config = {
   content: [
     // ...
-    "node_modules/@lmsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+    "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {},
   darkMode: "class",

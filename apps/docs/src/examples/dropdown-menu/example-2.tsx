@@ -10,7 +10,7 @@ import {
   SettingsIcon,
   UserIcon,
 } from "@iconicicons/react";
-import { Avatar, DropdownMenu, Switch } from "@lmsqueezy/wedges";
+import { Avatar, DropdownMenu, Switch } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   const [darkMode, setDarkMode] = useState(false);

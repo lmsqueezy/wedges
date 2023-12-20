@@ -1,5 +1,5 @@
 import { DownloadIcon, EyeOffIcon, MailIcon, PinIcon, RedoIcon } from "@iconicicons/react";
-import { Button, DropdownMenu } from "@lmsqueezy/wedges";
+import { Button, DropdownMenu } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (

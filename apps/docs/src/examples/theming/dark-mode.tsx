@@ -1,6 +1,6 @@
 import * as React from "react";
 import { MoonIcon, SunIcon } from "@iconicicons/react";
-import { Button, Switch, Toggle, ToggleGroup, Tooltip } from "@lmsqueezy/wedges";
+import { Button, Switch, Toggle, ToggleGroup, Tooltip } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   /** In your app, you can use a hook, such as `useTheme` or a similar way to access

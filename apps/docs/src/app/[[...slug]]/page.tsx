@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Button } from "@lmsqueezy/wedges";
+import { Button } from "@lemonsqueezy/wedges";
 import { allDocs, type LinkProperties } from "contentlayer/generated";
 
 import { siteConfig } from "@/config/siteConfig";
