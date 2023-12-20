@@ -43,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build the package
+        run: pnpm build
+
       - run: pnpm lint
 
   format:
@@ -82,5 +85,8 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Build the package
+        run: pnpm build
 
       - run: pnpm format

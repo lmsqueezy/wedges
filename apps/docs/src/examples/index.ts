@@ -8,7 +8,7 @@ import { lazy, type LazyExoticComponent } from "react";
 type Demo = {
   component: LazyExoticComponent<() => JSX.Element>;
   code: string;
-};
+}
 
 export const Demos: Record<string, Demo> = {
   "alert/example-1": {
