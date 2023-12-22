@@ -42,14 +42,14 @@
     "README.md"
   ],
   "type": "module",
-  "main": "./dist/cjs/index.js",
+  "main": "./dist/cjs/index.cjs",
   "types": "./dist/cjs/index.d.cts",
   "module": "./dist/esm/index.js",
   "exports": {
     ".": {
       "require": {
         "types": "./dist/cjs/index.d.cts",
-        "default": "./dist/cjs/index.js"
+        "default": "./dist/cjs/index.cjs"
       },
       "import": {
         "types": "./dist/esm/index.d.ts",
@@ -75,17 +75,13 @@
     "@types/color": "^3.0.6",
     "@types/lodash.omit": "^4.5.9",
     "@wedges/eslint-config": "workspace:*",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
     "concurrently": "^8.2.2",
-    "lodash.omit": "^4.5.0",
     "prettier-plugin-tailwindcss": "^0.5.9",
-    "tailwind-merge": "^2.1.0",
     "tsup": "^8.0.1"
   },
   "dependencies": {
     "@iconicicons/react": "latest",
-    "@radix-ui/react-avatar": "latest",
+    "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-label": "^2.0.2",
@@ -96,10 +92,14 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-toggle-group": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.7",
+    "class-variance-authority": "^0.7.0",
     "color": "^4.2.3",
     "color2k": "^2.0.3",
     "deepmerge": "^4.3.1",
-    "flat": "^6.0.1"
+    "tailwind-merge": "^2.2.0",
+    "clsx": "^2.0.0",
+    "flat": "^6.0.1",
+    "lodash.omit": "^4.5.0"
   },
   "peerDependencies": {
     "@types/react": "*",
