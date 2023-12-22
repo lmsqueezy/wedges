@@ -1,5 +1,13 @@
 # @lemonsqueezy/wedges
 
+## 1.0.2
+
+### Patch Changes
+
+- [#38](https://github.com/lmsqueezy/wedges/pull/38) [`6f85539`](https://github.com/lmsqueezy/wedges/commit/6f855392f1cbddb2578b13399b7d5e7793498161) Thanks [@brankoconjic](https://github.com/brankoconjic)! - fix wrong padding for the Alert component
+
+- [#38](https://github.com/lmsqueezy/wedges/pull/38) [`6f85539`](https://github.com/lmsqueezy/wedges/commit/6f855392f1cbddb2578b13399b7d5e7793498161) Thanks [@brankoconjic](https://github.com/brankoconjic)! - fix missing dependencies in package.json
+
 ## 1.0.1
 
 ### Patch Changes
