@@ -8,7 +8,7 @@ import { CloseIcon, InfoIcon } from "../icons";
 import { alertIconVariants, alertTitleVariants, alertVariants } from "./variants";
 
 const defaultRootClasses =
-  "wg-antialiased flex text-sm leading-6 gap-2 bg-surface dark:bg-surface dark:text-surface-500 p-3 items-start";
+  "wg-antialiased flex text-sm leading-6 bg-surface dark:bg-surface dark:text-surface-500 items-start";
 
 /* ---------------------------------- Types --------------------------------- */
 type ClosableProps = {
@@ -95,7 +95,6 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
     ref
   ) => {
     const [visible, setVisible] = React.useState(true);
-    const ExpandedWrapper = variant === "inline" ? React.Fragment : "div";
 
     /**
      * Handle the close event.
@@ -125,19 +124,28 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
         className={cn(alertVariants({ variant, color }), className)}
         {...otherProps}
       >
-        <AlertBefore color={color}>{before}</AlertBefore>
+        <AlertBefore className={cn(variant === "inline" && "pl-1")} color={color}>
+          {before}
+        </AlertBefore>
 
         <div
           className={cn(
             "flex grow flex-col items-start",
-            variant === "expanded" && "items-start gap-3",
-            variant === "inline" && "sm:flex-row sm:items-center sm:gap-2"
+            variant === "expanded" && "items-start gap-3 px-2",
+            variant === "inline" && "px-2 sm:flex-row sm:items-center sm:gap-2",
+            variant === "inline" && closable && "pr-1"
           )}
         >
-          <ExpandedWrapper>
+          <div
+            className={cn(
+              "flex grow flex-col items-start",
+              variant === "expanded" && "items-start",
+              variant === "inline" && "sm:flex-row sm:items-center sm:gap-2"
+            )}
+          >
             {title && <AlertTitle color={color}>{title}</AlertTitle>}
             {children && <AlertDescription>{children}</AlertDescription>}
-          </ExpandedWrapper>
+          </div>
 
           {after && (
             <div className={cn(variant === "inline" && "mt-3 sm:ml-auto sm:mt-0")}>
@@ -146,7 +154,9 @@ const AlertWedges = React.forwardRef<HTMLDivElement, AlertProps>(
           )}
         </div>
 
-        {closable && <AlertCloseButton onClick={handleClose} />}
+        {closable && (
+          <AlertCloseButton className={cn(variant === "inline" && "pr-1")} onClick={handleClose} />
+        )}
       </AlertRoot>
     );
   }
