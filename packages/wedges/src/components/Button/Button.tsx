@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { type VariantProps } from "class-variance-authority";
+import { type VariantProps } from "cva";
 
 import { cn, isElementWithChildren, isReactElement } from "../../helpers/utils";
 import { buttonVariants, iconVariants } from "./variants";
@@ -78,7 +78,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
 
     // Determine if the button is a 'link', 'outline', 'tertiary', or 'transparent' variant.
     const isVariantLinkOutlineTertiaryTransparent = React.useMemo(
-      () => ["link", "outline", "tertiary", "transparent"].includes(variant!),
+      () => ["link", "outline", "tertiary", "transparent"].includes(variant),
       [variant]
     );
 
@@ -129,7 +129,7 @@ const Button = React.forwardRef<ButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({ size, variant, shape, destructive }),
           variant === "link" && children && "focus-visible:outline-0",
-          isIcon && iconOnlyPadding[size!],
+          isIcon && iconOnlyPadding[size],
           className
         )}
         disabled={disabled}
