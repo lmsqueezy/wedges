@@ -1,8 +1,9 @@
-import { cva } from "class-variance-authority";
+import { cva } from "cva";
 
 const defaultDarkClasses = "dark:wg-bg-surface/5 dark:outline-surface-50";
 
-export const badgeVariants = cva("inline-flex items-center rounded-lg px-2 py-1 wg-antialiased", {
+export const badgeVariants = cva({
+  base: "inline-flex items-center rounded-lg px-2 py-1 wg-antialiased",
   variants: {
     size: {
       sm: "text-xs leading-4",
@@ -61,7 +62,8 @@ export const badgeVariants = cva("inline-flex items-center rounded-lg px-2 py-1 
   },
 });
 
-export const iconVariants = cva("h-4 w-4", {
+export const iconVariants = cva({
+  base: "h-4 w-4",
   variants: {
     color: {
       gray: "text-surface-400",
