@@ -4,9 +4,11 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "ES2022",
     "resolveJsonModule": true,
-    "moduleDetection": "force",
+
+    "target": "ES5",
+    "module": "ESNext",
+    "moduleResolution": "Node",
 
     "strict": true,
     "noUncheckedIndexedAccess": true,
@@ -14,7 +16,7 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
 
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "declaration": true,
     "declarationMap": true,
 
@@ -22,8 +24,6 @@
     "jsx": "react-jsx",
 
     "incremental": false,
-    "isolatedModules": true,
-    "moduleResolution": "Node",
-    "module": "ESNext"
+    "isolatedModules": true
   }
 }

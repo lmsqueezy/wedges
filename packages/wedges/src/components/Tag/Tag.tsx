@@ -97,8 +97,6 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
       {avatar &&
         React.cloneElement(avatar, {
           size: "xxs",
-          status: null,
-          notification: null,
         } as Partial<AvatarProps>)}
     </>
   );

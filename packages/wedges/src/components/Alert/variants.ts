@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
+import { cva } from "cva";
 
-export const alertVariants = cva("", {
+export const alertVariants = cva({
   variants: {
     variant: {
       inline: "rounded-lg px-2 py-3 sm:items-center",
@@ -21,7 +21,8 @@ export const alertVariants = cva("", {
   },
 });
 
-export const alertTitleVariants = cva("text-start font-medium", {
+export const alertTitleVariants = cva({
+  base: "text-start font-medium",
   variants: {
     color: {
       gray: "text-surface-900",
@@ -37,7 +38,7 @@ export const alertTitleVariants = cva("text-start font-medium", {
   },
 });
 
-export const alertIconVariants = cva("", {
+export const alertIconVariants = cva({
   variants: {
     color: {
       gray: "text-surface-200",

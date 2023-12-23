@@ -8,7 +8,7 @@
   "scripts": {
     "build": "turbo run build",
     "start": "turbo run start",
-    "clean": "turbo clean && rm -rf node_modules && rm ./pnpm-lock.yaml && rm -rf ./.turbo && rm -rf ./coverage",
+    "clean": "turbo clean && rimraf node_modules ./pnpm-lock.yaml ./.turbo ./coverage",
     "dev": "turbo run dev --parallel",
     "format": "prettier --check ./packages/**/src ./apps/** --cache",
     "format:fix": "prettier --write ./packages/**/src ./apps/** --cache",
@@ -40,6 +40,7 @@
     "prettier-plugin-tailwindcss": "^0.5.9",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
+    "rimraf": "^5.0.5",
     "tailwindcss": "3.4.0",
     "ts-jest": "^29.1.1",
     "turbo": "^1.11.2",

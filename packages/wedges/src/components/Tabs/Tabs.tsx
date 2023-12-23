@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
-import { type VariantProps } from "class-variance-authority";
+import { type VariantProps } from "cva";
 
 import { cn, isElementWithChildren, isReactElement } from "../../helpers/utils";
 import { tabListVariants, tabVariants } from "./variants";

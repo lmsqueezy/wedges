@@ -1,26 +1,24 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "cva";
 
 import { cn } from "../../helpers/utils";
 import { kbdKeysLabelMap, kbdKeysMap, type KbdKey } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
-export const kbdVariants = cva(
-  "border-1 inline-flex items-center rounded-full border border-surface-200 px-8px font-sans text-surface-600 wg-antialiased dark:border-surface-100",
-  {
-    variants: {
-      size: {
-        xs: "text-xs leading-6 [--wg-border-width:1px]",
-        sm: "px-8px py-2px text-sm leading-6 [--wg-border-width:1px]",
-        base: "py-0.5 text-base",
-        lg: "text-lg",
-      },
+export const kbdVariants = cva({
+  base: "border-1 inline-flex items-center rounded-full border border-surface-200 px-8px font-sans text-surface-600 wg-antialiased dark:border-surface-100",
+  variants: {
+    size: {
+      xs: "text-xs leading-6 [--wg-border-width:1px]",
+      sm: "px-8px py-2px text-sm leading-6 [--wg-border-width:1px]",
+      base: "py-0.5 text-base",
+      lg: "text-lg",
     },
-    defaultVariants: {
-      size: "xs",
-    },
-  }
-);
+  },
+  defaultVariants: {
+    size: "xs",
+  },
+});
 
 /* ---------------------------------- Types --------------------------------- */
 export type KbdElement = React.ElementRef<"kbd">;

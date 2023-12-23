@@ -23,7 +23,7 @@ export default function WedgesHeader() {
         aria-labelledby="wedges-site-title"
         className="[&_a]:duration-180 sticky top-0 z-50 border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors"
       >
-        <div className="container flex min-h-[72px] gap-6 md:grid md:min-h-[89px] md:grid-cols-[1fr_auto_1fr]">
+        <div className="container flex min-h-[72px] gap-6 md:grid md:min-h-[88px] md:grid-cols-[1fr_auto_1fr]">
           <Link
             className={cn(
               "hidden self-center justify-self-start md:block",

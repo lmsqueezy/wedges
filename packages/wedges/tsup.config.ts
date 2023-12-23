@@ -14,6 +14,7 @@ export default defineConfig((options) => {
     dts: true,
     format: options.format ?? ["esm"],
     minify: true,
+    target: "es2022",
     silent: true,
     sourcemap: true,
     outDir: `dist/${formatString ?? "esm"}`,

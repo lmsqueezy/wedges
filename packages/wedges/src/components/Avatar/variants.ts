@@ -1,4 +1,4 @@
-import { cva } from "class-variance-authority";
+import { cva } from "cva";
 
 export const rootClasses =
   "h-10 min-w-10 [--wg-notification-size:10px] relative inline-flex aspect-square shrink-0 items-center wg-antialiased";
@@ -9,7 +9,8 @@ export const statusClasses =
 export const notificationClasses =
   "absolute right-0 top-0 aspect-square h-[var(--wg-notification-size,10px)] rounded-full ring-background";
 
-export const avatarVariants = cva(rootClasses, {
+export const avatarVariants = cva({
+  base: rootClasses,
   variants: {
     size: {
       xxs: "h-4 min-w-4 text-xxs [--wg-notification-size:4px]",
@@ -26,7 +27,7 @@ export const avatarVariants = cva(rootClasses, {
   },
 });
 
-export const fallbackVariants = cva("", {
+export const fallbackVariants = cva({
   variants: {
     size: {
       xxs: "h-3 w-3",
@@ -43,7 +44,8 @@ export const fallbackVariants = cva("", {
   },
 });
 
-export const statusVariants = cva(statusClasses, {
+export const statusVariants = cva({
+  base: statusClasses,
   variants: {
     status: {
       primary: "bg-primary",
@@ -58,7 +60,8 @@ export const statusVariants = cva(statusClasses, {
   },
 });
 
-export const notificationVariants = cva(notificationClasses, {
+export const notificationVariants = cva({
+  base: notificationClasses,
   variants: {
     notification: {
       primary: "bg-primary",

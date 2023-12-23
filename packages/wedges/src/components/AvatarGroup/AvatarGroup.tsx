@@ -1,12 +1,14 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "cva";
 
 import { cn, isReactElement } from "../../helpers/utils";
 import Avatar, { type AvatarElement, type AvatarProps } from "../Avatar/Avatar";
 
 /* -------------------------------- Variants -------------------------------- */
 const defaultAvatarGroupClasses = "wg-antialiased flex flex-wrap items-center gap-y-1 -space-x-3";
-const avatarGroupVariants = cva(defaultAvatarGroupClasses, {
+
+const avatarGroupVariants = cva({
+  base: defaultAvatarGroupClasses,
   variants: {
     size: {
       xs: "-space-x-1",
