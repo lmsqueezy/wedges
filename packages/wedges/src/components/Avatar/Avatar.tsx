@@ -1,7 +1,7 @@
 import * as React from "react";
 import { UserIcon } from "@iconicicons/react";
 import * as Primitive from "@radix-ui/react-avatar";
-import { type VariantProps } from "class-variance-authority";
+import { type VariantProps } from "cva";
 
 import {
   cn,
