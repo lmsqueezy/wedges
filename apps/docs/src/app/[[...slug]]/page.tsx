@@ -39,7 +39,7 @@ export default async function DocPage({ params }: DocPageProps) {
   const showTOC = doc.toc !== false && toc?.items?.length;
 
   return (
-    <div className="w-full xl:grid xl:grid-cols-[1fr_200px] xl:gap-10">
+    <div className="w-full xl:grid xl:grid-cols-[1fr_240px] xl:gap-10">
       <PreloadResources />
 
       <div className="mx-auto w-full min-w-0">
