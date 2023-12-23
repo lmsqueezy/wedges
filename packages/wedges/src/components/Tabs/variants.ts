@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
+import { cva } from "cva";
 
-export const tabListVariants = cva("", {
+export const tabListVariants = cva({
   variants: {
     variant: {
       fill: "gap-2",
@@ -22,7 +22,8 @@ export const tabListVariants = cva("", {
   },
 });
 
-export const tabVariants = cva("leading-6 data-[state=active]:font-medium", {
+export const tabVariants = cva({
+  base: "leading-6 data-[state=active]:font-medium",
   variants: {
     variant: {
       fill: [
