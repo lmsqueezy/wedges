@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva, type VariantProps } from "cva";
 
 import { cn } from "../../helpers/utils";
 import TooltipArrow from "./TooltipArrow";
@@ -18,7 +18,8 @@ const TOOLTIP_ANIMATION_CLASSES = [
 ];
 
 /* -------------------------------- Variants -------------------------------- */
-const tooltipVariant = cva(["z-50 rounded-md text-start text-white wg-antialiased"], {
+const tooltipVariant = cva({
+  base: "z-50 rounded-md text-start text-white wg-antialiased",
   variants: {
     size: {
       sm: "max-w-xs px-3 py-2 text-xs",
