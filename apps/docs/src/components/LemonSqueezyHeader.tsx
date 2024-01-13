@@ -52,7 +52,7 @@ export default function LemonSqueezyHeader({
           href={siteConfig.lemonSqueezyURL}
         >
           <Logomark className="lg:hidden" />
-          <Logo className="hidden w-auto fill-slate-700 lg:block dark:fill-sky-100" />
+          <Logo className="hidden w-auto fill-slate-700 dark:fill-sky-100 lg:block" />
         </a>
 
         <Navigation aria-label="Main Nav" className="hidden self-stretch md:flex">
