@@ -251,6 +251,7 @@ const corePlugin = (
             "wg-fade-in-left": `fadeInLeft 0.3s ${animationEasing}`,
             "wg-fade-in-right": `fadeInRight 0.3s ${animationEasing}`,
             "wg-fade-out": `fadeOut 0.15s ${animationEasing}`,
+            "wg-line-spinner": "lineSpinner 1.5s ease-in-out infinite both",
           },
           keyframes: {
             fadeInUp: {
@@ -301,6 +302,22 @@ const corePlugin = (
               "100%": {
                 opacity: "0",
                 transform: "scale(.97)",
+              },
+            },
+            lineSpinner: {
+              "0%, 25%": {
+                strokeDashoffset: "var(--wg-dashoffset-97)",
+                transform: "rotate(0)",
+              },
+
+              "50%, 75%": {
+                strokeDashoffset: "var(--wg-dashoffset-25)",
+                transform: "rotate(45deg)",
+              },
+
+              "100%": {
+                strokeDashoffset: "var(--wg-dashoffset-97)",
+                transform: "rotate(360deg)",
               },
             },
           },

@@ -129,6 +129,11 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/label",
         },
         {
+          label: "Loading",
+          href: "/components/loading",
+          new: true,
+        },
+        {
           label: "Popover",
           href: "/components/popover",
         },
@@ -167,11 +172,6 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Tooltip",
           href: "/components/tooltip",
-        },
-        {
-          label: "Loading",
-          href: "/components/loading",
-          disabled: true,
         },
         {
           label: "Number Input",
