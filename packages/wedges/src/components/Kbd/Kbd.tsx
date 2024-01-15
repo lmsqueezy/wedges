@@ -6,13 +6,13 @@ import { kbdKeysLabelMap, kbdKeysMap, type KbdKey } from "./types";
 
 /* -------------------------------- Variants -------------------------------- */
 export const kbdVariants = cva({
-  base: "border-1 inline-flex items-center rounded-full border border-surface-200 px-8px font-sans text-surface-600 wg-antialiased dark:border-surface-100",
+  base: "border-1 inline-flex cursor-default items-center rounded-full border border-surface-200 px-2 font-sans text-surface-500 wg-antialiased dark:border-surface-100 [&>abbr]:no-underline",
   variants: {
     size: {
-      xs: "text-xs leading-6 [--wg-border-width:1px]",
-      sm: "px-8px py-2px text-sm leading-6 [--wg-border-width:1px]",
-      base: "py-0.5 text-base",
-      lg: "text-lg",
+      xs: "text-xs leading-6",
+      sm: "text-sm leading-6",
+      md: "py-0.5 text-base leading-6",
+      lg: "py-0.5 text-lg",
     },
   },
   defaultVariants: {
@@ -35,11 +35,11 @@ const Key = ({ keyName }: { keyName: KbdKey }) => {
     return null;
   }
 
-  return <span aria-label={kbdKeysLabelMap[keyName]}>{kbdKeysMap[keyName]}</span>;
+  return <abbr title={kbdKeysLabelMap[keyName]}>{kbdKeysMap[keyName]}</abbr>;
 };
 
 const Kbd = React.forwardRef<KbdElement, KbdProps>(
-  ({ children, className, keys, size = "sm", ...otherProps }, ref) => {
+  ({ children, className, keys, size = "xs", ...otherProps }, ref) => {
     const renderKeys = () => {
       if (!keys) return null;
 

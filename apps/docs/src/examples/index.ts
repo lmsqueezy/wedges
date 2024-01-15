@@ -1617,6 +1617,38 @@ export function Example() {
 }
 `,
   },
+  "kbd/example-1": {
+    component: lazy(() => import("@/examples/kbd/example-1.tsx")),
+    code: `import { Kbd } from "@lemonsqueezy/wedges";
+
+<div className="inline-flex items-center gap-4">
+  <Kbd keys={["option", "command"]} size="xs">
+    W
+  </Kbd>
+
+  <Kbd keys={["option", "command"]} size="sm">
+    D
+  </Kbd>
+
+  <Kbd keys={["option", "command"]} size="md">
+    G
+  </Kbd>
+
+  <Kbd keys={["option", "command"]} size="lg">
+    S
+  </Kbd>
+</div>;
+`,
+  },
+  "kbd/preview": {
+    component: lazy(() => import("@/examples/kbd/preview.tsx")),
+    code: `import { Kbd } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  return <Kbd keys={["option", "command"]}>K</Kbd>;
+}
+`,
+  },
   "label/example-1": {
     component: lazy(() => import("@/examples/label/example-1.tsx")),
     code: `import { Label } from "@lemonsqueezy/wedges";
