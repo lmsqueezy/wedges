@@ -1,7 +1,8 @@
-import { type SVGProps } from "react";
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
+import * as React from "react";
 
 export type IconProps = {
   color?: string;
   size?: number;
   title?: string;
-} & SVGProps<SVGSVGElement>;
+} & React.SVGProps<SVGSVGElement>;
