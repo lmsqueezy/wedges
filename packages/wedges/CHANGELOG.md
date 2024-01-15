@@ -1,5 +1,11 @@
 # @lemonsqueezy/wedges
 
+## 1.1.1
+
+### Patch Changes
+
+- [#49](https://github.com/lmsqueezy/wedges/pull/49) [`fc57c93`](https://github.com/lmsqueezy/wedges/commit/fc57c93ff2f438a19185843429b3dbb6c36fe06e) Thanks [@brankoconjic](https://github.com/brankoconjic)! - fix Loading component not showing on mobile devices
+
 ## 1.1.0
 
 ### Minor Changes
