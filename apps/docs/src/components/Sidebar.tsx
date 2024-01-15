@@ -130,7 +130,7 @@ function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname
           >
             <Link
               className={cn(
-                "flex w-full items-center rounded-md py-1 pl-9 pr-3 !outline-0 hover:bg-surface",
+                "flex w-full items-center gap-2 rounded-md py-1 pl-9 pr-3 !outline-0 hover:bg-surface",
                 pathname === item.href
                   ? "font-medium text-purple-600"
                   : "text-gray-500 hover:text-slate-600",
@@ -150,6 +150,12 @@ function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname
               onClick={toggleSidebar}
             >
               {item.label}
+
+              {item.new ? (
+                <Badge shape="pill" color="primary" className="font-normal" size="sm">
+                  New
+                </Badge>
+              ) : null}
             </Link>
           </span>
         ) : (

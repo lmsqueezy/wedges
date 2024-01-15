@@ -1,0 +1,42 @@
+---
+title: Loading
+description: An animated visual loading state indicator.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Loading/Loading.tsx
+---
+
+<PreviewComponent name="loading/preview" />
+
+### Usage
+
+```tsx
+import { Loading } from "@lemonsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Loading />
+```
+
+### API Reference
+
+<PropsTable
+  content={[
+    [{ value: "type" }, { value: '"line" | "spinner" | "dots"' }, { value: '"line"' }],
+    [{ value: "size" }, { value: "Enum", description: '"xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl"' }, { value: "md" }],
+    [
+      { value: "color" },
+      { value: '"primary" | "secondary"' },
+      { value: "primary" },
+    ],
+]}
+/>
+
+### Examples
+
+The following example shows different `type` and `size` props.
+
+<PreviewComponent name="loading/example-1" />
+
+Change the color using the `color` prop, or set a custom text color with a `className`.
+
+<PreviewComponent name="loading/example-2" />
