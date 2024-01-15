@@ -125,6 +125,11 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/input",
         },
         {
+          label: "Kbd",
+          href: "/components/kbd",
+          new: true,
+        },
+        {
           label: "Label",
           href: "/components/label",
         },

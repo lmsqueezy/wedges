@@ -1,0 +1,76 @@
+---
+title: Kbd
+description: A visual representation of keyboard inputs, commands, or shortcuts in the UI.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Badge/Badge.tsx
+---
+
+<PreviewComponent name="kbd/preview" />
+
+### Usage
+
+```tsx
+import { Kbd } from "@lemonsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Kbd keys={["option", "command"]}>K</Kbd>
+```
+
+### API Reference
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "size",
+      },
+      {
+        value: "Enum",
+        description: '"xs" | "sm" | "md" | "lg"',
+      },
+      { value: '"xs"' },
+    ],
+    [
+      {
+        value: "keys",
+      },
+      { value: "KbdKey | KbdKey[]" },
+      { },
+    ],
+  ]}
+/>
+
+### Accessibility
+
+Keys are labeled with the `title` attribute describing the key. For example, the `option` key is labeled with `title="option"`.
+
+`KbdKey`type is defined like this:
+```tsx showLineNumbers
+type KbdKey =
+  | "command"
+  | "shift"
+  | "ctrl"
+  | "option"
+  | "enter"
+  | "delete"
+  | "escape"
+  | "tab"
+  | "capslock"
+  | "up"
+  | "right"
+  | "down"
+  | "left"
+  | "pageup"
+  | "pagedown"
+  | "home"
+  | "end"
+  | "help"
+  | "space";
+```
+
+### Examples
+
+The following example shows different `size` props of the `Kbd` component.
+
+<PreviewComponent name="kbd/example-1" />
