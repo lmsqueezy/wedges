@@ -1,5 +1,19 @@
 # @lemonsqueezy/wedges
 
+## 1.1.0
+
+### Minor Changes
+
+- [#47](https://github.com/lmsqueezy/wedges/pull/47) [`8280d4d`](https://github.com/lmsqueezy/wedges/commit/8280d4deff42c78077bd6a5225c87570bae7a212) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add Loading component
+
+- [#48](https://github.com/lmsqueezy/wedges/pull/48) [`0d40df6`](https://github.com/lmsqueezy/wedges/commit/0d40df6dfc07ed81827676c74ebdcb0be2ad168b) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add Kbd component
+
+### Patch Changes
+
+- [#44](https://github.com/lmsqueezy/wedges/pull/44) [`e36ec02`](https://github.com/lmsqueezy/wedges/commit/e36ec02fdf8d8c87d31b787488dfefa3021275ec) Thanks [@brankoconjic](https://github.com/brankoconjic)! - update dependencies
+
+- [#47](https://github.com/lmsqueezy/wedges/pull/47) [`8280d4d`](https://github.com/lmsqueezy/wedges/commit/8280d4deff42c78077bd6a5225c87570bae7a212) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add lineSpinner animation to the TailwindCSS plugin
+
 ## 1.0.2
 
 ### Patch Changes
