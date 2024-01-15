@@ -56,12 +56,7 @@ const Loading = React.forwardRef<LoadingElement, LoadingProps>((props, ref) => {
 
   switch (type) {
     case "line":
-      element = (
-        <Line
-          className={cn(loadingVariants({ size }), "animate-spin will-change-transform")}
-          size={size}
-        />
-      );
+      element = <Line className="h-full w-full animate-spin will-change-transform" size={size} />;
       break;
 
     case "spinner":
@@ -75,7 +70,10 @@ const Loading = React.forwardRef<LoadingElement, LoadingProps>((props, ref) => {
 
     case "dots":
       element = (
-        <Dots className="animate-[spin_1.25s_linear_infinite] will-change-transform" size={size} />
+        <Dots
+          className="h-full w-full animate-[spin_1.25s_linear_infinite] will-change-transform"
+          size={size}
+        />
       );
       break;
   }
