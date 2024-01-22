@@ -98,11 +98,6 @@ const Search = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props
             {...otherProps}
             transformItems={(items) => {
               return items.map((item, index) => {
-                // We transform the absolute URL into a relative URL to leverage Next's preloading.
-                const a = document.createElement("a");
-                a.href = item.url;
-                const hash = a.hash;
-
                 if (item?.content) {
                   item.content = suffixTitle(item.content);
                 }
@@ -121,7 +116,6 @@ const Search = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props
 
                 return {
                   ...item,
-                  url: `${a.pathname}${hash}`,
                   __is_result: () => true,
                   __is_parent: () => item.type === "lvl1" && items.length > 1 && index === 0,
                   __is_child: () =>
