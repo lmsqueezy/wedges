@@ -1,6 +1,5 @@
 ---
-"@lemonsqueezy/wedges": patch
-"@wedges/docs": patch
+"@lemonsqueezy/wedges": minor
 ---
 
 feat: add ProgressBar component
