@@ -1,0 +1,177 @@
+---
+title: Progress Bar
+description: A progress bar visually showing the percentage of a task completed.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Progress/Progress.tsx
+  radix: https://www.radix-ui.com/primitives/docs/components/progress
+---
+
+<PreviewComponent name="progress-bar/preview" />
+
+### Usage
+
+```tsx
+import { ProgressBar } from "@lemonsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<ProgressBar value={50} />
+```
+
+### API Reference
+
+`ProgressBar` component extends the <a href="https://www.radix-ui.com/docs/primitives/components/progress" target="_blank" rel='nofollow noreferrer'>Radix Progress</a> component and supports all of its props.
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "value",
+        description:
+          "The progress value.",
+      },
+      { value: "number | null" },
+      {},
+    ],
+    [
+      {
+        value: "max",
+        description: "The maximum progress value.",
+      },
+      { value: "number" },
+      {},
+    ],
+    [
+      {
+        value: "getValueLabel",
+        description:
+          "The modality of the popover. When set to 'true', interaction with outside elements will be disabled and only popover content will be visible to screen readers.",
+      },
+      { value: "function", description: "(value: number, max: number) => string" },
+      {},
+    ],
+    [
+        {
+            value: 'variant',
+            description: 'The variant of the progress bar.',
+        },
+        { value: '"default" | "inline"' },
+        { value: '"default"' },
+    ],
+    [
+        {
+            value: 'color',
+            description: 'The color of the filled progress bar.',
+        },
+        { value: 'Enum', description: '"primary" | "purple" | "green" | "blue" | "orange" | "pink" | "yellow" | "red" | "secondary"' },
+        { value: '"primary"' },
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the progress bar is disabled.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the progress bar, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      { value: "description", description: "Additional information displayed next to the label." },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Label of the input.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "helperText",
+        description:
+          "Additional text or information to guide the user. It's rendered below the progress bar.",
+      },
+      {
+        value: "ReactNode",
+      },
+      {},
+    ],
+    [
+        {
+            value: 'indicator',
+            description: 'Typically a text or icon element indicating the current progress value.',
+        },
+        { value: 'ReactNode' },
+        {},
+    ],
+    [
+        {
+            value: 'afterIndicator',
+            description: 'The slot to be rendered after the indicator.',
+        },
+        { value: 'ReactNode' },
+        {},
+    ]
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-state]",
+      },
+      { value: '"complete" | "indeterminate" | "loading"' },
+    ],
+    [
+      {
+        value: "[data-value]",
+      },
+      { value: 'The current value' },
+    ],
+    [
+      {
+        value: "[data-max]",
+      },
+      { value: 'The max value' },
+    ],
+]}
+/>
+
+### Accessibility
+
+The `ProgressBar` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/progress#accessibility" target="_blank" rel="nofollow noreferrer">Radix Progress</a> primitive.
+
+
+### Examples
+
+The following example shows different layout variants.
+
+<PreviewComponent name="progress-bar/example-1" />
+
+Next example shows different color and layout combinations.
+
+<PreviewComponent name="progress-bar/example-2" />

@@ -143,6 +143,11 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/popover",
         },
         {
+          label: "Progress Bar",
+          href: "/components/progress-bar",
+          new: true,
+        },
+        {
           label: "Radio Group",
           href: "/components/radio-group",
         },
@@ -181,11 +186,6 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Number Input",
           href: "/components/number-input",
-          disabled: true,
-        },
-        {
-          label: "Progress Bar",
-          href: "/components/progress-bar",
           disabled: true,
         },
         {
