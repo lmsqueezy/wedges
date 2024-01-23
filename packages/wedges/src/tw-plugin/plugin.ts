@@ -230,6 +230,9 @@ const corePlugin = (
           boxShadow: {
             ...prefixedBoxShadows,
           },
+          screens: {
+            xs: "480px",
+          },
           padding: {
             "2px": "calc(2px - var(--wg-border-width, 0px))",
             "4px": "calc(4px - var(--wg-border-width, 0px))",

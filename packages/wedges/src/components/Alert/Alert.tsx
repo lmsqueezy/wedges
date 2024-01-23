@@ -181,7 +181,7 @@ const AlertBefore = React.forwardRef<
   const Component = isReactElement(children) ? Slot : "span";
 
   if (!children) {
-    return <InfoIcon className={cn("h-6 w-6 shrink-0", alertIconVariants({ color }), className)} />;
+    return <InfoIcon className={cn("size-6 shrink-0", alertIconVariants({ color }), className)} />;
   }
 
   return (
