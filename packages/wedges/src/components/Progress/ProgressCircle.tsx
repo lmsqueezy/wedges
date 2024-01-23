@@ -44,10 +44,30 @@ const progressCircleVariants = cva({
 export type ProgressCircleElement = SVGSVGElement;
 export type ProgressCircleProps = Omit<React.SVGProps<SVGSVGElement>, "value"> &
   VariantProps<typeof progressCircleVariants> & {
+    /**
+     * The progress value.
+     */
     value?: number;
+
+    /**
+     * The maximum progress value.
+     */
     max?: number;
+
+    /**
+     * A function to get the accessible label text representing the current value in a human-readable format.
+     * If not provided, the value label will be read as the numeric value as a percentage of the max value.
+     */
     getLabelValue?: (value: number, max: number) => string;
+
+    /**
+     * If `true`, the additional styles will be applied to indicate that the progress bar is disabled.
+     */
     disabled?: boolean;
+
+    /**
+     * If `true`, the progress bar CSS transition will be disabled.
+     */
     disableAnimation?: boolean;
   };
 
