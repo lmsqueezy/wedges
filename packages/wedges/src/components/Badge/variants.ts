@@ -63,7 +63,7 @@ export const badgeVariants = cva({
 });
 
 export const iconVariants = cva({
-  base: "h-4 w-4",
+  base: "size-4",
   variants: {
     color: {
       gray: "text-surface-400",

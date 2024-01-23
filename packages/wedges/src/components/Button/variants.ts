@@ -106,9 +106,9 @@ export const iconVariants = cva({
       true: "text-current",
     },
     size: {
-      "xs-icon": "h-5 w-5",
-      sm: "h-5 w-5",
-      md: "h-6 w-6",
+      "xs-icon": "size-5",
+      sm: "size-5",
+      md: "size-6",
     },
   },
   compoundVariants: [

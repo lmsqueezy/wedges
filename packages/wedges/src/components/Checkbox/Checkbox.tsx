@@ -146,7 +146,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
           aria-labelledby={label ? `${elId}__label` : undefined}
           checked={checked}
           className={cn(
-            "group relative flex h-6 w-6 items-center justify-center rounded-lg text-surface-200 outline-primary transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
+            "group relative flex size-6 items-center justify-center rounded-lg text-surface-200 outline-primary transition-colors duration-100 focus:outline-0 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 [&:has([data-state=checked])_.wg-unchecked]:hidden",
             isDisabled && "pointer-events-none text-surface-200 dark:text-surface-100",
             !isDisabled && !isIndeterminate && "hover:text-surface-300",
             !isDisabled && isIndeterminate && "text-primary",

@@ -90,7 +90,7 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
     <>
       {isReactElement(before)
         ? React.cloneElement(before, {
-            className: cn("h-4 w-4", before.props.className || ""),
+            className: cn("size-4", before.props.className || ""),
           })
         : before}
 
@@ -104,13 +104,13 @@ const Tag = React.forwardRef<BadgeElement, TagProps>((props, ref) => {
   const renderDeleteIcon = isReactElement(deleteIcon) ? (
     deleteIcon
   ) : (
-    <CloseIcon aria-label="Close" className="h-4 w-4" />
+    <CloseIcon aria-label="Close" className="size-4" />
   );
 
   const renderCloseButton: React.ReactElement<HTMLButtonElement> | undefined = closable ? (
     <Button
       before={renderDeleteIcon}
-      className="duration-180 h-auto w-auto p-0 text-wg-gray-400 transition-colors hover:text-wg-gray-600 focus:outline-1 dark:text-wg-white-500 dark:hover:text-wg-white-700 [&>svg]:!opacity-100"
+      className="duration-180 size-auto p-0 text-wg-gray-400 transition-colors hover:text-wg-gray-600 focus:outline-1 dark:text-wg-white-500 dark:hover:text-wg-white-700 [&>svg]:!opacity-100"
       shape="pill"
       size="xs-icon"
       variant="link"

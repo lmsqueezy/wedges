@@ -30,13 +30,13 @@ export const avatarVariants = cva({
 export const fallbackVariants = cva({
   variants: {
     size: {
-      xxs: "h-3 w-3",
-      xs: "h-4 w-4",
-      sm: "h-5 w-5",
-      md: "h-6 w-6",
-      lg: "h-7 w-7",
-      xl: "h-8 w-8",
-      "2xl": "h-10 w-10",
+      xxs: "size-3",
+      xs: "size-4",
+      sm: "size-5",
+      md: "size-6",
+      lg: "size-7",
+      xl: "size-8",
+      "2xl": "size-10",
     },
   },
   defaultVariants: {

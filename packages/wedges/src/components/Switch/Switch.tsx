@@ -78,7 +78,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
         >
           <SwitchPrimitive.Thumb
             className={cn(
-              "h-3 w-3 rounded-full bg-white transition-transform duration-200 data-[state=checked]:translate-x-[14px] data-[state=unchecked]:translate-x-0.5",
+              "size-3 rounded-full bg-white transition-transform duration-200 data-[state=checked]:translate-x-[14px] data-[state=unchecked]:translate-x-0.5",
               disabled && "dark:bg-surface-200"
             )}
           />

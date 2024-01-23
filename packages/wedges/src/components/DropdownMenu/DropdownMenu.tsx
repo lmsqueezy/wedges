@@ -275,7 +275,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
     {children}
 
     <svg
-      className="ms-auto h-6 w-6 text-surface-500"
+      className="ms-auto size-6 text-surface-500"
       fill="none"
       height="24"
       viewBox="0 0 24 24"

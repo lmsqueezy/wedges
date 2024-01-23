@@ -20,13 +20,13 @@ export const loadingVariants = cva({
       secondary: "stroke-surface-100 text-secondary",
     },
     size: {
-      xxs: "h-4 w-4",
-      xs: "h-6 w-6",
-      sm: "h-8 w-8",
-      md: "h-12 w-12 [--wg-loading-stroke-width:6px]",
-      lg: "h-14 w-14",
-      xl: "h-16 w-16",
-      xxl: "h-[88px] w-[88px]",
+      xxs: "size-4",
+      xs: "size-6",
+      sm: "size-8",
+      md: "size-12 [--wg-loading-stroke-width:6px]",
+      lg: "size-14",
+      xl: "size-16",
+      xxl: "size-[88px]",
     },
     type: {
       line: "",
@@ -56,13 +56,13 @@ const Loading = React.forwardRef<LoadingElement, LoadingProps>((props, ref) => {
 
   switch (type) {
     case "line":
-      element = <Line className="h-full w-full animate-spin will-change-transform" size={size} />;
+      element = <Line className="size-full animate-spin will-change-transform" size={size} />;
       break;
 
     case "spinner":
       element = (
         <Spinner
-          className="h-full w-full animate-[spin_.6s_ease-in-out_infinite] will-change-transform"
+          className="size-full animate-[spin_.6s_ease-in-out_infinite] will-change-transform"
           size={size}
         />
       );
@@ -71,7 +71,7 @@ const Loading = React.forwardRef<LoadingElement, LoadingProps>((props, ref) => {
     case "dots":
       element = (
         <Dots
-          className="h-full w-full animate-[spin_1.25s_linear_infinite] will-change-transform"
+          className="size-full animate-[spin_1.25s_linear_infinite] will-change-transform"
           size={size}
         />
       );
