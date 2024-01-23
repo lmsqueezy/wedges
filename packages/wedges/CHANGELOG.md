@@ -1,5 +1,21 @@
 # @lemonsqueezy/wedges
 
+## 1.2.0
+
+### Minor Changes
+
+- [#57](https://github.com/lmsqueezy/wedges/pull/57) [`ecdefcb`](https://github.com/lmsqueezy/wedges/commit/ecdefcb52858984ff1947f1e5bd76a847cc0c00a) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add ProgressCircle component
+
+- [#55](https://github.com/lmsqueezy/wedges/pull/55) [`c545acb`](https://github.com/lmsqueezy/wedges/commit/c545acb488f4fe62d7d93273a3cd1109b147a82f) Thanks [@brankoconjic](https://github.com/brankoconjic)! - feat: add ProgressBar component
+
+### Patch Changes
+
+- [#54](https://github.com/lmsqueezy/wedges/pull/54) [`9ddbac1`](https://github.com/lmsqueezy/wedges/commit/9ddbac167343ed388b0a996e20dd3e71cf9ec8de) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add tailwind shorthand classes where possible
+
+- [#54](https://github.com/lmsqueezy/wedges/pull/54) [`9ddbac1`](https://github.com/lmsqueezy/wedges/commit/9ddbac167343ed388b0a996e20dd3e71cf9ec8de) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add xs screen size to the tailwind plugin
+
+- [#52](https://github.com/lmsqueezy/wedges/pull/52) [`8e1aaf3`](https://github.com/lmsqueezy/wedges/commit/8e1aaf34e73f74636fa26ca2654a9cbdfa2fc392) Thanks [@brankoconjic](https://github.com/brankoconjic)! - update dependencies
+
 ## 1.1.1
 
 ### Patch Changes
