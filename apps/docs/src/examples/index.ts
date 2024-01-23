@@ -1915,7 +1915,7 @@ export function Example() {
       <ProgressBar
         color="red"
         indicator="96"
-        label="Class A"
+        label="Class C"
         max={500}
         value={96}
         variant="inline"
@@ -1960,21 +1960,130 @@ export function Example() {
   },
   "progress-bar/preview": {
     component: lazy(() => import("@/examples/progress-bar/preview.tsx")),
-    code: `import { SpinnerIcon } from "@iconicicons/react";
+    code: `import * as React from "react";
+import { SpinnerIcon } from "@iconicicons/react";
 import { ProgressBar } from "@lemonsqueezy/wedges";
 
 export function Example() {
+  const [value, setValue] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((value) => (value + 1) % 101);
+    }, 150);
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="inline-block w-full max-w-[400px]">
       <ProgressBar
         afterIndicator={<SpinnerIcon className="animate-spin" />}
         helperText="Helper text"
-        indicator="50%"
+        indicator={value + "%"}
         label="Label"
         tooltip="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
-        value={50}
+        value={value}
         max={100}
       />
+    </div>
+  );
+}
+`,
+  },
+  "progress-circle/example-1": {
+    component: lazy(() => import("@/examples/progress-circle/example-1.tsx")),
+    code: `import { ProgressCircle } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="flex flex-col items-center gap-6">
+      <div className="flex items-center gap-6">
+        <ProgressCircle value={75} size="xs" />
+        <ProgressCircle value={75} size="sm" />
+        <ProgressCircle value={75} size="md" />
+        <ProgressCircle value={75} size="lg" />
+        <ProgressCircle value={75} size="xl" />
+      </div>
+
+      <div className="flex items-center gap-6">
+        <ProgressCircle color="green" value={75} size="xl" />
+        <ProgressCircle color="green" value={75} size="lg" />
+        <ProgressCircle color="green" value={75} size="md" />
+        <ProgressCircle color="green" value={75} size="sm" />
+        <ProgressCircle color="green" value={75} size="xs" />
+      </div>
+
+      <div className="flex items-center gap-6">
+        <ProgressCircle color="blue" value={75} size="xs" />
+        <ProgressCircle color="blue" value={75} size="sm" />
+        <ProgressCircle color="blue" value={75} size="md" />
+        <ProgressCircle color="blue" value={75} size="lg" />
+        <ProgressCircle color="blue" value={75} size="xl" />
+      </div>
+
+      <div className="flex items-center gap-6">
+        <ProgressCircle color="orange" value={75} size="xl" />
+        <ProgressCircle color="orange" value={75} size="lg" />
+        <ProgressCircle color="orange" value={75} size="md" />
+        <ProgressCircle color="orange" value={75} size="sm" />
+        <ProgressCircle color="orange" value={75} size="xs" />
+      </div>
+
+      <div className="flex items-center gap-6">
+        <ProgressCircle color="pink" value={75} size="xs" />
+        <ProgressCircle color="pink" value={75} size="sm" />
+        <ProgressCircle color="pink" value={75} size="md" />
+        <ProgressCircle color="pink" value={75} size="lg" />
+        <ProgressCircle color="pink" value={75} size="xl" />
+      </div>
+
+      <div className="flex items-center gap-6">
+        <ProgressCircle color="yellow" value={75} size="xl" />
+        <ProgressCircle color="yellow" value={75} size="lg" />
+        <ProgressCircle color="yellow" value={75} size="md" />
+        <ProgressCircle color="yellow" value={75} size="sm" />
+        <ProgressCircle color="yellow" value={75} size="xs" />
+      </div>
+
+      <div className="flex items-center gap-6">
+        <ProgressCircle color="red" value={75} size="xs" />
+        <ProgressCircle color="red" value={75} size="sm" />
+        <ProgressCircle color="red" value={75} size="md" />
+        <ProgressCircle color="red" value={75} size="lg" />
+        <ProgressCircle color="red" value={75} size="xl" />
+      </div>
+
+      <div className="flex items-center gap-6">
+        <ProgressCircle color="secondary" value={75} size="xl" />
+        <ProgressCircle color="secondary" value={75} size="lg" />
+        <ProgressCircle color="secondary" value={75} size="md" />
+        <ProgressCircle color="secondary" value={75} size="sm" />
+        <ProgressCircle color="secondary" value={75} size="xs" />
+      </div>
+    </div>
+  );
+}
+`,
+  },
+  "progress-circle/preview": {
+    component: lazy(() => import("@/examples/progress-circle/preview.tsx")),
+    code: `import * as React from "react";
+import { ProgressCircle } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  const [value, setValue] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setValue((value) => (value + 1) % 101);
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="inline-block">
+      <ProgressCircle color={value < 33 ? "red" : value < 66 ? "orange" : "green"} value={value} />
     </div>
   );
 }

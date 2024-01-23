@@ -32,8 +32,8 @@ const progressBarVariants = cva({
 });
 
 /* ---------------------------------- Types --------------------------------- */
-export type ProgressElement = React.ElementRef<typeof ProgressPrimitive.Root>;
-export type ProgressProps = React.ComponentProps<typeof ProgressPrimitive.Root> &
+export type ProgressBarElement = React.ElementRef<typeof ProgressPrimitive.Root>;
+export type ProgressBarProps = React.ComponentProps<typeof ProgressPrimitive.Root> &
   Omit<LabelProps, "required"> &
   LabelHelperProps & {
     /**
@@ -47,7 +47,7 @@ export type ProgressProps = React.ComponentProps<typeof ProgressPrimitive.Root> 
     afterIndicator?: React.ReactNode;
   } & VariantProps<typeof progressBarVariants>;
 
-const ProgressBar = React.forwardRef<ProgressElement, ProgressProps>((props, ref) => {
+const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
   const {
     afterIndicator,
     className,
