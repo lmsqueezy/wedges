@@ -34,6 +34,10 @@ const progressCircleVariants = cva({
       secondary: ["text-secondary"],
     },
   },
+  defaultVariants: {
+    size: "md",
+    color: "primary",
+  },
 });
 
 /* ---------------------------------- Types --------------------------------- */
@@ -44,6 +48,7 @@ export type ProgressCircleProps = Omit<React.SVGProps<SVGSVGElement>, "value"> &
     max?: number;
     getLabelValue?: (value: number, max: number) => string;
     disabled?: boolean;
+    disableAnimation?: boolean;
   };
 
 /* -------------------------------- Component ------------------------------- */
@@ -52,6 +57,7 @@ const ProgressCircle = React.forwardRef<ProgressCircleElement, ProgressCirclePro
     const {
       className,
       color = "primary",
+      disableAnimation = false,
       disabled,
       getLabelValue,
       max = 100,
@@ -134,7 +140,7 @@ const ProgressCircle = React.forwardRef<ProgressCircleElement, ProgressCirclePro
             strokeDasharray={circumference}
             strokeDashoffset={circumference - (value / 100) * circumference}
             strokeLinecap="round"
-            className="h-full transition-all duration-300 ease-linear"
+            className={cn("h-full", !disableAnimation && "transition-all duration-300 ease-linear")}
             transform={`rotate(-90 ${svgSize / 2} ${svgSize / 2})`} // Rotate the circle to start from 12 o'clock
             fill="none"
           />
