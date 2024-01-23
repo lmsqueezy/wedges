@@ -148,6 +148,11 @@ export const sidebarConfig: DocsConfig = {
           new: true,
         },
         {
+          label: "Progress Circle",
+          href: "/components/progress-circle",
+          new: true,
+        },
+        {
           label: "Radio Group",
           href: "/components/radio-group",
         },
@@ -186,11 +191,6 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Number Input",
           href: "/components/number-input",
-          disabled: true,
-        },
-        {
-          label: "Progress Circle",
-          href: "/components/progress-circle",
           disabled: true,
         },
         {

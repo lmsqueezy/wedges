@@ -48,13 +48,13 @@ import { ProgressBar } from "@lemonsqueezy/wedges";
         description: "The maximum progress value.",
       },
       { value: "number" },
-      {},
+      { value: "100" },
     ],
     [
       {
         value: "getValueLabel",
         description:
-          "The modality of the popover. When set to 'true', interaction with outside elements will be disabled and only popover content will be visible to screen readers.",
+          "A function to get the accessible label text representing the current value in a human-readable format. If not provided, the value label will be read as the numeric value as a percentage of the max value.",
       },
       { value: "function", description: "(value: number, max: number) => string" },
       {},
@@ -133,7 +133,16 @@ import { ProgressBar } from "@lemonsqueezy/wedges";
         },
         { value: 'ReactNode' },
         {},
-    ]
+    ],
+     [
+      {
+        value: "disableAnimation",
+        description:
+          "If set to `true`, the progress bar will not animate.",
+      },
+      { value: "boolean" },
+      { value: 'false' },
+    ],
   ]}
 />
 

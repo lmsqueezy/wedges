@@ -1,0 +1,120 @@
+---
+title: Progress Circle
+description: A progress circle visually showing the percentage of a task completed.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Progress/ProgressCircle.tsx
+---
+
+<PreviewComponent name="progress-circle/preview" />
+
+### Usage
+
+```tsx
+import { ProgressCircle } from "@lemonsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<ProgressCircle value={50} />
+```
+
+### API Reference
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "value",
+        description:
+          "The progress value.",
+      },
+      { value: "number | null" },
+      {},
+    ],
+    [
+      {
+        value: "max",
+        description: "The maximum progress value.",
+      },
+      { value: "number" },
+      { value: "100" },
+    ],
+    [
+      {
+        value: "getValueLabel",
+        description:
+          "A function to get the accessible label text representing the current value in a human-readable format. If not provided, the value label will be read as the numeric value as a percentage of the max value.",
+      },
+      { value: "function", description: "(value: number, max: number) => string" },
+      {},
+    ],
+    [
+        {
+            value: 'color',
+            description: 'The color of the filled progress bar.',
+        },
+        { value: 'Enum', description: '"primary" | "purple" | "green" | "blue" | "orange" | "pink" | "yellow" | "red" | "secondary"' },
+        { value: '"primary"' },
+    ],
+    [
+      {
+        value: "disabled",
+        description:
+          "If set to `true`, additional styles will be applied to indicate that the progress bar is disabled.",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "size",
+        description: "The size of the progress bar.",
+      },
+      { value: "Enum", description: '"xl" | "lg" | "md" | "sm" | "xs"', },
+      { value: '"md"' },
+    ],
+    [
+      {
+        value: "disableAnimation",
+        description:
+          "If set to `true`, the progress bar will not animate.",
+      },
+      { value: "boolean" },
+      { value: 'false' },
+    ],
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [
+      {
+        value: "[data-state]",
+      },
+      { value: '"complete" | "indeterminate" | "loading"' },
+    ],
+    [
+      {
+        value: "[data-value]",
+      },
+      { value: 'The current value' },
+    ],
+    [
+      {
+        value: "[data-max]",
+      },
+      { value: 'The max value' },
+    ],
+]}
+/>
+
+### Accessibility
+
+Adheres to the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/meter" target="_blank" rel="nofollow noreferrer">`progressbar` role requirements</a>.
+
+
+### Examples
+
+<PreviewComponent name="progress-circle/example-1" />

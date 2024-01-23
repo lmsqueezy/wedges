@@ -32,8 +32,8 @@ const progressBarVariants = cva({
 });
 
 /* ---------------------------------- Types --------------------------------- */
-export type ProgressElement = React.ElementRef<typeof ProgressPrimitive.Root>;
-export type ProgressProps = React.ComponentProps<typeof ProgressPrimitive.Root> &
+export type ProgressBarElement = React.ElementRef<typeof ProgressPrimitive.Root>;
+export type ProgressBarProps = React.ComponentProps<typeof ProgressPrimitive.Root> &
   Omit<LabelProps, "required"> &
   LabelHelperProps & {
     /**
@@ -45,14 +45,20 @@ export type ProgressProps = React.ComponentProps<typeof ProgressPrimitive.Root> 
      * The slot to be rendered after the indicator.
      */
     afterIndicator?: React.ReactNode;
+
+    /**
+     * If `true`, the progress bar CSS transition will be disabled.
+     */
+    disableAnimation?: boolean;
   } & VariantProps<typeof progressBarVariants>;
 
-const ProgressBar = React.forwardRef<ProgressElement, ProgressProps>((props, ref) => {
+const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
   const {
     afterIndicator,
     className,
     color = "primary",
     description,
+    disableAnimation,
     disabled,
     helperText,
     id,
@@ -132,7 +138,8 @@ const ProgressBar = React.forwardRef<ProgressElement, ProgressProps>((props, ref
       >
         <ProgressPrimitive.Indicator
           className={cn(
-            "size-full rounded-e-full transition-transform duration-150 ease-in-out",
+            "size-full rounded-e-full",
+            !disableAnimation && "transition-transform duration-150 ease-in-out",
             progressBarVariants({ color })
           )}
           style={{ transform: `translateX(-${100 - (Math.min(value ?? 0, max) / max) * 100}%)` }}
