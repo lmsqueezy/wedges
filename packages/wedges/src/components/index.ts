@@ -13,6 +13,7 @@ export * from "./Kbd";
 export * from "./Label";
 export * from "./Loading";
 export * from "./Popover";
+export * from "./Progress";
 export * from "./RadioGroup";
 export * from "./Switch";
 export * from "./SwitchGroup";
