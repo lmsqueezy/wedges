@@ -3,7 +3,7 @@ import { ProgressBar } from "@lemonsqueezy/wedges";
 
 export default function Example() {
   return (
-    <div className="inline-flex w-full max-w-[400px] flex-col gap-y-16">
+    <div className="inline-flex w-full max-w-[400px] flex-col gap-y-12">
       <ProgressBar
         afterIndicator={<SpinnerIcon className="animate-spin" />}
         helperText="27MB of 60MB"
@@ -53,7 +53,7 @@ export default function Example() {
       <ProgressBar
         color="red"
         indicator="96"
-        label="Class A"
+        label="Class C"
         max={500}
         value={96}
         variant="inline"

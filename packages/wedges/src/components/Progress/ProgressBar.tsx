@@ -12,7 +12,7 @@ const progressBarVariants = cva({
   variants: {
     variant: {
       default: "flex-col gap-2",
-      inline: "xs:flex-nowrap xs:gap-4 min-w-[200px] flex-wrap items-center gap-2",
+      inline: "min-w-[200px] flex-wrap items-center gap-2 xs:flex-nowrap xs:gap-4",
     },
     color: {
       primary: ["bg-primary"],
