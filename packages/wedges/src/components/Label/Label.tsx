@@ -66,7 +66,7 @@ const LabelWedges = React.forwardRef<LabelElement, LabelProps>(
     }
 
     return (
-      <div className="wg-label inline-flex shrink-0 items-center gap-1 wg-antialiased">
+      <div className="wg-label inline-flex shrink-0 items-center gap-1 text-surface-900 wg-antialiased">
         <LabelPrimitive.Root
           ref={ref}
           asChild={useAsChild}
