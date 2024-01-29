@@ -2331,13 +2331,13 @@ export function Example() {
       />
 
       <Slider
-        label="Brightness"
-        showTooltip="hover"
         after={<SunIcon className="size-6 opacity-50" />}
         before={<MoonIcon className="size-6 opacity-50" />}
         defaultValue={[50]}
+        label="Brightness"
         max={100}
         min={1}
+        showTooltip="always"
         renderTooltip={(val) =>
           val <= 25 ? "Dark" : val <= 50 ? "Dim" : val <= 75 ? "Bright" : "Very Bright"
         }
@@ -2361,7 +2361,6 @@ export function Example() {
         defaultValue={[6]}
         max={10}
         min={1}
-        showTooltip="always"
       />
 
       <Slider defaultValue={[50]} />
