@@ -1,0 +1,47 @@
+---
+title: Slider
+description: An interactive input slider that allows users to select a value from a specified range.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Slider/Slider.tsx
+  radix: https://radix-ui.com/primitives/docs/components/slider
+---
+
+<PreviewComponent name="slider/preview" />
+
+### Usage
+
+```tsx
+import { Slider } from "@lemonsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Slider />
+```
+
+### API Reference
+
+### Accessibility
+
+Adheres to the <a href="https://www.w3.org/WAI/ARIA/apg/patterns/slidertwothumb" target="_blank" rel='noreferrer nofollow'>Slider WAI-ARIA</a> design pattern.
+
+### Examples
+
+Use `orientation` prop to create vertical sliders.
+
+<PreviewComponent name="slider/example-1" />
+
+You can disable the slider by using the `disabled` prop.
+
+<PreviewComponent name="slider/example-2" />
+
+Use range values:
+
+<PreviewComponent name="slider/example-3" />
+
+Controlled component:
+
+<PreviewComponent name="slider/example-4" />
+
+Playground:
+
+<PreviewComponent name="slider/example-5" />
