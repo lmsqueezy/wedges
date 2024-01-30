@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Tooltip } from "@lemonsqueezy/wedges";
 
+import { createLabelDocs, type LabelDocsParams } from "@/lib/docUtils";
 import { cn } from "@/lib/utils";
 
 type ContentItem = {
@@ -26,23 +27,62 @@ export const PropsTable = React.forwardRef<
     isOptions?: boolean;
     isUtility?: boolean;
     sort?: boolean;
+    includeCommonDocs?: LabelDocsParams;
   } & (SortProps | NoSortProps)
 >(
   (
-    { content, isData = false, isOptions = false, isUtility = false, sort = true, ...otherProps },
+    {
+      content,
+      isData = false,
+      isOptions = false,
+      isUtility = false,
+      sort = true,
+      includeCommonDocs,
+      ...otherProps
+    },
     ref
   ) => {
+    // Include label docs?
+    const {
+      label = false,
+      description = false,
+      tooltip = false,
+      helperText = false,
+      required = false,
+      disabled = false,
+      before = false,
+      after = false,
+      asChild = false,
+    } = includeCommonDocs ?? {};
+
+    const labelDocs = createLabelDocs({
+      label,
+      description,
+      tooltip,
+      helperText,
+      required,
+      disabled,
+      before,
+      after,
+      asChild,
+    });
+
     // Sort the content array
     const sortedContent = React.useMemo(() => {
       if (sort) {
-        return [...content].sort((a, b) => {
-          const aValue = a[0].value;
-          const bValue = b[0].value;
+        const returnContent = [...labelDocs];
+        returnContent.push(
+          ...[...content].sort((a, b) => {
+            const aValue = a[0].value;
+            const bValue = b[0].value;
 
-          return aValue?.toString().localeCompare(bValue.toString());
-        });
+            return aValue?.toString().localeCompare(bValue.toString());
+          })
+        );
+
+        return returnContent;
       } else {
-        return content;
+        return [...labelDocs, ...content];
       }
     }, [content, sort]);
 

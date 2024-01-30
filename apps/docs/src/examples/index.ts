@@ -2161,6 +2161,236 @@ export function Example() {
 }
 `,
   },
+  "slider/example-1": {
+    component: lazy(() => import("@/examples/slider/example-1.tsx")),
+    code: `import { Slider } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="inline-flex w-full min-w-80 max-w-[400px] flex-row items-center justify-center gap-12 text-surface-300">
+      <Slider defaultValue={[25]} showTooltip="hover" orientation="vertical" />
+      <Slider defaultValue={[50]} showTooltip="hover" orientation="vertical" />
+      <Slider defaultValue={[75]} showTooltip="hover" orientation="vertical" />
+    </div>
+  );
+}
+`,
+  },
+  "slider/example-2": {
+    component: lazy(() => import("@/examples/slider/example-2.tsx")),
+    code: `import { Slider } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="inline-flex w-full min-w-80 max-w-[400px] flex-col items-stretch gap-12">
+      <Slider
+        after="100"
+        before="0"
+        content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+        defaultValue={[50]}
+        description="(description)"
+        helperText="Helper text"
+        label="Label"
+        disabled
+      />
+    </div>
+  );
+}
+`,
+  },
+  "slider/example-3": {
+    component: lazy(() => import("@/examples/slider/example-3.tsx")),
+    code: `import { useState } from "react";
+import { Slider } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  const [value, setValue] = useState([2500, 5000]);
+
+  return (
+    <Slider
+      after="$10,000"
+      before="$1,000"
+      defaultValue={[2500, 5000]}
+      label="Price Range"
+      max={10000}
+      min={1000}
+      showTooltip="hover"
+      onValueChange={(val) => setValue(val)}
+      helperText={
+        "Selected range: $" +
+        value[0]?.toLocaleString("en-us") +
+        " - $" +
+        value[1]?.toLocaleString("en-us")
+      }
+      renderTooltip={(val) => {
+        if (val) {
+          return "$" + val.toLocaleString("en-US");
+        }
+
+        return "";
+      }}
+      step={100}
+    />
+  );
+}
+`,
+  },
+  "slider/example-4": {
+    component: lazy(() => import("@/examples/slider/example-4.tsx")),
+    code: `import { useState } from "react";
+import { MinusIcon, PlusIcon } from "@iconicicons/react";
+import { Button, Slider } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  const [value, setValue] = useState<number[]>([24]);
+
+  const decrementValue = () => {
+    setValue((currentValue) => {
+      if (currentValue && currentValue.length > 0) {
+        return [Math.max(currentValue[0]! - 2, 12)];
+      }
+      return currentValue;
+    });
+  };
+
+  const incrementValue = () => {
+    setValue((currentValue) => {
+      if (currentValue && currentValue.length > 0) {
+        return [Math.min(currentValue[0]! + 2, 48)];
+      }
+      return currentValue;
+    });
+  };
+
+  const renderHelperText = () => {
+    if (value && Array.isArray(value) && value.length > 0) {
+      const firstValue = value[0]!;
+      return firstValue < 24 ? "Small" : firstValue > 32 ? "Large" : "Medium";
+    }
+
+    return "";
+  };
+
+  return (
+    <Slider
+      after={
+        <Button size="sm" onClick={incrementValue} isIconOnly variant="transparent">
+          <PlusIcon />
+        </Button>
+      }
+      before={
+        <Button size="sm" onClick={decrementValue} isIconOnly variant="transparent">
+          <MinusIcon />
+        </Button>
+      }
+      onValueChange={(val) => {
+        setValue(val);
+      }}
+      defaultValue={value}
+      helperText={renderHelperText()}
+      label="Font Size"
+      max={48}
+      min={12}
+      renderTooltip={() => value.toString() + "px"}
+      showTooltip="hover"
+      step={2}
+      value={value}
+    />
+  );
+}
+`,
+  },
+  "slider/example-5": {
+    component: lazy(() => import("@/examples/slider/example-5.tsx")),
+    code: `import { EmojiHappyIcon, EmojiSadIcon, MoonIcon, StarIcon, SunIcon } from "@iconicicons/react";
+import { Slider } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="inline-flex w-full min-w-80 max-w-[400px] flex-col gap-y-20">
+      <Slider
+        defaultValue={[5]}
+        description="(1-10)"
+        helperText="How happy are you with the level of service?"
+        label="Rating"
+        max={10}
+        min={1}
+        showTooltip="hover"
+        before={
+          <div className="flex items-center gap-4">
+            <EmojiSadIcon className="size-6 opacity-50" />
+            <span>1</span>
+          </div>
+        }
+        after={
+          <div className="flex items-center gap-4">
+            <span>10</span>
+            <EmojiHappyIcon className="size-6 opacity-50" />
+          </div>
+        }
+      />
+
+      <Slider
+        after={<SunIcon className="size-6 opacity-50" />}
+        before={<MoonIcon className="size-6 opacity-50" />}
+        defaultValue={[50]}
+        label="Brightness"
+        max={100}
+        min={1}
+        showTooltip="always"
+        renderTooltip={(val) =>
+          val <= 25 ? "Dark" : val <= 50 ? "Dim" : val <= 75 ? "Bright" : "Very Bright"
+        }
+      />
+
+      <Slider
+        after="$10,000"
+        before="$1,000"
+        defaultValue={[2500, 5000]}
+        label="Price Range"
+        max={10000}
+        min={1000}
+        renderTooltip={(val) => "$" + val.toLocaleString("en-US")}
+        showTooltip="hover"
+        step={100}
+      />
+
+      <Slider
+        after="10"
+        before={<StarIcon className="size-6 opacity-50" />}
+        defaultValue={[6]}
+        max={10}
+        min={1}
+      />
+
+      <Slider defaultValue={[50]} />
+    </div>
+  );
+}
+`,
+  },
+  "slider/preview": {
+    component: lazy(() => import("@/examples/slider/preview.tsx")),
+    code: `import { MinusIcon, PlusIcon } from "@iconicicons/react";
+import { Slider } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  return (
+    <div className="inline-flex w-full min-w-80 max-w-[400px] flex-col gap-y-12 text-surface-300">
+      <Slider
+        after={<PlusIcon className="size-6 text-surface-300 dark:text-gray-500" />}
+        before={<MinusIcon className="size-6 text-surface-300 dark:text-gray-500" />}
+        content="A tooltip is a small box that appears when hovering over a UI element, providing additional information."
+        defaultValue={[50]}
+        description="(description)"
+        helperText="Helper text"
+        label="Label"
+      />
+    </div>
+  );
+}
+`,
+  },
   "switch/example-1": {
     component: lazy(() => import("@/examples/switch/example-1.tsx")),
     code: `import { Switch } from "@lemonsqueezy/wedges";

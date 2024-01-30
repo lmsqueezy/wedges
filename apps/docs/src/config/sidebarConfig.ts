@@ -157,6 +157,11 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/radio-group",
         },
         {
+          label: "Slider",
+          href: "/components/slider",
+          new: true,
+        },
+        {
           label: "Switch",
           href: "/components/switch",
         },
@@ -191,11 +196,6 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Number Input",
           href: "/components/number-input",
-          disabled: true,
-        },
-        {
-          label: "Slider",
-          href: "/components/slider",
           disabled: true,
         },
         {
