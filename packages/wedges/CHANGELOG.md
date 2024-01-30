@@ -1,5 +1,15 @@
 # @lemonsqueezy/wedges
 
+## 1.2.1
+
+### Patch Changes
+
+- [#59](https://github.com/lmsqueezy/wedges/pull/59) [`c5b48fd`](https://github.com/lmsqueezy/wedges/commit/c5b48fd4d3f2f6ed3079d212edd19a222e3d4517) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add default Label text color
+
+- [#59](https://github.com/lmsqueezy/wedges/pull/59) [`c5b48fd`](https://github.com/lmsqueezy/wedges/commit/c5b48fd4d3f2f6ed3079d212edd19a222e3d4517) Thanks [@brankoconjic](https://github.com/brankoconjic)! - update Tooltip arrow SVG
+
+- [#59](https://github.com/lmsqueezy/wedges/pull/59) [`c5b48fd`](https://github.com/lmsqueezy/wedges/commit/c5b48fd4d3f2f6ed3079d212edd19a222e3d4517) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add Slider component
+
 ## 1.2.0
 
 ### Minor Changes

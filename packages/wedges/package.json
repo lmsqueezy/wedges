@@ -1,6 +1,6 @@
 {
   "name": "@lemonsqueezy/wedges",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "An ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.",
   "keywords": [
     "accessible",
