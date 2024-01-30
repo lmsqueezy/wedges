@@ -5,7 +5,6 @@ links:
   source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Slider/Slider.tsx
   radix: https://radix-ui.com/primitives/docs/components/slider
 ---
-
 <PreviewComponent name="slider/preview" />
 
 ### Usage
@@ -18,7 +17,140 @@ import { Slider } from "@lemonsqueezy/wedges";
 <Slider />
 ```
 
+For more advanced usage, you can use the `Slider.Root` component to compose your own avatar. These components include pre-defined styles and accessiblity features.
+
+```tsx showLineNumbers
+<Slider.Root>
+    <Slider.Track>
+        <Slider.Range />
+    </Slider.Track>
+    <Slider.Thumb />
+</Avatar.Root>
+```
+
 ### API Reference
+
+The Slider component is built on top of the <a href="https://www.radix-ui.com/primitives/docs/components/slider" rel="nofollow noreferrer" target="_blank">Radix Slider</a> primitive.
+
+#### Slider
+
+The Wedges component of the Slider. In most cases this is the only Slider component you will need to use.
+
+<PropsTable
+  sort={false}
+  content={[
+    [{ value: "defaultValue", description: "The value of the slider when initially rendered. Use when you do not need to control the state of the slider."}, { value: "number[]"}, {}],
+    [{ value: "value", description: "The controlled value of the slider. Must be used in conjunction with onValueChange."}, { value: "number[]"}, {}],
+    [{ value: "onValueChange", description: "Event handler called when the value changes."}, { value: "function", description: "onValueChange?(value: number[]): void"}, {}],
+    [{ value: "onValueCommit", description: "Event handler called when the value changes at the end of an interaction. Useful when you only need to capture a final value e.g. to update a backend service."}, { value: "function", description: "onValueCommit?(value: number[]): void"}, {}],
+    [{ value: "name", description: "The name of the slider. Submitted with its owning form as part of a name/value pair."}, { value: "string"}, {}],
+    [{ value: "orientation", description: "The orientation of the slider."}, { value: "enum", description: '"vertical" | "horizontal"'}, { value: '"horizontal"'}],
+    [{ value: "dir", description: "The reading direction of the slider."}, { value: "enum", description: '"ltr" | "rtl"'}, {}],
+    [{ value: "inverted", description: "Whether the slider is visually inverted."}, { value: "boolean" }, { value: "false" }],
+    [{ value: "min", description: "The minimum value for the range."}, { value: "number" }, { value: "0" }],
+    [{ value: "max", description: "The maximum value for the range."}, { value: "number" }, { value: "100" }],
+    [{ value: "step", description: "The stepping interval."}, { value: "number" }, { value: "1" }],
+    [{ value: "minStepsBetweenThumbs", description: "The minimum permitted `step`s between multiple thumbs."}, { value: "number" }, { value: "0" }],
+  ]}
+  includeCommonDocs={{
+    label: true,
+    description: true,
+    tooltip: true,
+    helperText: true,
+    required: true,
+    disabled: true,
+    before: true,
+    after: true,
+  }}
+/>
+
+#### Slider.Root
+
+Contains all the parts of a slider. It will render an `input` for each thumb when used within a `form` to ensure events propagate correctly.
+
+<PropsTable
+  sort={false}
+  content={[
+    [{ value: "defaultValue", description: "The value of the slider when initially rendered. Use when you do not need to control the state of the slider."}, { value: "number[]"}, {}],
+    [{ value: "value", description: "The controlled value of the slider. Must be used in conjunction with onValueChange."}, { value: "number[]"}, {}],
+    [{ value: "onValueChange", description: "Event handler called when the value changes."}, { value: "function", description: "onValueChange?(value: number[]): void"}, {}],
+    [{ value: "onValueCommit", description: "Event handler called when the value changes at the end of an interaction. Useful when you only need to capture a final value e.g. to update a backend service."}, { value: "function", description: "onValueCommit?(value: number[]): void"}, {}],
+    [{ value: "name", description: "The name of the slider. Submitted with its owning form as part of a name/value pair."}, { value: "string"}, {}],
+    [{ value: "orientation", description: "The orientation of the slider."}, { value: "enum", description: '"vertical" | "horizontal"'}, { value: '"horizontal"'}],
+    [{ value: "dir", description: "The reading direction of the slider."}, { value: "enum", description: '"ltr" | "rtl"'}, {}],
+    [{ value: "inverted", description: "Whether the slider is visually inverted."}, { value: "boolean" }, { value: "false" }],
+    [{ value: "min", description: "The minimum value for the range."}, { value: "number" }, { value: "0" }],
+    [{ value: "max", description: "The maximum value for the range."}, { value: "number" }, { value: "100" }],
+    [{ value: "step", description: "The stepping interval."}, { value: "number" }, { value: "1" }],
+    [{ value: "minStepsBetweenThumbs", description: "The minimum permitted `step`s between multiple thumbs."}, { value: "number" }, { value: "0" }],
+  ]}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [{ value: "[data-disabled]" }, { value: "Present when disabled" }, {}],
+    [{ value: "[data-orientation]" }, { value: '"vertical" | "horizontal"' }, {}],
+  ]}
+/>
+
+#### Slider.Track
+
+The track that contains the `Slider.Range`.
+
+<PropsTable
+  content={[]}
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [{ value: "[data-disabled]" }, { value: "Present when disabled" }, {}],
+    [{ value: "[data-orientation]" }, { value: '"vertical" | "horizontal"' }, {}],
+  ]}
+/>
+
+#### Slider.Range
+
+The range part. Must live inside `Slider.Track`.
+
+<PropsTable
+  content={[]}
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [{ value: "[data-disabled]" }, { value: "Present when disabled" }, {}],
+    [{ value: "[data-orientation]" }, { value: '"vertical" | "horizontal"' }, {}],
+  ]}
+/>
+
+#### Slider.Thumb
+
+The range part. Must live inside `Slider.Track`.
+
+<PropsTable
+  content={[]}
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [{ value: "[data-disabled]" }, { value: "Present when disabled" }, {}],
+    [{ value: "[data-orientation]" }, { value: '"vertical" | "horizontal"' }, {}],
+    [{ value: "[data-state]" }, { value: '"active" | "inactive"' }, {}],
+  ]}
+/>
 
 ### Accessibility
 
