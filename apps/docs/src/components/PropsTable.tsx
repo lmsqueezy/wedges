@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Tooltip } from "@lemonsqueezy/wedges";
 
-import { createLabelDocs } from "@/lib/docUtils";
+import { createLabelDocs, type LabelDocsParams } from "@/lib/docUtils";
 import { cn } from "@/lib/utils";
 
 type ContentItem = {
@@ -27,14 +27,7 @@ export const PropsTable = React.forwardRef<
     isOptions?: boolean;
     isUtility?: boolean;
     sort?: boolean;
-    includeLabelDocs?: {
-      label?: boolean;
-      description?: boolean;
-      tooltip?: boolean;
-      helperText?: boolean;
-      required?: boolean;
-      disabled?: boolean;
-    };
+    includeCommonDocs?: LabelDocsParams;
   } & (SortProps | NoSortProps)
 >(
   (
@@ -44,7 +37,7 @@ export const PropsTable = React.forwardRef<
       isOptions = false,
       isUtility = false,
       sort = true,
-      includeLabelDocs,
+      includeCommonDocs,
       ...otherProps
     },
     ref
@@ -57,7 +50,10 @@ export const PropsTable = React.forwardRef<
       helperText = false,
       required = false,
       disabled = false,
-    } = includeLabelDocs ?? {};
+      before = false,
+      after = false,
+      asChild = false,
+    } = includeCommonDocs ?? {};
 
     const labelDocs = createLabelDocs({
       label,
@@ -66,9 +62,10 @@ export const PropsTable = React.forwardRef<
       helperText,
       required,
       disabled,
+      before,
+      after,
+      asChild,
     });
-
-    const mergedContent = [...content, ...labelDocs] as [ContentItem, ContentItem, ContentItem][];
 
     // Sort the content array
     const sortedContent = React.useMemo(() => {
@@ -85,7 +82,7 @@ export const PropsTable = React.forwardRef<
 
         return returnContent;
       } else {
-        return mergedContent;
+        return [...labelDocs, ...content];
       }
     }, [content, sort]);
 

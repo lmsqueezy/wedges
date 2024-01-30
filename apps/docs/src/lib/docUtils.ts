@@ -2,6 +2,18 @@
 /*             Includes common documentation components and const.            */
 /* -------------------------------------------------------------------------- */
 
+export type LabelDocsParams = {
+  label?: boolean;
+  description?: boolean;
+  tooltip?: boolean;
+  helperText?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  before?: boolean;
+  after?: boolean;
+  asChild?: boolean;
+};
+
 export const createLabelDocs = ({
   label,
   description,
@@ -9,15 +21,23 @@ export const createLabelDocs = ({
   helperText,
   required,
   disabled,
-}: {
-  label?: boolean;
-  description?: boolean;
-  tooltip?: boolean;
-  helperText?: boolean;
-  required?: boolean;
-  disabled?: boolean;
-}) => {
+  before,
+  after,
+  asChild,
+}: LabelDocsParams) => {
   const components = [];
+
+  if (asChild) {
+    components.push([
+      {
+        value: "asChild",
+        description:
+          "Change the default rendered element for the one passed as a child, merging their props and behavior.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ]);
+  }
 
   if (label) {
     components.push([
@@ -89,6 +109,34 @@ export const createLabelDocs = ({
         value: "boolean",
       },
       { value: "false" },
+    ]);
+  }
+
+  if (before) {
+    components.push([
+      {
+        value: "before",
+        description:
+          "The slot to be rendered before the component. This is commonly used to render an icon or other visual element.",
+      },
+      {
+        value: "ReactNode",
+      },
+      {},
+    ]);
+  }
+
+  if (after) {
+    components.push([
+      {
+        value: "after",
+        description:
+          "The slot to be rendered after the component. This is commonly used to render an icon or other visual element.",
+      },
+      {
+        value: "ReactNode",
+      },
+      {},
     ]);
   }
 
