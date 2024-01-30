@@ -7,7 +7,10 @@ import { Tooltip } from "../Tooltip";
 
 /* -------------------------------- SlideRoot ------------------------------- */
 export type SliderWedgesElement = React.ElementRef<typeof SliderPrimitive.Root>;
-export type SliderWedgesProps = React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root> & {
+export type SliderWedgesProps = Omit<
+  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>,
+  "asChild"
+> & {
   /**
    * The slot to be rendered after the slider.
    */
@@ -280,6 +283,7 @@ const SliderThumb = React.forwardRef<SliderThumbElement, SliderThumbProps>((prop
 });
 
 const Slider = Object.assign(SliderWedges, {
+  Root: SliderRoot,
   Track: SliderTrack,
   Range: SliderRange,
   Thumb: SliderThumb,
