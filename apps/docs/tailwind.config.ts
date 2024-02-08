@@ -30,6 +30,9 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      screens: {
+        "2xl": "82rem",
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -62,6 +65,7 @@ const config: Config = {
       },
 
       maxWidth: {
+        "7xl": "82rem",
         "8xl": "88rem",
         "9xl": "96rem",
         "10xl": "102rem",

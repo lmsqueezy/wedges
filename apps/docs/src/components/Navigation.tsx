@@ -209,7 +209,7 @@ const NavDropdownTitle = forwardRef<HTMLDivElement, NavDropdownTitleProps>(
   ({ label, buttonHref, buttonLabel, ...otherProps }, ref) => {
     return (
       <div
-        className="mx-4 mb-4 flex items-center justify-between gap-3 text-sm"
+        className="mx-4 mb-4 flex shrink-0 flex-wrap items-center justify-between gap-3 text-sm"
         ref={ref}
         {...otherProps}
       >
