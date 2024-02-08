@@ -196,10 +196,10 @@ function ResourcesDropdown({ caseStudy, blog }: { caseStudy: WebflowData; blog: 
   ];
 
   return (
-    <div className="container">
+    <div className="container !w-[calc(100%+40px)] 2xl:!max-w-7xl">
       <div className="grid grid-cols-3">
         {/* ----------------------------- Helpful Links ----------------------------- */}
-        <Navigation.DropdownColumn className="-ml-4 pl-0">
+        <Navigation.DropdownColumn className="-ml-4 pl-0 2xl:ml-6">
           <Navigation.DropdownTitle label="Helpful Links" id="dropdown-menu__helpful-links" />
 
           {links.map(({ label, description, href }, index) => (
@@ -232,7 +232,7 @@ function ResourcesDropdown({ caseStudy, blog }: { caseStudy: WebflowData; blog: 
         </Navigation.DropdownColumn>
 
         {/* ----------------------------- Blog Articles ---------------------------- */}
-        <Navigation.DropdownColumn className="-mr-4 place-content-start border-none pr-0">
+        <Navigation.DropdownColumn className="place-content-start border-none">
           <Navigation.DropdownTitle
             buttonHref="https://www.lemonsqueezy.com/blog"
             buttonLabel="All articles"
