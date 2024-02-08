@@ -6,24 +6,24 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["*"],
-      "contentlayer/generated": ["../.contentlayer/generated"],
+      "contentlayer/generated": ["../.contentlayer/generated"]
     },
     "plugins": [
       {
-        "name": "next",
-      },
+        "name": "next"
+      }
     ],
     "noEmit": true,
     "incremental": true,
     "isolatedModules": true,
-    "allowJs": true,
+    "allowJs": true
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".contentlayer/generated",
-    ".next/types/**/*.ts",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules"]
 }
