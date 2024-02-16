@@ -1,5 +1,11 @@
 # @lemonsqueezy/wedges
 
+## 1.2.2
+
+### Patch Changes
+
+- [#61](https://github.com/lmsqueezy/wedges/pull/61) [`e2c7bee`](https://github.com/lmsqueezy/wedges/commit/e2c7bee72a10e75becb0b3c8526115b427163fd0) Thanks [@brankoconjic](https://github.com/brankoconjic)! - update dependencies
+
 ## 1.2.1
 
 ### Patch Changes
