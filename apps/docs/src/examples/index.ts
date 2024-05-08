@@ -1379,6 +1379,24 @@ export function Example() {
 }
 `,
   },
+  "dialog/preview": {
+    component: lazy(() => import("@/examples/dialog/preview.tsx")),
+    code: `import { Button, Dialog } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  return (
+    <Dialog>
+      <Dialog.Trigger asChild>
+        <Button>Open Dialog</Button>
+      </Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Header title="Dialog Title" description="Dialog Description" />
+      </Dialog.Content>
+    </Dialog>
+  );
+}
+`,
+  },
   "dropdown-menu/example-1": {
     component: lazy(() => import("@/examples/dropdown-menu/example-1.tsx")),
     code: `import { DotsHorizontalIcon } from "@iconicicons/react";
