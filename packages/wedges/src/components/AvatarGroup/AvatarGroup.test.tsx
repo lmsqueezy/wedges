@@ -14,7 +14,7 @@ describe("AvatarGroup", () => {
   });
 });
 
-describe("Given an AvatarGroup with custom class", () => {
+describe("given it has a custom class", () => {
   it("should include the custom class name in the class list", () => {
     const rendered = render(<AvatarGroup className="text-sm" data-testid={TEST_ID} items={[]} />);
     const root = rendered.getByTestId(TEST_ID);
@@ -23,7 +23,7 @@ describe("Given an AvatarGroup with custom class", () => {
   });
 });
 
-describe("Given an AvatarGroup with 'items' prop", () => {
+describe("given it has `items` prop", () => {
   it("should not render any children if 'items' is an empty array", () => {
     const { getByTestId } = render(<AvatarGroup data-testid={TEST_ID} items={[]} />);
 
@@ -59,7 +59,7 @@ describe("Given an AvatarGroup with 'items' prop", () => {
   });
 });
 
-describe("Given an AvatarGroup with 'moreLabel' prop", () => {
+describe("given an AvatarGroup with 'moreLabel' prop", () => {
   it("should render the label", () => {
     const { getByText } = render(<AvatarGroup items={[]} moreLabel="More" />);
 
