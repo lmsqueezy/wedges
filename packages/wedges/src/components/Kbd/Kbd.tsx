@@ -50,6 +50,8 @@ const Kbd = React.forwardRef<KbdElement, KbdProps>(
       return <Key keyName={keys} />;
     };
 
+    if ((!keys || keys.length === 0) && !children) return null;
+
     return (
       <kbd ref={ref} className={cn(kbdVariants({ size }), className)} {...otherProps}>
         {renderKeys()}
