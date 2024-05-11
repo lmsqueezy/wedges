@@ -94,13 +94,13 @@ export const PropsTable = React.forwardRef<
         <table className="m-0 text-sm" {...otherProps}>
           <thead>
             <tr>
-              <th>
+              <th className="text-start">
                 {isData ? "Data attribute" : isOptions ? "Option" : isUtility ? "Class" : "Prop"}
               </th>
 
-              {isUtility ? <th>Value</th> : <th>Values</th>}
+              <th className="text-start">{isUtility ? "Values" : "Value"}</th>
 
-              {!isData && !isUtility ? <th>Default</th> : null}
+              {!isData && !isUtility ? <th className="text-start">Default</th> : null}
             </tr>
           </thead>
 
