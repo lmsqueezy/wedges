@@ -124,7 +124,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     notification,
     size = "md",
     src,
-    delayMs = 0,
+    delayMs,
     status,
     style,
     ...otherProps
