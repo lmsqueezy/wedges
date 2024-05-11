@@ -22,7 +22,9 @@ In the Wedges project, we utilize a variety of tools to ensure code quality, con
 
 - **[ESLint](https://eslint.org/)**: for code linting. Make sure to check and fix any linting issues before submitting your code.
 
-- **[Jest](https://jestjs.io/)**: for testing. We encourage writing tests for new features and bug fixes.
+- **[React Testing Library](https://testing-library.com/)**: for testing. We encourage writing tests for new features and bug fixes.
+
+- **[Jest Framework](https://jestjs.io/)**: for running tests.
 
 - **[husky](https://typicode.github.io/husky/#/)**: for Git hooks. It ensures that linters, and other checks are passed before commits and pushes.
 

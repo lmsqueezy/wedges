@@ -13,7 +13,7 @@ const config = {
   },
   testEnvironment: "jsdom",
   collectCoverageFrom: [
-    "packages/**/*.tsx",
+    "packages/wedges/src/components/**/*.tsx",
     "!packages/**/icons/**/*", // Exclude files in the 'icons' folder
   ],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],

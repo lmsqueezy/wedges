@@ -13,7 +13,7 @@
     "format:fix": "prettier --write ./packages/**/src ./apps/** --cache",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --passWithNoTests",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --passWithNoTests --coverage --coverageReporters=\"text-summary\"",
     "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage --passWithNoTests",
     "prepare": "husky",
     "version": "changeset version",
