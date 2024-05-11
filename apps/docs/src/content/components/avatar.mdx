@@ -59,8 +59,11 @@ Represents an avatar image. Extends the <a href="https://www.radix-ui.com/primit
       { value: '"primary" | "gray" | "green" | "yellow" | "red"' },
       { value: '"gray"' },
     ],
-
-    // Radix props
+    [
+      { value: "delayMs" },
+      { value: "number" },
+      {},  
+    ],
     [
       { value: "asChild", description: "Change the default rendered element for the one passed as a child, merging their props and behavior." },
       { value: "boolean" },
