@@ -117,7 +117,7 @@ const AvatarGroupWedges = React.forwardRef<HTMLDivElement, AvatarGroupProps>((pr
       {...otherProps}
     >
       <>
-        {items
+        {items.length > 0
           ? items.map((item, i) => {
               const {
                 alt: itemAlt,

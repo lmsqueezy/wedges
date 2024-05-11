@@ -58,6 +58,14 @@ describe("AvatarGroup", () => {
     });
   });
 
+  describe("given it has empty array passed for the `items` prop", () => {
+    it("should not render any children", () => {
+      const { getByTestId } = render(<AvatarGroup data-testid={TEST_ID} items={[]} />);
+
+      expect(getByTestId(TEST_ID).children.length).toBe(0);
+    });
+  });
+
   describe("given an AvatarGroup with 'moreLabel' prop", () => {
     it("should render the label", () => {
       const { getByText } = render(<AvatarGroup items={[]} moreLabel="More" />);
