@@ -4,6 +4,9 @@ const { withContentlayer } = require("next-contentlayer");
 const nextConfig = {
   basePath: "/wedges/docs",
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     remotePatterns: [
       {
