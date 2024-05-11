@@ -44,7 +44,9 @@ type BaseAvatarProps = {
 
 export type AvatarProps = React.ComponentPropsWithoutRef<typeof Primitive.Image> &
   BaseAvatarProps &
-  AvatarVariantProps;
+  AvatarVariantProps & {
+    delayMs?: number;
+  };
 
 /* ------------------------------- Components ------------------------------- */
 const AvatarRoot = React.forwardRef<
@@ -122,6 +124,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
     notification,
     size = "md",
     src,
+    delayMs,
     status,
     style,
     ...otherProps
@@ -170,6 +173,7 @@ const AvatarWedges = React.forwardRef<AvatarElement, AvatarProps>((props, ref) =
         <AvatarFallback
           ref={ref}
           aria-label={alt}
+          delayMs={delayMs}
           asChild={isReactElement(children)}
           className={className}
           style={style}

@@ -29,7 +29,7 @@ export type KbdProps = Omit<React.HTMLAttributes<KbdElement>, "size"> &
 
 /* ------------------------------- Components ------------------------------- */
 const Key = ({ keyName }: { keyName: KbdKey }) => {
-  const isKey = typeof keyName === "string";
+  const isKey = typeof keyName === "string" && keyName in kbdKeysMap;
 
   if (!isKey) {
     return null;
@@ -47,8 +47,10 @@ const Kbd = React.forwardRef<KbdElement, KbdProps>(
         return keys.map((k) => <Key key={k} keyName={k} />);
       }
 
-      return null;
+      return <Key keyName={keys} />;
     };
+
+    if ((!keys || keys.length === 0) && !children) return null;
 
     return (
       <kbd ref={ref} className={cn(kbdVariants({ size }), className)} {...otherProps}>
