@@ -16,14 +16,10 @@
     "@headlessui/react": "^2.0.3",
     "@iconicicons/react": "^1.5.1",
     "@radix-ui/react-scroll-area": "^1.0.5",
-    "clsx": "^2.1.1",
     "fathom-client": "^3.6.0",
     "next": "14.1.0",
-    "react": "^18",
-    "react-dom": "^18",
     "sass": "^1.77.1",
-    "shikiji": "0.10.x",
-    "tailwind-merge": "^2.3.0"
+    "shikiji": "0.10.x"
   },
   "devDependencies": {
     "@docsearch/react": "^3.6.0",
