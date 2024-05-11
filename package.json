@@ -14,7 +14,7 @@
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest --passWithNoTests --coverage --coverageReporters=\"text-summary\"",
-    "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage --passWithNoTests",
+    "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage --verbose --passWithNoTests",
     "prepare": "husky",
     "version": "changeset version",
     "version:dev": "changeset version --snapshot --no-git-tag --tag dev",

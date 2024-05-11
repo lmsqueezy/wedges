@@ -19,7 +19,6 @@ const config = {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
   preset: "ts-jest",
   testMatch: ["**/?(*.)+(test).+(ts|tsx|js)"],
-  verbose: true,
 };
 
 export default config;
