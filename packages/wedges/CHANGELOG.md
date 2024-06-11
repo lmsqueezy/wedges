@@ -1,5 +1,13 @@
 # @lemonsqueezy/wedges
 
+## 1.3.1
+
+### Patch Changes
+
+- [#76](https://github.com/lmsqueezy/wedges/pull/76) [`0d4f774`](https://github.com/lmsqueezy/wedges/commit/0d4f774d8e7f075cb138e3342de04e0b50bb5322) Thanks [@brankoconjic](https://github.com/brankoconjic)! - Update dependencies
+
+- [#76](https://github.com/lmsqueezy/wedges/pull/76) [`0d4f774`](https://github.com/lmsqueezy/wedges/commit/0d4f774d8e7f075cb138e3342de04e0b50bb5322) Thanks [@brankoconjic](https://github.com/brankoconjic)! - Fix tooltip bottom animation
+
 ## 1.3.0
 
 ### Minor Changes
