@@ -27,7 +27,7 @@ const tooltipVariant = cva({
     },
     color: {
       primary: "text-white wg-bg-primary",
-      secondary: "text-white wg-bg-secondary dark:text-secondary-900 ",
+      secondary: "text-white wg-bg-secondary dark:text-secondary-900",
       soft: "border border-transparent text-wg-gray-700 shadow-wg-overlay wg-bg-white dark:border-surface dark:bg-neutral-800 dark:text-surface-700 dark:shadow-none",
     },
   },

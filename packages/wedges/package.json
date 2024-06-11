@@ -91,12 +91,12 @@
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
-    "@swc/core": "^1.5.5",
+    "@swc/core": "^1.5.27",
     "@types/color": "^3.0.6",
     "@types/lodash.omit": "^4.5.9",
     "@wedges/eslint-config": "workspace:*",
     "concurrently": "^8.2.2",
-    "tsup": "^8.0.2"
+    "tsup": "^8.1.0"
   },
   "peerDependencies": {
     "@types/react": "*",

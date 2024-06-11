@@ -1469,7 +1469,7 @@ export function Example() {
               status="green"
             />
 
-            <span className=" ms-2 flex flex-col">
+            <span className="ms-2 flex flex-col">
               <span className="font-medium">John Doe</span>
             </span>
 
