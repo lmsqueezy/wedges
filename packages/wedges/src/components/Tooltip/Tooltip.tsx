@@ -11,7 +11,7 @@ const TOOLTIP_ANIMATION_CLASSES = [
   "origin-[var(--radix-popper-transform-origin)]",
 
   // state animations
-  "data-[side=bottom]:animate-fade-in-down data-[side=top]:animate-wg-fade-in-up data-[side=left]:animate-wg-fade-in-left data-[side=right]:animate-wg-fade-in-right data-[state=closed]:animate-wg-fade-out",
+  "data-[side=bottom]:animate-wg-fade-in-down data-[side=top]:animate-wg-fade-in-up data-[side=left]:animate-wg-fade-in-left data-[side=right]:animate-wg-fade-in-right data-[state=closed]:animate-wg-fade-out",
 
   // instant-open
   "data-[state=instant-open]:!animate-none",
