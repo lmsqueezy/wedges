@@ -1487,7 +1487,7 @@ export function Example() {
               status="green"
             />
 
-            <span className=" ms-2 flex flex-col">
+            <span className="ms-2 flex flex-col">
               <span className="font-medium">John Doe</span>
             </span>
 
@@ -3293,7 +3293,7 @@ export function Example() {
   return (
     <Tag
       closable
-      onClose={(e) => {
+      onClose={(e: React.MouseEvent) => {
         e.preventDefault();
         // eslint-disable-next-line no-console
         alert("Custom onClose callback with preventDefault()");

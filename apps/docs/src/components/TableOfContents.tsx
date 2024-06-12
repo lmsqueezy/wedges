@@ -61,7 +61,7 @@ function Tree({ items, activeItemId, className, sub }: TreeProps) {
             <a
               className={cn(
                 "-ml-px flex max-w-fit items-center border-l border-transparent outline-primary transition-colors",
-                " hover:text-surface-900",
+                "hover:text-surface-900",
                 item.url === `#${activeItemId}` && "active",
                 sub && "ml-2"
               )}

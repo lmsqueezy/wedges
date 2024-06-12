@@ -1,5 +1,37 @@
 # @lemonsqueezy/wedges
 
+## 1.3.1
+
+### Patch Changes
+
+- [#76](https://github.com/lmsqueezy/wedges/pull/76) [`0d4f774`](https://github.com/lmsqueezy/wedges/commit/0d4f774d8e7f075cb138e3342de04e0b50bb5322) Thanks [@brankoconjic](https://github.com/brankoconjic)! - Update dependencies
+
+- [#76](https://github.com/lmsqueezy/wedges/pull/76) [`0d4f774`](https://github.com/lmsqueezy/wedges/commit/0d4f774d8e7f075cb138e3342de04e0b50bb5322) Thanks [@brankoconjic](https://github.com/brankoconjic)! - Fix tooltip bottom animation
+
+## 1.3.0
+
+### Minor Changes
+
+- [#72](https://github.com/lmsqueezy/wedges/pull/72) [`56ccaf7`](https://github.com/lmsqueezy/wedges/commit/56ccaf72c92b80f24853e88c3d1aa7a4165c69ea) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add Kbd tests
+
+- [#72](https://github.com/lmsqueezy/wedges/pull/72) [`56ccaf7`](https://github.com/lmsqueezy/wedges/commit/56ccaf72c92b80f24853e88c3d1aa7a4165c69ea) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add Textarea tests
+
+- [#72](https://github.com/lmsqueezy/wedges/pull/72) [`56ccaf7`](https://github.com/lmsqueezy/wedges/commit/56ccaf72c92b80f24853e88c3d1aa7a4165c69ea) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add Toggle tests
+
+- [#72](https://github.com/lmsqueezy/wedges/pull/72) [`56ccaf7`](https://github.com/lmsqueezy/wedges/commit/56ccaf72c92b80f24853e88c3d1aa7a4165c69ea) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add `delayMs` prop for the Avatar component
+
+- [#72](https://github.com/lmsqueezy/wedges/pull/72) [`56ccaf7`](https://github.com/lmsqueezy/wedges/commit/56ccaf72c92b80f24853e88c3d1aa7a4165c69ea) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add Avatar tests
+
+### Patch Changes
+
+- [#70](https://github.com/lmsqueezy/wedges/pull/70) [`6287126`](https://github.com/lmsqueezy/wedges/commit/62871261cc4425a7150e8ac39f0c65b837def604) Thanks [@brankoconjic](https://github.com/brankoconjic)! - update dependencies
+
+- [#72](https://github.com/lmsqueezy/wedges/pull/72) [`56ccaf7`](https://github.com/lmsqueezy/wedges/commit/56ccaf72c92b80f24853e88c3d1aa7a4165c69ea) Thanks [@brankoconjic](https://github.com/brankoconjic)! - improve Badge tests
+
+- [#72](https://github.com/lmsqueezy/wedges/pull/72) [`56ccaf7`](https://github.com/lmsqueezy/wedges/commit/56ccaf72c92b80f24853e88c3d1aa7a4165c69ea) Thanks [@brankoconjic](https://github.com/brankoconjic)! - improve AvatarGroup test coverage
+
+- [#72](https://github.com/lmsqueezy/wedges/pull/72) [`56ccaf7`](https://github.com/lmsqueezy/wedges/commit/56ccaf72c92b80f24853e88c3d1aa7a4165c69ea) Thanks [@brankoconjic](https://github.com/brankoconjic)! - improve Tag tests
+
 ## 1.2.2
 
 ### Patch Changes

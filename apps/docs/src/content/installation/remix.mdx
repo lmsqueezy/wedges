@@ -5,8 +5,6 @@ breadcrumbs:
   - Installation
 ---
 
-
-
 <Steps>
 
 ### Setting up Remix
@@ -87,6 +85,7 @@ Let's start by installing the Tailwind CSS:
         yarn install tailwindcss -D
         ```
     </Tabs.Content>
+
 </Tabs>
 
 Then run the init command to generate `tailwind.config.ts` file:
@@ -115,6 +114,7 @@ Then run the init command to generate `tailwind.config.ts` file:
         yarn dlx tailwindcss init --ts
         ```
     </Tabs.Content>
+
 </Tabs>
 
 ### Configure Tailwind CSS
@@ -122,20 +122,20 @@ Then run the init command to generate `tailwind.config.ts` file:
 Update your `tailwind.config.ts` file to add the necessary configuration for Wedges:
 
 ```tsx {2,7,12-13} title="tailwind.config.js" showLineNumbers
-import type { Config } from 'tailwindcss'
-import { wedgesTW } from '@lemonsqueezy/wedges'
+import { wedgesTW } from "@lemonsqueezy/wedges";
+import type { Config } from "tailwindcss";
 
 export default {
   content: [
-    './app/**/*.{js,jsx,ts,tsx}',
-    'node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}'
-],
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {},
   },
-  darkMode: 'class',
+  darkMode: "class",
   plugins: [wedgesTW()],
-} satisfies Config
+} satisfies Config;
 ```
 
 ### Add the Directives
@@ -155,9 +155,7 @@ Import the newly-created `tailwind.css` file in your `./app/root.jsx` file.
 ```tsx showLineNumbers title="root.tsx"
 import stylesheet from "~/tailwind.css";
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
-];
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
 ```
 
 ### Start the Dev Server
@@ -174,7 +172,7 @@ export const links: LinksFunction = () => [
         pnpm dev
         ```
     </Tabs.Content>
-    
+
     <Tabs.Content value="npm">
         ```bash
         npm run dev

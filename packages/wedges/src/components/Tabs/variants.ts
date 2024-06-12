@@ -44,7 +44,7 @@ export const tabVariants = cva({
         "border-b-2 border-transparent hover:border-b-surface data-[state=active]:border-b-primary",
 
       "contained-top":
-        "border-t-2 border-transparent hover:border-t-surface data-[state=active]:border-t-primary ",
+        "border-t-2 border-transparent hover:border-t-surface data-[state=active]:border-t-primary",
     },
   },
   compoundVariants: [

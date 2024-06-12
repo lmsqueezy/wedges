@@ -52,6 +52,10 @@
   overflow: hidden !important;
 }
 
+.DocSearch-VisuallyHiddenForAccessibility {
+  @apply sr-only;
+}
+
 .DocSearch-Container {
   position: fixed;
   z-index: 200;
@@ -280,7 +284,7 @@
 .DocSearch-NoResults .DocSearch-Help {
   margin-left: 0.75rem;
   margin-bottom: 0.5rem;
-  font-family: theme("fontFamily.display");
+  font-family: theme("fontFamily.sans");
   color: var(--docsearch-heading-color);
   font-size: 0.875rem;
   font-weight: 500;
