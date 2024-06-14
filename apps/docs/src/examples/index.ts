@@ -1379,20 +1379,99 @@ export function Example() {
 }
 `,
   },
-  "dialog/preview": {
-    component: lazy(() => import("@/examples/dialog/preview.tsx")),
-    code: `import { Button, Dialog } from "@lemonsqueezy/wedges";
+  "dialog/example-1": {
+    component: lazy(() => import("@/examples/dialog/example-1.tsx")),
+    code: `import { useRef } from "react";
+import { Button, Dialog } from "@lemonsqueezy/wedges";
 
 export function Example() {
+  // You most likely don't need to use \`containerRef\` in your implementation. This is just for preview.
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <Dialog>
-      <Dialog.Trigger asChild>
-        <Button>Open Dialog</Button>
-      </Dialog.Trigger>
-      <Dialog.Content>
-        <Dialog.Header title="Dialog Title" description="Dialog Description" />
-      </Dialog.Content>
-    </Dialog>
+    <div ref={containerRef}>
+      <Dialog.Root>
+        <Dialog.Trigger asChild>
+          <Button>Open Dialog</Button>
+        </Dialog.Trigger>
+
+        <Dialog.Content className="text-left" container={containerRef.current}>
+          <Dialog.Header>
+            <Dialog.Title>Dialog Custom Close</Dialog.Title>
+            <Dialog.Description>Dialog with custom close button</Dialog.Description>
+          </Dialog.Header>
+          Dialog content goes here.
+          <Dialog.Footer>
+            <Dialog.Close asChild>
+              <Button variant="tertiary">Close</Button>
+            </Dialog.Close>
+          </Dialog.Footer>
+        </Dialog.Content>
+      </Dialog.Root>
+    </div>
+  );
+}
+`,
+  },
+  "dialog/example-2": {
+    component: lazy(() => import("@/examples/dialog/example-2.tsx")),
+    code: `import { useRef, useState } from "react";
+import { Button, Dialog } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  // You most likely don't need to use \`containerRef\` in your implementation. This is just for preview.
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div ref={containerRef}>
+      <Button onClick={() => setOpen(true)}>Open Dialog</Button>
+
+      <Dialog
+        open={open}
+        onOpenChange={setOpen}
+        container={containerRef.current}
+        className="text-left"
+        title="Dialog With Footer"
+        description="Dialog description"
+      >
+        Dialog content goes here.
+        <Dialog.Footer>
+          <Button variant="tertiary" onClick={() => setOpen(false)}>
+            Close
+          </Button>
+        </Dialog.Footer>
+      </Dialog>
+    </div>
+  );
+}
+`,
+  },
+  "dialog/preview": {
+    component: lazy(() => import("@/examples/dialog/preview.tsx")),
+    code: `import { useRef, useState } from "react";
+import { Button, Dialog } from "@lemonsqueezy/wedges";
+
+export function Example() {
+  // You most likely don't need to use \`containerRef\` in your implementation. This is just for preview.
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div ref={containerRef}>
+      <Button onClick={() => setOpen(true)}>Open Dialog</Button>
+
+      <Dialog
+        open={open}
+        onOpenChange={setOpen}
+        container={containerRef.current}
+        className="text-left"
+        title="Dialog Title"
+        description="Dialog description"
+      >
+        Dialog content goes here.
+      </Dialog>
+    </div>
   );
 }
 `,

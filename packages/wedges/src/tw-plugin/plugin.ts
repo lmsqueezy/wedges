@@ -138,6 +138,21 @@ const corePlugin = (
   const prefixedBaseColors = addPrefix(wedgesPalette, "wg");
   const prefixedBoxShadows = addPrefix(boxShadows, "wg");
   const animationEasing = "cubic-bezier(.2,1,.4,1)";
+  const transformDefaults = {
+    translateX: "var(--tw-translate-x)",
+    translateY: "var(--tw-translate-y)",
+    rotate: "var(--tw-rotate)",
+    skewX: "var(--tw-skew-x)",
+    skewY: "var(--tw-skew-y)",
+    scaleX: "var(--tw-scale-x)",
+    scaleY: "var(--tw-scale-y)",
+  };
+
+  const animateTransform = (transforms: Partial<typeof transformDefaults> = {}) => {
+    return Object.entries({ ...transformDefaults, ...transforms })
+      .map(([key, value]) => `${key}(${value})`)
+      .join(" ");
+  };
 
   return plugin(
     ({ addBase, addUtilities, addVariant, matchUtilities, theme }) => {
@@ -249,6 +264,7 @@ const corePlugin = (
             3: "3px",
           },
           animation: {
+            "wg-fade-in": `fadeIn 0.3s ${animationEasing}`,
             "wg-fade-in-up": `fadeInUp 0.3s ${animationEasing}`,
             "wg-fade-in-down": `fadeInDown 0.3s ${animationEasing}`,
             "wg-fade-in-left": `fadeInLeft 0.3s ${animationEasing}`,
@@ -257,70 +273,80 @@ const corePlugin = (
             "wg-line-spinner": "lineSpinner 1.5s ease-in-out infinite both",
           },
           keyframes: {
-            fadeInUp: {
+            fadeIn: {
               "0%": {
                 opacity: "0",
-                transform: "translateY(5px) scale(.97)",
+                transform: animateTransform({ scaleX: ".97", scaleY: ".97" }),
               },
               "100%": {
                 opacity: "1",
-                transform: "translateY(0px) scale(1)",
+                transform: animateTransform({ scaleX: "1", scaleY: "1" }),
+              },
+            },
+            fadeInUp: {
+              "0%": {
+                opacity: "0",
+                transform: animateTransform({ translateY: "5px", scaleX: ".97", scaleY: ".97" }),
+              },
+              "100%": {
+                opacity: "1",
+                transform: animateTransform({ translateY: "0", scaleX: "1", scaleY: "1" }),
               },
             },
             fadeInDown: {
               "0%": {
                 opacity: "0",
-                transform: "translateY(-5px) scale(.97)",
+                transform: animateTransform({ translateY: "-5px", scaleX: ".97", scaleY: ".97" }),
               },
               "100%": {
                 opacity: "1",
-                transform: "translateY(0px) scale(1)",
+                transform: animateTransform({ translateY: "0", scaleX: "1", scaleY: "1" }),
               },
             },
             fadeInLeft: {
               "0%": {
                 opacity: "0",
-                transform: "translateX(5px) scale(.97)",
+                transform: animateTransform({ translateX: "5px", scaleX: ".97", scaleY: ".97" }),
               },
               "100%": {
                 opacity: "1",
-                transform: "translateX(0px) scale(1)",
+                transform: animateTransform({ translateX: "0", scaleX: "1", scaleY: "1" }),
               },
             },
             fadeInRight: {
               "0%": {
                 opacity: "0",
-                transform: "translateX(-5px) scale(.97)",
+                transform: animateTransform({ translateX: "-5px", scaleX: ".97", scaleY: ".97" }),
               },
               "100%": {
                 opacity: "1",
-                transform: "translateX(0px) scale(1)",
+                transform: animateTransform({ translateX: "0", scaleX: "1", scaleY: "1" }),
               },
             },
             fadeOut: {
               "0%": {
                 opacity: "1",
-                transform: "scale(1)",
+                transform: animateTransform(),
               },
               "100%": {
                 opacity: "0",
-                transform: "scale(.97)",
+                transform: animateTransform({ scaleX: ".97", scaleY: ".97" }),
               },
             },
             lineSpinner: {
               "0%, 25%": {
                 strokeDashoffset: "var(--wg-dashoffset-97)",
-                transform: "rotate(0)",
+                transform: animateTransform({ rotate: "0" }),
               },
 
               "50%, 75%": {
                 strokeDashoffset: "var(--wg-dashoffset-25)",
-                transform: "rotate(45deg)",
+                transform: animateTransform({ rotate: "45deg" }),
               },
 
               "100%": {
                 strokeDashoffset: "var(--wg-dashoffset-97)",
-                transform: "rotate(360deg)",
+                transform: animateTransform({ rotate: "360deg" }),
               },
             },
           },

@@ -15,10 +15,15 @@ export default function Example() {
         onOpenChange={setOpen}
         container={containerRef.current}
         className="text-left"
-        title="Dialog Title"
+        title="Dialog With Footer"
         description="Dialog description"
       >
         Dialog content goes here.
+        <Dialog.Footer>
+          <Button variant="tertiary" onClick={() => setOpen(false)}>
+            Close
+          </Button>
+        </Dialog.Footer>
       </Dialog>
     </div>
   );
