@@ -102,7 +102,7 @@ Remember, clear and detailed PRs help us efficiently review and integrate your c
 
 - For every code change, especially API modifications or new features, ensure corresponding updates in documentation.
 
-- You'll find our documentation in the `apps/docs/src/content` folder. We are using MDX format which allows us to embed JSX components within markdown.
+- You'll find our documentation in the `apps/docs/public/docs` folder. We are using MDX format which allows us to embed JSX components within markdown.
 
 - Wedges components are available to use in the mdx files.
 
