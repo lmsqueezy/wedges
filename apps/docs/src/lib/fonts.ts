@@ -1,14 +1,14 @@
 import { JetBrains_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
-export const monoFont = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});
-
 export const displayFont = localFont({
   variable: "--font-display",
   src: [
+    {
+      path: "../../public/fonts/circular-book.woff2",
+      weight: "400",
+      style: "normal",
+    },
     {
       path: "../../public/fonts/circular-medium.woff2",
       weight: "500",
@@ -20,4 +20,25 @@ export const displayFont = localFont({
       style: "normal",
     },
   ],
+});
+
+export const sansFont = localFont({
+  variable: "--font-sans",
+  src: [
+    {
+      path: "../../public/fonts/inter-roman.var.woff2",
+      weight: "100 900",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter-italic.var.woff2",
+      weight: "100 900",
+      style: "italic",
+    },
+  ],
+});
+
+export const monoFont = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
 });

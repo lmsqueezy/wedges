@@ -27,7 +27,7 @@ export default function NotFound() {
           variant="outline"
         >
           <Link href="/">
-            <span className="mx-1">Return Home</span>
+            <span className="mx-1">Go back</span>
           </Link>
         </Button>
 

@@ -12,29 +12,29 @@ breadcrumbs:
 Begin by initializing a new project with Vite:
 
 <Tabs variant='underlined' defaultValue='pnpm'>
-    <Tabs.List>
-        <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
-        <Tabs.Trigger value="npm">npm</Tabs.Trigger>
-        <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
-    </Tabs.List>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
 
-    <Tabs.Content value="pnpm">
+    <TabsContent value="pnpm">
         ```bash
         pnpm create vite
         ```
-    </Tabs.Content>
+    </TabsContent>
 
-    <Tabs.Content value="npm">
+    <TabsContent value="npm">
         ```bash
         npm create vite@latest
         ```
-    </Tabs.Content>
+    </TabsContent>
 
-    <Tabs.Content value="yarn">
+    <TabsContent value="yarn">
         ```bash
         yarn create vite
         ```
-    </Tabs.Content>
+    </TabsContent>
 </Tabs>
 
 Then follow the prompts to create a React project. Typescript is recommended but not required. Once the installation is complete, run the following command to navigate to your project directory:
@@ -48,29 +48,29 @@ Ensure to replace `my-vite-app` with the actual name you chose for your project 
 ### Install Wedges
 
 <Tabs variant='underlined' defaultValue='pnpm'>
-    <Tabs.List>
-        <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
-        <Tabs.Trigger value="npm">npm</Tabs.Trigger>
-        <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
-    </Tabs.List>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
 
-    <Tabs.Content value="pnpm">
+    <TabsContent value="pnpm">
         ```bash
         pnpm add @lemonsqueezy/wedges
         ```
-    </Tabs.Content>
+    </TabsContent>
 
-    <Tabs.Content value="npm">
+    <TabsContent value="npm">
         ```bash
         npm i @lemonsqueezy/wedges
         ```
-    </Tabs.Content>
+    </TabsContent>
 
-    <Tabs.Content value="yarn">
+    <TabsContent value="yarn">
         ```bash
         yarn add @lemonsqueezy/wedges
         ```
-    </Tabs.Content>
+    </TabsContent>
 </Tabs>
 
 ### Install Tailwind CSS
@@ -82,57 +82,57 @@ More information can be found in the <a href="https://tailwindcss.com/docs/insta
 Let's start by installing the Tailwind CSS and its peer dependencies:
 
 <Tabs variant='underlined' defaultValue='pnpm'>
-    <Tabs.List>
-        <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
-        <Tabs.Trigger value="npm">npm</Tabs.Trigger>
-        <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
-    </Tabs.List>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
 
-    <Tabs.Content value="pnpm">
+    <TabsContent value="pnpm">
         ```bash
         pnpm add tailwindcss postcss autoprefixer -D
         ```
-    </Tabs.Content>
+    </TabsContent>
 
-    <Tabs.Content value="npm">
+    <TabsContent value="npm">
         ```bash
         npm install tailwindcss postcss autoprefixer -D
         ```
-    </Tabs.Content>
+    </TabsContent>
 
-    <Tabs.Content value="yarn">
+    <TabsContent value="yarn">
         ```bash
         yarn install tailwindcss postcss autoprefixer -D
         ```
-    </Tabs.Content>
+    </TabsContent>
 </Tabs>
 
 Then generate your `tailwind.config.js` and `postcss.config.js` files by running the following command:
 
 <Tabs variant='underlined' defaultValue='pnpm'>
-    <Tabs.List>
-        <Tabs.Trigger value="pnpm">pnpm</Tabs.Trigger>
-        <Tabs.Trigger value="npm">npm</Tabs.Trigger>
-        <Tabs.Trigger value="yarn">yarn</Tabs.Trigger>
-    </Tabs.List>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
 
-    <Tabs.Content value="pnpm">
+    <TabsContent value="pnpm">
         ```bash
         pnpm dlx tailwindcss init -p
         ```
-    </Tabs.Content>
+    </TabsContent>
 
-    <Tabs.Content value="npm">
+    <TabsContent value="npm">
         ```bash
         npx tailwindcss init -p
         ```
-    </Tabs.Content>
+    </TabsContent>
 
-    <Tabs.Content value="yarn">
+    <TabsContent value="yarn">
         ```bash
         yarn dlx tailwindcss init -p
         ```
-    </Tabs.Content>
+    </TabsContent>
 </Tabs>
 
 ### Configure Tailwind CSS

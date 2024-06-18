@@ -4,10 +4,7 @@
   "compilerOptions": {
     "jsx": "preserve",
     "baseUrl": "./src",
-    "paths": {
-      "@/*": ["*"],
-      "contentlayer/generated": ["../.contentlayer/generated"]
-    },
+    "paths": { "@/*": ["*"] },
     "plugins": [
       {
         "name": "next"
@@ -18,12 +15,6 @@
     "isolatedModules": true,
     "allowJs": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".contentlayer/generated",
-    ".next/types/**/*.ts"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

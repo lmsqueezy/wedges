@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Demos } from "@/examples";
 import { CodeIcon, EyeIcon, MoonIcon, SunIcon } from "@iconicicons/react";
@@ -6,6 +8,7 @@ import { Button, Tabs, type TabsElement, type TabsProps } from "@lemonsqueezy/we
 import { cn } from "@/lib/utils";
 
 import { Logomark } from "./Logo";
+import { PreviewCode } from "./PreviewCode";
 
 type PreviewComponentType = TabsElement;
 type PreviewComponentProps = TabsProps & {
@@ -85,7 +88,7 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
 
             <Button
               isIconOnly
-              className="absolute right-3 top-3"
+              className="absolute right-2 top-2"
               size="sm"
               variant="transparent"
               onClick={toggleTheme}
@@ -96,10 +99,10 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
         </Tabs.Content>
 
         <Tabs.Content
-          className="rounded-lg [&_pre]:max-h-[300px] [&_pre]:overflow-auto"
+          className="rounded-lg [&_pre.expanded]:max-h-[1600px] [&_pre:not(.expanded)]:max-h-[302px] [&_pre]:overflow-auto"
           value="code"
         >
-          <div className="not-prose w-full">{children}</div>
+          <PreviewCode>{children}</PreviewCode>
         </Tabs.Content>
       </Tabs>
     );

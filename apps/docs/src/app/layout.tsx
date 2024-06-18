@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 import { siteConfig } from "@/config/siteConfig";
-import { displayFont, monoFont } from "@/lib/fonts";
+import { displayFont, monoFont, sansFont } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/Footer/Footer";
 import { Providers } from "@/components/Providers";
 import { Sidebar } from "@/components/Sidebar";
 
@@ -25,9 +25,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html suppressHydrationWarning className="scroll-smooth" lang="en">
       <body
         className={cn(
-          "min-h-screen-dvh font-sans antialiased [font-feature-settings:'ss01']",
+          "min-h-screen-dvh font-sans antialiased",
           displayFont.variable,
-          monoFont.variable
+          monoFont.variable,
+          sansFont.variable
         )}
       >
         {/* Analytics */}
@@ -48,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Providers>
             <Header />
 
-            <div className="container relative flex flex-1 flex-col items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[256px_minmax(0,1fr)] lg:gap-10">
+            <div className="container relative flex flex-1 flex-col items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[256px_minmax(0,1fr)] lg:gap-16">
               <Sidebar />
 
               <main className="mx-auto mt-16 flex w-full min-w-0 flex-col md:h-full">

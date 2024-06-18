@@ -7,7 +7,7 @@ import { ChevronDownIcon, CloseIcon } from "@iconicicons/react";
 import { Badge, Button } from "@lemonsqueezy/wedges";
 
 import { type NavItem } from "@/types/nav";
-import { sidebarConfig } from "@/config/sidebarConfig";
+import { sidebarConfig, type DocsConfig } from "@/config/sidebarConfig";
 import { siteConfig } from "@/config/siteConfig";
 import { cn } from "@/lib/utils";
 
@@ -103,12 +103,18 @@ function SidebarDropdown({ item, pathname }: { item: NavItem; pathname?: string 
         </Button>
       </div>
 
-      {isOpen ? <SidebarDropdownItems items={item.items} pathname={pathname} /> : null}
+      {isOpen ? <SidebarDropdownItems items={item.children} pathname={pathname} /> : null}
     </div>
   );
 }
 
-function SidebarDropdownItems({ items, pathname }: { items?: NavItem[]; pathname?: string }) {
+function SidebarDropdownItems({
+  items,
+  pathname,
+}: {
+  items?: DocsConfig["nav"];
+  pathname?: string;
+}) {
   const id = useId();
   const { toggleSidebar } = useSidebar();
 
