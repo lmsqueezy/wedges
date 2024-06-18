@@ -22,7 +22,7 @@ export function WebflowResourceItem({
           className={cn(
             focusClasses,
             size === "lg" &&
-              "p-4 outline-white transition-colors duration-180 hover:bg-white focus-visible:bg-white",
+              "duration-180 p-4 outline-white transition-colors hover:bg-white focus-visible:bg-white",
             "group flex select-none flex-col rounded-lg leading-6"
           )}
         >
@@ -47,7 +47,7 @@ export function WebflowResourceItem({
             className={cn(
               "flex items-center",
               size === "lg" &&
-                "text-base text-white transition-colors duration-180 group-hover:text-gray-900 group-focus-visible:text-gray-900",
+                "duration-180 text-base text-white transition-colors group-hover:text-gray-900 group-focus-visible:text-gray-900",
               size === "sm" && "text-surface-500"
             )}
           >

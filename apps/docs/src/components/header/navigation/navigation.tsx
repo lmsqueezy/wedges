@@ -14,10 +14,7 @@ const NavRoot = forwardRef<NavRootElement, NavRootProps>((props, ref) => {
 
   return (
     <NavigationMenu.Root
-      className={cn(
-        "self-stretch text-[15px] leading-6 text-white/60",
-        className
-      )}
+      className={cn("self-stretch text-[15px] leading-6 text-white/60", className)}
       {...otherProps}
       ref={ref}
     />
@@ -36,28 +33,20 @@ NavList.displayName = "NavList";
 
 /* --------------------------------- Trigger -------------------------------- */
 type NavListTriggerElement = React.ElementRef<typeof NavigationMenu.Trigger>;
-type NavListTriggerProps = React.ComponentPropsWithoutRef<
-  typeof NavigationMenu.Trigger
->;
+type NavListTriggerProps = React.ComponentPropsWithoutRef<typeof NavigationMenu.Trigger>;
 
-const NavListTrigger = forwardRef<NavListTriggerElement, NavListTriggerProps>(
-  (props, ref) => {
-    return <NavigationMenu.Trigger {...props} ref={ref} />;
-  }
-);
+const NavListTrigger = forwardRef<NavListTriggerElement, NavListTriggerProps>((props, ref) => {
+  return <NavigationMenu.Trigger {...props} ref={ref} />;
+});
 NavListTrigger.displayName = "NavListTrigger";
 
 /* --------------------------------- Content -------------------------------- */
 type NavListContentElement = React.ElementRef<typeof NavigationMenu.Content>;
-type NavListContentProps = React.ComponentPropsWithoutRef<
-  typeof NavigationMenu.Content
->;
+type NavListContentProps = React.ComponentPropsWithoutRef<typeof NavigationMenu.Content>;
 
-const NavListContent = forwardRef<NavListContentElement, NavListContentProps>(
-  (props, ref) => {
-    return <NavigationMenu.Content {...props} ref={ref} />;
-  }
-);
+const NavListContent = forwardRef<NavListContentElement, NavListContentProps>((props, ref) => {
+  return <NavigationMenu.Content {...props} ref={ref} />;
+});
 NavListContent.displayName = "NavListContent";
 
 /* ---------------------------------- Item ---------------------------------- */
@@ -80,28 +69,20 @@ NavLink.displayName = "NavLink";
 
 /* ----------------------------------- Sub ---------------------------------- */
 type NavItemSubElement = React.ElementRef<typeof NavigationMenu.Sub>;
-type NavItemSubProps = React.ComponentPropsWithoutRef<
-  typeof NavigationMenu.Sub
->;
+type NavItemSubProps = React.ComponentPropsWithoutRef<typeof NavigationMenu.Sub>;
 
-const NavItemSub = forwardRef<NavItemSubElement, NavItemSubProps>(
-  (props, ref) => {
-    return <NavigationMenu.Sub {...props} ref={ref} />;
-  }
-);
+const NavItemSub = forwardRef<NavItemSubElement, NavItemSubProps>((props, ref) => {
+  return <NavigationMenu.Sub {...props} ref={ref} />;
+});
 NavItemSub.displayName = "NavItemSub";
 
 /* -------------------------------- Viewport -------------------------------- */
 type NavViewportElement = React.ElementRef<typeof NavigationMenu.Viewport>;
-type NavViewportProps = React.ComponentPropsWithoutRef<
-  typeof NavigationMenu.Viewport
->;
+type NavViewportProps = React.ComponentPropsWithoutRef<typeof NavigationMenu.Viewport>;
 
-const NavViewport = forwardRef<NavViewportElement, NavViewportProps>(
-  (props, ref) => {
-    return <NavigationMenu.Viewport {...props} ref={ref} />;
-  }
-);
+const NavViewport = forwardRef<NavViewportElement, NavViewportProps>((props, ref) => {
+  return <NavigationMenu.Viewport {...props} ref={ref} />;
+});
 NavViewport.displayName = "NavViewport";
 
 /* ---------------------------------- Export --------------------------------- */

@@ -14,10 +14,7 @@ export function SecondaryNav() {
           const isActive = item.slug === "guides";
 
           return (
-            <Navigation.Item
-              key={`${item.slug}-${index}`}
-              className="inline-flex grow"
-            >
+            <Navigation.Item key={`${item.slug}-${index}`} className="inline-flex grow">
               <Navigation.Link
                 className={cn(
                   focusClasses,
@@ -25,8 +22,7 @@ export function SecondaryNav() {
                   isActive && "text-white shadow-[inset_0_-2px_0px_#FFC233]",
                   !isActive &&
                     "hover:text-white data-[state=open]:text-white data-[state=open]:shadow-[inset_0_-2px_0px_#FFC233]",
-                  item.children &&
-                    "pr-2 hover:shadow-[inset_0_-2px_0px_#FFC233]"
+                  item.children && "pr-2 hover:shadow-[inset_0_-2px_0px_#FFC233]"
                 )}
                 href={item.href}
               >
@@ -36,7 +32,7 @@ export function SecondaryNav() {
           );
         })}
 
-        <Navigation.Viewport className="absolute left-0 top-full z-50 w-full border-t border-white/20 bg-primary opacity-0 shadow-2xl transition-all duration-200 animate-in data-[state=open]:opacity-100 data-[state=closed]:fade-out-100 data-[state=open]:fade-in-0" />
+        <Navigation.Viewport className="animate-in data-[state=closed]:fade-out-100 data-[state=open]:fade-in-0 absolute left-0 top-full z-50 w-full border-t border-white/20 bg-primary opacity-0 shadow-2xl transition-all duration-200 data-[state=open]:opacity-100" />
       </Navigation.List>
     </Navigation>
   );
