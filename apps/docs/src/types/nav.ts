@@ -1,12 +1,43 @@
+/* -------------------------- Primary nav (header) -------------------------- */
+export type NavBadge = "new" | "updates";
+
 export type NavItem = {
-  disabled?: boolean;
-  external?: boolean;
+  label?: string;
   href?: string;
-  icon?: React.ReactNode;
-  items?: NavItem[];
-  label: string;
-  new?: boolean;
+  buttonHref?: string;
+  buttonLabel?: string;
+  children?: NavItem[];
+  description?: string;
+  isBlog?: boolean;
+  isCaseStudy?: boolean;
+  separator?: boolean;
+  tag?: NavBadge;
 };
 
-export type FooterNavItem = Pick<NavItem, "label" | "href">;
-export type FooterNavType = Record<string, FooterNavItem[]>;
+export type SidebarNav = {
+  disabled?: boolean;
+  new?: boolean;
+  external?: boolean;
+  children?: (NavItem & SidebarNav)[];
+};
+
+export type MainNav = NavItem[];
+
+/* ----------------------- Secondary nav (sub header) ----------------------- */
+export type SecondaryNavItem = {
+  label: string;
+  slug: string;
+  href?: string;
+  children?: SecondaryNavItem[];
+};
+
+export type SecondaryNav = SecondaryNavItem[];
+
+/* ------------------------------- Footer nav ------------------------------- */
+export type FooterNavItem = {
+  label?: string;
+  href?: string;
+  children?: FooterNavItem[];
+};
+
+export type FooterNav = FooterNavItem[];

@@ -1,0 +1,85 @@
+---
+title: Manual
+description: How to install and get started with Wedges.
+breadcrumbs:
+  - Installation
+---
+
+<Steps>
+
+### Install Wedges
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm add @lemonsqueezy/wedges
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npm i @lemonsqueezy/wedges
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn add @lemonsqueezy/wedges
+        ```
+    </TabsContent>
+</Tabs>
+
+### Configure Tailwind CSS
+
+Wedges requires Tailwind CSS to be installed prior to use. If you haven't installed it already, follow the instructions in the <a href="https://tailwindcss.com/docs/installation/" target="_blank" rel='nofollow noreferrer'>official Tailwind CSS installation guide</a>.
+
+Once Tailwind CSS is installed, update your `tailwind.config` file to add the necessary configuration for Wedges:
+
+```tsx {2,7,10,11} title="tailwind.config.ts" showLineNumbers
+import type { Config } from "tailwindcss";
+import { wedgesTW } from "@lemonsqueezy/wedges";
+
+const config: Config = {
+  content: [
+    // ...
+    "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {},
+  darkMode: "class",
+  plugins: [wedgesTW()],
+};
+
+export default config;
+```
+
+### Setup pnpm (optional)
+
+If you're using pnpm, add the following line to your `.npmrc` file:
+
+```
+public-hoist-pattern[]=*@lmsqueezy/*
+```
+
+This ensures that pnpm correctly handles dependencies for Wedges, allowing necessary packages to be accessible at the top level of your node_modules.
+
+After updating, run `pnpm install` again to reconfigure your dependencies correctly.
+
+### Using the components
+
+That's all. You can now start using the components in your application.
+
+```tsx {1,4}
+import { Alert } from "@lemonsqueezy/wedges";
+
+export default function Example() {
+  return <Alert>You're awesome!</Alert>;
+}
+```
+
+</Steps>

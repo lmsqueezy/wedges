@@ -1,4 +1,4 @@
-import { wedgesTW } from "@lemonsqueezy/wedges";
+import { wedgesPalette, wedgesTW } from "@lemonsqueezy/wedges";
 import type { ThemableColorScale } from "@lemonsqueezy/wedges/src/tw-plugin/foundation/colors/themableColors";
 import tailwindTypography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
@@ -23,6 +23,7 @@ const config: Config = {
     "./src/examples/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/content/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./public/docs/**/*.mdx",
 
     // This is required in order to include Tailwind classes from Wedges.
     "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
@@ -88,18 +89,36 @@ const config: Config = {
         center: true,
         screens: {
           md: "100%",
-          xl: "77rem", // 72 + 5 for padding
+          xl: "87rem", // 82 + 5 for padding
         },
         padding: {
-          DEFAULT: "1.5rem",
+          DEFAULT: "2.25rem",
           md: "2.5rem",
           xl: "2.5rem",
         },
       },
       fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "-apple-system"],
+        sans: ["var(--font-sans)", "Inter", "ui-sans-serif", "system-ui", "-apple-system"],
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular"],
         display: ["var(--font-display)", "Inter", "ui-monospace", "SFMono-Regular"],
+      },
+      fontSize: {
+        "6xl": [
+          "3.5rem",
+          {
+            lineHeight: "4rem",
+            letterSpacing: "-0.03em",
+            fontWeight: "400",
+          },
+        ],
+        "8xl": [
+          "5rem",
+          {
+            lineHeight: "1em",
+            letterSpacing: "-0.04em",
+            fontWeight: "400",
+          },
+        ],
       },
       minHeight: {
         "screen-dvh": "100dvh",
@@ -121,10 +140,7 @@ const config: Config = {
         light: {
           colors: {
             primary: {
-              DEFAULT: "#7047EB",
-              400: "#8D6CEF",
-              500: "#7047EB",
-              600: "#5423E7",
+              DEFAULT: wedgesPalette.purple[600],
             },
           },
         },

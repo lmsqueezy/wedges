@@ -2,101 +2,83 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@lemonsqueezy/wedges";
-import { allDocs, type LinkProperties } from "contentlayer/generated";
 
+import { type FrontmatterProps } from "@/types/mdx";
+import { type PageProps } from "@/types/page";
 import { siteConfig } from "@/config/siteConfig";
-import { getTableOfContents } from "@/lib/toc";
+import { getMDXData } from "@/lib/mdx/mdx";
+import { CustomMDX } from "@/components/CustomMDX";
 import { EditPageLink } from "@/components/EditPageLink";
-import { GithubIcon, RadixIcon, StackBlitzIcon } from "@/components/Icons";
-import { Mdx } from "@/components/Mdx";
+import { GithubIcon, RadixIcon } from "@/components/Icons";
 import { Pagination } from "@/components/Pagination";
-import { PreloadResources } from "@/components/PreloadResources";
 import { Prose } from "@/components/Prose";
 import { TableOfContents } from "@/components/TableOfContents";
 
 import "@/styles/mdx.scss";
 
-type DocPageProps = {
-  params: {
-    slug: string[];
-    toc: boolean;
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const mdxData = await getMDXData(props.params.slug);
+  const title = mdxData ? mdxData.frontmatter.title : "Page not found";
+  const description = mdxData ? mdxData.frontmatter.description : siteConfig.siteDescription;
+
+  return {
+    title: `${title} — Wedges | Lemon Squeezy`,
+    description,
   };
-};
+}
 
-export default async function DocPage({ params }: DocPageProps) {
-  const doc = await getDocFromParams({ params });
+export default async function DocPage(props: PageProps) {
+  const { slug } = props.params;
+  const mdxData = await getMDXData(slug);
 
-  if (!doc) {
+  if (!mdxData) {
     notFound();
   }
 
-  const toc = await getTableOfContents(doc.body.raw);
-
-  const title = doc.title;
-  const description = doc.description;
-  //   const breadcrumbs = doc.breadcrumbs ?? [];
-  const links = doc.links ?? undefined;
-  const showTOC = doc.toc !== false && toc?.items?.length;
+  const { frontmatter, folderPath, markdown } = mdxData;
+  const { toc: showToc = true, title, description, links } = frontmatter;
 
   return (
-    <div className="w-full xl:grid xl:grid-cols-[1fr_240px] xl:gap-10">
-      <PreloadResources />
-
+    <>
       <div className="mx-auto w-full min-w-0">
-        {/* <Breadcrumbs path={breadcrumbs} /> */}
-
-        <div className="mb-10 space-y-3">
-          <h2 className="font-display text-4xl tracking-tight text-surface-900">{title}</h2>
+        <header
+          aria-labelledby="page-title"
+          aria-describedby="page-description"
+          className="mb-10 space-y-3"
+        >
+          <h2
+            id="page-title"
+            className="font-display text-4xl text-[32px] leading-10 tracking-tight text-surface-900"
+          >
+            {title}
+          </h2>
 
           {description ? (
-            <p className="max-w-prose text-base text-gray-500 [text-wrap:balance] lg:text-lg">
+            <p
+              id="page-description"
+              className="max-w-prose text-base text-gray-500 [text-wrap:balance] lg:text-lg"
+            >
               {description}
             </p>
           ) : null}
 
           <Links links={links} />
-        </div>
+        </header>
 
         <Prose>
-          <Mdx code={doc.body.code} />
+          <CustomMDX folderPath={folderPath} source={markdown} />
         </Prose>
 
-        <Pagination doc={doc} />
+        <Pagination pageHref={mdxData?.url} />
         <EditPageLink />
       </div>
 
-      {showTOC ? <TableOfContents items={toc?.items} /> : null}
-    </div>
+      {showToc ? <TableOfContents source={markdown} /> : null}
+    </>
   );
 }
 
-export async function generateMetadata({ params }: DocPageProps): Promise<Metadata> {
-  const doc = await getDocFromParams({ params });
-  const title = doc ? doc.title : "Page not found";
-  const description = doc?.description ?? siteConfig.siteDescription;
-
-  return {
-    title: `${title} • Wedges Documentation | Lemon Squeezy`,
-    description,
-  };
-}
-
-async function getDocFromParams({ params }: DocPageProps) {
-  let slug = "";
-
-  if (!params.slug) {
-    slug = "/";
-  } else {
-    slug = "/" + params.slug?.join("/") ?? "";
-  }
-
-  const doc = allDocs.find((doc) => doc.slug === slug);
-
-  return doc ? doc : null;
-}
-
-/* ------------------------------ Header links ------------------------------ */
-function Links({ links }: { links?: LinkProperties }) {
+function Links({ links }: { links?: FrontmatterProps["links"] }) {
   if (!links) {
     return null;
   }
@@ -111,7 +93,7 @@ function Links({ links }: { links?: LinkProperties }) {
           size="sm"
           variant="tertiary"
         >
-          <Link href={links.radix ?? "#"} rel="noopener noreferrer" target="_blank">
+          <Link href={links.radix} rel="noopener noreferrer" target="_blank">
             Radix UI
           </Link>
         </Button>
@@ -125,22 +107,8 @@ function Links({ links }: { links?: LinkProperties }) {
           size="sm"
           variant="tertiary"
         >
-          <Link href={links.source ?? "#"} rel="noopener noreferrer" target="_blank">
+          <Link href={links.source} rel="noopener noreferrer" target="_blank">
             Source
-          </Link>
-        </Button>
-      ) : null}
-
-      {links.sandbox ? (
-        <Button
-          asChild
-          before={<StackBlitzIcon aria-hidden />}
-          className="gap-1 px-3"
-          size="sm"
-          variant="tertiary"
-        >
-          <Link href={links.sandbox ?? "#"} rel="noopener noreferrer" target="_blank">
-            StackBlitz
           </Link>
         </Button>
       ) : null}

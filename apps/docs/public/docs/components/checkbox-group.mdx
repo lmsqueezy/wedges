@@ -1,0 +1,82 @@
+---
+title: Checkbox Group
+description: A visual group of Checkbox controls, allowing for the selection of multiple options within a set.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/CheckboxGroup/CheckboxGroup.tsx
+---
+
+<PreviewComponent name="checkbox-group/preview" />
+
+### Usage
+
+```tsx
+import { CheckboxGroup } from "@lemonsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<CheckboxGroup label="Group Label">
+  <CheckboxGroup.Item label="Option 1" />
+  <CheckboxGroup.Item label="Option 2" />
+</CheckboxGroup>
+```
+
+### API Reference
+
+#### CheckboxGroup
+
+Alternatively, `CheckboxGroup.Root` can be used in place of this component. Besides all props from `HTMLAttributes<HTMLDivElement>`, `CheckboxGroup` also includes these additional props:
+
+<PropsTable
+  content={[
+    [
+      {
+        value: "disabled",
+      },
+      {
+        value: "boolean",
+      },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "required",
+        description:
+          "If set to `true`, the label will be styled to indicate that the field is required.",
+      },
+      { value: "boolean" },
+      { value: "false" },
+    ],
+    [
+      {
+        value: "tooltip",
+        description: "Optional description of the group label, shown on hover.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "description",
+        description: "Additional information displayed next to the group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+    [
+      {
+        value: "label",
+        description: "Main group label.",
+      },
+      { value: "ReactNode" },
+      {},
+    ],
+  ]}
+/>
+
+#### CheckboxGroup.Item
+
+Shares all the properties of the `Checkbox` component. Details can be found [here](/components/checkbox#api-reference).
+
+### Examples
+
+<PreviewComponent name="checkbox-group/example-1" />

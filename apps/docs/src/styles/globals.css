@@ -1,17 +1,29 @@
 @import "./docsearch.css";
-@import "./fonts.css";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  .fade-mask {
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), transparent 100%);
+  h1 {
+    font-feature-settings: "ss04";
+  }
+
+  .hover-effect,
+  .hover-effect .arrow {
+    transition-duration: 280ms !important;
+  }
+
+  .hover-effect:hover .arrow {
+    transform: translateX(0.5rem);
   }
 }
 
 @layer utilities {
+  .fade-mask {
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), transparent 100%);
+  }
+
   .step {
     counter-increment: step;
   }

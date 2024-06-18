@@ -1,0 +1,202 @@
+---
+title: Remix
+description: Start using Wedges with Remix.
+breadcrumbs:
+  - Installation
+---
+
+<Steps>
+
+### Setting up Remix
+
+To set up a new Remix project, run the following command in your terminal:
+
+```bash
+npx create-remix@latest my-remix-app
+cd my-remix-app
+```
+
+More information can be found in the <a href="https://remix.run/docs/en/main/start/quickstart" target="_blank" rel="nofollow noreferrer">official Remix Documentation</a>.
+
+### Install Wedges
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+  <TabsList>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+    <TabsContent value="pnpm">
+
+```bash
+pnpm add @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+    <TabsContent value="npm">
+
+```bash
+npm i @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+    <TabsContent value="yarn">
+
+```bash
+yarn add @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+</Tabs>
+
+### Install Tailwind CSS
+
+By default, Remix does not include Tailwind CSS, so we'll need to do that manually.
+
+More information can be found in the <a href="https://tailwindcss.com/docs/guides/remix" target="_blank" rel='nofollow noreferrer'>official Tailwind CSS installation guide</a>.
+
+Let's start by installing the Tailwind CSS:
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm add tailwindcss -D
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npm install tailwindcss -D
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn install tailwindcss -D
+        ```
+    </TabsContent>
+
+</Tabs>
+
+Then run the init command to generate `tailwind.config.ts` file:
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm dlx tailwindcss init --ts
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npx tailwindcss init --ts
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn dlx tailwindcss init --ts
+        ```
+    </TabsContent>
+
+</Tabs>
+
+### Configure Tailwind CSS
+
+Update your `tailwind.config.ts` file to add the necessary configuration for Wedges:
+
+```tsx {2,7,12-13} title="tailwind.config.js" showLineNumbers
+import { wedgesTW } from "@lemonsqueezy/wedges";
+import type { Config } from "tailwindcss";
+
+export default {
+  content: [
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [wedgesTW()],
+} satisfies Config;
+```
+
+### Add the Directives
+
+Create a `./app/tailwind.css` file and add the `@tailwind` directives for each of Tailwind’s layers.
+
+```css title="app/tailwind.css" showLineNumbers
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### Import the CSS File
+
+Import the newly-created `tailwind.css` file in your `./app/root.jsx` file.
+
+```tsx showLineNumbers title="root.tsx"
+import stylesheet from "~/tailwind.css";
+
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: stylesheet }];
+```
+
+### Start the Dev Server
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+  <TabsList>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm dev
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npm run dev
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn dev
+        ```
+    </TabsContent>
+
+</Tabs>
+
+### All Done!
+
+You can now start using the components in your application.
+
+```tsx {1,4} showLineNumbers
+import { Alert } from "@lemonsqueezy/wedges";
+
+export default function Index() {
+  return <Alert>You're awesome!</Alert>;
+}
+```
+
+</Steps>

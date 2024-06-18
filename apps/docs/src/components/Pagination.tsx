@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { ChevronLeftIcon, ChevronRightIcon } from "@iconicicons/react";
 import { Button } from "@lemonsqueezy/wedges";
-import { type Doc } from "contentlayer/generated";
 
-import { type NavItem } from "@/types/nav";
-import { sidebarConfig } from "@/config/sidebarConfig";
+import { sidebarConfig, type DocsConfig } from "@/config/sidebarConfig";
 
-export function Pagination({ doc }: { doc: Doc }) {
-  const pagination = getPagination(doc);
+export function Pagination({ pageHref }: { pageHref: string }) {
+  const pagination = getPagination(pageHref);
 
   return (
     <div className="mt-16 flex items-center justify-between gap-4">
@@ -30,10 +28,10 @@ export function Pagination({ doc }: { doc: Doc }) {
   );
 }
 
-function getPagination(doc: Doc) {
+function getPagination(pageHref: string) {
   const flattenedLinks = flatten(sidebarConfig.nav);
-  const activeIndex = flattenedLinks.findIndex((link) => doc.slug === link?.href);
 
+  const activeIndex = flattenedLinks.findIndex((link) => pageHref === link?.href);
   const prev = activeIndex !== 0 ? flattenedLinks[activeIndex - 1] : null;
   const next = activeIndex !== flattenedLinks.length - 1 ? flattenedLinks[activeIndex + 1] : null;
 
@@ -43,10 +41,10 @@ function getPagination(doc: Doc) {
   };
 }
 
-export function flatten(links: NavItem[]): NavItem[] {
+export function flatten(links: DocsConfig["nav"]): DocsConfig["nav"] {
   return links
-    .reduce<NavItem[]>((flat, link) => {
-      return flat.concat(link.items?.length ? flatten(link.items) : link);
+    .reduce<DocsConfig["nav"]>((flat, link) => {
+      return flat.concat(link.children?.length ? flatten(link.children) : link);
     }, [])
     .filter((link) => !link?.disabled);
 }

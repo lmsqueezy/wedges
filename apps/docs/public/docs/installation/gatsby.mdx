@@ -1,0 +1,142 @@
+---
+title: Gatsby
+description: Start using Wedges with Gatsby.
+breadcrumbs:
+  - Installation
+---
+
+<Steps>
+
+### Create Gatsby Project
+
+To set up a new project, run the following command in your terminal:
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm create gatsby
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npm init gatsby
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn create gatsby
+        ```
+    </TabsContent>
+</Tabs>
+
+### Configure Project
+
+The system will prompt you with several configuration queries:
+
+```txt showLineNumbers
+What would you like to call your site?
+- My Gatsby Project
+
+What would you like to name the folder where your site will be created?
+- ./my-gatsby-project
+
+Will you be using JavaScript or TypeScript?
+- Typescript
+
+Will you be using a CMS?
+- Choose your answer
+
+Would you like to install a styling system?
+- Tailwind CSS
+
+Would you like to install additional features with other plugins?
+- Choose your answer
+
+Shall we do this?
+- Yes
+```
+
+After the installation navigate to the project folder:
+
+```bash
+cd my-gatsby-project
+```
+
+### Install Wedges
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+  <TabsList>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+    <TabsContent value="pnpm">
+
+```bash
+pnpm add @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+    <TabsContent value="npm">
+
+```bash
+npm i @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+    <TabsContent value="yarn">
+
+```bash
+yarn add @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+</Tabs>
+
+### Configure Tailwind CSS
+
+Update your `tailwind.config.js` file to add the necessary configuration for Wedges:
+
+```tsx {1,8,13-14} title="tailwind.config.js" showLineNumbers
+const { wedgesTW } = require("@lemonsqueezy/wedges");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './src/pages/**/.{js,jsx,ts,tsx}',
+    './src/components/**/*.{js,jsx,ts,tsx}',
+    'node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [wedgesTW()],
+}
+```
+
+### Using the Components
+
+That's all. You can now start using the components in your application.
+
+```tsx {1,4} showLineNumbers
+import { Alert } from "@lemonsqueezy/wedges";
+
+export default function ExampleComponent() {
+  return <Alert>You're awesome!</Alert>;
+}
+```
+
+</Steps>

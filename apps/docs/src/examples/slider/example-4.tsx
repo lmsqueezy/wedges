@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { MinusIcon, PlusIcon } from "@iconicicons/react";
 import { Button, Slider } from "@lemonsqueezy/wedges";

@@ -20,9 +20,9 @@ const Prose = forwardRef<HTMLDivElement, ProseProps>(
           "prose prose-neutral dark:prose-invert max-w-none leading-7 text-gray-500 dark:text-white/60 [&_h4+p]:!mt-0",
 
           // headings
-          "prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-normal prose-headings:text-gray-900 dark:prose-headings:text-white lg:prose-headings:scroll-mt-[8.5rem]",
+          "prose-headings:scroll-mt-28 prose-headings:font-display prose-headings:font-normal prose-headings:text-gray-900 dark:prose-headings:text-white lg:prose-headings:scroll-mt-[7.5rem]",
           "prose-h1:leading-[44px] prose-h1:tracking-[-.02em]",
-          "prose-h2:text-[32px] prose-h2:leading-[42px] prose-h2:tracking-[-.02em]",
+          "prose-h2:text-[32px] prose-h2:leading-[40px] prose-h2:tracking-[-.02em]",
           "prose-h3:text-[26px] prose-h3:leading-[40px] prose-h3:tracking-[-.02em]",
           "prose-h4:text-[20px] prose-h4:mt-[2.5rem] prose-h4:tracking-[-.02em]",
           "prose-p:my-6",

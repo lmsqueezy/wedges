@@ -1,0 +1,183 @@
+---
+title: Vite
+description: Start using Wedges with Vite.
+breadcrumbs:
+  - Installation
+---
+
+<Steps>
+
+### Create Project
+
+Begin by initializing a new project with Vite:
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm create vite
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npm create vite@latest
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn create vite
+        ```
+    </TabsContent>
+</Tabs>
+
+Then follow the prompts to create a React project. Typescript is recommended but not required. Once the installation is complete, run the following command to navigate to your project directory:
+
+```bash /my-vite-app/
+cd my-vite-app
+```
+
+Ensure to replace `my-vite-app` with the actual name you chose for your project during installation.
+
+### Install Wedges
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm add @lemonsqueezy/wedges
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npm i @lemonsqueezy/wedges
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn add @lemonsqueezy/wedges
+        ```
+    </TabsContent>
+</Tabs>
+
+### Install Tailwind CSS
+
+By default, Vite doesn't install Tailwind CSS, so we'll need to do that manually.
+
+More information can be found in the <a href="https://tailwindcss.com/docs/installation/" target="_blank" rel='nofollow noreferrer'>official Tailwind CSS installation guide</a>.
+
+Let's start by installing the Tailwind CSS and its peer dependencies:
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm add tailwindcss postcss autoprefixer -D
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npm install tailwindcss postcss autoprefixer -D
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn install tailwindcss postcss autoprefixer -D
+        ```
+    </TabsContent>
+</Tabs>
+
+Then generate your `tailwind.config.js` and `postcss.config.js` files by running the following command:
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+    <TabsList>
+        <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+        <TabsTrigger value="npm">npm</TabsTrigger>
+        <TabsTrigger value="yarn">yarn</TabsTrigger>
+    </TabsList>
+
+    <TabsContent value="pnpm">
+        ```bash
+        pnpm dlx tailwindcss init -p
+        ```
+    </TabsContent>
+
+    <TabsContent value="npm">
+        ```bash
+        npx tailwindcss init -p
+        ```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+        ```bash
+        yarn dlx tailwindcss init -p
+        ```
+    </TabsContent>
+</Tabs>
+
+### Configure Tailwind CSS
+
+Once Tailwind CSS is installed, update `tailwind.config.js` file to add the necessary configuration for Wedges:
+
+```js {1,7,12,13} title="tailwind.config.js" showLineNumbers
+const { wedgesTW } = require("@lemonsqueezy/wedges");
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  darkMode: "class",
+  plugins: [wedgesTW()],
+}
+```
+
+### Setup pnpm (optional)
+
+If you're using pnpm, add the following line to your `.npmrc` file:
+
+```
+public-hoist-pattern[]=*@lmsqueezy/*
+```
+
+This ensures that pnpm correctly handles dependencies for Wedges, allowing necessary packages to be accessible at the top level of your node_modules.
+
+After updating, run `pnpm install` again to reconfigure your dependencies correctly.
+
+### That's all
+
+You can now start using the components in your application.
+
+```tsx {1,4} showLineNumbers
+import { Alert } from "@lemonsqueezy/wedges";
+
+export default function Example() {
+  return <Alert>You're awesome!</Alert>;
+}
+```
+
+</Steps>

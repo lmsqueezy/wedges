@@ -1442,7 +1442,9 @@ export function Example() {
   },
   "dropdown-menu/example-2": {
     component: lazy(() => import("@/examples/dropdown-menu/example-2.tsx")),
-    code: `import { useState } from "react";
+    code: `"use client";
+
+import { useState } from "react";
 import {
   BellIcon,
   BookIcon,
@@ -2200,7 +2202,9 @@ export function Example() {
   },
   "slider/example-3": {
     component: lazy(() => import("@/examples/slider/example-3.tsx")),
-    code: `import { useState } from "react";
+    code: `"use client";
+
+import { useState } from "react";
 import { Slider } from "@lemonsqueezy/wedges";
 
 export function Example() {
@@ -2237,7 +2241,9 @@ export function Example() {
   },
   "slider/example-4": {
     component: lazy(() => import("@/examples/slider/example-4.tsx")),
-    code: `import { useState } from "react";
+    code: `"use client";
+
+import { useState } from "react";
 import { MinusIcon, PlusIcon } from "@iconicicons/react";
 import { Button, Slider } from "@lemonsqueezy/wedges";
 

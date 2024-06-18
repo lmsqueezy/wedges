@@ -1,0 +1,52 @@
+---
+title: Default Themes
+description: Adding dark and light themes to your application.
+breadcrumbs:
+  - Theming
+---
+
+Wedges supports dark and light themes out of the box. By default, the light theme is applied if no specific theme classes are added. The default theme can be changed with [wedgesTW configuration](/theming/tailwind-css-plugin/#configuration).
+
+### Using Default Themes
+
+To apply a dark theme, simply add the `dark` class to a parent element, usually the `html` or `body`. For other themes, add the appropriate class, like `light` for light theme.
+
+```html showLineNumbers /dark/
+<html class="dark">
+  ...
+</html>
+```
+
+This approach enables the dark theme for the entire app. To apply different themes to individual sections, add the corresponding theme class to each section's container.
+
+```html showLineNumbers /dark/ /light/ /orange-blue/
+<html class="dark">
+  ...
+  <div class="light">...</div>
+  <div class="orange-blue">...</div>
+  <!-- custom theme -->
+</html>
+```
+
+### Customization
+
+See [Colors Customization](/theming/color-system/#customization-1).
+
+### Theme Switching
+
+If you need to toggle between different themes consider using a theme switching library, or a custom solution for this functionality.
+
+#### Next.js
+
+A popular choice for toggling themes in Next.js is [next-themes](https://github.com/pacocoursey/next-themes). It support system preference and any other theme with no flashing, sync theme across tabs and windows, `useTheme` hook and more.
+
+For more information follow the official guide on how to setup `next-themes` with Next.js:
+
+- [Using App Router Guide](https://github.com/pacocoursey/next-themes?tab=readme-ov-file#with-pages)
+- [Using Pages Router Guide](https://github.com/pacocoursey/next-themes?tab=readme-ov-file#with-pages)
+
+#### Switcher Examples
+
+The following examples show how you could use Wedges components to create a theme switcher component.
+
+<PreviewComponent name="theming/dark-mode" />

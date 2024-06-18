@@ -181,7 +181,7 @@ const NavDropdownBlogLink = forwardRef<
       {...otherProps}
     >
       <div className="relative mb-5 aspect-[3/2] w-full rounded-md bg-gray-50">
-        <Image className="rounded-md" src={imgSrc} alt={label} layout="fill" placeholder="empty" />
+        <Image className="rounded-md" src={imgSrc} alt={label} fill placeholder="empty" />
       </div>
 
       <span className="duration-180 flex items-center text-base text-white transition-colors group-hover:text-gray-900 group-focus-visible:text-gray-900">

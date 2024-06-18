@@ -1,14 +1,14 @@
-import type { NavItem } from "@/types/nav";
+import type { NavItem, SidebarNav } from "@/types/nav";
 
-type DocsConfig = {
-  nav: NavItem[];
+export type DocsConfig = {
+  nav: (NavItem & SidebarNav)[];
 };
 
 export const sidebarConfig: DocsConfig = {
   nav: [
     {
       label: "Getting Started",
-      items: [
+      children: [
         {
           label: "Introduction",
           href: "/",
@@ -25,7 +25,7 @@ export const sidebarConfig: DocsConfig = {
     },
     {
       label: "Installation",
-      items: [
+      children: [
         {
           label: "Next.js",
           href: "/installation/nextjs",
@@ -58,7 +58,7 @@ export const sidebarConfig: DocsConfig = {
     },
     {
       label: "Theming",
-      items: [
+      children: [
         {
           label: "Tailwind Plugin",
           href: "/theming/tailwind-css-plugin",
@@ -83,7 +83,7 @@ export const sidebarConfig: DocsConfig = {
     },
     {
       label: "Components",
-      items: [
+      children: [
         {
           label: "Alert",
           href: "/components/alert",

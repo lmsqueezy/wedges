@@ -1,0 +1,197 @@
+---
+title: Astro
+description: Start using Wedges with Astro.
+breadcrumbs:
+  - Installation
+---
+
+### Setting up Astro
+
+<Steps>
+
+#### Create project
+
+To set up a new Astro project, run the following command in your terminal:
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+  <TabsList>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+    <TabsContent value="pnpm">
+```bash
+pnpm create astro@latest
+```
+    </TabsContent>
+
+    <TabsContent value="npm">
+```bash
+npm create astro@latest
+```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+```bash
+yarn create astro
+```
+    </TabsContent>
+</Tabs>
+
+More information can be found in the official <a href="https://docs.astro.build/en/getting-started/" target="_blank" rel="nofollow noreferrer">Astro Documentation</a>.
+
+#### Configure project
+
+The system will prompt you with several configuration queries:
+
+```txt
+Where should we create your new project?
+- ./my-astro-project
+
+How would you like to start your new project?
+- Include sample files (recommended)
+
+Install dependencies?
+- Yes
+
+Do you plan to write Typescript?
+- Yes
+
+How strict should TypeScript be?
+- Strict
+
+Initialize a new git repository?
+- Yes/No
+```
+
+After the installation is complete, navigate to your project directory:
+
+```bash
+cd my-astro-project
+```
+
+#### Add React and Tailwind
+
+To install React and Tailwind CSS, run the following command:
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+  <TabsList>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+    <TabsContent value="pnpm">
+```bash
+pnpm astro add react tailwind --yes
+```
+    </TabsContent>
+
+    <TabsContent value="npm">
+```bash
+npx astro add react tailwind --yes
+```
+    </TabsContent>
+
+    <TabsContent value="yarn">
+```bash
+yarn astro add react tailwind --yes
+```
+    </TabsContent>
+</Tabs>
+
+</Steps>
+
+### Setting up Wedges
+
+<Steps>
+
+#### Install Wedges
+
+<Tabs variant='underlined' defaultValue='pnpm'>
+  <TabsList>
+    <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+    <TabsTrigger value="npm">npm</TabsTrigger>
+    <TabsTrigger value="yarn">yarn</TabsTrigger>
+  </TabsList>
+
+    <TabsContent value="pnpm">
+
+```bash
+pnpm add @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+    <TabsContent value="npm">
+
+```bash
+npm i @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+    <TabsContent value="yarn">
+
+```bash
+yarn add @lemonsqueezy/wedges
+```
+
+    </TabsContent>
+
+</Tabs>
+
+#### Configure Tailwind CSS
+
+Update your `tailwind.config.mjs` file to add the necessary configuration for Wedges:
+
+```tsx {1,7,10,11} title="tailwind.config.mjs" showLineNumbers
+import { wedgesTW } from "@lemonsqueezy/wedges";
+
+/** @type {import('tailwindcss').Config} */
+const config = {
+  content: [
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    'node_modules/@lemonsqueezy/wedges/dist/**/*.{js,ts,jsx,tsx}',
+  ],
+  theme: {},
+  darkMode: "class",
+  plugins: [wedgesTW()],
+};
+
+export default config;
+```
+
+#### Setup pnpm (optional)
+
+If you're using pnpm, add the following line to your `.npmrc` file:
+
+```
+public-hoist-pattern[]=*@lmsqueezy/*
+```
+
+This ensures that pnpm correctly handles dependencies for Wedges, allowing necessary packages to be accessible at the top level of your node_modules.
+
+After updating, run `pnpm install` again to reconfigure your dependencies correctly.
+
+#### Using the components
+
+That's all. You can now start using the components in your application.
+
+```tsx {2,10} showLineNumbers
+---
+import { Alert } from "@lemonsqueezy/wedges";
+---
+
+<html lang="en">
+	<head>
+		<title>Astro</title>
+	</head>
+	<body>
+		<Alert>Hello World</Alert>
+	</body>
+</html>
+```
+
+</Steps>
