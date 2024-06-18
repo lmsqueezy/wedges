@@ -10,15 +10,17 @@
     "generate:examples": "node src/scripts/generateExamples.mjs",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "preview": "pnpm generate:examples && next build && next start -p 3000"
+    "preview": "pnpm generate:examples && next build && next start -p 3000",
+    "typecheck": "tsc --pretty --noEmit"
   },
   "dependencies": {
     "@headlessui/react": "^2.0.4",
     "@iconicicons/react": "^1.5.1",
+    "@radix-ui/react-navigation-menu": "^1.1.4",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "fathom-client": "^3.7.0",
     "next": "14.2.4",
-    "sass": "^1.77.5"
+    "sass": "^1.77.6"
   },
   "devDependencies": {
     "@docsearch/react": "^3.6.0",
@@ -38,7 +40,6 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
     "remark-smartypants": "^3.0.1",
-    "shikiji": "0.10.x",
     "unist-builder": "^4.0.0",
     "unist-util-visit": "^5.0.0"
   }

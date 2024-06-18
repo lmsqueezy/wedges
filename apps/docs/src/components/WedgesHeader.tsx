@@ -19,10 +19,7 @@ export default function WedgesHeader() {
 
   return (
     <>
-      <header
-        aria-labelledby="wedges-site-title"
-        className="[&_a]:duration-180 sticky top-0 z-50 border-b border-white/20 bg-purple-600 dark:bg-transparent [&_a]:transition-colors"
-      >
+      <div className="[&_a]:duration-180 sticky top-0 z-50 border-b border-white/20 bg-primary dark:bg-transparent [&_a]:transition-colors">
         <div className="container flex min-h-[72px] gap-6 md:grid md:min-h-[88px] md:grid-cols-[1fr_auto_1fr]">
           <Link
             className={cn(
@@ -32,12 +29,7 @@ export default function WedgesHeader() {
             )}
             href={siteConfig.wedgesURL}
           >
-            <h1
-              className="font-sans text-2xl font-medium text-white md:block"
-              id="wedges-site-title"
-            >
-              Wedges
-            </h1>
+            <h1 className="font-sans text-2xl font-medium text-white md:block">Wedges</h1>
           </Link>
 
           <Navigation
@@ -45,7 +37,6 @@ export default function WedgesHeader() {
             className="-ml-3 justify-self-start md:flex md:justify-self-center"
           >
             <Navigation.Item href={siteConfig.wedgesURL}>React</Navigation.Item>
-
             <Navigation.Item href={siteConfig.wedgesURL + "/figma"}>Figma</Navigation.Item>
 
             <Navigation.Item asChild active={!pathname.includes("/components")}>
@@ -115,7 +106,7 @@ export default function WedgesHeader() {
             </Button>
           </Navigation>
         </div>
-      </header>
+      </div>
     </>
   );
 }

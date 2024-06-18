@@ -7,7 +7,7 @@ import { Button } from "@lemonsqueezy/wedges";
 
 import { GithubIcon } from "./Icons";
 
-const DATA_FOLDER_PATH = "https://github.com/lmsqueezy/wedges/edit/main/apps/docs/src/content";
+const DATA_FOLDER_PATH = "https://github.com/lmsqueezy/wedges/edit/main/apps/docs/public/docs";
 
 export function EditPageLink() {
   const pathname = usePathname();

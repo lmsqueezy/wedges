@@ -8,3 +8,9 @@ export const siteConfig = {
   siteDescription:
     "An ever-expanding, open-source React UI library built with the Wedges Design System, Radix primitives, and Tailwind CSS.",
 } as const;
+
+export const webflowConfig = {
+  endpoint: "https://api.webflow.com/v2/collections",
+  blogId: "6432f5dd5c88a305ca3f725b",
+  caseStudiesId: "64baae396dfe6aafad57556c",
+};

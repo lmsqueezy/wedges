@@ -22,7 +22,7 @@ import { cn } from "@/lib/utils";
 import { Colors } from "./Colors";
 import { CopyButton } from "./CopyButton";
 import { TabsContent, TabsList, TabsRoot, TabsTrigger } from "./CustomTabs";
-import { Logomark } from "./Logo";
+import { LemonSqueezyLogomark } from "./icons/lemonsqueezy";
 import { PreviewComponent } from "./PreviewComponent";
 import { PropsTable } from "./PropsTable";
 
@@ -127,7 +127,7 @@ export function CustomMDX(
     TabsList,
     TabsTrigger,
     Tooltip,
-    Logomark,
+    Logomark: LemonSqueezyLogomark,
     Image: (props: ComponentProps<typeof Image>) => <Image {...props} />,
     Colors,
     LinkCard,

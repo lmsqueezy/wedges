@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/siteConfig";
 import { focusClasses } from "@/lib/a11y";
 import { cn } from "@/lib/utils";
 
-import { Logomark } from "../Logo";
+import { LemonSqueezyLogomark } from "../icons/lemonsqueezy";
 
 export function FooterNav() {
   return (
@@ -19,7 +19,7 @@ export function FooterNav() {
               "inline-block outline-white !transition-all hover:opacity-70"
             )}
           >
-            <Logomark />
+            <LemonSqueezyLogomark />
           </a>
         </li>
 

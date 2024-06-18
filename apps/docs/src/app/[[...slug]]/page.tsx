@@ -10,6 +10,7 @@ import { getMDXData } from "@/lib/mdx/mdx";
 import { CustomMDX } from "@/components/CustomMDX";
 import { EditPageLink } from "@/components/EditPageLink";
 import { GithubIcon, RadixIcon } from "@/components/Icons";
+import { Pagination } from "@/components/Pagination";
 import { Prose } from "@/components/Prose";
 import { TableOfContents } from "@/components/TableOfContents";
 
@@ -68,6 +69,7 @@ export default async function DocPage(props: PageProps) {
           <CustomMDX folderPath={folderPath} source={markdown} />
         </Prose>
 
+        <Pagination pageHref={mdxData?.url} />
         <EditPageLink />
       </div>
 

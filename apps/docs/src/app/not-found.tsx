@@ -2,13 +2,13 @@ import Link from "next/link";
 import { HomeIcon } from "@iconicicons/react";
 import { Button } from "@lemonsqueezy/wedges";
 
-import { Logomark } from "@/components/Logo";
+import { LemonSqueezyLogomark } from "@/components/icons/lemonsqueezy";
 import { SearchButton } from "@/components/Search";
 
 export default function NotFound() {
   return (
     <div className="mx-auto flex max-w-fit flex-col">
-      <Logomark className="mt-[7px]" />
+      <LemonSqueezyLogomark className="mt-[7px]" />
 
       <h2 className="font-display mb-6 mt-16 text-4xl tracking-tight text-wg-gray-900 [text-wrap:balance]">
         Sorry, page not found

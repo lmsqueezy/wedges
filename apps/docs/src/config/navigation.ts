@@ -110,9 +110,6 @@ export const mainNav: MainNav = [
       },
     ],
   },
-  { label: "Pricing", href: "https://www.lemonsqueezy.com/pricing" },
-  { label: "Wedges", href: "https://www.lemonsqueezy.com/wedges" },
-  { label: "Marketplace", href: "/" },
   {
     label: "Resources",
     children: [
@@ -155,6 +152,9 @@ export const mainNav: MainNav = [
       },
     ],
   },
+  { label: "Pricing", href: "https://www.lemonsqueezy.com/pricing" },
+  { label: "Wedges", href: "/" },
+  { label: "Help", href: "https://www.lemonsqueezy.com/help" },
 ];
 
 export const secondaryNav: SecondaryNav = [

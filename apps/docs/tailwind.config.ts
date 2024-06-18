@@ -1,4 +1,4 @@
-import { wedgesTW } from "@lemonsqueezy/wedges";
+import { wedgesPalette, wedgesTW } from "@lemonsqueezy/wedges";
 import type { ThemableColorScale } from "@lemonsqueezy/wedges/src/tw-plugin/foundation/colors/themableColors";
 import tailwindTypography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
@@ -103,22 +103,6 @@ const config: Config = {
         display: ["var(--font-display)", "Inter", "ui-monospace", "SFMono-Regular"],
       },
       fontSize: {
-        "2xl": [
-          "1.625rem",
-          {
-            lineHeight: "2.5rem",
-            letterSpacing: "-0.02em",
-            fontWeight: "400",
-          },
-        ],
-        "4xl": [
-          "2.25rem",
-          {
-            letterSpacing: "-0.03em",
-            lineHeight: "2.75rem",
-            fontWeight: 400,
-          },
-        ],
         "6xl": [
           "3.5rem",
           {
@@ -156,10 +140,7 @@ const config: Config = {
         light: {
           colors: {
             primary: {
-              DEFAULT: "#7047EB",
-              400: "#8D6CEF",
-              500: "#7047EB",
-              600: "#5423E7",
+              DEFAULT: wedgesPalette.purple[600],
             },
           },
         },

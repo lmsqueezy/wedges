@@ -11,7 +11,7 @@ import { sidebarConfig, type DocsConfig } from "@/config/sidebarConfig";
 import { siteConfig } from "@/config/siteConfig";
 import { cn } from "@/lib/utils";
 
-import { Logomark } from "./Logo";
+import { LemonSqueezyLogomark } from "./icons/lemonsqueezy";
 import { useSidebar } from "./Providers";
 import { ScrollArea } from "./ScrollArea";
 import { Search } from "./Search";
@@ -49,7 +49,7 @@ export function Sidebar() {
           </Button>
 
           <a aria-label="Go to Lemon Squeezy home page" href={siteConfig.lemonSqueezyURL}>
-            <Logomark />
+            <LemonSqueezyLogomark />
           </a>
         </div>
 

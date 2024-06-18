@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { toc } from "mdast-util-toc";
@@ -21,7 +24,7 @@ export function extractTOC(markdown: string) {
   const tableOfContents = toc(tree);
   const tocItems: TOCItem[] = [];
 
-  const buildTOC = (node: any, level: number = 1): TOCItem | null => {
+  const buildTOC = (node: any, level = 1): TOCItem | null => {
     if (node.type === "listItem" && node.children && node.children[0].type === "paragraph") {
       const paragraph = node.children[0];
       const heading = paragraph.children[0];
@@ -46,7 +49,7 @@ export function extractTOC(markdown: string) {
     return null;
   };
 
-  if (tableOfContents.map && tableOfContents.map.children) {
+  if (tableOfContents.map?.children) {
     tableOfContents.map.children.forEach((node) => {
       const tocItem = buildTOC(node);
 

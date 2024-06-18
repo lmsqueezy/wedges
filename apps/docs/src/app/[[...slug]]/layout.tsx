@@ -1,7 +1,13 @@
+import { type ReactNode } from "react";
+
 import { type PageProps } from "@/types/page";
 import { PreloadResources } from "@/components/PreloadResources";
 
-export default async function Layout(props: PageProps) {
+export default async function Layout(
+  props: PageProps & {
+    children: Readonly<ReactNode>;
+  }
+) {
   const { children } = props;
 
   return (

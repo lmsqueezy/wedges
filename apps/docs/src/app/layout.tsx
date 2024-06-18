@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/siteConfig";
 import { displayFont, monoFont, sansFont } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import { Footer } from "@/components/Footer/Footer";
+import { Footer } from "@/components/footer/Footer";
 import { Providers } from "@/components/Providers";
 import { Sidebar } from "@/components/Sidebar";
 
@@ -12,7 +12,7 @@ import "@/styles/globals.css";
 import Script from "next/script";
 
 import Fathom from "@/components/Fathom";
-import Header from "@/components/Header";
+import { Header } from "@/components/header/header";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lemonsqueezy.com/"),
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
- 
+
           gtag('config', 'AW-10985746469');
         `}
         </Script>

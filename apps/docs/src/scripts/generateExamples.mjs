@@ -12,7 +12,7 @@ const sluggify = (str) => str.replace(/[\s_]+/g, "-").replace(/[^\w-]+/g, "");
 const examplesPath = path.join(process.cwd(), "src/examples");
 const indexPath = `${examplesPath}/index.ts`;
 
-console.log("🍋 🚀 Generating component examples...");
+console.log("  🍋 🚀 Generating component examples...");
 
 let indexContent = `/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
@@ -83,7 +83,7 @@ try {
   rimraf.sync(indexPath);
   fs.writeFileSync(indexPath, indexContent);
 
-  console.log("✅ Component examples generated!");
+  console.log("  ✅ Component examples generated!");
 } catch (error) {
   console.error("Error generating component examples:", error);
   process.exit(1);

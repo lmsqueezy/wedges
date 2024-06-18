@@ -7,7 +7,7 @@ import { Button, Tabs, type TabsElement, type TabsProps } from "@lemonsqueezy/we
 
 import { cn } from "@/lib/utils";
 
-import { Logomark } from "./Logo";
+import { LemonSqueezyLogomark } from "./icons/lemonsqueezy";
 import { PreviewCode } from "./PreviewCode";
 
 type PreviewComponentType = TabsElement;
@@ -114,7 +114,7 @@ PreviewComponent.displayName = "PreviewComponent";
 function SuspenseFallback() {
   return (
     <div className="flex flex-col items-center gap-4 text-xs leading-6 text-surface-500">
-      <Logomark className="fill-surface-200" fill="none" loading={true} />
+      <LemonSqueezyLogomark className="fill-surface-200" fill="none" loading={true} />
       <span>Loading preview</span>
     </div>
   );
