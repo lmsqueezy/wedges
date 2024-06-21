@@ -117,6 +117,11 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/checkbox-group",
         },
         {
+          label: "Dialog",
+          href: "/components/dialog",
+          new: true,
+        },
+        {
           label: "Dropdown Menu",
           href: "/components/dropdown-menu",
         },

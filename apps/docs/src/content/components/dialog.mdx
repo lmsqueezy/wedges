@@ -1,0 +1,115 @@
+---
+title: Dialog
+description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Dialog/Dialog.tsx
+  radix: https://www.radix-ui.com/docs/primitives/components/dialog
+---
+
+
+<PreviewComponent name="dialog/preview" />
+
+### Usage
+
+```tsx
+import { Dialog } from "@lemonsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Dialog
+  open={open}
+  title="Dialog Title"
+  description="Dialog Description"
+>
+  Dialog content goes here.
+</Dialog>
+```
+
+For more advanced usage, you can use the Dialog.Root component to compose your own Dialog. These components include pre-defined styles and accessiblity features.
+
+```tsx showLineNumbers
+<Dialog.Root>
+  <Dialog.Trigger>Open Dialog</Dialog.Trigger>
+  <Dialog.Content>
+    <Dialog.Header>
+      <Dialog.Title>Dialog Title</Dialog.Title>
+      <Dialog.Description>Dialog Description</Dialog.Description>
+    </Dialog.Header>
+
+    Dialog content goes here.
+
+    <Dialog.Footer>
+      Dialog footer goes here.
+    </Dialog.Footer>
+  </Dialog.Content>
+</Dialog.Root>
+```
+
+### API Reference
+
+#### Dialog
+The Wedges component of the Dialog. In most cases this is the only Dialog component you will need to use.
+
+<PropsTable
+  content={[
+    [{ value: "open" }, { value: "boolean" }, { value: "false" }],
+    [{ value: "defaultOpen" }, { value: "boolean" }, { value: "false" }],
+    [{ value: "onOpenChange" }, { value: "(open: boolean) => void" }, {}],
+    [{ value: "title" }, { value: "ReactNode" }, {}],
+    [{ value: "description" }, { value: "ReactNode" }, {}],
+    [{ value: "size" }, { value: '"sm" | "md" | "lg" | "xl"' }, { value: '"md"' }],
+    [{ value: "container" }, { value: "HTMLElement" }, { value: "document.body" }],
+  ]}
+/>
+
+#### Dialog.Content
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dialog#content" target="_blank" rel='nofollow noreferrer'>Radix Dialog Content</a> primitive with custom configuration.
+
+<PropsTable
+  content={[
+    [{ value: "size" }, { value: '"sm" | "md" | "lg" | "xl"' }, { value: '"md"' }],
+  ]}
+/>
+
+#### Dialog.Header
+
+<PropsTable
+  content={[
+    [{ value: "title" }, { value: "ReactNode" }, {}],
+    [{ value: "description" }, { value: "ReactNode" }, {}],
+  ]}
+/>
+
+#### Dialog.Root
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dialog#root" target="_blank" rel='nofollow noreferrer'>Radix Dialog Root</a> primitive.
+
+#### Dialog.Overlay
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dialog#overlay" target="_blank" rel='nofollow noreferrer'>Radix Dialog Overlay</a> primitive.
+
+#### Dialog.Title
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dialog#title" target="_blank" rel='nofollow noreferrer'>Radix Dialog Title</a> primitive.
+
+#### Dialog.Description
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dialog#description" target="_blank" rel='nofollow noreferrer'>Radix Dialog Description</a> primitive.
+
+#### Dialog.Trigger
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dialog#trigger" target="_blank" rel='nofollow noreferrer'>Radix Dialog Trigger</a> primitive.
+
+#### Dialog.Footer
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dialog#footer" target="_blank" rel='nofollow noreferrer'>Radix Dialog Footer</a> primitive.
+
+#### Dialog.Close
+
+Extends the <a href="https://www.radix-ui.com/primitives/docs/components/dialog#close" target="_blank" rel='nofollow noreferrer'>Radix Dialog Close</a> primitive.
+
+### Examples
+
+<PreviewComponent name="dialog/example-1" />
+<PreviewComponent name="dialog/example-2" />
