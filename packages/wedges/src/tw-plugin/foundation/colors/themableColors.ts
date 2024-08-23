@@ -25,7 +25,10 @@ export type ThemableColors = {
   foreground: string;
   primary: ThemableColorScale;
   secondary: ThemableColorScale;
-  surface: ThemableColorScale;
+  surface: ThemableColorScale & {
+    overlay: string;
+    "overlay-foreground": string;
+  };
   destructive: ThemableColorScale;
 };
 
@@ -47,6 +50,8 @@ export const themableColorsLight: ThemableColors = {
   surface: {
     ...palette.gray,
     DEFAULT: palette.gray[50],
+    overlay: "#FFFFFF",
+    "overlay-foreground": palette.gray[900],
   },
 
   destructive: {
@@ -82,6 +87,8 @@ export const themableColorsDark: ThemableColors = {
     800: "rgba(255,255,255, 0.9)",
     900: "#FFFFFF",
     DEFAULT: "rgba(255,255,255, 0.1)",
+    overlay: "#292929",
+    "overlay-foreground": "rgba(255,255,255, 0.8)",
   },
 
   destructive: {
