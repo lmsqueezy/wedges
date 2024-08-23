@@ -31,6 +31,7 @@ const prettyCodeOptions: Options = {
   grid: true,
   keepBackground: false,
   transformers: [transformerNotationDiff()],
+  theme: "github-dark-dimmed",
 };
 
 /* -------------------------------------------------------------------------- */
