@@ -1,0 +1,337 @@
+---
+title: Select
+description: A dropdown component that presents a list of selectable options when triggered by a button.
+links:
+  source: https://github.com/lmsqueezy/wedges/blob/main/packages/wedges/src/components/Select/Select.tsx
+  radix: https://www.radix-ui.com/docs/primitives/components/select
+---
+
+<PreviewComponent name="select/preview" />
+
+### Usage
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectIcon,
+  SelectItem,
+  SelectPortal,
+  SelectTrigger,
+  SelectValue,
+} from "@lemonsqueezy/wedges";
+```
+
+```tsx showLineNumbers
+<Select>
+  <SelectTrigger />
+    <SelectContent>
+      <SelectGroup>
+        <SelectItem value="item-1">Item 1</SelectItem>
+        <SelectItem value="item-2">Item 2</SelectItem>
+        <SelectItem value="item-3">Item 3</SelectItem>
+      </SelectGroup>
+    </SelectContent>
+</Select>
+```
+
+You can use `SelectPortal` to render the content in a different location in the DOM. See <a href="#api-reference">API Reference</a> for details.
+
+```tsx {3, 11} showLineNumbers
+<Select>
+  <SelectTrigger />
+  <SelectPortal>
+      <SelectContent>
+        <SelectGroup>
+          <SelectItem value="item-1">Item 1</SelectItem>
+          <SelectItem value="item-2">Item 2</SelectItem>
+          <SelectItem value="item-3">Item 3</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </SelectPortal>
+</Select>
+```
+
+<Alert variant='expanded' className='not-prose'>For more advanced usage, the additional components are available to customize the content and appearance of the `Select` component. See [API Reference](#api-reference) for details.</Alert>
+
+### API Reference
+
+#### Select
+
+Contains all the parts of a select. A styled wrapper around Radix [Select.Root](https://www.radix-ui.com/primitives/docs/components/select#root) primitive with additional features.
+
+<PropsTable
+ includeCommonDocs={{
+    label: true,
+    description: true,
+    tooltip: true,
+    helperText: true,
+  }}
+  content={[
+    [
+      {
+        value: "defaultValue",
+        description:
+          "The value of the select when initially rendered. Use when you do not need to control the state of the select.",
+      },
+      { value: "string" },
+      { },
+    ],
+    [
+      {
+        value: "value",
+        description:
+          "The controlled value of the select. Should be used in conjunction with `onValueChange`.",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "onValueChange",
+        description: "Event handler called when the value changes.",
+      },
+      { value: "function", description: "(value: string) => void" },
+      {},
+    ],
+    [
+      {
+        value: "defaultOpen",
+        description:
+          "The open state of the select when it is initially rendered. Use when you do not need to control its open state.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "open",
+        description:
+          "The controlled open state of the select. Must be used in conjunction with `onOpenChange`.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "onOpenChange",
+        description: "Event handler called when the `open` state of the select changes.",
+      },
+      { value: "function", description: "(open: boolean) => void" },
+      {},
+    ],
+    [
+      {
+        value: "dir",
+        description: "The reading direction of the select when applicable. If omitted, inherits globally from Radix `DirectionProvider` or assumes LTR (left-to-right) reading mode.",
+      },
+      { value: "enum", description: '"ltr" | "rtl"' },
+      {},
+    ],
+    [
+      {
+        value: "name",
+        description: "The name of the select. Submitted with its owning form as part of a name/value pair.",
+      },
+      { value: "string" },
+      {},
+    ],
+    [
+      {
+        value: "disabled",
+        description: "When `true`, prevents the user from interacting with select.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+    [
+      {
+        value: "reqiured",
+        description: "When true, indicates that the user must select a value before the owning form can be submitted.",
+      },
+      { value: "boolean" },
+      {},
+    ],
+  ]}
+/>
+
+#### SelectTrigger
+
+The button that toggles the select. The `SelectContent` component is rendered when the trigger is clicked.
+
+<PropsTable
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [{ value: "[data-state]" }, { value: '"open" | "closed"' }, {}],
+    [{ value: "[data-disabled]" }, { value: "Present when disabled" }, {}],
+    [{ value: "[data-placeholder]" }, { value: "Present when has placeholder" }, {}],
+  ]}
+/>
+
+#### SelectValue
+
+The part that reflects the selected value. By default the selected item's text will be rendered. if you require more control, you can instead control the select and pass your own `children`. It should not be styled to ensure correct positioning. An optional `placeholder` prop is also available for when the select has no value.
+
+<PropsTable
+  content={[
+    [{ value: "placeholder", description: "The content that will be rendered inside the `SelectValue` when no value or `defaultValue` is set."}, { value: "ReactNode"}, {}],
+  ]}
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+#### SelectIcon
+
+A small icon often displayed next to the value as a visual affordance for the fact it can be open. By default renders a chevron icon pointed down or up depending on the `open` state, but you can use your own icon via `asChild` or use `children`.
+
+<PropsTable
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+#### SelectPortal
+
+When used, portals the content part into the `body`. By default it appends content to the `body`, but you can specify a custom `container`.
+
+<PropsTable
+  sort={false}
+  content={[
+    [{ value: "container", description: "Specify a container element to portal the content into."}, { value: "HTMLElement"}, { value: "document.body" }],
+  ]} />
+
+#### SelectContent
+
+The component that pops out when the select is open. A styled wrapper around Radix [Select.Content](https://www.radix-ui.com/primitives/docs/components/select#content) primitive with additional features.
+
+<PropsTable
+sort={false}
+content={[
+    [{ value: "onCloseAutoFocus", description: "Event handler called when focus moves to the trigger after closing. It can be prevented by calling `event.preventDefault`."}, { value: "function", description: '(event: Event) => void'}, {}],
+    [{ value: "onEscapeKeyDown", description: "Event handler called when the escape key is down. It can be prevented by calling `event.preventDefault`."}, { value: "function", description: '(event: KeyboardEvent) => void'}, {}],
+    [{ value: "onPointerDownOutside", description: "Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling `event.preventDefault`."}, { value: "function", description: '(event: PointerDownOutsideEvent) => void'}, {}],
+    [{ value: "position", description: "The positioning mode to use, `item-aligned` behaves similarly to a native MacOS menu by positioning content relative to the active item. `popper` is the default and positions content in the same way as our other primitives, for example `Popover` or `DropdownMenu`."}, { value: "enum", description: '"item-aligned" | "popper"'}, {value: 'popper'}],
+    [{ value: "side", description: "The preferred side of the anchor to render against when open. Will be reversed when collisions occur and `avoidCollisions` is enabled. Only available when position is set to `popper`."}, { value: "enum", description: '"top" | "right" | "bottom" | "left"'}, {value: '"bottom"'}],
+    [{ value: "sideOffset", description: "The distance in pixels from the anchor. Only available when `position` is set to `popper`."}, { value: "number"}, {value: '8'}],
+    [{ value: "align", description: "The preferred alignment against the anchor. May change when collisions occur. Only available when `position` is set to `popper`."}, { value: "enum", description: '"start" | "center" | "end"'}, {value: '"start"'}],
+    [{ value: "alignOffset", description: "An offset in pixels from the `start` or `end` alignment options. Only available when `position` is set to `popper`."}, { value: "number"}, {value: '0'}],
+    [{ value: "avoidCollisions", description: "When `true`, overrides the `side` and `align` preferences to prevent collisions with boundary edges. Only available when `position` is set to `popper`."}, { value: "boolean"}, {value: 'true'}],
+    [{ value: "collisionBoundary", description: "The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check. Only available when `position` is set to `popper`."}, { value: "Boundary", description: 'Element | null | Array<Element | null>'}, {value: '[]'}],
+    [{ value: "collisionPadding", description: "The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }. Only available when `position` is set to `popper`."}, { value: "number | Padding", description: 'number | Partial<Record<Side, number>>'}, {value: '10'}],
+    [{ value: "sticky", description: "The sticky behavior on the align axis. `partial` will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst `always` will keep the content in the boundary regardless. Only available when `position` is set to `popper`."}, { value: "enum", description: '"partial" | "always"'}, {value: '"partial"'}],
+    [{ value: "hideWhenDetached", description: "Whether to hide the content when the trigger becomes fully occluded. Only available when `position` is set to `popper`."}, { value: "boolean" }, {value: 'false'}],
+    [{ value: "showScrollButtons", description: "Whether to hide the `Select.ScrollUpButton` and `Select.ScrollDownButton` components."}, { value: "boolean" }, {value: 'false'}],
+  ]}
+  includeCommonDocs={{
+    asChild: true,
+  }}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [{ value: "[data-state]" }, { value: '"open" | "closed"' }, {}],
+    [{ value: "[data-side]" }, { value: '"left" | "right" | "bottom" | "top"'}, {}],
+    [{ value: "[data-align]" }, { value: '"start" | "end" | "center"' }, {}],
+  ]}
+/>
+
+<Alert className='not-prose'>CSS variables are available for this component. See <a href="https://www.radix-ui.com/primitives/docs/components/select#content" target="_blank" rel='nofollow noreferrer'>Radix Select</a> for more details.</Alert>
+
+#### SelectItem
+
+The component that contains the select items.
+
+By default `SelectItemText` and `SelectItemIndicator` are rendered inside the `SelectItem` component. You can use your own components if you need to customize it via `children`.
+
+<PropsTable
+content={[
+    [{ value: "value", description: "The value given as data when submitted with a name."}, { value: "string"}, {}],
+    [{ value: "textValue", description: "Optional text used for typeahead purposes. By default the typeahead behavior will use the `.textContent` of the `SelectItemText` part. Use this when the content is complex, or you have non-textual content inside."}, { value: "string"}, {}],
+  ]}
+  includeCommonDocs={{
+    asChild: true,
+    disabled: true
+  }}
+/>
+
+<PropsTable
+  isData
+  content={[
+    [{ value: "[data-state]" }, { value: '"checked" | "unchecked"' }, {}],
+    [{ value: "[data-highlighted]" }, { value: "Present when highlighted" }, {}],
+    [{ value: "[data-disabled]" }, { value: "Present when disabled" }, {}],
+  ]}
+/>
+
+#### SelectItemText
+
+The textual part of the item. It should only contain the text you want to see in the trigger when that item is selected. It should not be styled to ensure correct positioning.
+
+<PropsTable
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+#### SelectItemIndicator
+
+Renders when the item is selected. You can style this element directly, or you can use it as a wrapper to put an icon into, or both. By default it renders a checkmark icon.
+
+<PropsTable
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+#### SelectGroup
+
+<PropsTable
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+#### SelectLabel
+
+Used to render the label of a group. It won't be focusable using arrow keys.
+
+<PropsTable
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+#### SelectSeparator
+
+Used to visually separate items in the select.
+
+<PropsTable
+  includeCommonDocs={{
+    asChild: true
+  }}
+/>
+
+### Accessibility
+
+The `Select` component supports all accessibility features of the <a href="https://www.radix-ui.com/primitives/docs/components/select#accessibility" target="_blank" rel='nofollow noreferrer'>Radix Select</a> primitive.
+
+### Examples
+
+The following example shows how to add icons to the `SelectItem` and style them with Tailwind CSS. Icons are added using a custom `DotIcon` component, which is placed inside each `SelectItem` alongside the text. Tailwind classes like `flex` and `gap-1` are used to align and space the icons and text properly. 
+
+Each icon is styled with custom colors to represent different statuses.
+
+<PreviewComponent name="select/example-1" />
+
+Next example demonstrates how to structure your items, with groups separators, and labels. The `SelectContent` component in this example uses a different content `position` - `item-aligned`. 
+
+<PreviewComponent name="select/example-2" />
