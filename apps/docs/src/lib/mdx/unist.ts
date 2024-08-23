@@ -49,7 +49,7 @@ export const rehypeAddPreviewCode = () => (tree: UnistTree) => {
       const nameAttribute = getNodeAttributeByName(node, "name");
 
       const code = nameAttribute
-        ? Demos[nameAttribute?.value as keyof typeof Demos]?.code ?? ""
+        ? (Demos[nameAttribute?.value as keyof typeof Demos]?.code ?? "")
         : "";
 
       node.children?.push(

@@ -65,15 +65,15 @@ export async function getWebflowData() {
     // Assuming there's at least one published item, get the first featured
     const blogPostData =
       sortedPublishedBlogPosts.length > 0
-        ? sortedPublishedBlogPosts.find((item) => item.fieldData.featured) ??
-          sortedPublishedBlogPosts[0]
+        ? (sortedPublishedBlogPosts.find((item) => item.fieldData.featured) ??
+          sortedPublishedBlogPosts[0])
         : null;
 
     // Assuming there's at least one published item, get the first featured
     const caseStudyData =
       sortedPublishedCaseStudies.length > 0
-        ? sortedPublishedCaseStudies.find((item) => item.fieldData.featured) ??
-          sortedPublishedCaseStudies[0]
+        ? (sortedPublishedCaseStudies.find((item) => item.fieldData.featured) ??
+          sortedPublishedCaseStudies[0])
         : null;
 
     return {

@@ -53,7 +53,7 @@ const Switch = React.forwardRef<SwitchElement, SwitchProps>(
     },
     ref
   ) => {
-    const LabelWrapComponent = label ?? helperText ? "div" : React.Fragment;
+    const LabelWrapComponent = (label ?? helperText) ? "div" : React.Fragment;
     const isInGroup = useSwitchGroupContext(true) ? true : false;
 
     const generatedId = React.useId();

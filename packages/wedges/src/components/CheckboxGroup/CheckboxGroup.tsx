@@ -61,7 +61,7 @@ const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroup
     const ariaInvalid = otherProps["aria-invalid"];
 
     const renderLabel =
-      label ?? description ?? tooltip ?? helperText ? (
+      (label ?? description ?? tooltip ?? helperText) ? (
         <div className="inline-flex flex-col">
           <Label
             className="cursor-default"
@@ -92,7 +92,7 @@ const CheckboxGroupWedges = React.forwardRef<CheckboxGroupElement, CheckboxGroup
           {...otherProps}
         >
           {/* label */}
-          {label ?? helperText ?? description ?? tooltip ? (
+          {(label ?? helperText ?? description ?? tooltip) ? (
             <div className="flex flex-col">{renderLabel}</div>
           ) : null}
 

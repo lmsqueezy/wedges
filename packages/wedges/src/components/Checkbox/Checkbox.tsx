@@ -119,7 +119,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
     );
 
     const renderLabel =
-      label ?? description ?? tooltip ?? helperText ? (
+      (label ?? description ?? tooltip ?? helperText) ? (
         <div className="inline-flex flex-col">
           <Label
             className={cn(isInGroup && "font-normal")}
