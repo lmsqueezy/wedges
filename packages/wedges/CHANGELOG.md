@@ -1,5 +1,17 @@
 # @lemonsqueezy/wedges
 
+## 1.4.0
+
+### Minor Changes
+
+- [#79](https://github.com/lmsqueezy/wedges/pull/79) [`08e9a1e`](https://github.com/lmsqueezy/wedges/commit/08e9a1e76bcadaa7a6cdcad2fd957894d5633be0) Thanks [@brankoconjic](https://github.com/brankoconjic)! - added `overlay`, `overlay-foreground` and `overlay-focus` scales to the `surface` themeable color
+
+- [#79](https://github.com/lmsqueezy/wedges/pull/79) [`08e9a1e`](https://github.com/lmsqueezy/wedges/commit/08e9a1e76bcadaa7a6cdcad2fd957894d5633be0) Thanks [@brankoconjic](https://github.com/brankoconjic)! - add Select component
+
+### Patch Changes
+
+- [#79](https://github.com/lmsqueezy/wedges/pull/79) [`08e9a1e`](https://github.com/lmsqueezy/wedges/commit/08e9a1e76bcadaa7a6cdcad2fd957894d5633be0) Thanks [@brankoconjic](https://github.com/brankoconjic)! - update dependencies
+
 ## 1.3.1
 
 ### Patch Changes
