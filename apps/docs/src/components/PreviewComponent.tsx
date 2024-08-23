@@ -33,7 +33,11 @@ export const PreviewComponent = forwardRef<PreviewComponentType, PreviewComponen
         previewRef.current.classList.add("[&_*]:!transition-none");
       }
 
-      theme === "light" ? setTheme("dark") : setTheme("light");
+      if (theme === "light") {
+        setTheme("dark");
+      } else {
+        setTheme("light");
+      }
     };
 
     useEffect(() => {

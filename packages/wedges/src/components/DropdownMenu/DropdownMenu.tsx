@@ -2,6 +2,7 @@ import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 
 import { cn } from "../../helpers/utils";
+import { CheckIcon } from "../icons/CheckIcon";
 import { Kbd, type KbdElement, type KbdProps } from "../Kbd";
 
 /* ---------------------------------- Types --------------------------------- */
@@ -126,25 +127,6 @@ const DropdownMenuSeparator = React.forwardRef<
 /* -------------------------------------------------------------------------- */
 /*                                Checkbox Item                               */
 /* -------------------------------------------------------------------------- */
-const CheckIcon = ({ className, ...otherProps }: React.ComponentProps<"svg">) => (
-  <svg
-    {...otherProps}
-    className={cn("!opacity-100", className)}
-    fill="none"
-    height="24"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-    width="24"
-  >
-    <path
-      d="M7.75 12.75L10 15.25L16.25 8.75"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="1.5"
-    />
-  </svg>
-);
 
 const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
@@ -156,9 +138,8 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     ref={ref}
     checked={checked}
     className={cn(
-      "wg-dropdown-menu__checkbox-item relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none focus:bg-surface data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
-      !destructive &&
-        "text-surface-900 dark:text-surface-700 [&_svg]:text-surface-900 [&_svg]:opacity-40",
+      "wg-dropdown-menu__checkbox-item relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none focus:bg-surface-overlay-focus data-[disabled]:pointer-events-none data-[disabled]:opacity-40",
+      !destructive && "text-surface-overlay-foreground [&_svg]:opacity-40",
       destructive && "text-destructive",
       className
     )}
@@ -200,9 +181,8 @@ const DropdownMenuRadioItem = React.forwardRef<
   <DropdownMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "wg-dropdown-menu__checkbox-item relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none focus:bg-surface data-[disabled]:pointer-events-none data-[disabled]:opacity-40 dark:focus:bg-white/5",
-      !destructive &&
-        "text-surface-900 dark:text-surface-700 [&_svg]:text-surface-900 [&_svg]:opacity-40",
+      "wg-dropdown-menu__checkbox-item relative flex cursor-pointer select-none items-center px-4 py-1 pl-[var(--wg-offset-padding-left,1rem)] outline-none focus:bg-surface-overlay-focus data-[disabled]:pointer-events-none data-[disabled]:opacity-40",
+      !destructive && "text-surface-overlay-foreground [&_svg]:opacity-40",
       destructive && "text-destructive",
       className
     )}
@@ -244,7 +224,7 @@ const DropdownMenuSubContent = React.forwardRef<
         "data-[side=bottom]:animate-wg-fade-in-down data-[side=left]:animate-wg-fade-in-left data-[side=right]:animate-wg-fade-in-right data-[side=top]:animate-wg-fade-in-up data-[state=closed]:animate-wg-fade-out",
 
         // base styles
-        "z-50 flex min-w-[9rem] origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-white py-2 shadow-wg-overlay dark:border dark:border-surface dark:bg-neutral-800 dark:shadow-none",
+        "z-50 flex min-w-36 origin-[var(--radix-popper-transform-origin)] flex-col gap-2 rounded-lg bg-surface-overlay py-2 shadow-wg-overlay dark:border dark:border-surface dark:shadow-none",
 
         // has checkbox or radio item - offset start padding
         inset && "[--wg-offset-padding-left:34px]",
@@ -266,8 +246,8 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 leading-6 text-surface-900 outline-none focus:bg-surface data-[disabled]:pointer-events-none data-[state=open]:bg-surface data-[disabled]:opacity-50 dark:text-surface-700 dark:focus:bg-white/5 dark:data-[state=open]:bg-white/5",
-      "[&_svg]:text-surface-900 [&_svg]:opacity-40",
+      "relative flex cursor-pointer select-none items-center gap-2 px-4 py-1 leading-6 text-surface-overlay-foreground outline-none focus:wg-bg-surface-overlay-focus data-[disabled]:pointer-events-none data-[state=open]:bg-surface-overlay-focus data-[disabled]:opacity-40",
+      "[&_svg]:opacity-40",
       className
     )}
     {...otherProps}

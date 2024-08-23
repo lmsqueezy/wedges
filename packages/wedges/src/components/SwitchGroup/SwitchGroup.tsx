@@ -66,7 +66,7 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
     const ariaInvalid = otherProps["aria-invalid"];
 
     const renderLabel =
-      label ?? description ?? tooltip ?? helperText ? (
+      (label ?? description ?? tooltip ?? helperText) ? (
         <div className="inline-flex flex-col">
           <Label
             className="cursor-default"
@@ -97,7 +97,7 @@ const SwitchGroupWedges = React.forwardRef<SwitchGroupElement, SwitchGroupProps>
           {...otherProps}
         >
           {/* label */}
-          {label ?? helperText ?? description ?? tooltip ? (
+          {(label ?? helperText ?? description ?? tooltip) ? (
             <div className="flex flex-col">{renderLabel}</div>
           ) : null}
 

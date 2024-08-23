@@ -127,7 +127,6 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Kbd",
           href: "/components/kbd",
-          new: true,
         },
         {
           label: "Label",
@@ -136,7 +135,6 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Loading",
           href: "/components/loading",
-          new: true,
         },
         {
           label: "Popover",
@@ -145,21 +143,23 @@ export const sidebarConfig: DocsConfig = {
         {
           label: "Progress Bar",
           href: "/components/progress-bar",
-          new: true,
         },
         {
           label: "Progress Circle",
           href: "/components/progress-circle",
-          new: true,
         },
         {
           label: "Radio Group",
           href: "/components/radio-group",
         },
         {
+          label: "Select",
+          href: "/components/select",
+          new: true,
+        },
+        {
           label: "Slider",
           href: "/components/slider",
-          new: true,
         },
         {
           label: "Switch",

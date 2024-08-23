@@ -16,6 +16,7 @@ export * from "./Popover";
 export * from "./Progress";
 export * from "./RadioGroup";
 export * from "./Slider";
+export * from "./Select";
 export * from "./Switch";
 export * from "./SwitchGroup";
 export * from "./Tabs";

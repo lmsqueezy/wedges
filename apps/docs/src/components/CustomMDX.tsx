@@ -31,6 +31,7 @@ const prettyCodeOptions: Options = {
   grid: true,
   keepBackground: false,
   transformers: [transformerNotationDiff()],
+  theme: "github-dark-dimmed",
 };
 
 /* -------------------------------------------------------------------------- */
@@ -75,7 +76,7 @@ function CustomPre(props: HTMLAttributes<HTMLPreElement> & { raw?: string }) {
   return (
     <pre
       className={cn(
-        "not-prose my-6 max-h-[650px] overflow-x-auto rounded-lg bg-wg-gray-800 py-4 leading-6",
+        "not-prose my-6 max-h-[650px] overflow-x-auto rounded-lg bg-wg-gray-900 py-4 leading-6",
         className
       )}
       {...otherProps}

@@ -91,7 +91,7 @@ const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps>((prop
   return (
     <div className={progressBarVariants({ variant })}>
       <Wrapper>
-        {label ?? tooltip ?? description ? (
+        {(label ?? tooltip ?? description) ? (
           <Label
             className="shrink-0 cursor-default"
             description={description}
@@ -105,7 +105,7 @@ const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps>((prop
           <span />
         ) : null}
 
-        {indicator ?? afterIndicator ? (
+        {(indicator ?? afterIndicator) ? (
           <span
             className={cn(
               "flex shrink-0 items-center gap-1",

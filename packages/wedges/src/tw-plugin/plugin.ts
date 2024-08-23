@@ -140,6 +140,7 @@ const corePlugin = (
   const animationEasing = "cubic-bezier(.2,1,.4,1)";
 
   return plugin(
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     ({ addBase, addUtilities, addVariant, matchUtilities, theme }) => {
       addBase({
         ":root": {
@@ -193,7 +194,7 @@ const corePlugin = (
                 background: colorString,
                 [`--${prefix}-background`]: `${h} ${s}% ${l}%`,
               };
-            } catch (error: any) {
+            } catch {
               const match = value.match(/var\(([^)]+)\)/);
 
               return {

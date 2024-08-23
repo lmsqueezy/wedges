@@ -32,7 +32,7 @@ export const PropsTable = React.forwardRef<
 >(
   (
     {
-      content,
+      content = [],
       isData = false,
       isOptions = false,
       isUtility = false,
