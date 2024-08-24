@@ -198,11 +198,6 @@ export const sidebarConfig: DocsConfig = {
           href: "/components/number-input",
           disabled: true,
         },
-        {
-          label: "Select",
-          href: "/components/select",
-          disabled: true,
-        },
       ],
     },
   ],
