@@ -208,10 +208,6 @@ export const footerNav: FooterNav = [
             label: "Compare",
             children: [
               {
-                label: "Stripe Alternative",
-                href: "https://www.lemonsqueezy.com/stripe-alternative",
-              },
-              {
                 label: "Gumroad Alternative",
                 href: "https://www.lemonsqueezy.com/gumroad-alternative",
               },
