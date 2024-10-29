@@ -31,20 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           sansFont.variable
         )}
       >
-        {/* Analytics */}
         <Fathom />
-        <Script src="/wedges/docs/twitter-conversion.js" />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-10985746469" />
-        <Script id="google-analytics">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'AW-10985746469');
-        `}
-        </Script>
-
         <div className="min-h-screen-dvh flex flex-col">
           <Providers>
             <Header />
