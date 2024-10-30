@@ -49,6 +49,7 @@ function getContentSecurityPolicyHeaderValue(nonce: string, reportUri: string): 
     "img-src": [
       `'self'`,
       "cdn.usefathom.com",
+      "cdn.prod.website-files.com",
       "github.com",
       "storage.googleapis.com",
       "stripe.com",
@@ -58,11 +59,7 @@ function getContentSecurityPolicyHeaderValue(nonce: string, reportUri: string): 
     "object-src": [`'none'`],
     "report-uri": [reportUri], // for old browsers like Firefox
     "report-to": ["csp"], // for modern browsers like Chrome
-    "script-src": [
-      `'nonce-${nonce}'`,
-      `'unsafe-inline'`, // ignored by browsers that support 'notices/hashes`
-      `'strict-dynamic'`, // force hashes and nonces over domain host lists
-    ],
+    "script-src": [`'self'`, `'unsafe-inline'`],
     "style-src": [`'self'`, `'unsafe-inline'`, "*.lemonsqueezy.com", "fonts.googleapis.com"],
   };
 
