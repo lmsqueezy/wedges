@@ -31,7 +31,8 @@
         "NEXT_PUBLIC_DOCSEARCH_INDEX_NAME",
         "WEBFLOW_API_KEY",
         "WEBFLOW_BLOG_ID",
-        "WEBFLOW_CASE_STUDIES_ID"
+        "WEBFLOW_CASE_STUDIES_ID",
+        "NODE_ENV"
       ]
     },
     "clean": {
