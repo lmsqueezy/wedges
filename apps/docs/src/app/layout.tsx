@@ -9,8 +9,6 @@ import { Sidebar } from "@/components/Sidebar";
 
 import "@/styles/globals.css";
 
-import Script from "next/script";
-
 import Fathom from "@/components/Fathom";
 import { Header } from "@/components/header/header";
 
