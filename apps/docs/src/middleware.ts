@@ -59,7 +59,7 @@ function getContentSecurityPolicyHeaderValue(nonce: string, reportUri: string): 
     "object-src": [`'none'`],
     "report-uri": [reportUri], // for old browsers like Firefox
     "report-to": ["csp"], // for modern browsers like Chrome
-    "script-src": [`'self'`, `'unsafe-inline'`],
+    "script-src": [`'self'`, `'unsafe-inline'`, "cdn.usefathom.com", "cdn.prod.website-files.com"],
     "style-src": [`'self'`, `'unsafe-inline'`, "*.lemonsqueezy.com", "fonts.googleapis.com"],
   };
 
