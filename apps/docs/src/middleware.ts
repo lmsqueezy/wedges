@@ -1,6 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-// file: middleware.ts
 export function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   const response = initResponse();
@@ -45,18 +44,26 @@ function getContentSecurityPolicyHeaderValue(nonce: string, reportUri: string): 
     "frame-ancestors": [`'none'`],
     "font-src": [`'self'`],
     "form-action": [`'self'`],
-    "frame-src": [`'self'`],
+    "frame-src": [`'self'`, "*.youtube.com"],
     "connect-src": [`'self'`],
-    "img-src": [`'self'`, "cdn.usefathom.com", "github.com"],
+    "img-src": [
+      `'self'`,
+      "cdn.usefathom.com",
+      "github.com",
+      "storage.googleapis.com",
+      "stripe.com",
+      "avatars.githubusercontent.com",
+    ],
     "manifest-src": [`'self'`],
     "object-src": [`'none'`],
     "report-uri": [reportUri], // for old browsers like Firefox
     "report-to": ["csp"], // for modern browsers like Chrome
     "script-src": [
       `'nonce-${nonce}'`,
+      `'unsafe-inline'`, // ignored by browsers that support 'notices/hashes`
       `'strict-dynamic'`, // force hashes and nonces over domain host lists
     ],
-    "style-src": [`'self'`, `'unsafe-inline'`],
+    "style-src": [`'self'`, `'unsafe-inline'`, "*.lemonsqueezy.com", "fonts.googleapis.com"],
   };
 
   if (process.env.NODE_ENV === "development") {
