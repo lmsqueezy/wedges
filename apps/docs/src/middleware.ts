@@ -47,7 +47,7 @@ function getContentSecurityPolicyHeaderValue(nonce: string, reportUri: string): 
     "form-action": [`'self'`],
     "frame-src": [`'self'`],
     "connect-src": [`'self'`],
-    "img-src": [`'self'`, "cdn.usefathom.com"],
+    "img-src": [`'self'`, "cdn.usefathom.com", "github.com"],
     "manifest-src": [`'self'`],
     "object-src": [`'none'`],
     "report-uri": [reportUri], // for old browsers like Firefox
