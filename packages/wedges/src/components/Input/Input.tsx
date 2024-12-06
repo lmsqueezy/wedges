@@ -66,6 +66,7 @@ const Input = React.forwardRef<InputElement, InputProps>(
             )}
             disabled={disabled}
             id={elId}
+            required={required}
             {...otherProps}
           />
         </div>
