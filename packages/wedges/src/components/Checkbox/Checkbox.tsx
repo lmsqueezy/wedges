@@ -154,6 +154,7 @@ const CheckboxWedges = React.forwardRef<CheckboxElement, CheckboxElementProps>(
           )}
           disabled={isDisabled}
           id={elId}
+          required={required}
           {...otherProps}
         >
           {renderEmptyBox}
