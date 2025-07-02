@@ -2,6 +2,8 @@ import { wedgesPalette, wedgesTW } from "@lemonsqueezy/wedges";
 import type { ThemableColorScale } from "@lemonsqueezy/wedges/src/tw-plugin/foundation/colors/themableColors";
 import tailwindTypography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
+// @ts-expect-error: No types for tailwindcss-rtl
+import tailwindcssRtl from 'tailwindcss-rtl';
 
 const primaryBlue: ThemableColorScale = {
   100: "#DAF0FF",
@@ -147,6 +149,7 @@ const config: Config = {
       },
     }),
     tailwindTypography,
+    tailwindcssRtl,
   ],
 };
 
